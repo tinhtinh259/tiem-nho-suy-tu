@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/trang-chu.html" }
+  ],
+  "redirects": [
+    { "source": "/index", "destination": "/trang-chu", "permanent": true },
+    { "source": "/index.html", "destination": "/trang-chu", "permanent": true }
+  ]
 }
-

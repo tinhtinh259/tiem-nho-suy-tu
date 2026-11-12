@@ -4,4 +4,6 @@ note
 .git
 .gitignore
 .vscode
+*recovery-code*
+*.env*
 

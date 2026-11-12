@@ -4,6 +4,8 @@ scratch/
 note
 *.tmp
 *.log
+*recovery-code*
+*.env*
 
 # OS Generated
 Thumbs.db
