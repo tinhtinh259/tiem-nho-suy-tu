@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gánh Nặng Của Sự Hiểu Chuyện • Tiệm Nhỏ Suy Tư</title>
+  <meta name="description"
+    content="Người hiểu chuyện thường là người cô độc nhất. Tản văn chữa lành dành cho những ai luôn cố tỏ ra mạnh mẽ, nuốt nước mắt vào trong để làm vừa lòng người khác.">
+
+  <!-- Header & Footer Loader -->
+  <script src="../js/include-header-footer.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/logo.png">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="../css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Sour+Gummy:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .story-article-hero {
+      background: linear-gradient(180deg, #fbf7f0 0%, #f5eee2 100%);
+      padding: 120px 24px 70px 24px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid rgba(198, 156, 94, 0.25);
+    }
+
+    .story-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: rgba(198, 156, 94, 0.14);
+      border: 1px solid rgba(198, 156, 94, 0.35);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #8c6328;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .story-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 700;
+      color: #2c221e;
+      line-height: 1.28;
+      max-width: 820px;
+      margin: 0 auto 18px auto;
+    }
+
+    .story-hero-subtitle {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: #6e5d4f;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .story-main-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 90px 24px;
+    }
+
+    .story-quote-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-left: 4px solid #c69c5e;
+      border-radius: 0 20px 20px 0;
+      padding: 28px 32px;
+      margin-bottom: 45px;
+      box-shadow: 0 12px 35px rgba(198, 156, 94, 0.1);
+    }
+
+    .story-quote-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: #3b2a22;
+      line-height: 1.65;
+      font-style: italic;
+      margin: 0 0 10px 0;
+    }
+
+    .story-quote-author {
+      font-family: 'Itim', 'Sour Gummy', cursive;
+      font-size: 20px;
+      color: #a67c38;
+      text-align: right;
+      display: block;
+    }
+
+    .story-content {
+      font-size: 16.5px;
+      line-height: 1.95;
+      color: #3e322a;
+    }
+
+    .story-content p {
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    .story-highlight-box {
+      background: #fdfbf7;
+      border: 1px dashed rgba(198, 156, 94, 0.45);
+      border-radius: 20px;
+      padding: 26px 30px;
+      margin: 35px 0;
+    }
+
+    .story-highlight-box h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #8c6328;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .story-image-card {
+      margin: 40px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .story-image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .story-image-caption {
+      padding: 12px 18px;
+      background: #faf6f0;
+      font-size: 13.5px;
+      color: #7a685c;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .story-actions-footer {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(198, 156, 94, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Article Hero Banner -->
+    <section class="story-article-hero">
+      <span class="story-hero-badge">🍂 CHIÊM NGHIỆM • LỜI VỖ VỀ NỘI TÂM</span>
+      <h1 class="story-hero-title">Gánh Nặng Của Sự Hiểu Chuyện</h1>
+      <p class="story-hero-subtitle">
+        "Đứa trẻ biết khóc mới có kẹo, còn người quá hiểu chuyện chỉ biết nuốt tủi thân vào trong để làm vừa lòng tất
+        cả..."
+      </p>
+    </section>
+
+    <!-- Main Article Body -->
+    <article class="story-main-wrap">
+      <!-- Quote Card -->
+      <div class="story-quote-card">
+        <p class="story-quote-text">
+          “Người hiểu chuyện thường là người cô độc nhất.<br>
+          Bởi vì ai cũng nghĩ họ không biết đau, nên chẳng một ai nhớ đến việc ôm lấy họ.”
+        </p>
+        <span class="story-quote-author">— Tiệm Nhỏ Suy Tư</span>
+      </div>
+
+      <div class="story-content">
+        <p>
+          Bạn có từng là người luôn mỉm cười gật đầu và nói câu cửa miệng: <em>"Mình không sao đâu, mọi người cứ tự
+            nhiên nhé"</em>? Bạn luôn là người chọn miếng bánh vỡ góc, nhận chiếc ghế ngồi trong góc khuất, và luôn là
+          người chủ động lùi lại một bước để nhường chỗ cho niềm vui của người khác.
+        </p>
+
+        <p>
+          Những người "quá hiểu chuyện" thường sở hữu một trực giác vô cùng nhạy cảm. Chỉ cần nhìn qua một cái chau mày,
+          một ánh mắt lơ đễnh hay một khoảng lặng bất thường trong cuộc trò chuyện, trong lòng họ đã tự động dấy lên nỗi
+          âu lo: <em>"Có phải mình vừa làm điều gì sai không? Có phải mình đang làm phiền họ?"</em>. Thế là họ vội vã
+          điều chỉnh cảm xúc của mình, nuốt trọn những ấm ức vào lòng chỉ để giữ cho bầu không khí xung quanh được êm
+          đẹp.
+        </p>
+
+        <div class="story-image-card">
+          <img src="../images/about/soul_writing.jpg" alt="Khoảnh khắc cô đơn của người luôn phải gồng mình hiểu chuyện">
+          <div class="story-image-caption">Đằng sau nụ cười hiểu chuyện luôn là những khoảng lặng mà chẳng ai hay biết.
+          </div>
+        </div>
+
+        <div class="story-highlight-box">
+          <h3>🕯️ Vết hằn từ những năm tháng "phải lớn trước tuổi"</h3>
+          <p style="margin-bottom: 0;">
+            Sự hiểu chuyện hiếm khi là một món quà bẩm sinh. Nó thường là chiếc áo giáp được rèn nên từ những tổn thương
+            thơ ấu — từ những ngày tháng một đứa trẻ phải sớm học cách nhìn sắc mặt người lớn để sinh tồn, sợ rằng nếu
+            mình bướng bỉnh, nếu mình mè nheo đòi hỏi thì sẽ bị ghét bỏ, sẽ trở thành một gánh nặng của gia đình.
+          </p>
+        </div>
+
+        <p>
+          Những đứa trẻ ấy đã học cách giấu đi giọt nước mắt thật nhanh, tự dọn dẹp đồ chơi, tự băng bó vết trầy xước ở
+          đầu gối, và đổi lại được một lời khen ngợi từ người lớn: <em>"Con ngoan và hiểu chuyện quá!"</em>. Nhưng chẳng
+          ai nhận ra, lời khen ấy vô tình đã trở thành một chiếc vòng kim cô trói chặt tuổi thơ của chúng.
+        </p>
+
+        <p>
+          Khi lớn lên, thói quen ấy ăn sâu vào máu thịt. Trong tình yêu, trong tình bạn hay nơi công sở, người hiểu
+          chuyện luôn là người thấu hiểu cho lý do của đối phương: người ta bận rộn, người ta áp lực, người ta có nỗi
+          khổ riêng... Nhưng đến khi chính bản thân họ chông chênh và kiệt quệ nhất, họ lại chẳng thể tìm ra nổi một
+          người đủ kiên nhẫn để lắng nghe những tiếng thở dài giấu kín của mình.
+        </p>
+
+        <p>
+          Đời này có một nghịch lý rất tàn nhẫn: <strong>Đứa trẻ biết khóc thì mới có kẹo. Người hay hờn dỗi thì luôn
+            được nâng niu vỗ về.</strong> Còn người luôn bao dung, luôn im lặng gật đầu thì sự chịu đựng của họ dần bị
+          xem là một điều hiển nhiên. Người ta mặc định rằng bạn mạnh mẽ, bạn không biết buồn, và bạn có thể tự mình
+          vượt qua tất cả giông bão.
+        </p>
+
+        <div class="story-image-card">
+          <img src="../images/about/soul_cat.jpg" alt="Dịu dàng vỗ về bản thân bên chú mèo">
+          <div class="story-image-caption">Bạn đã bao dung với cả thế giới rồi, hôm nay hãy dịu dàng với chính mình nhé.
+          </div>
+        </div>
+
+        <div class="story-highlight-box">
+          <h3>🌿 Lời nhắn nhủ từ Tiệm: Bạn không cần phải luôn luôn hiểu chuyện!</h3>
+          <p style="margin-bottom: 0;">
+            Hôm nay, Tiệm Nhỏ Suy Tư chỉ muốn nói với bạn một điều: <strong>Bạn không có nghĩa vụ phải làm hài lòng tất
+              cả mọi người.</strong> Đừng biến lòng tốt của mình thành món nợ để người khác tự do dẫm lên, và đừng để sự
+            hiểu chuyện biến thành lưỡi dao tự cứa vào lòng mình mỗi đêm muộn.
+          </p>
+        </div>
+
+        <p>
+          Nếu bạn cảm thấy mệt mỏi, hãy cho phép mình được từ chối những lời nhờ vả quá sức. Nếu bạn thấy bất công, hãy
+          dũng cảm cất tiếng nói để bảo vệ ranh giới của mình. Và nếu cõi lòng bạn đang ngập tràn những uất ức, xin bạn
+          đừng cắn chặt môi để kìm nén nữa — hãy cứ khóc thật to như một đứa trẻ chưa từng phải gồng mình lớn khôn.
+        </p>
+
+        <p>
+          Sự thấu hiểu quý giá nhất trên cõi đời này không phải là thấu hiểu cho cả nhân loại, mà là <strong>học cách
+            hiểu chuyện với chính cảm xúc của bản thân mình</strong>. Hãy ôm lấy đứa trẻ bên trong bạn, xoa đầu nó và
+          thì thầm rằng: <em>"Cảm ơn bạn vì đã kiên cường suốt thời gian qua. Từ hôm nay, bạn được quyền yếu đuối
+            rồi."</em>
+        </p>
+      </div>
+
+      <!-- Footer Actions -->
+      <div class="story-actions-footer">
+        <a href="hien-huu-khi-biet-thuong.html" class="timeline-btn timeline-btn-primary">
+          <span>🌿 Đọc: Hiện Hữu Khi Biết Thương</span>
+        </a>
+        <a href="../thu-cua-ban.html" class="timeline-btn timeline-btn-secondary">
+          <span>💌 Mở Hòm Thư Bình Yên</span>
+        </a>
+        <a href="../phan-tich-noi-tam.html" class="timeline-btn timeline-btn-secondary">
+          <span>🔍 Về Phân Tích Nội Tâm</span>
+        </a>
+        <a href="../trang-chu.html" class="timeline-btn timeline-btn-secondary">
+          <span>Về Trang Chủ</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="../js/plugin/jquery.min.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/global.js"></script>
+
+  <!-- Circular Scroll Progress Indicator -->
+  <div class="scroll-path-indicator" id="scrollPathIndicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    title="Tiến trình đọc / Về đầu trang">
+    <div class="scroll-path-wheel" id="scrollPathWheel"></div>
+    <span class="scroll-percentage-text" id="scrollPercentText">0%</span>
+  </div>
+</body>
+
+</html>

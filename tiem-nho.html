@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Về Tiệm Nhỏ — Nơi Những Điều Nhỏ Bé Mở Ra Những Cuộc Gặp Gỡ Lớn Lao | Tiệm Nhỏ Suy Tư</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/components/scented-pouches.css">
+
+  <style>
+    /* Hero Về Tiệm Nhỏ */
+    .tiem-hero {
+      background: linear-gradient(135deg, #fdfbf7 0%, #f4ede2 100%);
+      padding: 85px 20px 55px 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid var(--border-warm, rgba(213, 168, 100, 0.25));
+    }
+
+    .tiem-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid rgba(47, 93, 67, 0.2);
+      color: #2f5d43;
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 14px rgba(47, 93, 67, 0.05);
+    }
+
+    .tiem-hero-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      color: #2c3531;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .tiem-hero-title span {
+      color: #c89547;
+      position: relative;
+    }
+
+    .tiem-hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: #5c6b64;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* Container chung */
+    .tiem-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    /* BỨC TÂM THƯ: TIỆM NHỎ BÁN GÌ? */
+    .tiem-letter-wrapper {
+      position: relative;
+      margin-bottom: 70px;
+    }
+
+    .tiem-letter-prompt {
+      text-align: center;
+      font-size: 1.12rem;
+      color: #4a5568;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .tiem-letter-prompt strong {
+      color: #2c3531;
+      font-weight: 700;
+    }
+
+    .tiem-letter-card {
+      background: #fffdfa;
+      border: 1.5px solid rgba(200, 149, 71, 0.35);
+      border-radius: 24px;
+      padding: 45px 40px;
+      box-shadow: 0 16px 40px rgba(47, 93, 67, 0.06), 0 2px 10px rgba(200, 149, 71, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tiem-letter-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2f5d43, #c89547, #2f5d43);
+    }
+
+    .tiem-letter-header {
+      text-align: center;
+      padding-bottom: 24px;
+      margin-bottom: 26px;
+      border-bottom: 1px solid rgba(200, 149, 71, 0.22);
+      position: relative;
+    }
+
+    .tiem-letter-heading {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+      font-style: italic;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0;
+      letter-spacing: 0.3px;
+    }
+
+    .tiem-letter-body {
+      font-size: 1.05rem;
+      color: #334155;
+      line-height: 1.95;
+    }
+
+    .tiem-letter-body p {
+      margin-bottom: 20px;
+    }
+
+    .tiem-letter-signature {
+      text-align: right;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #2f5d43;
+      margin-top: 30px;
+      padding-top: 10px;
+    }
+
+    /* 4 CÁNH CỬA TRẢI NGHIỆM */
+    .tiem-pillars-section {
+      margin-bottom: 70px;
+    }
+
+    .tiem-section-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .tiem-section-badge {
+      display: inline-block;
+      padding: 5px 16px;
+      background: rgba(200, 149, 71, 0.12);
+      border: 1px solid rgba(200, 149, 71, 0.3);
+      color: #b7791f;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .tiem-section-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 700;
+      color: #2c3531;
+      margin-bottom: 10px;
+    }
+
+    .tiem-section-subtitle {
+      font-size: 0.98rem;
+      color: #5c6b64;
+      max-width: 660px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .tiem-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .tiem-pillar-card {
+      background: #ffffff;
+      border: 1.5px solid rgba(200, 149, 71, 0.22);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 8px 24px rgba(47, 93, 67, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tiem-pillar-card:hover {
+      transform: translateY(-6px);
+      border-color: #c89547;
+      box-shadow: 0 16px 36px rgba(200, 149, 71, 0.16);
+    }
+
+    .tiem-pillar-top {
+      margin-bottom: 22px;
+    }
+
+    .tiem-pillar-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.85rem;
+      margin-bottom: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .tiem-pillar-card:hover .tiem-pillar-icon-box {
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    .tiem-pillar-card.card-roleplay .tiem-pillar-icon-box {
+      background: #fdf2f4;
+      border: 1px solid #f9cbd6;
+    }
+
+    .tiem-pillar-card.card-questions .tiem-pillar-icon-box {
+      background: #f5f0fb;
+      border: 1px solid #dfc9fa;
+    }
+
+    .tiem-pillar-card.card-stories .tiem-pillar-icon-box {
+      background: #fef7ec;
+      border: 1px solid #fed8a8;
+    }
+
+    .tiem-pillar-card.card-seasons .tiem-pillar-icon-box {
+      background: #edf7f2;
+      border: 1px solid #bce4d0;
+    }
+
+    .tiem-pillar-tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .card-roleplay .tiem-pillar-tag {
+      background: #fbe6eb;
+      color: #b83280;
+    }
+
+    .card-questions .tiem-pillar-tag {
+      background: #eee4fa;
+      color: #6b46c1;
+    }
+
+    .card-stories .tiem-pillar-tag {
+      background: #feebc8;
+      color: #c05621;
+    }
+
+    .card-seasons .tiem-pillar-tag {
+      background: #def3e8;
+      color: #236946;
+    }
+
+    .tiem-pillar-card h3 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 700;
+      color: #2c3531;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .tiem-pillar-card p {
+      font-size: 0.95rem;
+      color: #55625d;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .tiem-pillar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1.5px solid #2f5d43;
+      border-radius: 12px;
+      color: #2f5d43;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .tiem-pillar-btn:hover {
+      background: #2f5d43;
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    /* CARD KẾT NỐI VỚI LỜI TỰ SỰ */
+    .tiem-bridge-card {
+      background: linear-gradient(135deg, #f6f0e6 0%, #fcf9f2 100%);
+      border: 1.5px dashed rgba(200, 149, 71, 0.45);
+      border-radius: 22px;
+      padding: 36px 32px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .tiem-bridge-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2.5px solid #c89547;
+      padding: 3px;
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .tiem-bridge-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .tiem-bridge-card h3 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #2c3531;
+      margin: 0;
+    }
+
+    .tiem-bridge-card p {
+      font-size: 0.96rem;
+      color: #5c6b64;
+      max-width: 580px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .tiem-bridge-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: #2f5d43;
+      color: #ffffff;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(47, 93, 67, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tiem-bridge-btn:hover {
+      background: #244934;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(47, 93, 67, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      .tiem-hero {
+        padding: 70px 16px 40px 16px;
+      }
+
+      .tiem-letter-card {
+        padding: 30px 20px;
+      }
+
+      .tiem-pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .tiem-pillar-card {
+        padding: 26px 20px;
+      }
+    }
+  </style>
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+  <!-- Standard Glassmorphism Header -->
+  <div id="header-placeholder"></div>
+
+  <main style="padding-top: 81px;">
+    <!-- HERO SECTION -->
+    <section class="tiem-hero">
+      <div class="tiem-hero-badge">🍃 Tiệm Nhỏ Suy Tư • Caraflow</div>
+      <h1 class="tiem-hero-title">Về <span>Tiệm Nhỏ</span></h1>
+      <p class="tiem-hero-subtitle">
+        "Tiệm Nhỏ — nơi những điều nhỏ bé mở ra những cuộc gặp gỡ lớn lao."
+      </p>
+      <p class="page-subtitle">
+        Chào mừng bạn ghé thăm Tiệm Nhỏ Suy Tư, nơi tụ hội của những góc nhỏ xíu nhỏ xiu, chill chill. Những cái ôm
+        bằng ngôn từ, cùng những khám phá để cùng nhau chiêm nghiệm giữa nhịp sống hối hả. Tớ là ... là chủ tiệm nhỏ
+        này.<br>
+        Chào mừng bạn đã đến thăm website cũng như đã tò mò về tớ nhé! Chúc bạn có một trải nghiệm thật dịu dàng ở nơi
+        đây.
+      </p>
+    </section>
+
+    <!-- CONTENT CONTAINER -->
+    <div class="tiem-container">
+
+      <!-- 1. BỨC TÂM THƯ: TIỆM NHỎ BÁN NHỮNG ĐIỀU KHÔNG CẦM NẮM ĐƯỢC -->
+      <section class="tiem-letter-wrapper">
+        <p class="tiem-letter-prompt">Nếu có ai hỏi: <strong>“Ở đây Tiệm Nhỏ bán gì?”</strong>, tớ sẽ trả lời:</p>
+
+        <div class="tiem-letter-card">
+          <div class="tiem-letter-header">
+            <h2 class="tiem-letter-heading">Tiệm Nhỏ bán những điều không cầm nắm được.</h2>
+          </div>
+          <div class="tiem-letter-body">
+            <p>
+              Ở đây, Tiệm bán những câu chuyện để bạn tìm thấy mình trong đó, những góc nhìn để bạn nhìn thế giới theo
+              một cách khác, những câu hỏi để bạn lắng nghe lòng mình, và những phép màu bé nhỏ khiến cuộc sống trở nên
+              đáng yêu hơn.
+            </p>
+            <p>
+              Tiệm có những mùa để bạn bước vào, những cuộc hóa thân để bạn thử làm một người khác, rồi từ đó hiểu thêm
+              về chính mình.
+            </p>
+            <p>
+              Không biết bạn sẽ mang gì đến, cũng chẳng biết khi rời đi bạn sẽ mang theo điều gì. Nhưng biết đâu, giữa
+              những điều nhỏ bé ở đây, bạn sẽ tìm thấy một điều mà mình đã vô tình bỏ quên.
+            </p>
+          </div>
+          <div class="tiem-letter-signature">
+            — Tiệm Nhỏ
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. HÀNG TÚI THƠM VẢI TREO HANDMADE (SCENTED FABRIC POUCHES HANGING IN A ROW) -->
+      <section class="scented-pouches-section">
+        <div class="scented-pouches-head">
+          <span class="scented-badge">🧵 Túi Thơm Handmade • Mùi Hương Cảm Xúc</span>
+          <h2 class="scented-title">Những Chiếc Túi Thơm Treo Gom Nhặt Ký Ức</h2>
+          <p class="scented-subtitle">
+            Ở đây, Tiệm gom nhặt những điều không cầm nắm được thành những nốt hương dịu lành. Nhấp nhẹ vào từng chiếc túi để lắng nghe lời thì thầm dành riêng cho bạn hôm nay:
+          </p>
+        </div>
+
+        <!-- Hanging Stage with Twine Wire & Row of Pouches -->
+        <div class="scented-hang-stage">
+          <div class="scented-twine-wire"></div>
+
+          <div class="scented-pouches-row" id="scentedPouchesRow">
+            <!-- Pouch 1: Sage Green (Cỏ Non Sau Mưa) -->
+            <div class="pouch-hanger-unit pouch-sage active" data-scent="sage" title="Nhấp để ngửi hương Cỏ Non Sau Mưa">
+              <div class="pouch-peg"></div>
+              <div class="pouch-cord"></div>
+              <div class="pouch-body-wrap">
+                <div class="pouch-top-ruffle"></div>
+                <div class="pouch-ribbon"></div>
+                <div class="pouch-bag">
+                  <span class="pouch-motif">🌿</span>
+                </div>
+                <div class="pouch-tag">Cỏ Non Sau Mưa</div>
+              </div>
+            </div>
+
+            <!-- Pouch 2: Chamomile Linen (Trà Cúc & Gỗ Ấm) -->
+            <div class="pouch-hanger-unit pouch-linen" data-scent="linen" title="Nhấp để ngửi hương Trà Cúc & Gỗ Ấm">
+              <div class="pouch-peg"></div>
+              <div class="pouch-cord"></div>
+              <div class="pouch-body-wrap">
+                <div class="pouch-top-ruffle"></div>
+                <div class="pouch-ribbon"></div>
+                <div class="pouch-bag">
+                  <span class="pouch-motif">☕</span>
+                </div>
+                <div class="pouch-tag">Trà Cúc & Gỗ Ấm</div>
+              </div>
+            </div>
+
+            <!-- Pouch 3: Apricot Gingham (Vỏ Quýt & Nắng Trưa) -->
+            <div class="pouch-hanger-unit pouch-apricot" data-scent="apricot" title="Nhấp để ngửi hương Vỏ Quýt & Nắng Trưa">
+              <div class="pouch-peg"></div>
+              <div class="pouch-cord"></div>
+              <div class="pouch-body-wrap">
+                <div class="pouch-top-ruffle"></div>
+                <div class="pouch-ribbon"></div>
+                <div class="pouch-bag">
+                  <span class="pouch-motif">🍊</span>
+                </div>
+                <div class="pouch-tag">Vỏ Quýt & Nắng Trưa</div>
+              </div>
+            </div>
+
+            <!-- Pouch 4: Lavender Mist (Nhài Đêm & Gối Mềm) -->
+            <div class="pouch-hanger-unit pouch-lavender" data-scent="lavender" title="Nhấp để ngửi hương Nhài Đêm & Gối Mềm">
+              <div class="pouch-peg"></div>
+              <div class="pouch-cord"></div>
+              <div class="pouch-body-wrap">
+                <div class="pouch-top-ruffle"></div>
+                <div class="pouch-ribbon"></div>
+                <div class="pouch-bag">
+                  <span class="pouch-motif">🌸</span>
+                </div>
+                <div class="pouch-tag">Nhài Đêm & Gối Mềm</div>
+              </div>
+            </div>
+
+            <!-- Pouch 5: Terracotta Cinnamon (Lá Thu & Quế Nồng) -->
+            <div class="pouch-hanger-unit pouch-terracotta" data-scent="terracotta" title="Nhấp để ngửi hương Lá Thu & Quế Nồng">
+              <div class="pouch-peg"></div>
+              <div class="pouch-cord"></div>
+              <div class="pouch-body-wrap">
+                <div class="pouch-top-ruffle"></div>
+                <div class="pouch-ribbon"></div>
+                <div class="pouch-bag">
+                  <span class="pouch-motif">🍂</span>
+                </div>
+                <div class="pouch-tag">Lá Thu & Quế Nồng</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scent Whisper Display Card (Lời thì thầm từ túi hương) -->
+        <div class="scent-whisper-card" id="scentWhisperCard">
+          <div class="scent-whisper-header">
+            <div class="scent-whisper-title-box">
+              <div class="scent-whisper-icon" id="scentWhisperIcon">🌿</div>
+              <div>
+                <h3 class="scent-whisper-name" id="scentWhisperName">Cỏ Non Sau Mưa</h3>
+                <div class="scent-whisper-notes" id="scentWhisperNotes">Bạc hà giã tay • Hương đất ẩm Petrichor • Lá chanh non</div>
+              </div>
+            </div>
+            <span class="scent-whisper-status">✨ Đang Tỏa Hương</span>
+          </div>
+
+          <p class="scent-whisper-text" id="scentWhisperText">
+            “Gột rửa hết những hạt bụi mỏi mệt của ngày hôm qua. Hãy hít một hơi thật sâu, để mùi cỏ non sau mưa nhắc bạn rằng: hôm nay luôn là một khởi đầu hoàn toàn mới mẻ, tinh khôi và dịu lành.”
+          </p>
+
+          <div class="scent-whisper-footer">
+            <span class="scent-whisper-prompt">💡 Nhấp vào từng chiếc túi để chọn nốt hương bạn cần lúc này</span>
+            <a href="dieu-nho-be.html" class="tiem-pillar-btn" id="scentWhisperLink" style="margin-top: 0; padding: 6px 16px; font-size: 0.85rem;">
+              Khám phá góc Điều Nhỏ Bé ➔
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. BỐN CÁNH CỬA TRẢI NGHIỆM CỦA TIỆM -->
+      <section class="tiem-pillars-section">
+        <div class="tiem-section-head">
+          <span class="tiem-section-badge">✨ CÁNH CỬA TRẢI NGHIỆM</span>
+          <h2 class="tiem-section-title">Những Điều Nhỏ Bé Mở Ra Gặp Gỡ Lớn Lao</h2>
+          <p class="tiem-section-subtitle">
+            Mỗi góc nhỏ tại Tiệm là một trạm dừng chân tĩnh lặng để bạn chiêm nghiệm, tìm lại sự an yên giữa nhịp sống
+            hối hả:
+          </p>
+        </div>
+
+        <div class="tiem-pillars-grid">
+          <!-- Trải nghiệm 1: Nhập vai / Hóa thân -->
+          <div class="tiem-pillar-card card-roleplay">
+            <div class="tiem-pillar-top">
+              <div class="tiem-pillar-icon-box">🎭</div>
+              <span class="tiem-pillar-tag">Góc Nhập Vai</span>
+              <h3>Những Trò Chơi Hóa Thân</h3>
+              <p>
+                Thử một lần làm chiếc lá mùa thu chao nghiêng, một viên sỏi lấp lánh ven suối, hay chiếc bánh quy thơm
+                lừng vừa ra lò... Để nhìn cuộc đời từ một góc khác, rồi từ đó hiểu thêm về chính mình.
+              </p>
+            </div>
+            <a href="hoa-than.html" class="tiem-pillar-btn">
+              Khám phá góc hóa thân <span>&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Trải nghiệm 2: Câu hỏi bất ngờ -->
+          <div class="tiem-pillar-card card-questions">
+            <div class="tiem-pillar-top">
+              <div class="tiem-pillar-icon-box">🔮</div>
+              <span class="tiem-pillar-tag">Tự Vấn Nội Tâm</span>
+              <h3>Những Câu Hỏi Bất Ngờ</h3>
+              <p>
+                Những câu hỏi tĩnh lặng xuất hiện bất chợt để bạn tạm dừng bước chân vội vã, lắng nghe thanh âm thầm kín
+                và đối thoại chân thành cùng góc khuất trong tâm hồn.
+              </p>
+            </div>
+            <a href="cau-hoi-tam-hon.html" class="tiem-pillar-btn">
+              Rút một câu hỏi hôm nay <span>&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Trải nghiệm 3: Câu chuyện đời thường -->
+          <div class="tiem-pillar-card card-stories">
+            <div class="tiem-pillar-top">
+              <div class="tiem-pillar-icon-box">📖</div>
+              <span class="tiem-pillar-tag">Đồng Điệu Cảm Xúc</span>
+              <h3>Những Câu Chuyện Đời Thường</h3>
+              <p>
+                Gom nhặt những mảnh ghép bình dị, những mẩu chuyện đời thường mộc mạc nhất. Nơi bạn tìm thấy sự an ủi và
+                nhận ra giữa thế gian rộng lớn này, bạn chưa từng đơn độc.
+              </p>
+            </div>
+            <a href="goc-ke-chuyen.html" class="tiem-pillar-btn">
+              Đọc những mẩu chuyện <span>&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Trải nghiệm 4: Bốn mùa & Điều nhỏ bé -->
+          <div class="tiem-pillar-card card-seasons">
+            <div class="tiem-pillar-top">
+              <div class="tiem-pillar-icon-box">🍂</div>
+              <span class="tiem-pillar-tag">Chữa Lành Dịu Dàng</span>
+              <h3>Bốn Mùa & Những Điều Nhỏ Bé</h3>
+              <p>
+                Bước qua xuân, hạ, thu, đông của cảm xúc; chạm vào những phép màu giản đơn mà mắt thường dễ lướt qua, để
+                lòng dịu lại sau những ngày dài mỏi mệt.
+              </p>
+            </div>
+            <a href="bon-mua.html" class="tiem-pillar-btn">
+              Dạo bước bốn mùa <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CẦU NỐI SANG LỜI TỰ SỰ CỦA TÌNH -->
+      <section class="tiem-bridge-section">
+        <div class="tiem-bridge-card">
+          <div class="tiem-bridge-avatar">
+            <img src="images/logo.png" alt="Tình" onerror="this.src='images/icon/discover-star.svg'">
+          </div>
+          <h3>Bạn Tò Mò Người Đứng Sau Tiệm Nhỏ?</h3>
+          <p>
+            Không có tập đoàn ngầm hay âm mưu drama nào cả. Chỉ có một người phàm trần nhạy cảm với ly trà ấm, chiếc bàn
+            phím gõ lạch cạch lúc 2 giờ sáng và những dòng chữ biết ôm dành riêng cho bạn.
+          </p>
+          <a href="loi-tu-su.html" class="tiem-bridge-btn">
+            Ghé đọc Lời Tự Sự của Tình <span>&rarr;</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Standard Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/plugin/jquery.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/scented-pouches.js"></script>
+</body>
+
+</html>

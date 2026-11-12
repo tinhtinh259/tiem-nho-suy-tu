@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lời Tự Sự Của Tình — Người Chủ Tiệm Nhỏ | Tiệm Nhỏ Suy Tư</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, #fdfbf7 0%, #f4ede2 100%);
+      padding: 80px 20px 50px 20px;
+      text-align: center;
+    }
+
+    .about-avatar-box {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold, #c69c5e);
+      padding: 5px;
+      background: rgba(198, 156, 94, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .about-avatar-box img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .about-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 30px;
+      line-height: 1.85;
+      font-size: 15px;
+      color: #2d3748;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    .about-card h3 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent-gold, #c69c5e);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quote-box {
+      background: var(--bg-soft-sand, #fbf7f0);
+      border-left: 4px solid var(--accent-gold, #c69c5e);
+      padding: 18px 22px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      font-style: italic;
+      color: #4a4036;
+      font-size: 14.5px;
+    }
+
+    /* SECTION: Ở ĐÂY TIỆM NHỎ BÁN GÌ & ÔNG TRÙM CARDS */
+    .ong_trum_section {
+      position: relative;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #fdfbf7 0%, #f7f0e5 100%);
+      border-top: 1px solid rgba(200, 149, 71, 0.2);
+      border-bottom: 1px solid rgba(200, 149, 71, 0.2);
+      color: #2c3531;
+      text-align: center;
+      margin: 20px 0 50px 0;
+    }
+
+    .ong_trum_container {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ong_trum_badge {
+      display: inline-block;
+      padding: 6px 18px;
+      background: rgba(47, 93, 67, 0.08);
+      border: 1px solid rgba(47, 93, 67, 0.3);
+      border-radius: 50px;
+      color: #2f5d43;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .ong_trum_title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: #2c3531;
+      margin-bottom: 10px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .ong_trum_subtitle {
+      font-size: 0.95rem;
+      color: #5c6b64;
+      margin-bottom: 30px;
+      font-style: italic;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ong_trum_card_grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .ong_trum_card {
+      background: #ffffff;
+      border: 1.5px solid rgba(200, 149, 71, 0.28);
+      border-radius: 18px;
+      padding: 26px 20px;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 25px rgba(47, 93, 67, 0.06);
+      text-align: center;
+      position: relative;
+      user-select: none;
+    }
+
+    .ong_trum_card:hover {
+      transform: translateY(-6px);
+      border-color: #c89547;
+      box-shadow: 0 16px 35px rgba(200, 149, 71, 0.18);
+    }
+
+    .ong_trum_card .card_icon {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .ong_trum_card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #2c3531;
+      margin-bottom: 8px;
+    }
+
+    .ong_trum_card .card_preview {
+      font-size: 0.82rem;
+      color: #2f5d43;
+      font-weight: 600;
+      margin-bottom: 0;
+      transition: opacity 0.2s;
+    }
+
+    .card_secret_content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.3s ease;
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.7;
+      background: rgba(249, 246, 240, 0.95);
+      border: 1px dashed rgba(200, 149, 71, 0.4);
+      border-radius: 12px;
+      padding: 0 12px;
+    }
+
+    .ong_trum_card.revealed {
+      border-color: #2f5d43;
+      box-shadow: 0 10px 30px rgba(47, 93, 67, 0.15);
+    }
+
+    .ong_trum_card.revealed .card_preview {
+      display: none;
+    }
+
+    .ong_trum_card.revealed .card_secret_content {
+      max-height: 220px;
+      opacity: 1;
+      margin-top: 14px;
+      padding: 14px 16px;
+    }
+
+    /* Cat awakening & hover */
+    .cosmic-cat-container {
+      position: relative;
+      width: 170px;
+      margin: 0 auto;
+    }
+
+    .cosmic-cat-container.cat-is-awake .cosmic-cat-img.cat-awake,
+    .cosmic-cat-container:hover .cosmic-cat-img.cat-awake,
+    .cosmic-cat-wrapper:hover .cosmic-cat-img.cat-awake {
+      opacity: 1 !important;
+    }
+
+    .cosmic-cat-container.cat-is-awake .cosmic-cat-img.cat-sleep,
+    .cosmic-cat-container:hover .cosmic-cat-img.cat-sleep,
+    .cosmic-cat-wrapper:hover .cosmic-cat-img.cat-sleep {
+      opacity: 0 !important;
+    }
+
+    /* Cosmic action wrap inside soul detail card */
+    .cosmic-action-wrap {
+      margin-top: 15px;
+    }
+
+    .soul-detail-card .cosmic-dark-slidebox {
+      width: 100%;
+      max-width: 100%;
+      margin: 16px 0 0 0;
+      box-sizing: border-box;
+    }
+
+    .soul-detail-card .cosmic-dark-slidebox.open {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 16px 0 0 0;
+      animation: cosmicSlideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @media (max-width: 768px) {
+      .ong_trum_card_grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="css/components/soul-aspects.css">
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+  <!-- Standard Glassmorphism Header -->
+  <div id="header-placeholder"></div>
+
+  <main style="padding-top: 81px;">
+    <!-- HERO SECTION: GIẢI MÃ ÔNG TRÙM ĐỨNG SAU TIỆM -->
+    <section class="about-hero" id="ong-trum">
+      <div class="about-avatar-box">
+        <img src="images/logo.png" alt="Tình" onerror="this.src='images/icon/discover-star.svg'">
+      </div>
+      <span class="page-badge">✦ GIẢI MÃ "ÔNG TRÙM" ĐỨNG SAU TIỆM ✦</span>
+      <h1 class="page-title">Xin chào, chúc bạn một ngày tốt lành!</h1>
+      <p class="page-subtitle" style="font-size: 1.15rem; font-weight: 600; color: #2f5d43; margin-bottom: 12px;">
+        "Bạn vừa bấm 'Ông trùm đứng sau là ai?' từ Trang Chủ vì tò mò đúng không? 😉"
+      </p>
+      <p class="page-subtitle" style="max-width: 760px; margin: 0 auto 30px auto;">
+        Thật ra chẳng có tập đoàn ngầm hay drama kịch tính nào cả đâu! "Ông trùm" duy nhất đứng sau góc nhỏ này chỉ là
+        Tình — một người vừa viết code vừa kể chuyện, thích uống trà ấm và gom nhặt những dòng chữ biết ôm dành tặng
+        bạn.
+      </p>
+
+      <!-- 3 Interactive Toggle Cards for Mastermind Dossier ngay phần mở đầu -->
+      <div style="max-width: 900px; margin: 0 auto; text-align: left;">
+        <div class="ong_trum_card_grid">
+          <!-- Box 1 -->
+          <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
+            <div class="card_icon">📜</div>
+            <h3>Thân Thế "Bí Mật"</h3>
+            <p class="card_preview">Nhấp để giải mã thân thế... 🔎</p>
+            <div class="card_secret_content">
+              Không có tập đoàn hay ban bệ hùng hậu nào cả! Chỉ có một cá thể vừa làm coder vừa làm storyteller, thích
+              nghe Lofi, ngắm mưa rơi và thỉnh thoảng "điên cọc" một mình rồi tự ngồi dỗ dành bản thân. ☕
+            </div>
+          </div>
+
+          <!-- Box 2 -->
+          <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
+            <div class="card_icon">🍵</div>
+            <h3>"Vũ Khí" Tối Thượng</h3>
+            <p class="card_preview">Nhấp để xem vũ khí... 🔓</p>
+            <div class="card_secret_content">
+              Một tách trà ấm, một playlist nhạc không lời lúc nửa đêm và chiếc bàn phím gõ lạch cạch lúc 2 giờ sáng.
+              Bấy nhiêu đó là đủ để vận hành cả trạm dừng chân này rồi! ✨
+            </div>
+          </div>
+
+          <!-- Box 3 -->
+          <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
+            <div class="card_icon">🎯</div>
+            <h3>"Âm Mưu" Thực Sự</h3>
+            <p class="card_preview">Nhấp để bóc trần âm mưu... 🗝️</p>
+            <div class="card_secret_content">
+              Không bán khóa học, không drama câu view. Âm mưu duy nhất là tạo ra một trạm dừng chân dịu dàng, giúp bạn
+              trút bớt gánh nặng và thở phào nhẹ nhõm sau một ngày dài. 🌸
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action Scroll to Story -->
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="#loi-tam-su"
+            style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: rgba(47, 93, 67, 0.08); color: #2f5d43; border: 1.5px solid rgba(47, 93, 67, 0.25); border-radius: 50px; font-weight: 600; font-size: 0.94rem; text-decoration: none; transition: all 0.3s ease;">
+            <span>🌱 Đã giải mã xong! Giờ tớ kể bạn nghe câu chuyện của tớ nhé</span>
+            <span>↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HỒI 1: TỚ LÀ AI & NHỮNG LỜI TỰ SỰ CHÂN THÀNH -->
+    <section class="page-content-section" id="loi-tam-su" style="padding-bottom: 0;">
+      <div class="page-container">
+
+        <!-- Card 1: Về những cái tên -->
+        <div class="about-card">
+          <h3><span>🌱</span> 1. Về Những Cái Tên Của Tớ</h3>
+          <p><strong>Tình</strong> là tên thật của tớ. <strong>Tình Tình</strong> là cách gọi thân thương mà mọi người
+            hay gọi tớ mỗi ngày. Còn <strong>Cara</strong> là cái tên tiếng Anh của tớ và từng được tớ dùng để đặt cho
+            không gian
+            nhỏ này (<em>Caraflow</em> — mà bây giờ chính là <strong>Tiệm Nhỏ Suy Tư</strong> rồi).</p>
+          <p>Trong quá trình soạn thảo và viết bài, ý tưởng mỗi phần được gợi lên bằng nhiều dòng cảm xúc khác nhau. Cho
+            nên đôi khi bạn sẽ thấy những cái tên này xuất hiện luân phiên ở chỗ này hay chỗ khác...</p>
+          <p>Đừng hoang mang nhé! Dù là Tình, Tình Tình hay Cara, thì vẫn luôn là tớ — người chủ tiệm nhỏ đang ngồi sau
+            màn hình gom nhặt những dòng chữ biết ôm này dành cho bạn.</p>
+        </div>
+
+        <!-- Card 2: Người phàm trần nhạy cảm -->
+        <div class="about-card">
+          <h3><span>☕</span> 2. Một Người Phàm Trần Nhạy Cảm</h3>
+          <p
+            style="font-style: italic; color: #5c6b64; border-left: 3px solid #c89547; padding-left: 14px; margin-bottom: 14px;">
+            "Được dệt nên từ bụi sao và phép thuật cổ xưa, lớn lên bằng nắng, vắng buổi ngủ trưa.<br>
+            Nhặt những điều lưa thưa bé xíu từ cuộc sống, sống giữa những khu vườn trái cây<br>
+            và hàng ngàn câu hỏi tào lao..."
+          </p>
+          <p>Tớ là một người rất nhạy cảm với thế giới xung quanh. Hơi yếu lòng nhưng lại vô cùng nhiệt tình. Thỉnh
+            thoảng, nếu bạn không may kích hoạt phải "chế độ điên và cọc" giấu sâu trong tớ, có thể bạn sẽ hứng chịu
+            những cơn thịnh nộ không phải phép... nhưng sau đó tớ luôn dành rất nhiều thời gian để suy ngẫm và học cách
+            hành xử, yêu thương hơn.</p>
+        </div>
+
+        <!-- Card 3: Tránh trốn tránh self-help sáo rỗng -->
+        <div class="about-card">
+          <h3><span>🛡️</span> 3. Tránh Trốn Tránh — Tránh Self-help Sáo Rỗng</h3>
+          <p>Khi làm đến một nửa dự án, tớ từng dừng lại suy nghĩ rất sâu. Tớ lo lắng rằng nội dung trên website không
+            đủ tốt hoặc không giúp ích được cho ai. Tớ sợ người đọc hiểu sai ý rồi dẫn đến hệ lụy đáng tiếc, sợ đi theo
+            hướng self-help sáo rỗng khiến người ta trốn tránh việc phải đối mặt bằng những ngôn từ ngọt ngào, hời hợt.
+          </p>
+          <p>Chính vì vậy, mỗi dòng chữ ở đây được viết với sự cẩn trọng, kiểm duyệt nội dung chân thật mà tớ có. Tớ
+            mong mỗi bức thư, mỗi thông điệp bạn đi qua đều khiến bạn muốn sống dịu dàng và vui vẻ hơn, chứ không phải
+            là nơi để trốn chạy thực tại.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HỘI THOẠI CẦU NỐI: KHÁM PHÁ VỀ TIỆM NHỎ -->
+    <section class="page-content-section" style="padding-top: 0; padding-bottom: 25px;">
+      <div class="page-container" style="padding-top: 0; padding-bottom: 0;">
+        <div
+          style="background: linear-gradient(135deg, #fdfbf7 0%, #f7f0e5 100%); border: 1.5px dashed rgba(200, 149, 71, 0.45); border-radius: 22px; padding: 36px 28px; text-align: center; box-shadow: 0 8px 24px rgba(47, 93, 67, 0.04);">
+          <span
+            style="display: inline-block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #b7791f; letter-spacing: 1px; margin-bottom: 8px;">🍃
+            KHÔNG GIAN TIỆM NHỎ</span>
+          <h3
+            style="font-family: 'Roboto', sans-serif; font-size: 1.4rem; font-weight: 700; color: #2c3531; margin-bottom: 10px;">
+            Ở Đây Tiệm Nhỏ Bán Gì?</h3>
+          <p style="font-size: 0.98rem; color: #5c6b64; max-width: 650px; margin: 0 auto 22px auto; line-height: 1.8;">
+            <em>"Tiệm Nhỏ bán những điều không cầm nắm được. Nơi những điều nhỏ bé mở ra những cuộc gặp gỡ lớn
+              lao..."</em><br>
+            Khám phá 4 cánh cửa trải nghiệm: các trò chơi nhập vai hóa thân, những câu hỏi bất ngờ và những câu chuyện
+            đời thường tại trang riêng của Tiệm nhé!
+          </p>
+          <a href="tiem-nho.html"
+            style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: #2f5d43; color: #ffffff; border-radius: 50px; font-weight: 600; font-size: 0.94rem; text-decoration: none; box-shadow: 0 6px 18px rgba(47, 93, 67, 0.2); transition: all 0.3s ease;">
+            Ghé thăm không gian Về Tiệm Nhỏ <span>&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HỒI 2: NHỮNG GÓC TÂM HỒN CỦA TÌNH (INTERACTIVE HUB) -->
+    <section class="soul-aspects-section" id="goc-tam-hon" style="padding-top: 10px;">
+      <div class="soul-container">
+        <!-- Section Header -->
+        <div class="soul-header">
+          <span class="soul-badge">VÀI GÓC NHỎ CỦA TỚ</span>
+          <h2 class="soul-title">Hiểu Thêm Về Tớ & Góc Nhỏ Này</h2>
+          <p class="soul-subtitle">Đôi dòng suy nghĩ, con số kỷ niệm, thần tượng và những thói quen nho nhỏ của tớ. Nhấp
+            vào từng biểu tượng để lắng nghe nhé.</p>
+        </div>
+
+        <!-- Interactive Grid -->
+        <div class="soul-grid">
+          <!-- Left: 2 Column Image Thumbnails Grid -->
+          <div class="soul-thumbs-list">
+            <!-- Thumb 1: Cat -->
+            <div class="soul-thumb-item active" data-aspect="cat" title="Lý Do Tớ Ở Đây">
+              <div class="soul-thumb-img-box">
+                <img src="images/about/soul_cat.jpg" alt="Lý Do Tớ Ở Đây">
+              </div>
+            </div>
+
+            <!-- Thumb 2: Pets (Con Vật Từng Nuôi) -->
+            <div class="soul-thumb-item" data-aspect="pets" title="Con Vật Từng Nuôi">
+              <div class="soul-thumb-img-box">
+                <img src="images/about/soul_pets.jpg" alt="Con Vật Từng Nuôi">
+              </div>
+            </div>
+
+            <!-- Thumb 3: Lantern -->
+            <div class="soul-thumb-item" data-aspect="lantern" title="Mong Muốn Của Tớ">
+              <div class="soul-thumb-img-box">
+                <img src="images/about/soul_lantern.jpg" alt="Mong Muốn Của Tớ">
+              </div>
+            </div>
+
+            <!-- Thumb 4: Number 259 -->
+            <div class="soul-thumb-item" data-aspect="number259" title="Lời Nhắc Bản Thân">
+              <div class="soul-thumb-img-box">
+                <img src="images/about/soul_259.jpg" alt="Lời Nhắc Bản Thân">
+              </div>
+            </div>
+
+            <!-- Thumb 5: Letter -->
+            <div class="soul-thumb-item" data-aspect="letter" title="Vài Dòng Gửi Bạn">
+              <div class="soul-thumb-img-box">
+                <img src="images/about/soul_letter.jpg" alt="Vài Dòng Gửi Bạn">
+              </div>
+            </div>
+
+            <!-- Thumb 6: Ancient Tree & Jiang Ziya -->
+            <!-- <div class="soul-thumb-item" data-aspect="tree" title="Khương Thái Công">
+              <div class="soul-thumb-img-box">
+                <img src="images/about/soul_tree.png" alt="Khương Thái Công">
+              </div>
+            </div> -->
+
+            <!-- Thumb 7: Writing & Code -->
+            <div class="soul-thumb-item" data-aspect="writing" title="Thói Quen Của Tớ">
+              <div class="soul-thumb-img-box">
+                <img src="images/about/soul_writing.jpg" alt="Thói Quen Của Tớ">
+              </div>
+            </div>
+
+            <!-- Thumb 8: Reading & Coloring -->
+            <div class="soul-thumb-item" data-aspect="reading" title="Khi Bối Rối">
+              <div class="soul-thumb-img-box">
+                <img src="images/about/soul_reading.jpg" alt="Khi Bối Rối">
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Main Sticky Detail Display Card -->
+          <div class="soul-detail-wrapper">
+            <div class="soul-detail-card" id="soulDetailCard">
+              <div class="soul-detail-card-inner">
+                <!-- Text Content Left -->
+                <div class="soul-detail-body">
+                  <span class="soul-detail-tag-badge" id="soulDetailTag">TUỔI MÈO • LỜI CHÀO HIỀN LÀNH</span>
+                  <h3 class="soul-detail-heading" id="soulDetailHeading">Lý do tớ ở đây: Một chú mèo nhỏ cuộn tròn bên
+                    hiên</h3>
+                  <div class="soul-detail-subheading" id="soulDetailSubheading">Sự nhạy cảm, ấm áp và góc nhà tĩnh lặng
+                    mà tớ ẩn mình đâu đó</div>
+
+                  <!-- Pet Selector Bar (Visible when aspect is 'pets') -->
+                  <div class="pets-selector-wrap" id="petsSelectorWrap" style="display: none;">
+                    <span class="pets-selector-label">Ghé thăm 6 người bạn nhỏ từng nuôi:</span>
+                    <div class="pets-selector-tabs" id="petsSelectorTabs">
+                      <button type="button" class="pet-tab-btn active" data-pet="orange-cat">
+                        <img src="images/about/cosmic_cat.png" alt="Mèo cam" class="pet-tab-avatar">
+                        <span class="pet-tab-name">Mèo Cam</span>
+                      </button>
+                      <button type="button" class="pet-tab-btn" data-pet="tabby-cat">
+                        <img src="images/about/pet_tabby.jpg" alt="Mèo mướp" class="pet-tab-avatar">
+                        <span class="pet-tab-name">Mèo Mướp</span>
+                      </button>
+                      <button type="button" class="pet-tab-btn" data-pet="black-cat">
+                        <img src="images/about/pet_black.jpg" alt="Mèo mun" class="pet-tab-avatar">
+                        <span class="pet-tab-name">Mèo Mun</span>
+                      </button>
+                      <button type="button" class="pet-tab-btn" data-pet="duck">
+                        <img src="images/about/pet_duck.jpg" alt="Con vịt" class="pet-tab-avatar">
+                        <span class="pet-tab-name">Con Vịt</span>
+                      </button>
+                      <button type="button" class="pet-tab-btn" data-pet="bird">
+                        <img src="images/about/pet_bird.jpg" alt="Con chim" class="pet-tab-avatar">
+                        <span class="pet-tab-name">Con Chim</span>
+                      </button>
+                      <button type="button" class="pet-tab-btn" data-pet="chicken">
+                        <img src="images/about/pet_chicken.jpg" alt="Con gà" class="pet-tab-avatar">
+                        <span class="pet-tab-name">Con Gà</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="soul-detail-text" id="soulDetailText">
+                    <p>Tớ sinh năm Mão, là người nhạy cảm hay suy tư và thích lo chuyện bao đồng. Giữa thế giới ngập
+                      tràn sự vội vã, tớ thích cuộn tròn ở một góc nhỏ tĩnh lặng, ngắm nhìn ánh nắng chiều rọi qua ô cửa
+                      và lắng nghe nhịp thở của vạn vật.</p>
+                    <p>Website <strong>Tiệm Nhỏ Suy Tư</strong> này ra đời không phải để phô trương thành tựu hay khẳng
+                      định bản thân. Nó giống như một chiếc góc sân nhỏ rợp bóng mát, nơi một chú mèo hiền lành đang nằm
+                      sưởi nắng, nơi tớ có thể gom lại những suy nghĩ trong đầu mình và là không gian mà tớ muốn chìm
+                      đắm vào.</p>
+                  </div>
+
+                  <div class="soul-detail-quote" id="soulDetailQuote">
+                    “Tớ ở đây, không muốn làm phiền ai, cũng không muốn gây áp lực, tớ sẵn sàng ngồi bên bạn trong những
+                    câu chuyện mà bạn muốn có người lắng nghe.”
+                  </div>
+
+                  <!-- Integrated Cosmic Action Wrap: Button & Slidebox (Active for aspect 259) -->
+                  <div class="cosmic-action-wrap" id="soul259ActionWrap" style="display: none;">
+                    <button class="modal-259-btn cosmic-box-btn" id="btn259Trigger" onclick="toggle259DarkBox()">Nhận
+                      Lời Nhắc 259 ✨</button>
+                    <!-- Slide-in Dark Message Box -->
+                    <div class="cosmic-dark-slidebox" id="cosmicDarkSlidebox">
+                      <button class="cosmic-dark-close" onclick="close259DarkBox()" title="Đóng lời nhắn">✕</button>
+                      <div class="cosmic-dark-number">259</div>
+                      <div class="cosmic-dark-badge">Con Số Cá Nhân Của Tình</div>
+                      <p class="cosmic-dark-text">
+                        259 là con số cá nhân đặc biệt của Tình • Mỗi lần xao nhãng nhìn thấy 259, Tình lại tự nhắc
+                        mình: "Quay về và tập trung vào bản thân!"
+                      </p>
+                      <p class="cosmic-dark-text sub">
+                        Mỗi người trong chúng ta đều sẽ có những con số cá nhân rất riêng. Nhưng nếu bạn chưa biết con
+                        số của mình, thì cứ thoải mái "dùng chung" con số 259 này cùng Tình nha!
+                      </p>
+                      <button class="cosmic-dark-action-btn" onclick="close259DarkBox()">Xài chung con số 259 luôn
+                        nha!</button>
+                    </div>
+                  </div>
+
+                  <!-- Signature & Social Info Block -->
+                  <div class="soul-detail-signature-block">
+                    <span class="soul-signature-name">Tình</span>
+                    <div class="soul-social-links">
+                      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"
+                        class="soul-social-icon" title="LinkedIn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <path
+                            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                        </svg>
+                      </a>
+                      <a href="lien-he.html" aria-label="Email" class="soul-social-icon" title="Email / Liên hệ">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                          <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                      </a>
+                      <a href="trang-chu.html" aria-label="Không gian Cara" class="soul-social-icon"
+                        title="Về Trang Chủ Cara">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="4" />
+                          <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Media Right: Static Art or Interactive Living Animal -->
+                <div class="soul-detail-media" id="soulDetailMedia">
+                  <!-- Static Art Wrap (for cat, lantern, 259, letter, tree, writing, reading) -->
+                  <div class="soul-detail-img-wrap" id="soulStaticImgWrap">
+                    <img id="soulDetailImg" src="images/about/soul_cat.jpg" alt="Lý do tớ ở đây">
+                  </div>
+
+                  <!-- Interactive Living Animal (for pets - Con Vật Từng Nuôi) -->
+                  <div class="cosmic-cat-container" id="soulCatInteractive" style="display: none;">
+                    <div class="cat-meow-bubble" id="catMeowBubble">meoww.. zzz</div>
+                    <div class="cosmic-cat-wrapper" id="cosmicPetWrapper" onclick="handleLivingPetClick()"
+                      title="Nhấp vào để tương tác và nghe tiếng kêu nè~">
+                      <div class="cosmic-cat-img-box">
+                        <img src="images/about/cosmic_cat.png" alt="Bé cưng đang nằm ngủ"
+                          class="cosmic-cat-img cat-sleep" id="cosmicCatImg">
+                        <img src="images/about/cosmic_cat_awake.png" alt="Bé cưng mở mắt tò mò"
+                          class="cosmic-cat-img cat-awake" id="cosmicCatAwakeImg">
+                      </div>
+                    </div>
+                    <div class="pet-interactive-hint" id="petInteractiveHint">
+                      <span class="hint-sparkle">✨</span> Nhấp vào tớ nha! <span class="hint-sparkle">🐾</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/plugin/jquery.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/soul-aspects.js"></script>
+  <script>
+    function revealMastermindSecret(cardElement) {
+      if (cardElement) {
+        cardElement.classList.toggle('revealed');
+      }
+    }
+  </script>
+</body>
+
+</html>

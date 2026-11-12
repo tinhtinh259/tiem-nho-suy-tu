@@ -1,0 +1,758 @@
+/* ==========================================================================
+   KHU VƯỜN NHỎ (KHU-VUON-NHO.CSS)
+   Exact Visual Replication of Enchanted Botanical Forest Mockup Design
+   ========================================================================== */
+
+:root {
+  --kvn-bg: #e6edd8;
+  --kvn-parchment: #fdfbf2;
+  --kvn-wood-dark: #3a2518;
+  --kvn-wood-mid: #63432b;
+  --kvn-wood-light: #9e7351;
+  --kvn-moss-dark: #273e2b;
+  --kvn-moss-green: #486e4d;
+  --kvn-moss-light: #8cb891;
+  --kvn-terracotta: #a6513b;
+  --kvn-sand: #d9aa63;
+  --kvn-stone: #78736a;
+}
+
+body.khu-vuon-nho-page {
+  background-color: #e6edd8;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(200, 220, 180, 0.4) 0%, transparent 50%),
+    radial-gradient(rgba(72, 110, 77, 0.08) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 100% 100%, 28px 28px;
+  color: var(--kvn-wood-dark);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* TOP BOTANICAL VINES & FLOWERS DECORATION */
+.kvn-top-vines-frame {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: 
+    url('../../images/botanical-left.png') no-repeat top left / 320px,
+    url('../../images/botanical-left.png') no-repeat top right / 320px;
+  transform: scaleY(1);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* HERO SECTION - RUSTIC WOODEN POST & GIANT MUSHROOM */
+.kvn-hero-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px 30px 20px;
+  position: relative;
+}
+
+.kvn-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+}
+
+/* Wooden Sign Post (Left Column) */
+.kvn-wooden-sign-wrapper {
+  position: relative;
+  padding-left: 40px;
+}
+
+.kvn-wooden-post {
+  position: absolute;
+  left: 10px;
+  top: -20px;
+  bottom: -20px;
+  width: 22px;
+  background: linear-gradient(90deg, #3d2415 0%, #69442b 50%, #2b170c 100%);
+  border-radius: 10px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.kvn-wooden-post::before {
+  content: '🌿';
+  position: absolute;
+  top: -15px;
+  left: -8px;
+  font-size: 20px;
+}
+
+.kvn-wooden-signboard {
+  background: linear-gradient(135deg, #7a5234 0%, #52341e 100%);
+  border: 4px solid #362010;
+  border-radius: 24px;
+  padding: 30px 35px;
+  box-shadow: 
+    0 14px 35px rgba(54, 32, 16, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.25);
+  position: relative;
+  color: #fff9ef;
+}
+
+.kvn-wooden-signboard::before,
+.kvn-wooden-signboard::after {
+  content: '⛓️';
+  position: absolute;
+  top: -22px;
+  font-size: 16px;
+}
+.kvn-wooden-signboard::before { left: 30px; }
+.kvn-wooden-signboard::after { right: 30px; }
+
+.kvn-sign-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px dashed rgba(255, 240, 210, 0.4);
+  color: #fce7c5;
+  font-family: 'Charm', cursive;
+  font-size: 14px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.kvn-sign-title {
+  font-family: 'Playfair Display', 'Charm', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+
+.kvn-sign-desc {
+  font-size: 14.5px;
+  color: #ebdcd0;
+  line-height: 1.7;
+}
+
+/* Giant Mushroom Artwork (Right Column) */
+.kvn-mushroom-artwork {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kvn-mushroom-illustration {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, #fcf6e8 0%, rgba(230, 237, 216, 0) 70%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kvn-mushroom-cap {
+  width: 180px;
+  height: 120px;
+  background: linear-gradient(135deg, #a6513b 0%, #783321 100%);
+  border-radius: 100px 100px 20px 20px;
+  position: relative;
+  box-shadow: 
+    inset 0 10px 20px rgba(255, 255, 255, 0.3),
+    0 12px 25px rgba(120, 51, 33, 0.3);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.kvn-mushroom-spot {
+  width: 24px;
+  height: 24px;
+  background: #fdf6eb;
+  border-radius: 50%;
+  opacity: 0.9;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.kvn-mushroom-stem {
+  width: 50px;
+  height: 90px;
+  background: linear-gradient(180deg, #f7efe1 0%, #d6c4a8 100%);
+  border-radius: 15px;
+  margin: -15px auto 0 auto;
+  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* PARCHMENT SCROLL BANNER & BIRDHOUSE */
+.kvn-scroll-wrapper {
+  max-width: 820px;
+  margin: 40px auto 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.kvn-parchment-scroll {
+  flex: 1;
+  background-color: #fbf5e6;
+  background-image: repeating-linear-gradient(transparent, transparent 29px, rgba(140, 90, 56, 0.1) 29px, rgba(140, 90, 56, 0.1) 30px);
+  background-size: 100% 30px;
+  border: 3px solid #d1b48c;
+  border-radius: 20px;
+  padding: 28px 40px;
+  text-align: center;
+  box-shadow: 
+    0 12px 35px rgba(74, 52, 39, 0.15),
+    inset 0 0 30px rgba(209, 180, 140, 0.3);
+  position: relative;
+}
+
+.kvn-parchment-scroll::before,
+.kvn-parchment-scroll::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  width: 18px;
+  background: linear-gradient(90deg, #a67c52, #6e4c2b, #a67c52);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+.kvn-parchment-scroll::before { left: -10px; }
+.kvn-parchment-scroll::after { right: -10px; }
+
+.kvn-scroll-quote-text {
+  font-family: 'Charm', cursive, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #3d2617;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.kvn-scroll-author-text {
+  font-size: 13.5px;
+  color: #8c5d2b;
+  font-weight: 600;
+}
+
+.kvn-birdhouse {
+  width: 70px;
+  height: 90px;
+  background: #63432b;
+  border: 3px solid #3a2518;
+  border-radius: 10px 10px 4px 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.kvn-birdhouse::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 25px solid #3a2518;
+}
+
+.kvn-birdhouse-hole {
+  width: 24px;
+  height: 24px;
+  background: #23150d;
+  border-radius: 50%;
+  margin-top: 25px;
+  border: 2px solid #8c5e37;
+}
+
+
+/* SECTION 1: KHU VƯỜN MẢNH GHÉP TÂM HỒN (BOTANICAL ARCH & 96 ICONS) */
+.kvn-soul-section {
+  max-width: 1080px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.kvn-botanical-arch-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 35px auto;
+  position: relative;
+}
+
+.kvn-arch-badge {
+  display: inline-block;
+  background: #ffffff;
+  border: 1.5px solid #b8d4bb;
+  color: var(--kvn-moss-dark);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 18px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(72, 110, 77, 0.1);
+}
+
+.kvn-arch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #273e2b;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.kvn-arch-subtitle {
+  font-size: 15px;
+  color: #526e57;
+  line-height: 1.75;
+}
+
+/* Tabs Bar */
+.kvn-tabs-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.kvn-tab-pill {
+  background: #f7f9f2;
+  border: 1.5px solid #c2d6c5;
+  color: #344e39;
+  padding: 9px 20px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.kvn-tab-pill:hover,
+.kvn-tab-pill.active {
+  background: linear-gradient(135deg, #486e4d 0%, #273e2b 100%);
+  color: #ffffff;
+  border-color: #273e2b;
+  box-shadow: 0 6px 18px rgba(39, 62, 43, 0.3);
+}
+
+/* 96 Icons Grid Frame (Cream Container with Succulents on Sides) */
+.kvn-grid-frame {
+  background: #fffdf7;
+  border: 3px solid #dcd0bc;
+  border-radius: 32px;
+  padding: 30px 25px;
+  box-shadow: 
+    0 16px 40px rgba(52, 78, 57, 0.12),
+    inset 0 2px 8px rgba(0, 0, 0, 0.02);
+  position: relative;
+}
+
+.kvn-succulent-accent-left {
+  position: absolute;
+  bottom: -20px;
+  left: -25px;
+  width: 110px;
+  pointer-events: none;
+}
+.kvn-succulent-accent-right {
+  position: absolute;
+  bottom: -20px;
+  right: -25px;
+  width: 110px;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+.kvn-mosaic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 12px;
+  max-height: 440px;
+  overflow-y: auto;
+  padding: 16px 10px 12px 10px;
+  scroll-behavior: smooth;
+}
+
+.kvn-mosaic-item {
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+  border: 2px solid #e3d4c0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.kvn-mosaic-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.kvn-mosaic-item:hover {
+  transform: translateY(-5px) scale(1.14);
+  border-color: #d9aa63;
+  box-shadow: 0 8px 22px rgba(217, 170, 99, 0.4);
+  z-index: 10;
+}
+
+.kvn-mosaic-item.picked {
+  background: linear-gradient(135deg, #fffcf2 0%, #f7e4c3 100%);
+  border-color: #d9aa63;
+}
+
+.kvn-mosaic-item.picked::after {
+  content: "🌱";
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 12px;
+  z-index: 12;
+}
+
+/* Action Bar */
+.kvn-mosaic-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1.5px dashed #dcd0bc;
+}
+
+
+/* SECTION 2: CHẠM VÀO MỘT MẪU NHỎ (RUSTIC BRANCH FRAME & ORGANIC LEAF/STONE CARDS) */
+.kvn-cards-section {
+  max-width: 1080px;
+  margin: 60px auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Rustic Wooden Branch Heading Frame */
+.kvn-branch-frame {
+  background: linear-gradient(135deg, #573b27 0%, #362215 100%);
+  border: 4px solid #24140a;
+  border-radius: 28px;
+  padding: 30px 40px;
+  text-align: center;
+  color: #fff8ee;
+  box-shadow: 
+    0 14px 35px rgba(36, 20, 10, 0.3),
+    inset 0 2px 4px rgba(255,255,255,0.2);
+  margin-bottom: 45px;
+  position: relative;
+}
+
+.kvn-branch-frame::before {
+  content: '🌿 🌸 🌿';
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.kvn-branch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.kvn-branch-subtitle {
+  font-size: 14.5px;
+  color: #ebdcd0;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* 17 Cards Grid (Organic Leaf & River Stone Shapes) */
+.kvn-organic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 22px;
+  margin-bottom: 45px;
+}
+
+.kvn-organic-card {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #f7f2e6 0%, #e6d8c3 100%);
+  border: 3px solid #b8a286;
+  border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%; /* Organic River Stone shape! */
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 22px rgba(58, 37, 24, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.kvn-organic-card:nth-child(2n) {
+  border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; /* Alternate Stone shape */
+}
+
+.kvn-organic-card:nth-child(3n) {
+  border-radius: 48% 12% 48% 12%; /* Organic Leaf shape */
+}
+
+.kvn-organic-card:nth-child(4n) {
+  border-radius: 12% 48% 12% 48%; /* Reversed Leaf shape */
+}
+
+/* 5 Earthy Color Variations from Design Mockup */
+/* 1. Terracotta Leaf */
+.kvn-organic-card:nth-child(5n + 1) {
+  background: linear-gradient(135deg, #c9715b 0%, #994431 100%);
+  border-color: #783020;
+  color: #fff5ee;
+}
+.kvn-organic-card:nth-child(5n + 1) .kvn-card-desc { color: #fce5df; }
+
+/* 2. Moss Green Stone */
+.kvn-organic-card:nth-child(5n + 2) {
+  background: linear-gradient(135deg, #537a57 0%, #324e35 100%);
+  border-color: #233825;
+  color: #f2f9f3;
+}
+.kvn-organic-card:nth-child(5n + 2) .kvn-card-desc { color: #d6e8d8; }
+
+/* 3. Golden Clay Leaf */
+.kvn-organic-card:nth-child(5n + 3) {
+  background: linear-gradient(135deg, #d99a4e 0%, #a66e28 100%);
+  border-color: #7a4f19;
+  color: #fffcf5;
+}
+.kvn-organic-card:nth-child(5n + 3) .kvn-card-desc { color: #fcecd7; }
+
+/* 4. River Slate Gray Stone */
+.kvn-organic-card:nth-child(5n + 4) {
+  background: linear-gradient(135deg, #78736a 0%, #524e47 100%);
+  border-color: #3b3833;
+  color: #f7f6f5;
+}
+.kvn-organic-card:nth-child(5n + 4) .kvn-card-desc { color: #dedcd9; }
+
+/* 5. Parchment Beige Stone */
+.kvn-organic-card:nth-child(5n + 5) {
+  background: linear-gradient(135deg, #fcf9f2 0%, #ebdcc8 100%);
+  border-color: #bfa88c;
+  color: #3a2518;
+}
+.kvn-organic-card:nth-child(5n + 5) .kvn-card-desc { color: #634a39; }
+
+.kvn-organic-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 16px 35px rgba(36, 20, 10, 0.3);
+}
+
+.kvn-card-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+}
+
+.kvn-card-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.kvn-card-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* WOODEN GARDEN FENCE STATS CARD & SHED */
+.kvn-fence-stats-box {
+  background: linear-gradient(180deg, #ebd9c3 0%, #d4bc9e 100%);
+  border: 4px solid #63432b;
+  border-radius: 28px;
+  padding: 35px 30px;
+  box-shadow: 0 16px 40px rgba(63, 43, 27, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.kvn-fence-content {
+  flex: 1;
+  text-align: center;
+}
+
+.kvn-fence-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #3a2518;
+  margin-bottom: 20px;
+}
+
+.kvn-fence-stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.kvn-fence-pill {
+  background: #ffffff;
+  border: 2px solid #b39777;
+  border-radius: 20px;
+  padding: 14px 22px;
+  min-width: 130px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.kvn-fence-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: #486e4d;
+  display: block;
+}
+
+.kvn-fence-label {
+  font-size: 12px;
+  color: #634a39;
+}
+
+/* Garden Shed Illustration (Right) */
+.kvn-garden-shed {
+  width: 140px;
+  height: 140px;
+  background: #7a5234;
+  border: 3px solid #3a2518;
+  border-radius: 16px 16px 6px 6px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff8ef;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.kvn-garden-shed::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 30px solid #3a2518;
+}
+
+/* UNDERGROUND TREE ROOTS FOOTER */
+.kvn-root-footer {
+  background: linear-gradient(180deg, #2e1c12 0%, #170d08 100%);
+  color: #e3d2be;
+  padding: 70px 20px 40px 20px;
+  position: relative;
+  border-top: 6px solid #4a2e1d;
+  box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.kvn-root-footer-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr) 1.2fr;
+  gap: 30px;
+}
+
+.kvn-root-col h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: #d9aa63;
+  margin-bottom: 14px;
+}
+
+.kvn-root-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.kvn-root-col li {
+  margin-bottom: 8px;
+}
+
+.kvn-root-col a {
+  color: #c4b099;
+  text-decoration: none;
+  font-size: 13.5px;
+  transition: color 0.25s ease;
+}
+
+.kvn-root-col a:hover {
+  color: #ffffff;
+}
+
+.kvn-root-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #c9715b 0%, #994431 100%);
+  color: #ffffff;
+  border: 2px solid #783020;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(153, 68, 49, 0.4);
+  transition: transform 0.25s ease;
+}
+
+.kvn-root-btn:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+@media (max-width: 850px) {
+  .kvn-hero-layout {
+    grid-template-columns: 1fr;
+  }
+  .kvn-root-footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}

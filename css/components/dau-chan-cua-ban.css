@@ -1,0 +1,634 @@
+/* ==========================================================================
+   DẤU CHÂN CỦA BẠN - GÓC LẮNG ĐỌNG CHIÊM NGHIỆM CHO NGƯỜI GHÉ THĂM
+   Tiệm Nhỏ Suy Tư • Caraflow
+   ========================================================================== */
+
+:root {
+  --dc-bg-warm: #fcf9f4;
+  --dc-bg-card: #ffffff;
+  --dc-accent-gold: #c69c5e;
+  --dc-accent-gold-soft: rgba(198, 156, 94, 0.15);
+  --dc-text-main: #2d241e;
+  --dc-text-muted: #6e5e52;
+  --dc-border-subtle: rgba(198, 156, 94, 0.25);
+  --dc-shadow-soft: 0 12px 35px rgba(45, 36, 30, 0.06);
+  --dc-shadow-hover: 0 18px 45px rgba(198, 156, 94, 0.18);
+  --dc-font-serif: "Playfair Display", Georgia, serif;
+  --dc-font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+}
+
+body.dau-chan-active {
+  background-color: var(--dc-bg-warm);
+  color: var(--dc-text-main);
+  font-family: var(--dc-font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  line-height: 1.7;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(213, 168, 100, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(198, 156, 94, 0.08) 0%, transparent 45%);
+  background-attachment: fixed;
+}
+
+/* ==========================================
+   1. HERO SECTION (100vh - GÓC NGỒI XUỐNG)
+   ========================================== */
+.dc-hero-section {
+  min-height: 100vh;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 110px 24px 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dc-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.dc-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 20px;
+  background: rgba(198, 156, 94, 0.12);
+  border: 1px solid rgba(198, 156, 94, 0.35);
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #8c6328;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  backdrop-filter: blur(8px);
+}
+
+.dc-hero-title {
+  font-family: var(--dc-font-sans);
+  font-size: clamp(34px, 5.2vw, 56px);
+  font-weight: 800;
+  color: var(--dc-text-main);
+  line-height: 1.25;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.dc-hero-title span.highlight {
+  background: linear-gradient(120deg, #a67434, #d5a864);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.dc-quote-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--dc-border-subtle);
+  border-radius: 20px;
+  padding: 26px 36px;
+  margin: 0 auto 36px auto;
+  max-width: 740px;
+  box-shadow: 0 10px 30px rgba(198, 156, 94, 0.08);
+  position: relative;
+}
+
+.dc-quote-card::before {
+  content: "“";
+  font-family: var(--dc-font-serif);
+  font-size: 55px;
+  color: rgba(198, 156, 94, 0.3);
+  position: absolute;
+  top: -12px;
+  left: 18px;
+  line-height: 1;
+}
+
+.dc-quote-text {
+  font-size: clamp(16px, 1.7vw, 19px);
+  color: #57463b;
+  line-height: 1.8;
+  font-style: italic;
+  margin: 0;
+}
+
+.dc-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.dc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  border: none;
+}
+
+.dc-btn-primary {
+  background: #c69c5e;
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(198, 156, 94, 0.35);
+}
+
+.dc-btn-primary:hover {
+  background: #b58848;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(198, 156, 94, 0.45);
+  color: #fff;
+}
+
+.dc-btn-secondary {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--dc-text-main);
+  border: 1.5px solid var(--dc-border-subtle);
+}
+
+.dc-btn-secondary:hover {
+  background: #ffffff;
+  border-color: #c69c5e;
+  transform: translateY(-2px);
+  color: #a67434;
+}
+
+.dc-scroll-down {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a67c38;
+  cursor: pointer;
+  animation: dcBounce 2.2s infinite ease-in-out;
+  transition: opacity 0.3s ease;
+}
+
+.dc-mouse-icon {
+  width: 22px;
+  height: 36px;
+  border: 2px solid #c69c5e;
+  border-radius: 12px;
+  position: relative;
+}
+
+.dc-mouse-icon::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: #c69c5e;
+  border-radius: 2px;
+  animation: dcWheel 1.8s infinite ease-in-out;
+}
+
+@keyframes dcWheel {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, 14px); opacity: 0; }
+}
+
+@keyframes dcBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ==========================================
+   2. TRẠM 5 CỘT MỐC DẤU CHÂN CUỘC ĐỜI
+   ========================================== */
+.dc-milestones-section {
+  padding: 90px 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.dc-section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 55px auto;
+}
+
+.dc-section-title {
+  font-family: var(--dc-font-sans);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  color: var(--dc-text-main);
+  margin-bottom: 14px;
+}
+
+.dc-section-desc {
+  font-size: 16px;
+  color: var(--dc-text-muted);
+  line-height: 1.8;
+}
+
+.dc-milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.dc-milestone-card {
+  background: var(--dc-bg-card);
+  border: 1px solid var(--dc-border-subtle);
+  border-radius: 24px;
+  padding: 34px 28px;
+  box-shadow: var(--dc-shadow-soft);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.dc-milestone-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d5a864, #f4d093);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dc-milestone-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--dc-shadow-hover);
+  border-color: rgba(198, 156, 94, 0.45);
+}
+
+.dc-milestone-card:hover::before {
+  opacity: 1;
+}
+
+.dc-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.dc-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(198, 156, 94, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.dc-card-step {
+  font-size: 13px;
+  font-weight: 800;
+  color: #a67c38;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dc-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dc-text-main);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.dc-card-content {
+  font-size: 15px;
+  color: var(--dc-text-muted);
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+.dc-card-prompt {
+  background: #fbf8f2;
+  border-left: 3px solid #c69c5e;
+  border-radius: 4px 12px 12px 4px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #725737;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   3. TRẠM KHẮC DẤU CHÂN (INTERACTIVE JOURNAL)
+   ========================================== */
+.dc-journal-section {
+  padding: 80px 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(247, 243, 235, 0.9) 100%);
+  border-top: 1px solid var(--dc-border-subtle);
+  border-bottom: 1px solid var(--dc-border-subtle);
+}
+
+.dc-journal-container {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.dc-form-wrapper {
+  background: #ffffff;
+  border: 1px solid var(--dc-border-subtle);
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 16px 45px rgba(198, 156, 94, 0.12);
+  margin-bottom: 50px;
+}
+
+.dc-form-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dc-text-main);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dc-form-desc {
+  font-size: 15px;
+  color: var(--dc-text-muted);
+  margin-bottom: 26px;
+}
+
+/* Icon Selector */
+.dc-type-selector {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.dc-type-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dc-text-muted);
+  background: #f8f6f0;
+  border: 1px solid rgba(198, 156, 94, 0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.dc-type-pill:hover,
+.dc-type-pill.active {
+  background: #c69c5e;
+  color: #ffffff;
+  border-color: #c69c5e;
+  box-shadow: 0 4px 14px rgba(198, 156, 94, 0.3);
+}
+
+.dc-input-group {
+  margin-bottom: 20px;
+}
+
+.dc-input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #554438;
+  margin-bottom: 8px;
+}
+
+.dc-input-text {
+  width: 100%;
+  padding: 13px 18px;
+  border: 1.5px solid rgba(198, 156, 94, 0.3);
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--dc-text-main);
+  background: #faf8f5;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.dc-input-text:focus {
+  border-color: #c69c5e;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(198, 156, 94, 0.12);
+}
+
+.dc-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.dc-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.dc-note-privacy {
+  font-size: 13px;
+  color: #8c7a6e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* User Footprints Archive Stream */
+.dc-archive-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.dc-archive-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dc-text-main);
+}
+
+.dc-footprint-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dc-footprint-item {
+  background: #ffffff;
+  border: 1px solid var(--dc-border-subtle);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: transform 0.25s ease;
+  animation: dcSlideUp 0.4s ease forwards;
+}
+
+@keyframes dcSlideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dc-footprint-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(198, 156, 94, 0.4);
+}
+
+.dc-item-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.dc-item-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #936829;
+  background: rgba(198, 156, 94, 0.12);
+  padding: 4px 12px;
+  border-radius: 16px;
+}
+
+.dc-item-date {
+  font-size: 13px;
+  color: #a4968c;
+}
+
+.dc-item-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dc-text-main);
+  margin-bottom: 6px;
+}
+
+.dc-item-body {
+  font-size: 15px;
+  color: #554438;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.dc-item-del-btn {
+  background: none;
+  border: none;
+  color: #bfb0a6;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s;
+}
+
+.dc-item-del-btn:hover {
+  color: #c94a4a;
+}
+
+.dc-empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8c7a6e;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px dashed var(--dc-border-subtle);
+  border-radius: 20px;
+}
+
+/* ==========================================
+   4. OUTRO & CROSS-PAGE CONNECTION
+   ========================================== */
+.dc-outro-section {
+  padding: 100px 24px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dc-outro-card {
+  background: linear-gradient(145deg, #ffffff 0%, #faf6ee 100%);
+  border: 1.5px solid var(--dc-border-subtle);
+  border-radius: 32px;
+  padding: 50px 36px;
+  box-shadow: 0 20px 50px rgba(198, 156, 94, 0.15);
+  position: relative;
+}
+
+.dc-outro-badge {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #8c6328;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.dc-outro-title {
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 800;
+  color: var(--dc-text-main);
+  margin-bottom: 18px;
+  line-height: 1.35;
+}
+
+.dc-outro-text {
+  font-size: 16px;
+  color: var(--dc-text-muted);
+  line-height: 1.9;
+  max-width: 660px;
+  margin: 0 auto 36px auto;
+}
+
+.dc-outro-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .dc-hero-section {
+    padding: 100px 18px 40px 18px;
+  }
+  .dc-form-wrapper {
+    padding: 24px 20px;
+  }
+  .dc-outro-card {
+    padding: 36px 20px;
+  }
+}

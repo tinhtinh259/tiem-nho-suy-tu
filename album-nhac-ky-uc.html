@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album Nhạc Ký Ức — Tiệm Nhỏ Suy Tư</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/album-nhac-ky-uc.css">
+  <link rel="stylesheet" href="css/album-hero-stage.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=IM+Fell+English:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fleur+De+Leah&display=swap"
+    rel="stylesheet">
+
+  <!-- GSAP Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body class="album-page">
+
+  <!-- Cursor Spotlight Effect -->
+  <div id="cursorSpotlight"></div>
+
+  <!-- Dynamic Ambient Particle Canvas -->
+  <canvas id="ambientBgCanvas"></canvas>
+
+  <!-- Navigation Header -->
+  <div id="header-placeholder"></div>
+
+
+
+  <!-- Main Album Content -->
+  <main>
+    <!-- Hero Header: Full-width Vinyl Memory Orbit Stage -->
+    <section class="memory-hero-section">
+      <!-- 4 Vintage corner ornaments -->
+      <div class="hero-stage-corner tl"></div>
+      <div class="hero-stage-corner tr"></div>
+      <div class="hero-stage-corner bl"></div>
+      <div class="hero-stage-corner br"></div>
+      <div class="memory-hero-stage container" id="memoryHeroStage">
+        <!-- Cột Trái: Nội dung bản ghi ký ức -->
+        <div class="hero-memory-content">
+          <!-- 1. Eyebrow Tag kèm Tooltip Bí Mật -->
+          <div class="hero-memory-eyebrow" id="heroMemoryEyebrow">
+            <span class="eyebrow-prefix">—</span>
+            <span class="eyebrow-tag-interactive" id="eyebrowTagInteractive">
+              <span class="tag-code" id="eyebrowTagCode">@ENCOUNTER_001</span>
+              <span class="tag-secret-tooltip" id="eyebrowSecretTooltip">✨ Cậu bé từ cánh đồng lúa chín</span>
+            </span>
+            <span class="eyebrow-suffix">.</span>
+          </div>
+
+          <!-- 2. Main Page Title Cố Định -->
+          <h1 class="hero-main-page-title">Album Nhạc Ký Ức</h1>
+
+          <!-- 3. Dynamic Track Title Biến Đổi Theo Đĩa Than -->
+          <div class="hero-track-title-dynamic" id="heroTrackTitleDynamic">Khúc Dạo Trên Đồng Vàng</div>
+
+          <!-- 4. Khung trích dẫn tâm sự -->
+          <div class="hero-memory-desc" id="heroMemoryDesc">
+            “Bờ ruộng chiều thu năm ấy, có người đi qua mang theo cả mùi thơm của đồng cỏ dại...”
+          </div>
+
+          <!-- 5. Các nút hành động thưởng thức -->
+          <div class="hero-controls-row">
+            <button class="btn-hero-listen" id="btnHeroListen" title="Lắng nghe bản nhạc ký ức trên mâm đĩa">
+              <svg viewBox="0 0 24 24">
+                <polygon points="6 4 20 12 6 20"></polygon>
+              </svg>
+              <span>Lắng Nghe Ký Ức</span>
+            </button>
+            <button class="btn-hero-read" id="btnHeroRead" title="Đọc bản thảo chi tiết">
+              <span>📖</span>
+              <span>Đọc Bản Thảo</span>
+            </button>
+          </div>
+
+          <!-- 6. Điều hướng & Thứ tự bản ghi -->
+          <div class="hero-step-row">
+            <div class="hero-step-count"><span id="heroStepCurrent">01</span> / <span id="heroStepTotal">05</span></div>
+            <div class="hero-step-nav">
+              <button id="heroPrevBtn" aria-label="Ký ức trước">← Ký Ức Trước</button>
+              <button id="heroNextBtn" aria-label="Ký ức tiếp">Ký Ức Tiếp →</button>
+            </div>
+          </div>
+
+          <!-- 7. Ghi chú thì thầm phía dưới -->
+          <div class="hero-bottom-whisper">
+            ✦ Mỗi đĩa than là một mẩu chuyện xưa được lưu giữ trong trái tim...
+          </div>
+        </div>
+
+        <!-- Cột Phải: Sân khấu quỹ đạo đĩa than xoay tròn -->
+        <div class="hero-stage-wrap">
+          <div class="hero-stage" id="heroStage">
+            <!-- Hào quang ấm áp tỏa ra phía sau -->
+            <div class="hero-blob" id="heroBlob"></div>
+
+            <!-- Đường quỹ đạo bán nguyệt nét đứt phong cách vintage -->
+            <svg class="hero-orbit-svg" viewBox="0 0 640 640">
+              <path class="hero-orbit-inner" d="M 430 80 C 620 150, 620 490, 430 560" />
+              <path class="hero-orbit-path" d="M 410 50 C 650 130, 650 510, 410 590" />
+            </svg>
+
+            <!-- Hạt nốt nhạc & tia sáng lơ lửng -->
+            <div class="hero-floater note" id="heroNote1">♪</div>
+            <div class="hero-floater note" id="heroNote2">♫</div>
+            <div class="hero-floater sparkle" id="heroSparkle1">✦</div>
+            <div class="hero-floater sparkle" id="heroSparkle2">❦</div>
+
+            <!-- Lớp chứa các đĩa than được render và định vị bởi JS -->
+            <div id="heroDiscLayer"></div>
+          </div>
+
+          <!-- Gợi ý tương tác lơ lửng -->
+          <div class="hero-floating-note" id="heroFloatNote">
+            <span class="dot"></span>
+            Nhấp vào đĩa than bất kỳ để lật mở ký ức...
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- GÓC KÝ ỨC: KỆ SÁCH 3D & MÂM ĐĨA THAN (COZY READING & LISTENING STUDIO) -->
+    <section class="album-wrapper">
+      <div class="studio-corner-section">
+        <div class="studio-corner-grid">
+          <!-- CỘT 1 (TRÁI): KỆ SÁCH KÝ ỨC 3D -->
+          <div class="studio-col studio-shelf-col">
+            <div class="section-shelf-title">
+              <span>📚</span>
+              <span>Kệ Sách Ký Ức 3D</span>
+              <span>✨</span>
+            </div>
+            <div class="bookshelf" id="bookshelf">
+              <!-- Rendered dynamically by JS -->
+            </div>
+          </div>
+
+          <!-- CỘT 2 (PHẢI): MÂM ĐĨA THAN & ÂM THANH KÝ ỨC -->
+          <div class="studio-col studio-deck-col">
+            <div class="section-shelf-title">
+              <span>📻</span>
+              <span>Mâm Đĩa Than Ký Ức</span>
+              <span>✨</span>
+            </div>
+            <div class="audio-deck-container">
+              <div class="turntable-box">
+                <div class="vinyl-record" id="vinylRecord">
+                  <div class="vinyl-label">
+                    <span>MEMORIES</span>
+                    <div class="vinyl-center-hole"></div>
+                  </div>
+                </div>
+                <div class="tonearm" id="tonearm">
+                  <div class="tonearm-base"></div>
+                  <div class="tonearm-arm"></div>
+                  <div class="tonearm-head"></div>
+                </div>
+              </div>
+              <div class="deck-info">
+                <div class="deck-now-playing">
+                  <span class="tag-badge enc-1" id="deckTagId">@Encounter_001</span>
+                  <div>
+                    <h2 class="deck-track-title" id="deckTrackTitle">Trang 01 – Khúc Dạo Trên Đồng Vàng</h2>
+                    <div class="deck-track-alias" id="deckTrackAlias">"Cậu bé từ cánh đồng lúa"</div>
+                  </div>
+                </div>
+
+                <div class="visualizer-wrapper">
+                  <div class="visualizer-box">
+                    <canvas id="audioVisualizer"></canvas>
+                  </div>
+                </div>
+
+                <div class="deck-controls">
+                  <button class="btn-play-master" id="btnPlayMaster" onclick="togglePlayMaster()"
+                    aria-label="Phát / Tạm dừng nhạc" title="Phát nhạc">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
+                      style="transform: translateX(1.5px);">
+                      <polygon points="6 4 20 12 6 20"></polygon>
+                    </svg>
+                  </button>
+                  <div class="ambient-toggle-box" id="btnAmbientRain" onclick="toggleAmbientRain()">
+                    <span>🌧️ Mưa Đêm Ambient</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- SECTION NHỮNG TRANG GIẤY CHƯA ĐÓNG BÌA (LOOSE MANUSCRIPT DRAFTS) -->
+    <section class="manuscript-section">
+      <div class="container">
+        <div class="section-drafts-header">
+          <!-- <div class="drafts-icon-badge">📝</div> -->
+          <h2 class="drafts-main-heading">Những Trang Giấy Chưa Đóng Bìa</h2>
+          <p class="drafts-sub-heading">
+            Những mẩu chuyện viết dở, những cảm xúc thoáng qua trên giấy nháp chưa kịp xếp vào cuốn sách nào...
+          </p>
+        </div>
+        <!-- FILTER & TÌM KIẾM BẢN THẢO -->
+        <div class="filter-section">
+          <div class="filter-pills">
+            <button class="filter-pill active" data-filter="all">Tất Cả Mẩu Giấy</button>
+            <button class="filter-pill" data-filter="torn">Trang Xé Sổ Tay</button>
+            <button class="filter-pill" data-filter="dialogue">Mẩu Đối Thoại Dở Dang</button>
+            <button class="filter-pill" data-filter="letter">Lá Thư Chưa Gửi</button>
+            <button class="filter-pill" data-filter="pinned">Đã Ghim (📌 <span id="pinnedCountBadge">0</span>)</button>
+          </div>
+
+          <div class="filter-actions-right">
+            <div class="search-box-wrap">
+              <input type="text" class="search-input" id="albumSearchInput" placeholder="Tìm mẩu giấy, mảnh ký ức...">
+            </div>
+
+            <!-- CHUYỂN ĐỔI CHẾ ĐỘ XEM: DÒNG CHẢY NGANG VS LƯỚI TẤT CẢ -->
+            <div class="view-mode-toggle" id="viewModeToggle">
+              <button class="btn-view-mode active" data-mode="stream" title="Xem dạng dòng chảy ngang mênh mang">
+                <span class="mode-icon">🌊</span>
+                <span class="mode-text">Dòng Chảy</span>
+              </button>
+              <button class="btn-view-mode" data-mode="grid" title="Xem tất cả dạng lưới bàn viết">
+                <span class="mode-icon">▦</span>
+                <span class="mode-text">Lưới</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIEWPORT KHUNG NHÌN BẢN THẢO (HỖ TRỢ CUỘN NGANG HOẶC LƯỚI) -->
+        <div class="manuscript-viewport-wrap" id="manuscriptViewportWrap">
+          <button class="stream-nav-arrow prev" id="streamNavPrev" aria-label="Lướt sang trái" title="Lướt sang trái">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="tracklist-grid manuscript-grid mode-stream" id="tracklistGrid">
+            <!-- Rendered dynamically by JS -->
+          </div>
+
+          <button class="stream-nav-arrow next" id="streamNavNext" aria-label="Lướt sang phải" title="Lướt sang phải">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Thanh gợi ý tương tác lướt dòng chảy -->
+        <div class="stream-hint-bar" id="streamHintBar">
+          <span class="hint-icon">👈</span>
+          <span class="hint-text">Kéo chuột hoặc vuốt ngang để du hành qua dòng chảy các mẩu giấy</span>
+          <span class="hint-icon">👉</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intimate Dedication Banner -->
+    <section class="dedication-section">
+      <div class="dedication-card">
+        <!-- Vintage Corner Accents -->
+        <div class="dedication-corner tl"></div>
+        <div class="dedication-corner tr"></div>
+        <div class="dedication-corner bl"></div>
+        <div class="dedication-corner br"></div>
+
+        <div class="dedication-inner-layout">
+          <!-- Cột Trái: Khung Ảnh Ký Ức Vintage -->
+          <div class="dedication-image-column">
+            <div class="dedication-polaroid-frame">
+              <div class="polaroid-washi-tape"></div>
+              <div class="polaroid-img-wrap">
+                <img src="images/about/read.jpg" alt="Trang sách ký ức" class="dedication-img" id="dedicationImg">
+              </div>
+              <div class="polaroid-caption">
+                <span class="caption-handwritten">Góc nhỏ năm ấy... ✦</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột Phải: Nội Dung Lời Đề Tặng -->
+          <div class="dedication-text-column">
+            <!-- Top Header Flourish -->
+            <div class="dedication-header-flourish">
+              <span class="flourish-line"></span>
+              <span class="flourish-badge">
+                <span class="flourish-icon">❦</span>
+                <span class="flourish-title">LỜI ĐỀ TẶNG DÀNH RIÊNG</span>
+                <span class="flourish-icon">❦</span>
+              </span>
+              <span class="flourish-line"></span>
+            </div>
+
+            <!-- Giant Watermark Quote Mark -->
+            <div class="dedication-watermark">“</div>
+
+            <blockquote class="dedication-quote">
+              "Những trang sách này vẫn nằm ở đây, chờ một ngày chính chủ nhân câu chuyện lật mở..."
+            </blockquote>
+
+            <div class="dedication-divider">
+              <span>✦ ✦ ✦</span>
+            </div>
+
+            <p class="dedication-sub">
+              Mấy trang sách này đã được cất giấu từ rất lâu. Tưởng chừng tớ sẽ để câu chuyện mục ruỗng ở đâu đó vì
+              chẳng
+              dám đem nó ra. Vậy mà nay lại có dịp. Và lạ thật, tớ lại thích cái dịp này.
+            </p>
+
+            <!-- Intimate Epilogue Sign-off -->
+            <div class="dedication-signoff">
+              <div class="signoff-wax-seal" title="Dấu triện ký ức">
+                <span class="seal-inner">CF</span>
+              </div>
+              <div class="signoff-meta">
+                <span class="signoff-name">Tiệm Nhỏ Suy Tư</span>
+                <span class="signoff-date">Gửi một người nơi góc ký ức</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 3D FLIPBOOK THEATER OVERLAY (CHUẨN 1:1 VỚI /3d-flipbook/* & HIỆU ỨNG SÁCH BAY RA) -->
+  <div class="overlay" id="overlay">
+    <div class="flipbook-theater" id="flipbookTheater">
+      <!-- Topbar Header with controls -->
+      <div class="flipbook-topbar">
+        <div class="flipbook-meta-badge">
+          <span class="badge-icon">📖</span>
+          <div>
+            <div class="flipbook-book-title" id="flipbookBookTitle">Tập I • Cuốn Sổ Nhạc Ký Ức</div>
+            <div class="flipbook-book-author" id="flipbookBookAuthor">Tiệm Nhỏ Suy Tư</div>
+          </div>
+        </div>
+
+        <div class="flipbook-controls">
+          <button class="btn-flip-ctrl" id="btnToggle3DAngle" title="Chuyển đổi góc nhìn 3D nghiêng / nhìn thẳng">
+            <span id="angleIcon">📐</span>
+            <span id="angleText">Góc Nghiêng 3D</span>
+          </button>
+          <button class="btn-flip-ctrl" id="btnPrevPage" title="Trang trước">
+            <span>‹ Lùi</span>
+          </button>
+          <span class="flipbook-page-counter" id="flipbookPageCounter">Trang 1 / 6</span>
+          <button class="btn-flip-ctrl" id="btnNextPage" title="Trang tiếp">
+            <span>Tiến ›</span>
+          </button>
+          <button class="close-btn" id="closeBtn" title="Đóng sách và cất lại lên kệ">
+            <span class="close-btn-text-desk">✕ &nbsp; CẤT LÊN KỆ</span>
+            <span class="close-btn-text-mob">✕ Cất kệ</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3D FlipBook Viewport with perspective -->
+      <div class="flipbook-viewport" id="flipbookViewport">
+        <div class="book-3d" id="book3D">
+          <!-- Dynamically populated pages based on MASTER_BOOKS / ALBUM_TRACKS -->
+        </div>
+      </div>
+
+      <!-- Bottom guide hint -->
+      <div class="flipbook-footer-hint">
+        <span>✨ Nhấp trang bên phải để lật tới &bull; Nhấp trang bên trái để lật lui &bull; Bấm mép trang để lật
+          nhanh</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOOSE DRAFT SHEET VIEWER MODAL (PHÓNG TO TỜ GIẤY ĐỂ ĐỌC BẢN THẢO) -->
+  <div class="sheet-modal-overlay" id="sheetModalOverlay">
+    <div class="sheet-modal-container" id="sheetModalContainer">
+      <div class="sheet-modal-topbar">
+        <button class="sheet-modal-pin-btn" id="sheetModalPinBtn" title="Ghim mẩu giấy này vào bảng nhớ">
+          <span class="pin-icon">📌</span>
+          <span class="pin-text">Ghim mẩu giấy</span>
+        </button>
+        <button class="sheet-modal-close-btn" id="sheetModalCloseBtn" title="Cất lại vào tập nháp">
+          ✕ &nbsp; CẤT LẠI VÀO TẬP NHÁP
+        </button>
+      </div>
+      <div class="loose-sheet-paper" id="looseSheetPaper">
+        <!-- Injected dynamically by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="js/plugin/jquery.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/album-nhac-ky-uc.js"></script>
+  <script src="js/album-hero-stage.js"></script>
+
+</body>
+
+</html>

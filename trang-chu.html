@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home page - Cara</title>
+	<!-- favicon -->
+	<link rel="icon" type="image/png" href="images/logo.png">
+	<!-- reset -->
+	<link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+	<!-- page -->
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/global.css">
+	<!-- sec landing -->
+	<link rel="stylesheet" href="css/landing-page.css">
+	<!-- sec walk-cycle -->
+	<link rel="stylesheet" href="css/components/walk-cycle.css">
+	<!-- sec seasons -->
+	<link rel="stylesheet" href="css/components/discovery-section.css">
+	<!-- sec cube -->
+	<link rel="stylesheet" href="css/components/cube-section.css">
+	<!--  for envelope-spin -->
+	<link rel="stylesheet" href="css/components/envelope-spin.css">
+	<!-- sec pinned-projects -->
+	<link rel="stylesheet" href="css/components/pinned-projects.css">
+	<link rel="stylesheet" href="css/components/tempo-section.css">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+		rel="stylesheet">
+
+	<!-- Tempo-7 & GSAP Dependencies -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+		rel="stylesheet">
+
+	<style>
+		/* Preserve layout container across all sections */
+		.container {
+			width: 100% !important;
+			max-width: 1140px !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			padding-left: 15px !important;
+			padding-right: 15px !important;
+			box-sizing: border-box !important;
+		}
+
+		/* 3D Soft Card Component from tempo-7 */
+		.cute-card-container {
+			perspective: 1000px;
+		}
+
+		.cute-card {
+			width: 100%;
+			height: 220px;
+			position: relative;
+			transform-style: preserve-3d;
+			transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+
+		/* Hiệu ứng nảy bập bồng khi hover */
+		.cute-card-container:hover .cute-card {
+			transform: translateY(-8px) scale(1.03) rotateZ(1deg);
+		}
+
+		.card-front {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			border: 4px solid var(--color-1);
+			/* Viền dày kiểu truyện tranh comic */
+			border-radius: 24px;
+			overflow: hidden;
+			box-shadow: 0 8px 0px var(--color-1);
+			/* Đổ bóng khối dễ thương */
+			transition: box-shadow 0.3s;
+		}
+
+		.cute-card-container:hover .card-front {
+			box-shadow: 0 12px 0px var(--color-1);
+		}
+	</style>
+
+	<!-- JS -->
+	<!-- <script src="js/plugin/prefixfree-1.0.7.min.js"></script> -->
+
+	<!-- Hero Lofi Player & 3D Stack Styles -->
+	<link rel="stylesheet" href="css/components/hero-lofi.css">
+	<script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<main>
+		<section class="landing_section">
+			<div class="container">
+				<div class="landing_dflex">
+					<!-- Left Column: Title + Paragraph + Buttons + Lofi Player -->
+					<div class="landing_left txt">
+						<span class="hero-pill-badge">Trạm Bình Yên - Tiệm Nhỏ Suy Tư</span>
+						<div class="title_sec">
+							<h2>Những dòng chữ </h2>
+							<div class="title_dots">
+								<span class="dots"></span>
+								<span class="right">biết&nbsp;ôm</span>
+							</div>
+						</div>
+						<div class="content_sec">
+							<p>Mỗi bài viết, mỗi animation và nốt nhạc nơi đây đều là một “con sóng nhỏ”, mang theo một
+								phần tâm hồn của người tạo nên chúng.</p>
+							<p>Không chỉ là một blog, mà là hành trình cảm xúc, là dấu chân của một người vừa là coder,
+								vừa là storyteller. Hãy đeo tai nghe, bật một bản Lofi dịu nhẹ và để tâm mình lắng
+								lại...</p>
+						</div>
+						<div class="hero-buttons-group">
+							<a href="loi-tu-su.html" class="btn-hero-primary">Ông trùm đứng sau là ai?</a>
+							<a href="nhung-dong-chu-biet-om.html" class="btn-hero-secondary">Một con sóng nhỏ ➔</a>
+						</div>
+
+						<!-- Lofi Ambient Player Widget -->
+						<div class="hero-lofi-widget">
+							<div class="lofi-disc-box" id="heroLofiDisc">
+								<div class="lofi-disc-inner"></div>
+							</div>
+							<div class="lofi-info">
+								<div class="lofi-title">Nhạc Lofi Đêm Muộn - Tiếng Mưa & Trà Nóng</div>
+								<div class="lofi-status" id="heroLofiStatus">Tạm dừng - Nhấn để bật nhạc dịu êm</div>
+							</div>
+							<button class="lofi-play-btn" id="heroLofiPlayBtn" title="Bật / Tạm dừng nhạc">
+								<span id="heroLofiIcon">▶</span>
+							</button>
+						</div>
+					</div>
+
+					<!-- Right Column: Centered 3D Fan-out Story Cards Stack -->
+					<div class="landing_right">
+						<div class="hero-cards-stack-container">
+							<!-- Card 1: Cuộn xuống Chú mèo dạo bước (Discovery Section) -->
+							<div class="hero-card-stack-item pos-left"
+								onclick="scrollToSection('.discovery_section', event)" role="button" tabindex="0"
+								title="Theo chân chú mèo nhặt nhạnh bình yên">
+								<img src="images/seasons/card-spring.jpg" alt="Theo chân chú mèo"
+									class="stack-card-img">
+								<div class="stack-card-body">
+									<span class="stack-card-tag">Hành Trình Ký Ức</span>
+									<h3 class="stack-card-title">Theo chân chú mèo nhặt nhạnh bình yên</h3>
+									<span class="stack-card-footer">Dạo bước cùng mèo 🐾</span>
+								</div>
+							</div>
+							<!-- Card 2: Mở lá thư chào đón (Bức thư tay nghệ thuật - On Top trung tâm) -->
+							<div class="hero-card-stack-item pos-front" onclick="openWelcomeLetterModal(event)"
+								role="button" tabindex="0" title="Mở bức thư chào đón người ghé Tiệm">
+								<img src="images/seasons/card-autumn.png" alt="Lá thư chào đón" class="stack-card-img">
+								<div class="stack-card-body">
+									<span class="stack-card-tag">Lá Thư Đầu Tiên</span>
+									<h3 class="stack-card-title">Gửi <span class="cara-user-name">bạn</span>, người ghé
+										ngang góc nhỏ này...</h3>
+									<span class="stack-card-footer">Mở lá thư chào đón ✉️</span>
+								</div>
+							</div>
+
+							<!-- Card 3: Cuộn xuống Không gian các dự án (#projects) -->
+							<div class="hero-card-stack-item pos-right" onclick="scrollToSection('#projects', event)"
+								role="button" tabindex="0" title="Khám phá các thế giới & dự án bình yên">
+								<img src="images/cards/pinned-projects-1.jpg" alt="Hành trình các dự án"
+									class="stack-card-img">
+								<div class="stack-card-body">
+									<span class="stack-card-tag">Hành Trình Dự Án</span>
+									<h3 class="stack-card-title">Mỗi góc nhỏ, một thế giới bình yên</h3>
+									<span class="stack-card-footer">Khám phá dự án ➔</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="discovery_section scene">
+			<div class="container">
+				<div class="living_flex">
+					<div class="item_living_flex">
+						<div class="txt">
+							<div class="title_sec">
+								<h2>Bạn không chỉ đang xem </h2>
+								<div class="title_dots">
+									<span class="dots"></span>
+									<span class="right">bạn đang đi</span>
+								</div>
+							</div>
+							<div class="content_sec">
+								<p>Nếu hôm nay bạn mệt, hãy đi chậm lại một chút. Biết đâu, trong bức
+									tranh này, có một điều đang đợi bạn được nhìn thấy.</p>
+								<p>Mọi thứ trong bức tranh này đều đang sống. Và khi bạn chạm vào nó, câu
+									chuyện bắt đầu mở ra. Cùng nhau khám phá nhé!</p>
+							</div>
+							<!-- SINGLE COZY JOURNAL WIDGET ALIGNED WITH CONTENT_SEC -->
+							<div class="peaceful-journal-widget paper_body">
+								<div class="journal-header">
+									<h3>Sổ Tay Bình Yên</h3>
+									<span class="journal-tag">TìnhTình</span>
+								</div>
+								<p class="journal-quote">"Hôm nay bạn đã nhớ dịu dàng với chính mình chưa?"</p>
+								<div class="journal-checklist-title">3 Nhắc Nhở Nhẹ Nhàng Cho Bạn:</div>
+								<div class="cozy-checklist">
+									<label class="checklist-item">
+										<input type="checkbox">
+										<span class="custom-checkbox"></span>
+										<span class="checklist-text">Bước chậm lại và nghe tiếng gió</span>
+									</label>
+									<label class="checklist-item">
+										<input type="checkbox">
+										<span class="custom-checkbox"></span>
+										<span class="checklist-text">Chạm nhẹ vào những mầm cây nhỏ</span>
+									</label>
+									<label class="checklist-item">
+										<input type="checkbox">
+										<span class="custom-checkbox"></span>
+										<span class="checklist-text">Ôm lấy bản thân một chút</span>
+									</label>
+								</div>
+
+								<div class="journal-discovery-footer">
+									<div class="discovery-counter">
+										<span>🐾 Điểm chạm bí mật:</span>
+										<strong id="discoveryCount">0 / 6 khám phá</strong>
+									</div>
+									<button id="openJournal" class="journal-btn">Nhật ký khám phá</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item_living_flex">
+						<div class="item_discovery itemDiscovery_picture pic_seasons">
+							<div class="seasons">
+								<div class="summer"></div>
+								<div class="fall"></div>
+								<div class="winter"></div>
+								<div class="spring"></div>
+							</div>
+							<!-- <div class="tooltip-comment">
+								<div class="comment-inner">
+									<div class="avatar">?</div>
+									<div class="comment-content">
+										<div class="text">
+											Trong <a href="/bonmua">bốn mùa</a>, đâu là mùa bạn yêu thích nhất,
+											bạn có nghĩ nó có liên quan đến tâm trạng hay tính cách của bạn không?
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<figure>
+								<img src="images/seasons/summer.jpg" alt="Summer" class="summer"
+									onerror="this.src='/images/seasons/summer.jpg'">
+								<img src="images/seasons/fall.jpg" alt="Fall" class="fall"
+									onerror="this.src='/images/seasons/fall.jpg'">
+								<img src="images/seasons/winter.jpg" alt="Winter" class="winter"
+									onerror="this.src='/images/seasons/winter.jpg'">
+								<img src="images/seasons/spring.jpg" alt="Spring" class="spring"
+									onerror="this.src='/images/seasons/spring.jpg'">
+								<figcaption></figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+
+				<div id="storyTooltip" class="story-tooltip">
+					<div class="tooltip-card">
+						<button id="closeTooltip" class="tooltip-close">
+							✕
+						</button>
+						<h4 id="tooltipTitle"></h4>
+						<p id="tooltipText"></p>
+						<a id="tooltipLink" class="tooltip-link arrow-button">
+							<span class="label">Khám phá</span>
+							<span class="icon">
+								<svg viewBox="0 0 512 512" aria-hidden="true">
+									<path fill="currentColor" d="M499.436,225.905L295.858,24.536c-16.623-16.438-43.428-16.305-59.866,0.328
+									c-16.438,16.613-16.294,43.418,0.329,59.856l130.356,128.958H42.329
+									C18.956,213.679,0,232.624,0,255.997
+									c0,23.383,18.956,42.328,42.329,42.328h324.347L236.321,427.273
+									c-16.623,16.438-16.767,43.254-0.329,59.867
+									c16.438,16.622,43.243,16.766,59.866,0.328
+									l203.578-201.368c8.044-7.963,12.564-18.792,12.564-30.102
+									C512,244.685,507.479,233.866,499.436,225.905z"></path>
+								</svg>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="objects_content">
+					<!-- GUIDE -->
+					<div id="cursorSparkle">Tìm thấy rồi!</div>
+					<div class="pop_guide">
+						<h3>💡 Hướng dẫn tương tác</h3>
+						<p class="txt_mini_pop">Di chuyển chuột để chạm vào các vật thể hoặc click vào chúng để bắt đầu
+							hành trình khám phá. Càng đi xa, câu chuyện càng mở ra cho bạn!</p>
+						<a class="closeGuide">
+							<span class="label">XONG</span>
+						</a>
+					</div>
+					<!-- CATS -->
+					<div class="item_discovery itemDiscovery_marco cat_2">
+						<div id="marco">
+							<div id="gato"></div>
+						</div>
+					</div>
+					<div class="cat_square">
+						<div class="bottom"></div>
+						<div class="item_discovery itemDiscovery_catLying cat">
+							<div class="cat-body">
+								<div class="paw paw-back-left"></div>
+								<div class="paw paw-back-right"></div>
+								<div class="paw paw-front-left"></div>
+								<div class="paw-front-left-sh"></div>
+								<div class="paw paw-front-right"></div>
+								<div class="paw-front-right-sh"></div>
+								<div class="tail"></div>
+								<div class="cat-head">
+									<div class="ear ear-left"></div>
+									<div class="ear ear-right"></div>
+									<div class="eyes"></div>
+									<div class="nose"></div>
+									<div class="mouth"></div>
+									<div class="whiskers">
+										<div class="whisker whisker-left"></div>
+										<div class="whisker whisker-right"></div>
+									</div>
+								</div>
+								<div class="spot1"></div>
+								<div class="spot2"></div>
+								<div class="spot3"></div>
+								<div class="spot4"></div>
+								<div class="spot5"></div>
+								<div class="spot6"></div>
+								<div class="spot7"></div>
+							</div>
+						</div>
+						<div class="item_discovery itemDiscovery_blackcat cat_1">
+							<div class="cat">
+								<div class="ears"></div>
+								<div class="tail"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="living_floor">
+					<div class="obj_item foliage_1"></div>
+					<div class="obj_item foliage_2"></div>
+					<div class="obj_item foliage_3"></div>
+					<div class="obj_item foliage_4"></div>
+					<div class="obj_item foliage_5"></div>
+					<div class="obj_item foliage_6"></div>
+					<!-- TABLE WITH DELICATE ENVELOPE -->
+					<div class="obj_item foliage_7">
+						<img src="images/table.png" alt="Bàn gỗ" onerror="this.src='/images/table.png'">
+						<div class="item_discovery itemDiscovery_envelope size_envelope_spin">
+							<div class="envelope">
+								<div class="front">
+									<p>Thư cho bạn</p>
+								</div>
+								<div class="inner"></div>
+								<div class="bottom"></div>
+								<div class="flap"></div>
+							</div>
+						</div>
+					</div>
+					<div class="obj_item foliage_8"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PINNED PROJECTS ANIMATION SECTION (pinned-page-animation) -->
+		<section id="projects">
+			<div class="project-left">
+				<div class="project-left-content">
+					<div class="overline">Hành Trình Khám Phá Đa Chiều</div>
+					<h2 class="project-title">Mỗi góc nhỏ, <br><em>một thế giới</em> bình yên.</h2>
+					<p class="project-description">
+						Không chỉ là những trang viết, nơi đây là trạm dừng chân đa chiều — từ sổ tay câu hỏi tĩnh lặng,
+						khu vườn 3D tương tác, đến không gian hóa thân và hòm thư gửi trao tâm sự...
+					</p>
+					<a href="sitemap.html" class="btn-arrow">
+						Khám Phá Toàn Bộ Tiệm Nhỏ
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+				</div>
+			</div>
+
+			<div class="project-right">
+				<div class="cards-grid">
+
+					<!-- Card 1: Góc Kể Chuyện -->
+					<a href="nhung-dong-chu-biet-om.html" class="project-card">
+						<div class="img-wrapper">
+							<img src="images/cards/pinned-projects-1.jpg" alt="Những Dòng Chữ Biết Ôm"
+								onerror="this.src='images/landing/girl-at-night.jpg'">
+						</div>
+						<div class="card-meta">
+							
+							<div class="meta-left">
+								<h3>Những Dòng Chữ Biết Ôm</h3>
+								<p>Góc kể chuyện & Vỗ về</p>
+							</div>
+							<div class="meta-right">Đêm Muộn</div>
+						</div>
+					</a>
+
+					<!-- Card 2: Câu Hỏi Tâm Hồn -->
+					<a href="cau-hoi-tam-hon.html" class="project-card">
+						<div class="img-wrapper">
+							<img src="images/cards/pinned-projects-2.jpg" alt="Những Câu Hỏi Hiếm Khi Nghe"
+								onerror="this.src='images/seasons/card-spring.jpg'">
+						</div>
+						<div class="card-meta">
+							<div class="meta-left">
+								<h3>Những Câu Hỏi Hiếm Khi Nghe</h3>
+								<p>Sổ nhật ký 23 câu hỏi</p>
+							</div>
+							<div class="meta-right">Tĩnh Lặng</div>
+						</div>
+					</a>
+
+					<!-- Card 3: Phép Màu 3D -->
+					<a href="phep-mau.html" class="project-card">
+						<div class="img-wrapper">
+							<img src="images/cards/pinned-projects-3.jpg" alt="Chú Mèo & Khu Vườn Phép Màu"
+								onerror="this.src='images/seasons/summer.jpg'">
+						</div>
+						<div class="card-meta">
+							<div class="meta-left">
+								<h3>Chú Mèo & Khu Vườn Phép Màu</h3>
+								<p>Khu vườn trải nghiệm 3D</p>
+							</div>
+							<div class="meta-right">Tương Tác</div>
+						</div>
+					</a>
+
+					<!-- Card 4: Phân Tích Nội Tâm -->
+					<a href="phan-tich-noi-tam.html" class="project-card">
+						<div class="img-wrapper">
+							<img src="images/cards/pinned-projects-4.jpg" alt="Lăng Kính Phân Tích Nội Tâm"
+								onerror="this.src='images/seasons/card-autumn.png'">
+						</div>
+						<div class="card-meta">
+							<div class="meta-left">
+								<h3>Lăng Kính Phân Tích Nội Tâm</h3>
+								<p>Thấu hiểu & Hàn gắn</p>
+							</div>
+							<div class="meta-right">Chiêm Nghiệm</div>
+						</div>
+					</a>
+
+					<!-- Card 5: Hóa Thân -->
+					<a href="hoa-than.html" class="project-card">
+						<div class="img-wrapper">
+							<img src="images/cards/pinned-projects-5.jpg" alt="Không Gian Hóa Thân"
+								onerror="this.src='images/seasons/frame-summer.jpg'">
+						</div>
+						<div class="card-meta">
+							<div class="meta-left">
+								<h3>Hóa Thân</h3>
+								<p>Không gian nhập vai bình yên</p>
+							</div>
+							<div class="meta-right">Nhập Vai</div>
+						</div>
+					</a>
+
+					<!-- Card 6: Hòm Thư Cho Bạn -->
+					<a href="thu-cua-ban.html" class="project-card">
+						<div class="img-wrapper">
+							<img src="images/cards/pinned-projects-6.jpg" alt="Hòm Thư & Lời Tự Sự"
+								onerror="this.src='images/seasons/card-winter.jpg'">
+						</div>
+						<div class="card-meta">
+							<div class="meta-left">
+								<h3>Thư Cho Bạn </h3>
+								<p>Gửi trao tâm tư & Kết nối</p>
+							</div>
+							<div class="meta-right">Gửi Thư</div>
+						</div>
+					</a>
+
+				</div>
+
+				<!-- Tablet & Mobile Slide Controls -->
+				<div class="cards-slider-controls">
+					<div class="slider-hint-badge">
+						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="13 17 18 12 13 7"></polyline>
+							<polyline points="6 17 11 12 6 7"></polyline>
+						</svg>
+						<span>Vuốt để khám phá</span>
+					</div>
+					<div class="slider-controls-right">
+						<div class="slider-dots-group" id="projectsDots"></div>
+						<span class="cards-counter-text" id="cardsCounter">1 / 6</span>
+						<div class="slider-nav-btns">
+							<button type="button" class="slider-nav-btn prev-card-btn" id="prevProjectBtn" aria-label="Thẻ trước" disabled>
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="15 18 9 12 15 6"></polyline>
+								</svg>
+							</button>
+							<button type="button" class="slider-nav-btn next-card-btn" id="nextProjectBtn" aria-label="Thẻ tiếp theo">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="9 18 15 12 9 6"></polyline>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- GÓC KHÁM PHÁ ĐA CHIỀU (3D PRISM ROTATING EXHIBITION) -->
+		<section class="cube_section">
+			<div class="cube_container">
+				<div class="cube_section_header">
+					<span class="cube_badge">💎 Triển Lãm Khám Phá Đa Chiều</span>
+					<h2 class="cube_section_title">Khi Lăng Kính Xoay Chiều</h2>
+					<p class="cube_section_subtitle">
+						"Mỗi góc xoay là một lăng kính mới về cuộc sống. Hãy nhấp chọn nút hoặc kéo xoay khối 3D để khám
+						phá từng góc nhìn dịu lành, hòa mình vào câu chuyện hóa thân hay trân trọng những điều nhỏ
+						bé..."
+					</p>
+				</div>
+
+				<!-- 3D Prism Exhibition Viewport -->
+				<div class="cube_prism_wrapper">
+					<!-- Navigation Buttons to Rotate Prism (Left Sidebar on Desktop) -->
+					<div class="prism_nav_controls">
+						<div class="prism_nav_header">
+							<span class="prism_nav_label">ĐIỀU HƯỚNG LĂNG KÍNH</span>
+						</div>
+						<button class="prism_nav_btn active" onclick="rotatePrismFace(0, this)"
+							title="Lăng Kính 1: Góc Nhìn">
+							<span class="nav_btn_icon"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,42.34a8,8,0,0,0-8-2C172.48,51.84,120,83.16,91.82,128H48a8,8,0,0,0-5.66,13.66l88,88A8,8,0,0,0,136,224a8.09,8.09,0,0,0,1.38-.12C182.17,212.8,217.18,173.23,229.66,42.34ZM128.53,207.28,59.31,138.06c23-38.41,66-67.43,115.82-80.12C162.77,108.76,149,158.46,128.53,207.28Z"/></svg></span>
+							<span class="nav_btn_text"><span class="btn_prefix">Lăng Kính 1: </span>Góc Nhìn</span>
+						</button>
+						<button class="prism_nav_btn" onclick="rotatePrismFace(1, this)"
+							title="Lăng Kính 2: Hóa Thân">
+							<span class="nav_btn_icon"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M212.92,34.69a8,8,0,0,0-6.86-1.45l-112,24A8,8,0,0,0,88,65V167.32A40,40,0,1,0,104,200V85.79l96-20.57V135.32A40,40,0,1,0,216,168V40A8,8,0,0,0,212.92,34.69ZM64,224a24,24,0,1,1,24-24A24,24,0,0,1,64,224Zm112-32a24,24,0,1,1,24-24A24,24,0,0,1,176,192Z"/></svg></span>
+							<span class="nav_btn_text"><span class="btn_prefix">Lăng Kính 2: </span>Hóa Thân</span>
+						</button>
+						<button class="prism_nav_btn" onclick="rotatePrismFace(2, this)"
+							title="Lăng Kính 3: Điều Nhỏ Bé">
+							<span class="nav_btn_icon"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M239.38,154.27C230.13,131.76,215.08,114.7,194.52,103.5a88.66,88.66,0,0,0-36.87-10.4c-6.19-21-17.75-40-34.33-56.32a8,8,0,0,0-10.64,0c-16.58,16.32-28.14,35.32-34.33,56.32A88.66,88.66,0,0,0,41.48,103.5C20.92,114.7,5.87,131.76-3.38,154.27a8,8,0,0,0,2.16,8.74c17.58,16.63,40.56,26.47,64.84,27.79l-4.74,10.42a8,8,0,0,0,7.27,11.3h119.7a8,8,0,0,0,7.27-11.3l-4.74-10.42c24.28-1.32,47.26-11.16,64.84-27.79A8,8,0,0,0,239.38,154.27ZM128,54.76c12.38,13.68,21.61,29.83,27,47.63a76,76,0,0,0-54,0C106.39,84.59,115.62,68.44,128,54.76Z"/></svg></span>
+							<span class="nav_btn_text"><span class="btn_prefix">Lăng Kính 3: </span>Điều Nhỏ Bé</span>
+						</button>
+						<button class="prism_nav_btn" onclick="rotatePrismFace(3, this)"
+							title="Lăng Kính 4: Phân Tích">
+							<span class="nav_btn_icon"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,72a40,40,0,0,0-36.8,24.47A40,40,0,0,0,136,88V40a8,8,0,0,0-16,0V88A40,40,0,0,0,76.8,96.47,40,40,0,0,0,40,72a40,40,0,0,0-40,40,39.6,39.6,0,0,0,10.23,26.4A40,40,0,0,0,16,160a40,40,0,0,0,40,40h.8A40,40,0,0,0,96,224a39.6,39.6,0,0,0,24-8.08V224a8,8,0,0,0,16,0v-8.08A39.6,39.6,0,0,0,160,224a40,40,0,0,0,39.2-24h.8a40,40,0,0,0,40-40,40,40,0,0,0,6.23-21.6A39.6,39.6,0,0,0,256,112,40,40,0,0,0,216,72ZM64,184a24,24,0,0,1-23.75-20.73A8,8,0,0,0,32,156.4V152a24,24,0,0,1,0-48,23.63,23.63,0,0,1,16.5,6.77A8,8,0,0,0,62,106.8a24,24,0,0,1,42-10.8V176a24,24,0,0,1-40,8Zm152-32a24,24,0,0,1-8,16.4,8,8,0,0,0-8.25,6.87A24,24,0,0,1,176,184a24,24,0,0,1-24-24V96a24,24,0,0,1,42,10.8,8,8,0,0,0,13.5-3.97A23.63,23.63,0,0,1,224,104a24,24,0,0,1,0,48Z"/></svg></span>
+							<span class="nav_btn_text"><span class="btn_prefix">Lăng Kính 4: </span>Phân Tích</span>
+						</button>
+						<button class="prism_nav_btn auto_spin_btn" id="autoSpinBtn"
+							onclick="toggleAutoPrismSpin(this)" title="Bật/Tắt Tự Động Xoay">
+							<span class="nav_btn_icon"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,128a96,96,0,0,1-96,96,95.53,95.53,0,0,1-67.88-28.12,8,8,0,0,1,11.31-11.31A79.62,79.62,0,0,0,128,208a80,80,0,0,0,80-80,8,8,0,0,1,16,0Zm-96-80a79.62,79.62,0,0,0-56.57,23.43L48,94.85V64a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H88a8,8,0,0,0,0-16H59.31l23.12-23.12A79.62,79.62,0,0,1,128,64a80,80,0,0,1,80,80,8,8,0,0,0,16,0A96,96,0,0,0,128,48Z"/></svg></span>
+							<span class="nav_btn_text">Tự Động Xoay</span>
+						</button>
+					</div>
+
+					<!-- 3D Prism Stage (Right Column on Desktop) -->
+					<div class="cube_prism_stage">
+						<button type="button" class="prism_arrow_btn prev_btn" onclick="prevPrismFace()"
+							title="Lăng kính trước">❮</button>
+
+						<div class="cube_3d_viewport">
+							<div class="cube_3d_scene" id="cube3dScene">
+
+								<!-- Face 1: Lăng Kính 01 - Góc Nhìn Dịu Dàng -->
+								<div class="cube_3d_face face_1 active" data-face="0">
+									<!-- Top Media Area -->
+									<div class="prism_card_media">
+										<img src="images/lang-kinh/lang-kinh-01.jpg" alt="Góc Nhìn Dịu Dàng" class="prism_card_img">
+										<div class="prism_media_gradient"></div>
+										<div class="prism_media_top_bar">
+											<div class="prism_media_badge">
+												<span class="badge_dot"></span>
+												<span class="badge_text">LĂNG KÍNH 01</span>
+											</div>
+											<button type="button" class="prism_media_icon_btn bookmark_btn" onclick="togglePrismBookmark(this)" aria-label="Lưu vào danh sách">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+													<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+												</svg>
+											</button>
+										</div>
+										<div class="prism_media_bottom_bar">
+											<span class="prism_media_category">GÓC NHÌN TÂM HỒN</span>
+											<span class="prism_media_counter">01 / 04</span>
+										</div>
+									</div>
+
+									<!-- Card Body Content -->
+									<div class="prism_card_body">
+										<div class="prism_title_row">
+											<h3 class="prism_card_title">Góc Nhìn Dịu Dàng</h3>
+											<div class="prism_icon_chip"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,42.34a8,8,0,0,0-8-2C172.48,51.84,120,83.16,91.82,128H48a8,8,0,0,0-5.66,13.66l88,88A8,8,0,0,0,136,224a8.09,8.09,0,0,0,1.38-.12C182.17,212.8,217.18,173.23,229.66,42.34ZM128.53,207.28,59.31,138.06c23-38.41,66-67.43,115.82-80.12C162.77,108.76,149,158.46,128.53,207.28Z"/></svg></div>
+										</div>
+										<div class="prism_card_quote">
+											"Thay đổi góc nhìn nhỏ để nhận ra cả thế giới xung quanh đều dịu dàng và ấm áp..."
+										</div>
+										<div class="prism_card_actions">
+											<a href="kham-pha-goc-nhin.html" class="prism_card_cta">
+												<span>Khám Phá Chi Tiết</span>
+												<span class="cta_arrow">➔</span>
+											</a>
+											<div class="prism_sub_actions">
+												<button type="button" class="prism_action_btn like_btn" onclick="togglePrismLike(this)" aria-label="Yêu thích">
+													<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+														<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+													</svg>
+												</button>
+												<button type="button" class="prism_action_btn share_btn" onclick="sharePrismLens(0)" aria-label="Chia sẻ">
+													<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+														<circle cx="18" cy="5" r="3"></circle>
+														<circle cx="6" cy="12" r="3"></circle>
+														<circle cx="18" cy="19" r="3"></circle>
+														<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+														<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Face 2: Lăng Kính 02 - Không Gian Hóa Thân -->
+								<div class="cube_3d_face face_2" data-face="1">
+									<div class="prism_card_media">
+										<img src="images/lang-kinh/lang-kinh-02.jpg" alt="Không Gian Hóa Thân" class="prism_card_img" onerror="this.src='images/seasons/frame-summer.jpg'">
+										<div class="prism_media_gradient"></div>
+										<div class="prism_media_top_bar">
+											<div class="prism_media_badge">
+												<span class="badge_dot"></span>
+												<span class="badge_text">LĂNG KÍNH 02</span>
+											</div>
+											<button type="button" class="prism_media_icon_btn bookmark_btn" onclick="togglePrismBookmark(this)" aria-label="Lưu vào danh sách">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+													<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+												</svg>
+											</button>
+										</div>
+										<div class="prism_media_bottom_bar">
+											<span class="prism_media_category">KHÔNG GIAN NHẬP VAI</span>
+											<span class="prism_media_counter">02 / 04</span>
+										</div>
+									</div>
+									<div class="prism_card_body">
+										<div class="prism_title_row">
+											<h3 class="prism_card_title">Không Gian Hóa Thân</h3>
+											<div class="prism_icon_chip"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M212.92,34.69a8,8,0,0,0-6.86-1.45l-112,24A8,8,0,0,0,88,65V167.32A40,40,0,1,0,104,200V85.79l96-20.57V135.32A40,40,0,1,0,216,168V40A8,8,0,0,0,212.92,34.69ZM64,224a24,24,0,1,1,24-24A24,24,0,0,1,64,224Zm112-32a24,24,0,1,1,24-24A24,24,0,0,1,176,192Z"/></svg></div>
+										</div>
+										<div class="prism_card_quote">
+											"Nhập vai vào một hình mẫu yên bình để lắng nghe tiếng nói thầm lặng bên trong mình..."
+										</div>
+										<div class="prism_card_actions">
+											<a href="hoa-than.html" class="prism_card_cta">
+												<span>Khám Phá Chi Tiết</span>
+												<span class="cta_arrow">➔</span>
+											</a>
+											<div class="prism_sub_actions">
+												<button type="button" class="prism_action_btn like_btn" onclick="togglePrismLike(this)" aria-label="Yêu thích">
+													<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+														<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+													</svg>
+												</button>
+												<button type="button" class="prism_action_btn share_btn" onclick="sharePrismLens(1)" aria-label="Chia sẻ">
+													<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+														<circle cx="18" cy="5" r="3"></circle>
+														<circle cx="6" cy="12" r="3"></circle>
+														<circle cx="18" cy="19" r="3"></circle>
+														<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+														<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Face 3: Lăng Kính 03 - Điều Nhỏ Bé Hạnh Phúc -->
+								<div class="cube_3d_face face_3" data-face="2">
+									<div class="prism_card_media">
+										<img src="images/lang-kinh/lang-kinh-03.jpg" alt="Điều Nhỏ Bé Hạnh Phúc" class="prism_card_img" onerror="this.src='images/landing/patch-of-sunlight.jpg'">
+										<div class="prism_media_gradient"></div>
+										<div class="prism_media_top_bar">
+											<div class="prism_media_badge">
+												<span class="badge_dot"></span>
+												<span class="badge_text">LĂNG KÍNH 03</span>
+											</div>
+											<button type="button" class="prism_media_icon_btn bookmark_btn" onclick="togglePrismBookmark(this)" aria-label="Lưu vào danh sách">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+													<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+												</svg>
+											</button>
+										</div>
+										<div class="prism_media_bottom_bar">
+											<span class="prism_media_category">KHOẢNH KHẮC BÌNH YÊN</span>
+											<span class="prism_media_counter">03 / 04</span>
+										</div>
+									</div>
+									<div class="prism_card_body">
+										<div class="prism_title_row">
+											<h3 class="prism_card_title">Điều Nhỏ Bé Hạnh Phúc</h3>
+											<div class="prism_icon_chip"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M239.38,154.27C230.13,131.76,215.08,114.7,194.52,103.5a88.66,88.66,0,0,0-36.87-10.4c-6.19-21-17.75-40-34.33-56.32a8,8,0,0,0-10.64,0c-16.58,16.32-28.14,35.32-34.33,56.32A88.66,88.66,0,0,0,41.48,103.5C20.92,114.7,5.87,131.76-3.38,154.27a8,8,0,0,0,2.16,8.74c17.58,16.63,40.56,26.47,64.84,27.79l-4.74,10.42a8,8,0,0,0,7.27,11.3h119.7a8,8,0,0,0,7.27-11.3l-4.74-10.42c24.28-1.32,47.26-11.16,64.84-27.79A8,8,0,0,0,239.38,154.27ZM128,54.76c12.38,13.68,21.61,29.83,27,47.63a76,76,0,0,0-54,0C106.39,84.59,115.62,68.44,128,54.76Z"/></svg></div>
+										</div>
+										<div class="prism_card_quote">
+											"Hạnh phúc ẩn giấu trong từng khoảnh khắc nhỏ bé • tách trà ấm hay chiếc lá thu rơi..."
+										</div>
+										<div class="prism_card_actions">
+											<a href="dieu-nho-be.html" class="prism_card_cta">
+												<span>Khám Phá Chi Tiết</span>
+												<span class="cta_arrow">➔</span>
+											</a>
+											<div class="prism_sub_actions">
+												<button type="button" class="prism_action_btn like_btn" onclick="togglePrismLike(this)" aria-label="Yêu thích">
+													<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+														<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+													</svg>
+												</button>
+												<button type="button" class="prism_action_btn share_btn" onclick="sharePrismLens(2)" aria-label="Chia sẻ">
+													<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+														<circle cx="18" cy="5" r="3"></circle>
+														<circle cx="6" cy="12" r="3"></circle>
+														<circle cx="18" cy="19" r="3"></circle>
+														<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+														<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Face 4: Lăng Kính 04 - Phân Tích Nội Tâm -->
+								<div class="cube_3d_face face_4" data-face="3">
+									<div class="prism_card_media">
+										<img src="images/lang-kinh/lang-kinh-04.jpg" alt="Phân Tích Nội Tâm" class="prism_card_img" onerror="this.src='images/album/corridor_look_back.png'">
+										<div class="prism_media_gradient"></div>
+										<div class="prism_media_top_bar">
+											<div class="prism_media_badge">
+												<span class="badge_dot"></span>
+												<span class="badge_text">LĂNG KÍNH 04</span>
+											</div>
+											<button type="button" class="prism_media_icon_btn bookmark_btn" onclick="togglePrismBookmark(this)" aria-label="Lưu vào danh sách">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+													<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+												</svg>
+											</button>
+										</div>
+										<div class="prism_media_bottom_bar">
+											<span class="prism_media_category">GÓC TỰ NHẬN THỨC</span>
+											<span class="prism_media_counter">04 / 04</span>
+										</div>
+									</div>
+									<div class="prism_card_body">
+										<div class="prism_title_row">
+											<h3 class="prism_card_title">Phân Tích Nội Tâm</h3>
+											<div class="prism_icon_chip"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,72a40,40,0,0,0-36.8,24.47A40,40,0,0,0,136,88V40a8,8,0,0,0-16,0V88A40,40,0,0,0,76.8,96.47,40,40,0,0,0,40,72a40,40,0,0,0-40,40,39.6,39.6,0,0,0,10.23,26.4A40,40,0,0,0,16,160a40,40,0,0,0,40,40h.8A40,40,0,0,0,96,224a39.6,39.6,0,0,0,24-8.08V224a8,8,0,0,0,16,0v-8.08A39.6,39.6,0,0,0,160,224a40,40,0,0,0,39.2-24h.8a40,40,0,0,0,40-40,40,40,0,0,0,6.23-21.6A39.6,39.6,0,0,0,256,112,40,40,0,0,0,216,72ZM64,184a24,24,0,0,1-23.75-20.73A8,8,0,0,0,32,156.4V152a24,24,0,0,1,0-48,23.63,23.63,0,0,1,16.5,6.77A8,8,0,0,0,62,106.8a24,24,0,0,1,42-10.8V176a24,24,0,0,1-40,8Zm152-32a24,24,0,0,1-8,16.4,8,8,0,0,0-8.25,6.87A24,24,0,0,1,176,184a24,24,0,0,1-24-24V96a24,24,0,0,1,42,10.8,8,8,0,0,0,13.5-3.97A23.63,23.63,0,0,1,224,104a24,24,0,0,1,0,48Z"/></svg></div>
+										</div>
+										<div class="prism_card_quote">
+											"Chiêm nghiệm rễ sâu tâm lý, gỡ bỏ rối bời và tìm thấy khoảng lặng tĩnh tại để tự hàn gắn..."
+										</div>
+										<div class="prism_card_actions">
+											<a href="phan-tich-noi-tam.html" class="prism_card_cta">
+												<span>Khám Phá Chi Tiết</span>
+												<span class="cta_arrow">➔</span>
+											</a>
+											<div class="prism_sub_actions">
+												<button type="button" class="prism_action_btn like_btn" onclick="togglePrismLike(this)" aria-label="Yêu thích">
+													<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+														<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+													</svg>
+												</button>
+												<button type="button" class="prism_action_btn share_btn" onclick="sharePrismLens(3)" aria-label="Chia sẻ">
+													<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+														<circle cx="18" cy="5" r="3"></circle>
+														<circle cx="6" cy="12" r="3"></circle>
+														<circle cx="18" cy="19" r="3"></circle>
+														<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+														<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<button type="button" class="prism_arrow_btn next_btn" onclick="nextPrismFace()"
+							title="Lăng kính tiếp">❯</button>
+					</div>
+
+					<!-- Floating Apple-style Bottom Navigation Dock (Visible on Tablet & Mobile) -->
+					<div class="cube_mobile_dock">
+						<button type="button" class="dock_nav_arrow dock_prev" onclick="prevPrismFace()" aria-label="Lăng kính trước">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="15 18 9 12 15 6"></polyline>
+							</svg>
+						</button>
+
+						<span class="dock_divider"></span>
+
+						<div class="dock_icons_group">
+							<button type="button" class="dock_lens_btn active" onclick="rotatePrismFace(0, this)" aria-label="Lăng Kính 1: Góc Nhìn">
+								<span class="dock_icon"><svg width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,42.34a8,8,0,0,0-8-2C172.48,51.84,120,83.16,91.82,128H48a8,8,0,0,0-5.66,13.66l88,88A8,8,0,0,0,136,224a8.09,8.09,0,0,0,1.38-.12C182.17,212.8,217.18,173.23,229.66,42.34ZM128.53,207.28,59.31,138.06c23-38.41,66-67.43,115.82-80.12C162.77,108.76,149,158.46,128.53,207.28Z"/></svg></span>
+							</button>
+							<button type="button" class="dock_lens_btn" onclick="rotatePrismFace(1, this)" aria-label="Lăng Kính 2: Hóa Thân">
+								<span class="dock_icon"><svg width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M212.92,34.69a8,8,0,0,0-6.86-1.45l-112,24A8,8,0,0,0,88,65V167.32A40,40,0,1,0,104,200V85.79l96-20.57V135.32A40,40,0,1,0,216,168V40A8,8,0,0,0,212.92,34.69ZM64,224a24,24,0,1,1,24-24A24,24,0,0,1,64,224Zm112-32a24,24,0,1,1,24-24A24,24,0,0,1,176,192Z"/></svg></span>
+							</button>
+							<button type="button" class="dock_lens_btn" onclick="rotatePrismFace(2, this)" aria-label="Lăng Kính 3: Điều Nhỏ Bé">
+								<span class="dock_icon"><svg width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M239.38,154.27C230.13,131.76,215.08,114.7,194.52,103.5a88.66,88.66,0,0,0-36.87-10.4c-6.19-21-17.75-40-34.33-56.32a8,8,0,0,0-10.64,0c-16.58,16.32-28.14,35.32-34.33,56.32A88.66,88.66,0,0,0,41.48,103.5C20.92,114.7,5.87,131.76-3.38,154.27a8,8,0,0,0,2.16,8.74c17.58,16.63,40.56,26.47,64.84,27.79l-4.74,10.42a8,8,0,0,0,7.27,11.3h119.7a8,8,0,0,0,7.27-11.3l-4.74-10.42c24.28-1.32,47.26-11.16,64.84-27.79A8,8,0,0,0,239.38,154.27ZM128,54.76c12.38,13.68,21.61,29.83,27,47.63a76,76,0,0,0-54,0C106.39,84.59,115.62,68.44,128,54.76Z"/></svg></span>
+							</button>
+							<button type="button" class="dock_lens_btn" onclick="rotatePrismFace(3, this)" aria-label="Lăng Kính 4: Phân Tích">
+								<span class="dock_icon"><svg width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,72a40,40,0,0,0-36.8,24.47A40,40,0,0,0,136,88V40a8,8,0,0,0-16,0V88A40,40,0,0,0,76.8,96.47,40,40,0,0,0,40,72a40,40,0,0,0-40,40,39.6,39.6,0,0,0,10.23,26.4A40,40,0,0,0,16,160a40,40,0,0,0,40,40h.8A40,40,0,0,0,96,224a39.6,39.6,0,0,0,24-8.08V224a8,8,0,0,0,16,0v-8.08A39.6,39.6,0,0,0,160,224a40,40,0,0,0,39.2-24h.8a40,40,0,0,0,40-40,40,40,0,0,0,6.23-21.6A39.6,39.6,0,0,0,256,112,40,40,0,0,0,216,72ZM64,184a24,24,0,0,1-23.75-20.73A8,8,0,0,0,32,156.4V152a24,24,0,0,1,0-48,23.63,23.63,0,0,1,16.5,6.77A8,8,0,0,0,62,106.8a24,24,0,0,1,42-10.8V176a24,24,0,0,1-40,8Zm152-32a24,24,0,0,1-8,16.4,8,8,0,0,0-8.25,6.87A24,24,0,0,1,176,184a24,24,0,0,1-24-24V96a24,24,0,0,1,42,10.8,8,8,0,0,0,13.5-3.97A23.63,23.63,0,0,1,224,104a24,24,0,0,1,0,48Z"/></svg></span>
+							</button>
+						</div>
+
+						<span class="dock_divider"></span>
+
+						<button type="button" class="dock_spin_btn" id="mobileAutoSpinBtn" onclick="toggleAutoPrismSpin(this)" aria-label="Tự động xoay lăng kính" title="Tự động xoay 3D">
+							<span class="spin_icon"><svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,128a96,96,0,0,1-96,96,95.53,95.53,0,0,1-67.88-28.12,8,8,0,0,1,11.31-11.31A79.62,79.62,0,0,0,128,208a80,80,0,0,0,80-80,8,8,0,0,1,16,0Zm-96-80a79.62,79.62,0,0,0-56.57,23.43L48,94.85V64a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H88a8,8,0,0,0,0-16H59.31l23.12-23.12A79.62,79.62,0,0,1,128,64a80,80,0,0,1,80,80,8,8,0,0,0,16,0A96,96,0,0,0,128,48Z"/></svg></span>
+						</button>
+
+						<button type="button" class="dock_nav_arrow dock_next" onclick="nextPrismFace()" aria-label="Lăng kính tiếp theo">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="9 18 15 12 9 6"></polyline>
+							</svg>
+						</button>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- GÓC KỂ CHUYỆN (TEMPO-7 3D SOFT CARDS INTEGRATION) -->
+		<section class="tempo7_section">
+			<div class="tempo7_header">
+				<div class="tempo7_badge">Trạm Kể Chuyện & Lắng Nghe</div>
+				<h2 class="tempo7_title">
+					NHỮNG CÂU CHUYỆN <br><span>LÀ MỘT CÁI ÔM</span>
+				</h2>
+				<p class="tempo7_subtitle">
+					Có những câu chuyện ngắn thôi, nhưng đủ dịu dàng để sưởi ấm một đêm mất ngủ. Nơi đây lưu giữ những
+					cái ôm ấm áp giữa những người xa lạ. Bấm vào từng chiếc hộp để lắng nghe nhé!
+				</p>
+			</div>
+
+			<div class="tempo7_container">
+				<div class="tempo7_grid" id="grid-gallery">
+					<div class="cute-card-container" onclick="openStoryPopup(0)">
+						<div class="cute-card">
+							<div class="card-front"
+								style="background-image: url(images/landing/bus.jpg); background-position: right;">
+								<span class="card_tag">#04 • Xe đêm</span>
+							</div>
+						</div>
+					</div>
+					<div class="cute-card-container" onclick="openStoryPopup(1)">
+						<div class="cute-card">
+							<div class="card-front"
+								style="background-image: url('images/landing/patch-of-sunlight.jpg')">
+								<span class="card_tag">#02 • Vạt nắng</span>
+							</div>
+						</div>
+					</div>
+					<div class="cute-card-container" onclick="openStoryPopup(2)">
+						<div class="cute-card">
+							<div class="card-front" style="background-image: url('images/landing/peach.jpg')">
+								<span class="card_tag">#03 • Thùng Đào</span>
+							</div>
+						</div>
+					</div>
+					<div class="cute-card-container" onclick="openStoryPopup(3)">
+						<div class="cute-card">
+							<div class="card-front" style="background-image: url('images/landing/girl-at-night.jpg')">
+								<span class="card_tag">#01 • Đêm muộn</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tempo7_cta">
+					<a href="goc-ke-chuyen.html" class="tempo7_btn">
+						<span>Lắng Nghe Tất Cả Câu Chuyện Dịu Lành</span>
+						<span>➔</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- POPUP MODAL FOR GÓC KỂ CHUYỆN (TEMPO-7 STYLE) -->
+		<div id="story-tempo7-modal" class="tempo7_modal">
+			<div class="modal_top">
+				<span id="story-popup-index">CÂU CHUYỆN SỐ 01</span>
+				<button onclick="closeStoryPopup()" class="modal_close_btn">✕ ĐÓNG LẠI</button>
+			</div>
+
+			<div class="modal_body">
+				<div id="story-popup-image" class="modal_avatar"></div>
+
+				<h3 id="story-popup-title" class="modal_title"></h3>
+				<p id="story-popup-text" class="modal_text"></p>
+				<div class="modal_action">
+					<a id="story-popup-link" href="nhung-dong-chu-biet-om.html" class="modal_primary_btn">
+						<span>Đọc Đầy Đủ Câu Chuyện & Gửi Cái Ôm</span>
+						<span>➔</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="modal_footer">
+				<button onclick="prevStoryItem()" class="modal_nav_btn prev_btn">
+					← CÂU CHUYỆN TRƯỚC
+				</button>
+				<span class="modal_hint">Nhấn phím mũi tên ◀ ▶ trên bàn phím để lắng nghe tiếp nhaaa</span>
+				<button onclick="nextStoryItem()" class="modal_nav_btn next_btn">
+					CÂU CHUYỆN TIẾP THEO →
+				</button>
+			</div>
+		</div>
+
+		<script>
+			// Stories Data from Góc Kể Chuyện for Tempo-7 Section
+			const storiesDataTempo7 = [
+				{
+					id: "4",
+					tag: "🚌 CHUYẾN XE ĐÊM",
+					title: "Chuyến xe buýt đêm muộn lấp lánh ánh đèn",
+					text: "Những con người xa lạ chẳng quen biết tên nhau, nhưng cùng im lặng nhường ghế và sưởi ấm cho nhau qua một đêm giá lạnh. Trong hành trình cuộc sống, luôn có những đồng cảm thầm lặng đi cùng bạn.",
+					img: "images/landing/bus.jpg"
+				},
+				{
+					id: "2",
+					tag: "☀️ VẠT NẮNG ẤM ÁP",
+					title: "Vạt nắng len qua ô cửa sổ ngày giông bão",
+					text: "Bạn không cần trở thành mặt trời chói lóa. Đôi khi chỉ cần là vạt nắng nhỏ xuất hiện đúng lúc, tỏa chút dịu dàng thế là đủ rồi. Mỗi lòng tốt nhỏ bé bạn trao đi đều là một tia nắng sưởi ấm cho ai đó.",
+					img: "images/landing/patch-of-sunlight.jpg"
+				},
+				{
+					id: "7",
+					tag: "🍑 TẤM LÒNG CHÂN THÀNH",
+					title: "Thùng đào thối & lon trà hết hạn: Đừng vội hoài nghi tấm lòng",
+					text: "Bạn thân đội mưa mang qua tặng một thùng đào, mở ra thấy một nửa bị thối... Đôi khi con người ta chỉ đang cố trao đi thứ mà họ cho là trân quý nhất. Một người thật sự muốn cố tinh tặng bạn những quả đào thối, họ sẽ không tốn công tốn sức đội mưa gió mang đến cho bạn đâu.",
+					img: "images/landing/peach.jpg"
+				},
+				{
+					id: "1",
+					tag: "🌙 MẤT NGỦ & ĐÊM MUỘN",
+					title: "Một món quà dành cho tất cả những ai đang mất ngủ...",
+					text: "Trong lúc bạn tưởng mình đang rơi, ở một nơi nào đó nhất định vẫn có người đang cố giữ bạn lại. Đừng dằn vặt bản thân vì những đêm chưa thể chợp mắt, hãy cứ thở nhẹ nhàng và cho phép trái tim được nghỉ ngơi.",
+					img: "images/landing/girl-at-night.jpg"
+				},
+
+
+			];
+
+			let currentStoryIndex = 0;
+			const storyModal = document.getElementById('story-tempo7-modal');
+
+			function openStoryPopup(index) {
+				currentStoryIndex = index;
+				updateStoryPopupContent();
+				storyModal.classList.add('active');
+				storyModal.style.pointerEvents = 'auto';
+				gsap.to(storyModal, { opacity: 1, duration: 0.3, ease: "power2.out" });
+				gsap.fromTo("#story-popup-text", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, delay: 0.1 });
+			}
+
+			function closeStoryPopup() {
+				storyModal.classList.remove('active');
+				storyModal.style.pointerEvents = 'none';
+				gsap.to(storyModal, { opacity: 0, duration: 0.2, ease: "power2.in" });
+			}
+
+			function updateStoryPopupContent() {
+				const data = storiesDataTempo7[currentStoryIndex];
+				document.getElementById('story-popup-index').innerText = `${data.tag} • CÂU CHUYỆN ${currentStoryIndex + 1} / ${storiesDataTempo7.length}`;
+				document.getElementById('story-popup-title').innerText = data.title;
+				document.getElementById('story-popup-text').innerText = data.text;
+				document.getElementById('story-popup-image').style.backgroundImage = `url('${data.img}')`;
+				document.getElementById('story-popup-link').href = `chi-tiet-cau-chuyen.html?id=${data.id || '1'}`;
+			}
+
+			function nextStoryItem() {
+				if (currentStoryIndex < storiesDataTempo7.length - 1) {
+					currentStoryIndex++;
+					gsap.to("#story-popup-text", {
+						opacity: 0, y: -10, duration: 0.15, onComplete: () => {
+							updateStoryPopupContent();
+							gsap.fromTo("#story-popup-text", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25 });
+						}
+					});
+				}
+			}
+
+			function prevStoryItem() {
+				if (currentStoryIndex > 0) {
+					currentStoryIndex--;
+					gsap.to("#story-popup-text", {
+						opacity: 0, y: 10, duration: 0.15, onComplete: () => {
+							updateStoryPopupContent();
+							gsap.fromTo("#story-popup-text", { y: -10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25 });
+						}
+					});
+				}
+			}
+
+			document.addEventListener('keydown', (e) => {
+				if (storyModal && storyModal.classList.contains('active')) {
+					if (e.key === "ArrowRight") nextStoryItem();
+					if (e.key === "ArrowLeft") prevStoryItem();
+					if (e.key === "Escape") closeStoryPopup();
+				}
+			});
+		</script>
+	</main>
+
+	<div id="footer-placeholder"></div>
+
+	<!-- WELCOME LETTER MODAL (TRANG GIẤY THƯ CỔ ĐIỂN TỰ NHIÊN - TORN PAPER) -->
+	<div id="welcomeLetterModal" class="welcome-letter-overlay" onclick="handleLetterBackdropClick(event)">
+		<div class="welcome-letter-wrapper">
+			<!-- Top Scroll Wooden Rod (Trục cuộn trên) -->
+			<div class="scroll-rod scroll-rod-top">
+				<div class="rod-knob knob-left"></div>
+				<div class="rod-cylinder"></div>
+				<div class="rod-knob knob-right"></div>
+			</div>
+
+			<!-- Bottom Scroll Wooden Rod (Trục cuộn dưới lăn mở) -->
+			<div class="scroll-rod scroll-rod-bottom">
+				<div class="rod-knob knob-left"></div>
+				<div class="rod-cylinder"></div>
+				<div class="rod-knob knob-right"></div>
+			</div>
+
+			<!-- Classical Silk Ribbon & Jade Charm Close Button (Dải Lụa Đỏ Buộc Chiếu Thư Cổ Phong) -->
+			<button class="welcome-letter-close silk-ribbon-tag" onclick="closeWelcomeLetterModal()"
+				title="Cuộn chiếu thư lại" aria-label="Cuộn chiếu thư lại">
+				<div class="silk-ribbon-wrapper">
+					<div class="silk-hanging-loop"></div>
+					<div class="silk-ribbon-body">
+						<span class="silk-ribbon-icon">📜</span>
+						<span class="silk-ribbon-text">Cuộn Thư</span>
+					</div>
+					<div class="silk-swallow-tail"></div>
+					<div class="silk-jade-pendant">
+						<div class="jade-ring">
+							<div class="jade-core"></div>
+						</div>
+						<div class="silk-tassels">
+							<span class="tassel-thread t1"></span>
+							<span class="tassel-thread t2"></span>
+							<span class="tassel-thread t3"></span>
+						</div>
+					</div>
+				</div>
+			</button>
+
+			<div class="welcome-letter-card">
+				<!-- Vintage Letter Stamp / Wax Seal -->
+				<div class="letter-stamp-seal">
+					<div class="wax-seal">
+						<span>🐾</span>
+					</div>
+					<div class="postal-mark">
+						<span class="postal-date">TIỆM NHỎ SUY TƯ</span>
+						<span class="postal-tag">THƯ GỬI BẠN • 2026</span>
+					</div>
+				</div>
+
+				<!-- Letter Header -->
+				<div class="letter-salutation">
+					<span class="letter-date">Một ngày bình yên ghé Tiệm,</span>
+					<h3>Thương gửi <span class="cara-user-name">bạn</span>, người đang dừng lại ở góc nhỏ này...</h3>
+				</div>
+
+				<!-- Letter Body -->
+				<div class="letter-content-body">
+					<p>Có lẽ bạn tình cờ bước vào đây giữa một buổi sáng ngập nắng, một chiều mưa tan tầm đầy vội vã,
+						hay
+						trong một đêm muộn mà lòng bỗng thấy chông chênh.</p>
+
+					<p>Mình tạo nên <em>Tiệm Nhỏ Suy Tư</em>&nbsp;không phải để khuyên nhủ bạn phải trở nên mạnh mẽ hay
+						cố
+						gắng
+						vượt bậc. Giữa một thế giới luôn hối hả thúc giục chúng ta phải chạy thật nhanh, nơi này chỉ
+						mong
+						muốn là một <strong>"trạm dừng dịu dàng"</strong>.</p>
+
+					<p>Mỗi câu chữ, từng nét vẽ, animation của chú mèo hay một giai điệu Lofi khe khẽ ở đây... đều được
+						gom
+						nhặt với một tâm niệm giản dị: <strong>Gửi đến bạn một cái ôm dịu lành</strong>. Để bạn biết
+						rằng,
+						dù thế giới ngoài kia có đang thế nào, bạn vẫn xứng đáng được lắng nghe và được vỗ về.</p>
+
+					<p>Hãy cứ thả lỏng bờ vai, nghe một bản nhạc êm, và thong thả dạo bước cùng mình nhé. Đừng vội vã,
+						cuộc
+						đời luôn có những mùa rất đẹp đang chờ bạn ở phía trước.</p>
+				</div>
+
+				<!-- Letter Footer Signature -->
+				<div class="letter-signature">
+					<div class="letter-signature-area">
+						<p class="sig-wishes">Mong <span class="cara-user-name">bạn</span> hôm nay luôn dịu dàng với
+							chính mình,</p>
+						<div class="sig-author">
+							<span class="sig-name">TìnhTình</span>
+							<span class="sig-role">Storyteller & Developer</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Letter Action CTAs -->
+				<div class="letter-action-buttons">
+					<button class="btn-letter-continue" onclick="continueFromLetter('.discovery_section')">
+						<span>Tiếp tục dạo bước cùng Tiệm</span>
+						<span>➔</span>
+					</button>
+					<button class="btn-letter-close-secondary" onclick="closeWelcomeLetterModal()">
+						Gập thư lại
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- SIDE DRAWER MODAL FOR JOURNAL DISCOVERIES -->
+	<div id="journalOverlay" class="journal-drawer-overlay"></div>
+	<div id="journalDrawer" class="journal-drawer">
+		<div class="drawer-header">
+			<div class="drawer-title-group">
+				<h3>Nhật Ký Khám Phá</h3>
+				<span class="drawer-badge">TìnhTình</span>
+			</div>
+			<button id="closeJournalDrawer" class="drawer-close-btn" title="Đóng">✕</button>
+		</div>
+		<p class="drawer-subtitle">Danh sách các điểm chạm bí mật bạn đã mở khóa trên hành trình:</p>
+		<div id="journalList" class="drawer-list"></div>
+	</div>
+
+	<script src="js/plugin/jquery.min.js"></script>
+	<script src="js/header.js"></script>
+	<script src="js/components/walk-cycle.js"></script>
+	<script src="js/animation-2022/reuse/module.js"></script>
+	<script src="js/animation-2022/globalVar.js"></script>
+	<script src="js/global.js"></script>
+	<script src="js/components/discovery-section.js"></script>
+	<script src="js/hero-lofi.js"></script>
+	<!-- Pinned Projects GSAP Controller -->
+	<script src="js/components/pinned-projects.js"></script>
+
+	<!-- 3D PRISM ROTATING EXHIBITION CONTROLLER -->
+	<script>
+		let currentStepIndex = 0;
+		let currentPrismAngle = 0;
+		let autoSpinTimer = null;
+
+		function applyPrismFaceTransforms(baseAngle, isTransitioning = true) {
+			const faces = document.querySelectorAll('.cube_3d_face');
+			let baseZActive = 205;
+			let baseZInactive = 185;
+			if (window.innerWidth <= 480) { baseZActive = 138; baseZInactive = 125; } else if (window.innerWidth <= 768) { baseZActive = 145; baseZInactive = 132; } else if (window.innerWidth <= 1024) { baseZActive = 185; baseZInactive = 170; } else { baseZActive = 230; baseZInactive = 210; }
+			if (false) { if (false) {
+				baseZActive = 158;
+				baseZInactive = 142;
+			} else if (window.innerWidth <= 480) {
+				baseZActive = 172;
+				baseZInactive = 156;
+			} /* end check */
+				baseZActive = 185;
+				baseZInactive = 168;
+			}
+
+			faces.forEach((f, idx) => {
+				let relAngle = (idx * 90) + baseAngle;
+
+				let normAngle = ((relAngle % 360) + 360) % 360;
+				if (normAngle > 180) normAngle -= 360;
+
+				const isActive = (idx === currentStepIndex);
+				const zDist = isActive ? baseZActive : baseZInactive;
+
+				if (isTransitioning) {
+					f.style.transition = 'transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease';
+					if (isActive) {
+						f.classList.remove('prism_mirror_flash');
+						void f.offsetWidth; // Force reflow to restart mirror sheen flash
+						f.classList.add('prism_mirror_flash');
+					}
+				} else {
+					f.style.transition = 'none';
+					f.classList.remove('prism_mirror_flash');
+				}
+
+				f.style.transform = `rotateY(${normAngle}deg) translateZ(${zDist}px)`;
+
+				if (isActive) {
+					f.classList.add('active');
+				} else {
+					f.classList.remove('active');
+				}
+			});
+
+			const btns = document.querySelectorAll('.prism_nav_btn');
+			btns.forEach((b, idx) => {
+				if (b.id !== 'autoSpinBtn') {
+					if (idx === currentStepIndex) {
+						b.classList.add('active');
+					} else {
+						b.classList.remove('active');
+					}
+				}
+			});
+		}
+
+		function updatePrismDock(index) {
+			const dockBtns = document.querySelectorAll('.dock_lens_btn');
+			dockBtns.forEach((btn, idx) => {
+				btn.classList.toggle('active', idx === index);
+			});
+		}
+
+		function togglePrismBookmark(btn) {
+			if (!btn) return;
+			btn.classList.toggle('active');
+		}
+
+		function togglePrismLike(btn) {
+			if (!btn) return;
+			btn.classList.toggle('active');
+		}
+
+		function sharePrismLens(index) {
+			const lensPaths = [
+				"kham-pha-goc-nhin.html",
+				"hoa-than.html",
+				"dieu-nho-be.html",
+				"phan-tich-noi-tam.html"
+			];
+			const targetUrl = window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + (lensPaths[index] || '');
+			if (navigator.clipboard) {
+				navigator.clipboard.writeText(targetUrl).then(() => {
+					alert('Đã sao chép liên kết lăng kính!');
+				}).catch(() => {
+					prompt('Sao chép liên kết lăng kính:', targetUrl);
+				});
+			} else {
+				prompt('Sao chép liên kết lăng kính:', targetUrl);
+			}
+		}
+
+		function rotatePrismFace(faceIndex) {
+			currentStepIndex = ((faceIndex % 4) + 4) % 4;
+			currentPrismAngle = currentStepIndex * -90;
+			applyPrismFaceTransforms(currentPrismAngle, true);
+			updatePrismDock(currentStepIndex);
+		}
+
+		function nextPrismFace() {
+			currentStepIndex = (currentStepIndex + 1) % 4;
+			rotatePrismFace(currentStepIndex);
+		}
+
+		function prevPrismFace() {
+			currentStepIndex = (currentStepIndex - 1 + 4) % 4;
+			rotatePrismFace(currentStepIndex);
+		}
+
+		function toggleAutoPrismSpin(btnElement) {
+			const desktopBtn = document.getElementById('autoSpinBtn');
+			const mobileBtn = document.getElementById('mobileAutoSpinBtn');
+			if (autoSpinTimer) {
+				clearInterval(autoSpinTimer);
+				autoSpinTimer = null;
+				if (desktopBtn) {
+					desktopBtn.classList.remove('spinning');
+					const textSpan = desktopBtn.querySelector('.nav_btn_text');
+					if (textSpan) textSpan.innerText = "Tự Động Xoay";
+					const iconSpan = desktopBtn.querySelector('.nav_btn_icon');
+					if (iconSpan) { /* keep svg */ }
+					desktopBtn.title = "Bật Tự Động Xoay";
+				}
+				if (mobileBtn) {
+					mobileBtn.classList.remove('spinning');
+					mobileBtn.title = "Bật Tự Động Xoay";
+				}
+			} else {
+				autoSpinTimer = setInterval(nextPrismFace, 3500);
+				if (desktopBtn) {
+					desktopBtn.classList.add('spinning');
+					const textSpan = desktopBtn.querySelector('.nav_btn_text');
+					if (textSpan) textSpan.innerText = "Tạm Dừng";
+					const iconSpan = desktopBtn.querySelector('.nav_btn_icon');
+					if (iconSpan) { /* keep svg */ }
+					desktopBtn.title = "Tạm Dừng Xoay";
+				}
+				if (mobileBtn) {
+					mobileBtn.classList.add('spinning');
+					mobileBtn.title = "Tạm Dừng Xoay";
+				}
+			}
+		}
+
+		// Initial setup on load
+		document.addEventListener("DOMContentLoaded", () => {
+			rotatePrismFace(0);
+		window.addEventListener("resize", () => applyPrismFaceTransforms(currentPrismAngle, false));
+		});
+		rotatePrismFace(0);
+		window.addEventListener("resize", () => applyPrismFaceTransforms(currentPrismAngle, false));
+
+		// Mouse Drag & Touch Swipe Controller (Endless Continuous Dragging)
+		(function initCubeDrag() {
+			let isDragging = false;
+			let startX = 0;
+			let startAngle = 0;
+
+			const sceneEl = document.getElementById("cube3dScene");
+			if (!sceneEl) return;
+
+			// Mouse Events
+			sceneEl.addEventListener('mousedown', (e) => {
+				if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.prism_card_cta') || e.target.closest('.prism_action_btn') || e.target.closest('.prism_media_icon_btn')) {
+					return;
+				}
+				isDragging = true;
+				startX = e.clientX;
+				startAngle = currentPrismAngle;
+			});
+
+			window.addEventListener('mousemove', (e) => {
+				if (!isDragging) return;
+				const deltaX = e.clientX - startX;
+				currentPrismAngle = startAngle + deltaX * 0.55;
+				applyPrismFaceTransforms(currentPrismAngle, false);
+			});
+
+			window.addEventListener('mouseup', () => {
+				if (!isDragging) return;
+				isDragging = false;
+				let nearestStep = Math.round(currentPrismAngle / -90);
+				currentStepIndex = ((nearestStep % 4) + 4) % 4;
+				currentPrismAngle = nearestStep * -90;
+				applyPrismFaceTransforms(currentPrismAngle, true);
+				updatePrismDock(currentStepIndex);
+			});
+
+			// Touch Events for Mobile (Smooth horizontal drag, preserve natural vertical page scroll)
+			let touchStartY = 0;
+			let isHorizontalDrag = false;
+
+			sceneEl.addEventListener('touchstart', (e) => {
+				if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.prism_card_cta') || e.target.closest('.prism_action_btn') || e.target.closest('.prism_media_icon_btn')) {
+					return;
+				}
+				if (e.touches.length > 0) {
+					isDragging = true;
+					isHorizontalDrag = false;
+					startX = e.touches[0].clientX;
+					touchStartY = e.touches[0].clientY;
+					startAngle = currentPrismAngle;
+				}
+			}, { passive: true });
+
+			window.addEventListener('touchmove', (e) => {
+				if (!isDragging || e.touches.length === 0) return;
+				const deltaX = e.touches[0].clientX - startX;
+				const deltaY = e.touches[0].clientY - touchStartY;
+
+				if (!isHorizontalDrag) {
+					if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 8) {
+						isHorizontalDrag = true;
+					} else if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 8) {
+						isDragging = false;
+						return;
+					}
+				}
+
+				if (isHorizontalDrag) {
+					if (e.cancelable) e.preventDefault();
+					currentPrismAngle = startAngle + deltaX * 0.55;
+					applyPrismFaceTransforms(currentPrismAngle, false);
+				}
+			}, { passive: false });
+
+			window.addEventListener('touchend', () => {
+				if (!isDragging) return;
+				isDragging = false;
+				isHorizontalDrag = false;
+				let nearestStep = Math.round(currentPrismAngle / -90);
+				currentStepIndex = ((nearestStep % 4) + 4) % 4;
+				currentPrismAngle = nearestStep * -90;
+				applyPrismFaceTransforms(currentPrismAngle, true);
+				updatePrismDock(currentStepIndex);
+			});
+		})();
+	</script>
+</body>
+
+</html>

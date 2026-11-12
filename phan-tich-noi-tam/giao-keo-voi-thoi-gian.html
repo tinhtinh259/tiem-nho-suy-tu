@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giao Kèo Với Thời Gian • Tiệm Nhỏ Suy Tư</title>
+  <meta name="description"
+    content="Nút chụp màn hình là tính năng lãng mạn nhất từng được tạo ra trên điện thoại. Khi tiếng 'tách' vang lên, bạn vừa chính thức thực hiện một giao kèo với thời gian để đóng băng cảm xúc.">
+
+  <!-- Header & Footer Loader -->
+  <script src="../js/include-header-footer.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/logo.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Core Stylesheets for Header & Footer -->
+  <link rel="stylesheet" href="../css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/global.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Itim&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #030712;
+      color: #f3f4f6;
+      overflow-x: hidden;
+    }
+
+    .serif-font {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Glassmorphism for mock chat screenshots */
+    .screenshot-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #030712;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+
+    /* Scroll Path Indicator Dark Theme Override */
+    .scroll-path-indicator {
+      background: rgba(17, 24, 39, 0.88) !important;
+      border: 1.5px solid rgba(192, 132, 252, 0.35) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(126, 34, 206, 0.2) !important;
+    }
+    .scroll-path-indicator .scroll-percentage-text {
+      color: #e9d5ff !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex flex-col justify-center items-center px-6 relative pt-24 md:pt-20">
+    <!-- Glow effects representing phone screens in the dark -->
+    <div class="absolute w-[320px] h-[320px] bg-pink-500/10 blur-[130px] top-1/4 left-1/4 rounded-full pointer-events-none"></div>
+    <div class="absolute w-[320px] h-[320px] bg-cyan-500/10 blur-[130px] bottom-1/4 right-1/4 rounded-full pointer-events-none"></div>
+
+    <div class="max-w-3xl text-center z-10 space-y-6" id="hero-content">
+      <span class="text-xs tracking-[0.3em] text-zinc-500 uppercase font-medium block">
+        🌿 PHÂN TÍCH NỘI TÂM • DIGITAL NOSTALGIA
+      </span>
+      <h1 class="serif-font text-3xl md:text-5xl lg:text-6xl font-light text-zinc-100 leading-tight">
+        Người khiến bạn <br>
+        <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-cyan-400 font-normal">
+          chụp màn hình tin nhắn
+        </span> <br>
+        lưu vào album là ai?
+      </h1>
+      <div class="w-12 h-[1px] bg-zinc-800 mx-auto my-4"></div>
+      <p class="text-zinc-400 text-sm md:text-base max-w-md mx-auto font-light leading-relaxed">
+        Trong hàng ngàn dung lượng bộ nhớ, có những dòng chữ chỉ tốn vài kilobyte nhưng lại chiếm giữ một khoảng không gian khổng lồ trong tâm trí.
+      </p>
+      <div class="pt-10 text-[11px] tracking-widest text-zinc-500 uppercase animate-pulse">
+        Cuộn để mở khóa album ↓
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT FLOW -->
+  <main class="max-w-4xl mx-auto px-6 pb-28 space-y-40">
+
+    <!-- CONCEPT 1: Hành động lưu giữ -->
+    <section class="reveal-section grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-4 font-light text-zinc-400 text-justify">
+        <span class="text-xs text-pink-400 font-mono tracking-wider">[01 / Định nghĩa]</span>
+        <h2 class="serif-font text-2xl md:text-3xl text-zinc-200">Nỗ lực đóng băng cảm xúc</h2>
+        <p>
+          Nút bấm chụp màn hình có lẽ là tính năng lãng mạn nhất từng được tạo ra trên điện thoại. Khi hai phím cơ học cùng nhấn xuống, một tiếng <em>'tách'</em> vang lên, bạn vừa chính thức thực hiện một <strong>giao kèo với thời gian</strong>.
+        </p>
+        <p>
+          Bạn lưu nó lại không phải vì sợ quên nội dung, mà vì bạn biết khoảnh khắc xúc động, ngọt ngào, hoặc thậm chí là đau lòng đó sẽ không bao giờ lặp lại một lần nữa trong đời với nguyên vẹn tần số ấy.
+        </p>
+        <p class="border-l-2 border-pink-500/50 pl-4 py-1.5 italic text-zinc-300 text-sm leading-relaxed bg-pink-500/5 rounded-r-xl">
+          "Hành động chụp màn hình tin nhắn không chỉ dành cho sự 'yêu thích', mà là dành cho <em>'bất kỳ ai hay điều gì khiến trái tim bạn phải xao động'</em>. Đó là cách chúng ta số hóa ký ức và giữ lại một phần tâm hồn mình trong bộ nhớ điện thoại."
+        </p>
+      </div>
+      <!-- Mock Phone UI Component -->
+      <div class="screenshot-card p-6 rounded-3xl border border-zinc-800/80 max-w-sm w-full mx-auto space-y-4 shadow-2xl" id="chat-mock-1">
+        <div class="flex items-center justify-between text-[11px] text-zinc-500 font-mono">
+          <span class="tracking-wider">MESSENGER</span>
+          <span>11:11 PM</span>
+        </div>
+        <div class="space-y-3 pt-2">
+          <div class="bg-zinc-800/60 text-xs p-3.5 rounded-2xl rounded-tl-none max-w-[82%] text-zinc-300 leading-relaxed border border-zinc-700/40">
+            Cậu ngủ chưa? Tự nhiên nhìn lên trời thấy trăng hôm nay đẹp quá, liền nhớ tới cậu.
+          </div>
+          <div class="bg-pink-600/20 text-xs p-3.5 rounded-2xl rounded-tr-none max-w-[82%] ml-auto text-pink-200 border border-pink-500/30 leading-relaxed">
+            Trăng đẹp thật. Cảm ơn vì đã nhớ tới tớ nhé.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCEPT 2: Ba kiểu người trong Album -->
+    <section class="reveal-section space-y-12">
+      <div class="text-center">
+        <span class="text-xs text-cyan-400 font-mono tracking-wider">[02 / Phân loại]</span>
+        <h2 class="serif-font text-3xl md:text-4xl text-zinc-200 mt-2">Họ thường là ai?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="p-6 bg-zinc-900/40 border border-zinc-800/60 rounded-2xl space-y-3 hover:border-pink-500/30 transition-all duration-300">
+          <div class="text-pink-400 font-mono text-xs">01. Người thương cũ</div>
+          <p class="text-zinc-200 font-medium text-sm">Điểm tựa của những ngày giông bão</p>
+          <p class="text-zinc-400 text-xs font-light leading-relaxed text-justify">
+            Là những lời chúc ngủ ngon đều đặn, những lời hứa hẹn ngây ngô thời đôi mươi. Người ấy giờ có thể đã thuộc về một album của ai khác, nhưng những pixel ảnh cũ vẫn nằm im như một minh chứng: Bạn đã từng được yêu nhiều đến thế.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="p-6 bg-zinc-900/40 border border-zinc-800/60 rounded-2xl space-y-3 hover:border-cyan-500/30 transition-all duration-300">
+          <div class="text-cyan-400 font-mono text-xs">02. Người bạn tri kỷ</div>
+          <p class="text-zinc-200 font-medium text-sm">Tấm lưới đỡ khi bạn gục ngã</p>
+          <p class="text-zinc-400 text-xs font-light leading-relaxed text-justify">
+            Không lãng mạn, nhưng đầy thô ráp và chân thành. Là dòng tin nhắn chửi bới bắt bạn phải tỉnh táo lại sau khi thất tình, hoặc câu nói đơn giản: "Mệt quá thì về đây tao nuôi". Bạn chụp lại vì nhận ra mình không hề cô độc trên đời.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="p-6 bg-zinc-900/40 border border-zinc-800/60 rounded-2xl space-y-3 hover:border-purple-500/30 transition-all duration-300">
+          <div class="text-purple-400 font-mono text-xs">03. Chính bạn</div>
+          <p class="text-zinc-200 font-medium text-sm">Lời công nhận từ một ai đó</p>
+          <p class="text-zinc-400 text-xs font-light leading-relaxed text-justify">
+            Là tin nhắn khen ngợi từ sếp sau một dự án kiệt sức, là lời cảm ơn từ một người xa lạ được bạn giúp đỡ. Bạn chụp màn hình cất đi để những lúc hoài nghi về giá trị của bản thân, bạn mở ra để tự nhắc nhở mình phải bước tiếp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCEPT 3: Sự dằn vặt thầm lặng -->
+    <section class="reveal-section max-w-2xl mx-auto text-center space-y-6">
+      <span class="text-xs text-purple-400 font-mono tracking-wider">[03 / Tâm sự]</span>
+      <h2 class="serif-font text-2xl md:text-3xl text-zinc-200">Nghịch lý của những bức ảnh chụp màn hình</h2>
+      <p class="text-zinc-400 font-light leading-relaxed text-justify md:text-center">
+        Có một sự thật cay đắng: Khi mối quan hệ còn tốt đẹp, chúng ta hiếm khi vào album để đọc lại tin nhắn. Chúng ta chỉ tìm đến chúng khi thực tại đã trở nên lạnh nhạt, xa cách hoặc đã hoàn toàn kết thúc.
+      </p>
+      <div class="p-6 bg-zinc-900/60 rounded-2xl border border-zinc-800/60 italic font-light text-zinc-300 text-sm md:text-base max-w-lg mx-auto shadow-inner">
+        “Chúng ta dùng sự ấm áp của quá khứ để sưởi ấm cho sự lạnh ngắt của hiện tại. Album ảnh chụp màn hình giống như một bảo tàng lưu giữ những linh hồn của tình cảm đã từng sống.”
+      </div>
+    </section>
+
+    <!-- DEVELOPER'S NOTE (PHÁ VỠ BỨC TƯỜNG THỨ TƯ) -->
+    <section class="reveal-section max-w-2xl mx-auto">
+      <div class="bg-zinc-950/80 border border-zinc-800 rounded-2xl p-6 md:p-8 font-mono relative overflow-hidden shadow-2xl">
+        <!-- Decorative window controls -->
+        <div class="flex items-center gap-1.5 mb-6">
+          <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+          <span class="text-[11px] text-zinc-500 ml-2">developer_note.log</span>
+        </div>
+
+        <div class="space-y-4 text-xs md:text-sm leading-relaxed text-zinc-400 font-light">
+          <p class="text-zinc-500">// Đôi lời từ người bẻ khóa giao diện này...</p>
+          <p>
+            Đêm muộn rảnh rỗi, ngồi lướt và căn chỉnh lại từng dòng code của cái giao diện này, bật thêm một bài nhạc Lofi chậm rãi, tự nhiên bao nhiêu kỷ niệm cũ cứ thế <span class="text-pink-400 font-semibold">"tách tách"</span> ùa về — y hệt như cái tiếng bấm chụp màn hình năm ấy, chứa chan và chẳng chịu rời đi.
+          </p>
+          <p>
+            Làm <span class="text-cyan-400 font-semibold">Front-end</span> hay <span class="text-purple-400 font-semibold">Designer</span> sướng nhất có lẽ là ở chỗ đó. Đằng sau những dòng thẻ <code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded">&lt;div&gt;</code>, những thuộc tính CSS vô tri, tụi mình được quyền dùng code và màu sắc để "thao túng" cảm xúc của người xem, biến một trang web trống rỗng thành một không gian có cả linh hồn, có nhịp thở và có cả một vùng trời ký ức của ai đó.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCEPT 4: LỜI KẾT -->
+    <section class="reveal-section text-center max-w-xl mx-auto pt-16 border-t border-zinc-900 space-y-6">
+      <h3 class="serif-font text-3xl md:text-4xl text-zinc-100 italic">Bây giờ, hãy mở điện thoại ra...</h3>
+      <p class="text-zinc-400 font-light text-sm leading-relaxed">
+        Dù người xuất hiện trong tấm ảnh screenshot đó là ai đi chăng nữa... hãy thầm cảm ơn họ. Nhờ có họ, và nhờ có cả những người thức đêm làm ra những giao diện này, bạn mới biết trái tim mình đã từng rung động sinh động đến nhường nào.
+      </p>
+      <div class="text-[11px] text-zinc-500 font-mono pt-4 tracking-wider">
+        #screenshotoflove #digitalnostalgia #fromdevwithlove
+      </div>
+    </section>
+
+    <!-- NAVIGATION FOOTER BUTTONS -->
+    <section class="reveal-section pt-10 border-t border-zinc-900 flex flex-wrap justify-center items-center gap-3">
+      <a href="ganh-nang-su-hieu-chuyen.html"
+        class="px-5 py-2.5 rounded-full bg-gradient-to-r from-pink-500/15 to-purple-500/15 border border-pink-500/30 text-pink-300 hover:text-white hover:border-pink-400 transition-all text-xs md:text-sm font-medium">
+        <span>🍂 Gánh Nặng Sự Hiểu Chuyện</span>
+      </a>
+      <a href="hien-huu-khi-biet-thuong.html"
+        class="px-5 py-2.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all text-xs md:text-sm font-medium">
+        <span>🌿 Hiện Hữu Khi Biết Thương</span>
+      </a>
+      <a href="chuyen-xe-dem-va-khao-khat-thau-cam.html"
+        class="px-5 py-2.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all text-xs md:text-sm font-medium">
+        <span>🧠 Chuyện Chuyến Xe Đêm</span>
+      </a>
+      <a href="../phan-tich-noi-tam.html"
+        class="px-5 py-2.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all text-xs md:text-sm font-medium">
+        <span>🔍 Về Phân Tích Nội Tâm</span>
+      </a>
+      <a href="../trang-chu.html"
+        class="px-5 py-2.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all text-xs md:text-sm font-medium">
+        <span>Về Trang Chủ</span>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="../js/plugin/jquery.min.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/global.js"></script>
+
+  <!-- GSAP Interactive Scroll Engine -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Hero Section Animation
+      gsap.from("#hero-content", {
+        opacity: 0,
+        y: 40,
+        duration: 1.5,
+        ease: "power4.out"
+      });
+
+      // Chat bubble slide-in mimicry
+      gsap.from("#chat-mock-1", {
+        x: 50,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#chat-mock-1",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
+
+      // Smooth Scroll Reveal for all core elements
+      const sections = document.querySelectorAll('.reveal-section');
+      sections.forEach(section => {
+        gsap.from(section, {
+          opacity: 0,
+          y: 40,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- Circular Scroll Progress Indicator -->
+  <div class="scroll-path-indicator" id="scrollPathIndicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    title="Tiến trình đọc / Về đầu trang">
+    <div class="scroll-path-wheel" id="scrollPathWheel"></div>
+    <span class="scroll-percentage-text" id="scrollPercentText">0%</span>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1974 @@
+/* ==========================================================================
+   PHONG-CANH.CSS - CARAFLOW NATURE SCENERY EXPERIENCE
+   ========================================================================== */
+
+.phong-canh-page {
+  background-color: #fbf9f5;
+  color: #1c1917;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.phong-canh-hero {
+  padding: 80px 24px 45px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-landscape-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  color: #b45309;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.phong-canh-hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1c1917;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.phong-canh-hero p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.75;
+  color: #57534e;
+  max-width: 720px;
+  margin: 0 auto 35px;
+}
+
+/* Category Filter Tabs */
+.landscape-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.landscape-tab-btn {
+  border: 1.5px solid rgba(120, 113, 108, 0.2);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  color: #44403c;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.landscape-tab-btn:hover {
+  background: #ffffff;
+  border-color: #d97706;
+  color: #b45309;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.15);
+}
+
+.landscape-tab-btn.active {
+  background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+  color: #fef3c7;
+  border-color: #d97706;
+  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HORIZONTAL LANDSCAPE SHOWCASE SLIDER
+   ========================================================================== */
+.phong-canh-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 10px 24px 80px;
+}
+
+.landscape-slider-showcase {
+  position: relative;
+  width: 100%;
+}
+
+/* Slider Frame Window */
+.landscape-slider-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #0f172a;
+  box-shadow: 0 25px 60px -12px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(229, 231, 235, 0.8);
+  user-select: none;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.landscape-slider-wrapper:active {
+  cursor: grabbing;
+}
+
+/* Sliding Track */
+.landscape-slider-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Individual Slide */
+.landscape-slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  height: clamp(520px, 72vh, 670px);
+  overflow: hidden;
+  background: #000;
+}
+
+/* Minimalist Floating Controls Bar (Frameless & Organic, No Rigid Boxes) */
+.floating-scene-bar {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  z-index: 25;
+  pointer-events: none;
+}
+
+.floating-scene-title,
+.floating-controls-group {
+  pointer-events: auto;
+}
+
+/* Subtle Ethereal Scene Badge */
+.scene-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Controls Group: Frameless & Open (Không gò bó đóng khung) */
+.floating-controls-group {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Interactive Control Pills: Soft Glass Whispers */
+.ctrl-btn {
+  padding: 7px 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f1f5f9;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.ctrl-btn.active {
+  background: rgba(217, 119, 6, 0.9);
+  color: #ffffff;
+  border-color: rgba(245, 158, 11, 0.85);
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.45);
+}
+
+/* ==========================================================================
+   LANDSCAPE AUDIO BUTTON - FRAMELESS & ORGANIC (KHÔNG ĐÓNG KHUNG)
+   ========================================================================== */
+.landscape-audio-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 4px 12px 4px 4px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.95);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.landscape-audio-btn:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Ambient Pod (Giọt sáng âm thanh không khung) */
+.audio-ambient-pod {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landscape-audio-btn:hover .audio-ambient-pod {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.audio-play-icon {
+  font-size: 0.65rem;
+  margin-left: 2px;
+  color: #ffffff;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Sóng âm thanh 4 vạch nhún nhảy */
+.audio-wave-bars {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5px;
+  width: 18px;
+  height: 18px;
+}
+
+.audio-wave-bars .bar {
+  display: inline-block;
+  width: 2.5px;
+  height: 5px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+
+/* --------------------------------------------------------------------------
+   TRẠNG THÁI PLAYING: HÀO QUANG VÔ CỰC & SÓNG ÂM LAN TỎA (UNBOXED)
+   -------------------------------------------------------------------------- */
+.landscape-audio-btn.playing {
+  color: #ffffff;
+  text-shadow: 0 0 16px var(--aura-color, #f59e0b);
+}
+
+.landscape-audio-btn.playing .audio-play-icon {
+  display: none;
+}
+
+.landscape-audio-btn.playing .audio-wave-bars {
+  display: inline-flex;
+}
+
+/* Animation 4 vạch sóng âm nhảy nhịp nhàng */
+.landscape-audio-btn.playing .audio-wave-bars .bar:nth-child(1) {
+  animation: organicWave1 1.1s ease-in-out infinite alternate;
+}
+.landscape-audio-btn.playing .audio-wave-bars .bar:nth-child(2) {
+  animation: organicWave2 0.85s ease-in-out infinite alternate;
+}
+.landscape-audio-btn.playing .audio-wave-bars .bar:nth-child(3) {
+  animation: organicWave3 1.25s ease-in-out infinite alternate;
+}
+.landscape-audio-btn.playing .audio-wave-bars .bar:nth-child(4) {
+  animation: organicWave4 0.95s ease-in-out infinite alternate;
+}
+
+@keyframes organicWave1 { 0% { height: 4px; } 100% { height: 16px; } }
+@keyframes organicWave2 { 0% { height: 16px; } 100% { height: 6px; } }
+@keyframes organicWave3 { 0% { height: 7px; } 100% { height: 18px; } }
+@keyframes organicWave4 { 0% { height: 14px; } 100% { height: 5px; } }
+
+/* Pod phát quang khi playing */
+.landscape-audio-btn.playing .audio-ambient-pod {
+  background: var(--aura-bg, rgba(245, 158, 11, 0.85));
+  border-color: var(--aura-border, rgba(254, 240, 138, 0.7));
+  box-shadow: 0 0 25px var(--aura-glow, rgba(245, 158, 11, 0.65));
+  transform: scale(1.05);
+}
+
+/* Quầng sáng thở lan tỏa hữu cơ (Organic Breathing Aura - Không có ranh giới mép) */
+.landscape-audio-btn.playing::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--aura-glow, rgba(245, 158, 11, 0.75)) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  animation: auraBreathing 2.6s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+/* Vòng sóng âm thanh lan tỏa ra không gian (Acoustic Ripple) */
+.landscape-audio-btn.playing::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid var(--aura-color, #f59e0b);
+  opacity: 0;
+  pointer-events: none;
+  animation: soundRipplePulse 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+  z-index: -1;
+}
+
+@keyframes auraBreathing {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.35; }
+  100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0.85; }
+}
+
+@keyframes soundRipplePulse {
+  0% { width: 28px; height: 28px; opacity: 0.9; }
+  100% { width: 85px; height: 85px; opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   MÀU SẮC HÀO QUANG ĐỒNG ĐIỆU THEO TỪNG CẢNH SẮC
+   -------------------------------------------------------------------------- */
+/* Slide 1: Bình Minh (Sunrise - Nắng vàng ấm) */
+.landscape-slide[data-landscape="sunrise"] .landscape-audio-btn {
+  --aura-color: #f59e0b;
+  --aura-bg: rgba(217, 119, 6, 0.9);
+  --aura-border: rgba(253, 230, 138, 0.8);
+  --aura-glow: rgba(245, 158, 11, 0.65);
+}
+
+/* Slide 2: Biển Chiều (Ocean - Lam ngọc đại dương) */
+.landscape-slide[data-landscape="ocean"] .landscape-audio-btn {
+  --aura-color: #38bdf8;
+  --aura-bg: rgba(2, 132, 199, 0.9);
+  --aura-border: rgba(186, 230, 253, 0.8);
+  --aura-glow: rgba(56, 189, 248, 0.65);
+}
+
+/* Slide 3: Sa Mạc (Desert - Ánh trăng tím huyền ảo) */
+.landscape-slide[data-landscape="desert"] .landscape-audio-btn {
+  --aura-color: #c084fc;
+  --aura-bg: rgba(124, 58, 237, 0.9);
+  --aura-border: rgba(233, 213, 255, 0.8);
+  --aura-glow: rgba(192, 132, 252, 0.65);
+}
+
+/* Glassmorphic Prev / Next Arrows */
+.slider-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.slider-arrow-btn:hover {
+  background: #d97706;
+  border-color: #f59e0b;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 12px 28px rgba(217, 119, 6, 0.45);
+}
+
+.slider-arrow-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.slider-arrow-btn.prev-btn {
+  left: 20px;
+}
+
+.slider-arrow-btn.next-btn {
+  right: 20px;
+}
+
+/* Bottom Pagination & Indicator Bar */
+.slider-indicator-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+  padding: 0 12px;
+}
+
+.slider-counter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #a8a29e;
+}
+
+.counter-active {
+  color: #d97706;
+  font-size: 1.35rem;
+}
+
+.counter-sep {
+  margin: 0 4px;
+  color: #d6d3d1;
+}
+
+.slider-dot-indicators {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-dot-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(120, 113, 108, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slider-dot-btn:hover {
+  background: rgba(217, 119, 6, 0.6);
+}
+
+.slider-dot-btn.active {
+  width: 38px;
+  border-radius: 999px;
+  background: #d97706;
+  box-shadow: 0 2px 10px rgba(217, 119, 6, 0.45);
+}
+
+.slider-hint-text {
+  font-size: 0.84rem;
+  color: #78716c;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SCENE 1: SUNRISE MOUNTAIN (landscape-animation-sunrise)
+   ========================================================================== */
+.landscape-sunrise-viewport {
+  height: 100%;
+  width: 100%;
+  background: #213644;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landscape-sunrise-viewport svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.landscape-sunrise-viewport #ee-background {
+  height: 100%;
+  width: 100%;
+  fill: #acf5fb;
+  transition: fill 2s ease;
+}
+
+.landscape-sunrise-viewport .sun {
+  opacity: 1;
+}
+
+.landscape-sunrise-viewport .st4 {
+  z-index: -1;
+  opacity: 0;
+}
+
+.sunrise-live-status {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.live-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: livePulse 1.8s infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+/* ==========================================================================
+   SCENE 2: NATURAL COASTAL BAY (landscape-natural - 100% Original Scoped)
+   ========================================================================== */
+
+.landscape-natural-viewport {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #0c3545;
+  box-sizing: border-box;
+}
+
+.landscape-natural-viewport section.main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.landscape-natural-viewport ul {  margin-bottom: 1.25rem;
+}
+
+.landscape-natural-viewport ul.no-bullet {
+list-style: none;
+}
+
+.landscape-natural-viewport .inline-list {
+  margin: 0 auto 1.0625rem auto;
+  margin-left: -1.375rem;
+  margin-right: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden; }
+.landscape-natural-viewport .inline-list > li {
+    list-style: none;
+    float: left;
+    margin-left: 1.375rem;
+    display: block; }
+.landscape-natural-viewport .inline-list > li > * {
+      display: block; }
+
+
+.landscape-natural-viewport .main {
+    background-color: #0c3545;
+    height: 100%;
+}
+
+.landscape-natural-viewport .absolute {
+    position: absolute;
+}
+
+.landscape-natural-viewport .cloud_left {
+    width: 150px;
+    height: 50px;
+    overflow: hidden;
+    top: 60px;
+    left: 60px;
+    z-index:999;
+}
+
+.landscape-natural-viewport .cloud {
+    background: white;
+    border-radius: 50%;
+    display: block;
+}
+
+.landscape-natural-viewport .cloud_left ul, .landscape-natural-viewport .land_tree ul {
+    margin: 0px
+}
+
+.landscape-natural-viewport .cloud_left li:nth-child(1) {
+    width: 50px;
+    height: 50px;
+    margin: 30px 0px 0px 0px;
+}
+
+.landscape-natural-viewport .cloud_left li:nth-child(2) {
+    width: 70px;
+    height: 70px;
+    margin: 0px 0px 0px -10px;
+}
+
+.landscape-natural-viewport .cloud_left li:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    margin: 23px 0px 0px -7px;
+}
+
+
+.landscape-natural-viewport .cloud_right {
+    width: 150px;
+    height: 50px;
+    overflow: hidden;
+    top: 100px;
+    right: 240px;
+    z-index: 2;
+}
+
+.landscape-natural-viewport .cloud_right ul, .landscape-natural-viewport .land_tree ul {
+    margin: 0px
+}
+
+.landscape-natural-viewport .cloud_right li:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    margin: 36px 0px 0px 1px;
+}
+
+.landscape-natural-viewport .cloud_right li:nth-child(2) {
+    width: 70px;
+    height: 70px;
+    margin: 0px 0px 0px -11px;
+}
+
+.landscape-natural-viewport .cloud_right li:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    margin: 31px 0px 0px -13px;
+}
+
+.landscape-natural-viewport .sea {
+    width: 100%;
+    height: 30px;
+    background: #2a94d6;
+    bottom:7px;
+}
+
+.landscape-natural-viewport .sea:after {
+    content: '';
+    position: absolute;
+    height: 12px;
+    background: #1D7FBB;
+    bottom: -10px;
+    width: 100%;
+    left: 0px;
+}
+
+.landscape-natural-viewport .sea span {
+    background-color: #8bd9f5;
+    position: absolute;
+}
+
+.landscape-natural-viewport .wave1 {
+    width: 100px;
+    height: 3px;
+    left: 420px;
+    top: 10px;
+}
+
+.landscape-natural-viewport .wave2 {
+    width: 100px;
+    height: 3px;
+    left: 433px;
+    top: 13px;
+}
+
+.landscape-natural-viewport .wave3 {
+    width: 50px;
+    height: 3px;
+    right: 460px;
+    top: 15px;
+}
+
+.landscape-natural-viewport .wave4 {
+    width: 50px;
+    height: 3px;
+    right: 467px;
+    top: 18px;
+}
+
+.landscape-natural-viewport .landscape {
+    bottom: 15px;
+    width: 400px;
+    height: 170px;
+    z-index: 3;
+}
+
+.landscape-natural-viewport .max_right {
+    right: 0px
+}
+
+.landscape-natural-viewport .max_right .grass {
+    left:20px;
+}
+
+.landscape-natural-viewport .max_right .grass:after {
+    right: 0px;
+    bottom: 40px;
+}
+
+.landscape-natural-viewport .max_right .land_tree {
+    bottom: 40px;
+    left: 30px;
+}
+
+.landscape-natural-viewport .grass {
+    width: 100%;
+    height: 40px;
+    left: -20px;
+    border-radius: 50px;
+    position: absolute;
+    background: #126c48;
+    bottom: 0px;
+    display: block;
+    z-index: 1
+}
+
+.landscape-natural-viewport .grass:after {
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 40px;
+    border-radius: 50px;
+    background: #219065;
+    bottom: 36px;
+}
+
+.landscape-natural-viewport .leftt-gras {
+    right: 40px !important;
+}
+
+.landscape-natural-viewport .land_tree {
+    width: auto;
+    height: 50px;
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    overflow: hidden;
+}
+
+.landscape-natural-viewport .land_tree li {
+    border-radius: 50%;
+}
+
+.landscape-natural-viewport .land_tree li:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    margin: 30px 0px 0px 0px;
+    background: #219065;
+}
+
+.landscape-natural-viewport .land_tree li:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    margin: 0px 0px 0px -10px;
+    background: #126c48;
+}
+
+.landscape-natural-viewport .land_tree li:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    margin: 23px 0px 0px -7px;
+    background: #219065;
+}
+
+.landscape-natural-viewport .tree1 {
+    background: #21904b;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    border-right: 5px solid #157C3C;
+    border-bottom: 5px solid #157C3C;
+    z-index: -1;
+    right: 100px;
+    bottom: 120px;
+}
+
+.landscape-natural-viewport .tree1:after {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 50px;
+    background: #FFF;
+    margin: 30px 0px 0px 3px;
+    top: 35px;
+}
+
+.landscape-natural-viewport .tree2 {
+    background: #26a76f;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-right: 5px solid #17955e;
+    border-bottom: 5px solid #17955e;
+    z-index: -1;
+    right: 150px;
+    bottom: 80px;
+}
+
+.landscape-natural-viewport .tree2:after {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 50px;
+    background: #FFF;
+    margin: 23px 10px 0px 0px;
+    top: 27px;
+}
+
+.landscape-natural-viewport .boat {
+    bottom: 10px;
+    z-index: 1;
+    -webkit-animation: boatanimate 30s linear infinite;
+    -moz-animation: boatanimate 30s linear infinite;
+    -o-animation: boatanimate 30s linear infinite;
+    animation: boatanimate 30s linear infinite;
+}
+
+@-webkit-keyframes boatanimate {
+    0% {right: 20%;}
+    100% {right: 85%;}
+}
+
+@-moz-keyframes boatanimate {
+    0% {right: 20%;}
+    100% {right: 85%;}
+}
+
+@-o-keyframes boatanimate {
+    0% {right: 20%;}
+    100% {right: 85%;}
+}
+
+@keyframes boatanimate {
+    0% {right: 20%;}
+    100% {right: 85%;}
+}
+
+.landscape-natural-viewport .boat-body {
+    width: 100px;
+    height: 20px;
+    background: #e25c45;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 20px;
+}
+
+.landscape-natural-viewport .white-body {
+    width: 65px;
+    height: 16px;
+    background: #FFF;
+    margin: 0px 13px;
+    border-top-left-radius: 20px;
+}
+
+.landscape-natural-viewport .windows {
+    margin: 0px 12px !important;
+}
+
+
+.landscape-natural-viewport .boat .circle {
+    background: #a18e6e;
+    width: 7px;
+    height: 7px;
+    margin: 5px 3px;
+    border-radius: 50%;
+}
+
+.landscape-natural-viewport .smokestack {
+    width: 10px;
+    height: 17px;
+    background: #a18e6e;
+    bottom: 30px;
+    margin-left: 45px;
+}
+
+
+.landscape-natural-viewport .plane {
+    top: 40%;
+    left: 80px;
+    -webkit-animation: planeanimate 30s linear infinite;
+    -moz-animation: planeanimate 30s linear infinite;
+    -o-animation: planeanimate 30s linear infinite;
+    animation: planeanimate 30s linear infinite;
+}
+
+@-webkit-keyframes planeanimate {
+    0% {left:-10%;}
+    100% {left:110%;}
+}
+
+@-moz-keyframes planeanimate {
+    0% {left:-10%;}
+    100% {left:110%;}
+}
+
+@-o-keyframes planeanimate {
+    0% {left:-10%;}
+    100% {left:110%;}
+}
+
+@keyframes planeanimate {
+    0% {left:-10%;}
+    100% {left:110%;}
+}
+
+.landscape-natural-viewport .plane-body {
+    width: 90px;
+    height: 15px;
+    background: #FFF;
+    border-bottom: 4px solid #ECECEC;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.landscape-natural-viewport .plane .circle {
+    width: 5px;
+    height: 5px;
+    background: #E25C45;
+    border-radius: 50%;
+    margin: 4px 5px 0 0;
+    float: right;
+}
+
+.landscape-natural-viewport .wing1 {
+    background: #E25C45;
+    width: 15px;
+    height: 20px;
+    float: right;
+    bottom: 3px;
+    position: absolute;
+    right: 35px;
+}
+
+.landscape-natural-viewport .wing1:after {
+    position: absolute;
+    content: '';
+    background: #0C3545;
+    width: 7px;
+    height: 28px;
+    right: -3px;
+    -webkit-transform: rotate(14deg);
+    -moz-transform: rotate(14deg);
+    -o-transform: rotate(14deg);
+    transform: rotate(14deg);
+    top: 3px;
+}
+
+.landscape-natural-viewport .flipwing {
+    -webkit-transform: scaleY(-1);
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    bottom: 35px;
+    height: 16px;
+    width: 14px;
+}
+
+.landscape-natural-viewport .teal {
+    background: #F6D160;
+    width: 16px;
+    height: 23px;
+    bottom: 35px;
+}
+
+.landscape-natural-viewport .teal:after {
+    position: absolute;
+    content: '';
+    background: #0C3545;
+    width: 7px;
+    height: 28px;
+    right: -3px;
+    -webkit-transform: rotate(-16deg);
+    -moz-transform: rotate(-16deg);
+    -o-transform: rotate(-16deg);
+    transform: rotate(-16deg);
+    top: -7px;
+}
+
+.landscape-natural-viewport .sun {
+    width: 48px;
+    height: 48px;
+    background: #fab92d;
+    border-radius: 50%;
+    border-bottom:5px solid #eaab23;
+    border-right:5px solid #eaab23;
+    right: 352px;
+    top: 90px;
+    z-index: 1;
+}
+
+.landscape-natural-viewport .main h1 {
+    margin-top: 143px;
+    margin-left: 110px;
+    color: #FFF;
+    font-size: 30px;
+}
+
+    padding: 5px 16px;
+    border: 1px solid #0A2B38;
+    border-radius: 50px;
+    transition:0.2s ease;
+}
+
+color: #92ADB8;
+font-size: 17px;
+top: 50%;
+right: 45%;
+position: absolute;
+z-index: 99;
+text-decoration: none;
+}
+
+    background: #219065;
+    color: white
+}
+
+
+
+.landscape-natural-viewport .relative {
+    position: relative;
+}
+
+.landscape-natural-viewport .fume {
+    margin:0px;
+}
+
+.landscape-natural-viewport .fume li {
+    background-color: white;
+    border-radius: 50%;
+}
+
+.landscape-natural-viewport .fume1 {
+    width: 7px;
+    height: 7px;
+    margin-left: 48px;
+    -webkit-animation: smokeup 2.0s linear infinite;
+    -moz-animation: smokeup 2.0s linear infinite;
+    -o-animation: smokeup 2.0s linear infinite;
+    animation: smokeup 2.0s linear infinite;
+}
+
+.landscape-natural-viewport .fume2 {
+    width: 9px;
+    height: 9px;
+    margin-left: 38px;
+    -webkit-animation: smokeup 2.1s linear infinite;
+    -moz-animation: smokeup 2.1s linear infinite;
+    -o-animation: smokeup 2.1s linear infinite;
+    animation: smokeup 2.1s linear infinite;}
+
+.landscape-natural-viewport .fume3 {
+    width: 12px;
+    height: 12px;
+    margin-left: 48px;
+    -webkit-animation: smokeup 2.2s linear infinite;
+    -moz-animation: smokeup 2.2s linear infinite;
+    -o-animation: smokeup 2.2s linear infinite;
+    animation: smokeup 2.2s linear infinite;}
+
+.landscape-natural-viewport .fume4 {
+    width: 15px;
+    height: 15px;
+    margin-left: 38px;
+    -webkit-animation: smokeup 2.3s linear infinite;
+    -moz-animation: smokeup 2.3s linear infinite;
+    -o-animation: smokeup 2.3s linear infinite;
+    animation: smokeup 2.3s linear infinite;}
+
+@-webkit-keyframes smokeup {
+    0% {margin-bottom:-3px; opacity: 1}
+    80% {margin-bottom:7px; opacity: 0}
+    100% {margin-bottom:7px; opacity: 0}
+}
+
+@-moz-keyframes smokeup {
+    0% {margin-bottom:-3px; opacity: 1}
+    80% {margin-bottom:7px; opacity: 0}
+    100% {margin-bottom:7px; opacity: 0}
+}
+
+@-o-keyframes smokeup {
+    0% {margin-bottom:-3px; opacity: 1}
+    80% {margin-bottom:7px; opacity: 0}
+    100% {margin-bottom:7px; opacity: 0}
+}
+
+@keyframes smokeup {
+    0% {margin-bottom:-3px; opacity: 1}
+    80% {margin-bottom:7px; opacity: 0}
+    100% {margin-bottom:7px; opacity: 0}
+}
+
+
+.landscape-natural-viewport .r-mountain {
+    border-left: 110px rgba(0, 0, 0, 0) solid;
+    border-right: 110px rgba(0, 0, 0, 0) solid;
+    border-bottom: 170px #B3A385 solid;
+    position: absolute;
+    right: 80px;
+    bottom: 40px;
+}
+
+.landscape-natural-viewport .r-mountain:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    border-right: 110px rgba(0, 0, 0, 0) solid;
+    border-bottom: 170px #A18E6E solid;
+}
+
+.landscape-natural-viewport .r-mountain:after {
+    content: '';
+    position: absolute;
+    left: -39px;
+    border-left: 39px rgba(0, 0, 0, 0) solid;
+    border-right: 39px rgba(0, 0, 0, 0) solid;
+    border-bottom: 60px #FFF solid;
+}
+
+.landscape-natural-viewport .snow {
+    margin: 0px;
+    position: absolute;
+    top: 9px;
+    right: 153px;
+}
+.landscape-natural-viewport .snow li {
+    background: #FFF;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0px;
+    display: inline-block;
+}
+
+.landscape-natural-viewport .gl:after {
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 40px;
+    border-radius: 50px;
+    background: #219065;
+    bottom: 36px;
+    left: 0px;
+}
+
+
+.landscape-natural-viewport .left_m {
+    left: 0px;
+}
+
+
+
+@media (min-width : 420px) and (max-width : 799px) { 
+
+.landscape-natural-viewport .max_right { right: -80px; }
+
+
+.landscape-natural-viewport .left_m {display: none}
+
+.landscape-natural-viewport .cloud_left {display: none;}
+
+}
+
+
+
+@media (min-width : 800px) and (max-width : 1024px) { 
+
+.landscape-natural-viewport .max_right { right: -80px; }
+
+.landscape-natural-viewport .left_m {left: -80px;}
+
+
+}
+
+/* ==========================================================================
+   SCENE 3: SCALABLE DESERT HIGHWAY (landscape-scalable-desert - 100% Original Scoped)
+   ========================================================================== */
+.landscape-desert-viewport {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.landscape-desert-viewport .sky {
+  background: linear-gradient(#184655, #dfdfcc 85%);
+  overflow: hidden;
+  position: relative;
+}
+
+.landscape-desert-viewport .mountains {
+  padding: 0 10%;
+}
+.landscape-desert-viewport .mountains .mountain {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 3%;
+}
+.landscape-desert-viewport .mountains .range {
+  overflow: hidden;
+}
+.landscape-desert-viewport .mountains .range:nth-child(1) .mountain {
+  margin-top: 6%;
+  margin-bottom: -15%;
+  margin-left: -8%;
+}
+.landscape-desert-viewport .mountains .range:nth-child(1) .mountain:nth-child(1) {
+  padding: 9%;
+  background: linear-gradient(23deg, #607C92 70%, #506779 70%);
+  margin-left: 12%;
+}
+.landscape-desert-viewport .mountains .range:nth-child(1) .mountain:nth-child(2) {
+  padding: 13%;
+  background: linear-gradient(25deg, #607C92 68%, #506779 68%);
+}
+.landscape-desert-viewport .mountains .range:nth-child(1) .mountain:nth-child(3) {
+  padding: 12%;
+  background: linear-gradient(-17deg, #607C92 90%, transparent 80%), linear-gradient(25deg, #607C92 68%, #506779 68%);
+}
+.landscape-desert-viewport .mountains .range:nth-child(1) .mountain:nth-child(4) {
+  padding: 13.5%;
+  background: linear-gradient(75deg, transparent 50%, #506779 50%), linear-gradient(14deg, #607C92 80%, #506779 80%);
+}
+.landscape-desert-viewport .mountains .range:nth-child(2) {
+  margin-top: -17%;
+}
+.landscape-desert-viewport .mountains .range:nth-child(2) .mountain {
+  margin-top: 6%;
+  margin-bottom: -11.5%;
+  margin-left: -4%;
+}
+.landscape-desert-viewport .mountains .range:nth-child(2) .mountain:nth-child(1) {
+  padding: 6.3%;
+  background: linear-gradient(13deg, #8795A0 80%, #70818e 80%);
+  margin-left: 8%;
+}
+.landscape-desert-viewport .mountains .range:nth-child(2) .mountain:nth-child(2) {
+  padding: 10%;
+  background: linear-gradient(0deg, #8795A0 88%, transparent 80%), linear-gradient(37.5deg, #8795A0 56.5%, #70818e 56.5%);
+  margin-left: -3%;
+}
+.landscape-desert-viewport .mountains .range:nth-child(2) .mountain:nth-child(3) {
+  padding: 11.5%;
+  background: linear-gradient(10deg, #8795A0 85%, #70818e 85%);
+  margin-left: -7%;
+}
+.landscape-desert-viewport .mountains .range:nth-child(2) .mountain:nth-child(4) {
+  padding: 10%;
+  background: linear-gradient(-10deg, #8795A0 80%, transparent 80%), linear-gradient(25deg, #8795A0 68%, #70818e 68%);
+}
+.landscape-desert-viewport .mountains .range:nth-child(2) .mountain:nth-child(5) {
+  padding: 5.7%;
+  background: linear-gradient(13deg, #8795A0 80%, #70818e 80%);
+}
+.landscape-desert-viewport .mountains .range:nth-child(2) .mountain:nth-child(6) {
+  padding: 7.3%;
+  background: linear-gradient(13deg, #8795A0 80%, #70818e 80%);
+}
+
+.landscape-desert-viewport .moon {
+  margin: 2%;
+  padding: 7%;
+  width: 0;
+  background-color: #F0F3D9;
+  border-radius: 100%;
+  box-shadow: inset -1.2vw -1.2vw rgba(220, 225, 172, 0.5), inset 0.5vw 0.5vw 5vw #a5a5a5, 0 0 2.5vw rgba(219, 221, 198, 0.5);
+  display: inline-block;
+}
+
+.landscape-desert-viewport .star {
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  position: absolute;
+  background-color: #d2d0cc;
+  box-shadow: 0 0 0.125em 0.125em rgba(161, 169, 176, 0.5);
+}
+.landscape-desert-viewport .star:nth-child(2) {
+  left: 22%;
+  top: 49%;
+}
+.landscape-desert-viewport .star:nth-child(3) {
+  left: 29%;
+  top: 29%;
+}
+.landscape-desert-viewport .star:nth-child(4) {
+  left: 35%;
+  top: 35%;
+}
+.landscape-desert-viewport .star:nth-child(5) {
+  left: 37%;
+  top: 7%;
+}
+.landscape-desert-viewport .star:nth-child(6) {
+  left: 45%;
+  top: 15%;
+}
+.landscape-desert-viewport .star:nth-child(7) {
+  left: 50%;
+  top: 37%;
+}
+.landscape-desert-viewport .star:nth-child(8) {
+  left: 56%;
+  top: 13%;
+}
+.landscape-desert-viewport .star:nth-child(9) {
+  left: 63%;
+  top: 22%;
+}
+.landscape-desert-viewport .star:nth-child(10) {
+  left: 60%;
+  top: 47%;
+}
+.landscape-desert-viewport .star:nth-child(11) {
+  left: 67%;
+  top: 47%;
+}
+.landscape-desert-viewport .star:nth-child(12) {
+  left: 72%;
+  top: 38%;
+}
+.landscape-desert-viewport .star:nth-child(13) {
+  left: 72%;
+  top: 9%;
+}
+.landscape-desert-viewport .star:nth-child(14) {
+  left: 49%;
+  top: 28%;
+}
+.landscape-desert-viewport .star:nth-child(15) {
+  left: 76%;
+  top: 55%;
+}
+
+@-webkit-keyframes glow {
+  0% {
+    background-color: #d2d0cc;
+    box-shadow: 0 0 0.125em 0.125em rgba(161, 169, 176, 0.5);
+  }
+  100% {
+    background-color: whitesmoke;
+    box-shadow: 0 0 0.5em 0.125em #ECECEC;
+  }
+}
+@keyframes glow {
+  0% {
+    background-color: #d2d0cc;
+    box-shadow: 0 0 0.125em 0.125em rgba(161, 169, 176, 0.5);
+  }
+  100% {
+    background-color: whitesmoke;
+    box-shadow: 0 0 0.5em 0.125em #ECECEC;
+  }
+}
+.landscape-desert-viewport .star:nth-child(odd) {
+  -webkit-animation: glow 2s infinite alternate;
+  animation: glow 2s infinite alternate;
+}
+
+.landscape-desert-viewport .star:nth-child(even) {
+  -webkit-animation: glow 2s infinite alternate;
+  animation: glow 2s infinite alternate;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
+.landscape-desert-viewport .star:nth-child(4n) {
+  -webkit-animation: glow 2s infinite alternate;
+  animation: glow 2s infinite alternate;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Desert */
+.landscape-desert-viewport .desert {
+  position: relative;
+  overflow: hidden;
+}
+.landscape-desert-viewport .desert .perspective {
+  -webkit-perspective: 1.7em;
+  perspective: 1.7em;
+  background: linear-gradient(#958865 50%, #a09473);
+  overflow: hidden;
+  position: relative;
+  z-index: -2;
+  margin-top: -11.5em;
+}
+.landscape-desert-viewport .desert .perspective .road {
+  width: 12%;
+  margin: 0 auto;
+  background-color: #3c3c3c;
+  -webkit-transform: rotateX(20deg);
+  transform: rotateX(20deg);
+  height: 30em;
+  border-right: 1.5vw solid;
+  border-left: 1.5vw solid;
+  border-color: #a49979;
+  background: linear-gradient(to right, #3c3c3c 90%, transparent 90%), linear-gradient(#3c3c3c 30%, #d7d325 30%, #d7d325 60%, #3c3c3c 60%);
+  background-size: 55% 5%;
+  -webkit-animation: drive 3s linear infinite;
+  animation: drive 3s linear infinite;
+}
+
+@-webkit-keyframes drive {
+  100% {
+    background-position: 0% 21%;
+  }
+}
+@keyframes drive {
+  100% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 0 21%;
+  }
+}
+/* Cactus */
+.landscape-desert-viewport .cactus {
+  position: absolute;
+  width: 25%;
+  display: inline-block;
+}
+.landscape-desert-viewport .cactus .center, .landscape-desert-viewport .cactus .arm {
+  float: left;
+}
+.landscape-desert-viewport .cactus .center {
+  padding: 65% 20%;
+  background: linear-gradient(to right, #38823D 16%, #307035 16%, #307035 20%, #38823D 20%, #38823D 38%, #307035 38%, #307035 42%, #38823D 42%, #38823D 60%, #307035 60%, #307035 64%, #38823D 64%, #38823D 82%, #307035 82%, #307035 86%, #38823D 86%);
+  border-top-left-radius: 45% 15%;
+  border-top-right-radius: 45% 15%;
+}
+.landscape-desert-viewport .cactus .arm {
+  background: radial-gradient(transparent 40%, #38823D 41%, #38823D 48%, #307035 48%, #307035 51%, #38823D 51%, #38823D 61%, #307035 61%, #307035 64%, #38823D 64%);
+  padding: 15%;
+  background-size: 200% 200%;
+}
+.landscape-desert-viewport .cactus .arm::before {
+  content: "";
+  background: radial-gradient(#38823D 23%, #307035 23%, #307035 37%, #38823D 37%);
+  z-index: -1;
+  padding: 6.5%;
+  position: absolute;
+  border-radius: 50%;
+  margin-top: -21%;
+}
+.landscape-desert-viewport .cactus .arm.left {
+  border-radius: 0 0 0 100%;
+  background-position: 0% 100%;
+  margin-top: 20%;
+}
+.landscape-desert-viewport .cactus .arm.left::before {
+  margin-left: -15%;
+}
+.landscape-desert-viewport .cactus .arm.right {
+  border-radius: 0 0 100% 0;
+  background-position: 100% 100%;
+  margin-top: 50%;
+}
+.landscape-desert-viewport .cactus .arm.right::before {
+  margin-left: 2.25%;
+}
+
+.landscape-desert-viewport .pedal {
+  position: absolute;
+  left: 55%;
+  top: 10%;
+  border-radius: 7%;
+  padding: 7%;
+  background-color: rosybrown;
+}
+.landscape-desert-viewport .pedal:nth-child(1) {
+  -webkit-transform: rotate(25deg);
+  transform: rotate(25deg);
+}
+.landscape-desert-viewport .pedal:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.landscape-desert-viewport .pedal:nth-child(3) {
+  -webkit-transform: rotate(75deg);
+  transform: rotate(75deg);
+}
+.landscape-desert-viewport .pedal:nth-child(4) {
+  background: radial-gradient(gold 20%, transparent 20%, rosybrown 20%);
+}
+
+.landscape-desert-viewport .owl {
+  width: 40%;
+  margin: 0 auto;
+}
+.landscape-desert-viewport .owl div {
+  margin: 0 auto;
+}
+.landscape-desert-viewport .owl .head {
+  width: 45%;
+  padding: 20% 0;
+  border: 0.8vw solid #8D7F6D;
+  border-top-color: transparent;
+  border-top-width: 1.5vw;
+  border-radius: 40%;
+  background: radial-gradient(#CBB8A2 80%, transparent 80%);
+  background-size: 62% 70%;
+  background-clip: padding-box;
+  background-color: goldenrod;
+  background-position: -25% 10%;
+  position: relative;
+}
+.landscape-desert-viewport .owl .head:before, .landscape-desert-viewport .owl .head:after {
+  content: "";
+  background: radial-gradient(black 15%, gold 50%);
+  border-radius: 50%;
+  position: absolute;
+  padding: 15%;
+  top: 20%;
+}
+.landscape-desert-viewport .owl .head:before {
+  left: 10%;
+}
+.landscape-desert-viewport .owl .head:after {
+  left: 60%;
+}
+.landscape-desert-viewport .owl .body {
+  padding: 40% 30%;
+  width: 0;
+  border-radius: 25% 25% 35% 35%/35% 35% 60% 60%;
+  background: linear-gradient(64deg, #A78B67 33.5%, transparent 36%), linear-gradient(-64deg, #A78B67 33.5%, transparent 36%);
+  background-size: 26% 26%;
+  background-color: #cbb8a2;
+  border: 0.8vw solid #8D7F6D;
+  border-bottom-width: 1.2vw;
+  border-bottom-color: transparent;
+  background-clip: padding-box;
+}
+.landscape-desert-viewport .owl .feet {
+  padding: 8% 23%;
+  background: radial-gradient(#E4C51D 70%, transparent 75%);
+  background-size: 33% 100%;
+  width: 0;
+  margin-top: -12%;
+}
+
+/* ugh firefox, the borders on the owl don't scale, so I use zoom, but firefox doesn't support zoom */
+@-moz-document url-prefix() {
+.landscape-desert-viewport .owl .body, .landscape-desert-viewport .owl .head {
+    border: none;
+  }
+}
+.landscape-desert-viewport .cactus {
+  position: absolute;
+}
+.landscape-desert-viewport .cactus .owl {
+  -webkit-animation: owl 10s ease-in infinite;
+  animation: owl 10s ease-in infinite;
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+  opacity: 0;
+}
+.landscape-desert-viewport .cactus:nth-child(1) {
+  left: 0%;
+  -webkit-animation: left_cactus 10s ease-in infinite;
+  animation: left_cactus 10s ease-in infinite;
+}
+.landscape-desert-viewport .cactus:nth-child(2) {
+  left: 75%;
+  width: 0%;
+  -webkit-animation: right_cactus 10s ease-in infinite;
+  animation: right_cactus 10s ease-in infinite;
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+/* Animations for the cactus and owl */
+@-webkit-keyframes closer {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 25%;
+  }
+}
+@keyframes closer {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 25%;
+  }
+}
+@-webkit-keyframes owl {
+  0% {
+    zoom: 0.01;
+    opacity: 1;
+  }
+  100% {
+    zoom: 2;
+    opacity: 1;
+  }
+}
+@keyframes owl {
+  0% {
+    zoom: 0.01;
+    opacity: 1;
+  }
+  100% {
+    zoom: 2;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes left_cactus {
+  0% {
+    width: 0%;
+    top: 5%;
+    left: 40%;
+  }
+  100% {
+    width: 35%;
+    top: 100%;
+    left: -80%;
+  }
+}
+@keyframes left_cactus {
+  0% {
+    width: 0%;
+    top: 5%;
+    left: 40%;
+  }
+  100% {
+    width: 35%;
+    top: 100%;
+    left: -80%;
+  }
+}
+@-webkit-keyframes right_cactus {
+  0% {
+    width: 0%;
+    top: 5%;
+    left: 65%;
+  }
+  100% {
+    width: 35%;
+    top: 80%;
+    left: 165%;
+  }
+}
+@keyframes right_cactus {
+  0% {
+    width: 0%;
+    top: 5%;
+    left: 65%;
+  }
+  100% {
+    width: 35%;
+    top: 80%;
+    left: 165%;
+  }
+}
+
+/* ==========================================================================
+   MINDFUL SANCTUARY (CHIÊM NGHIỆM THIÊN NHIÊN)
+   ========================================================================== */
+.mindful-sanctuary-section {
+  margin-top: 80px;
+  background: linear-gradient(135deg, #ffffff 0%, #faf8f5 100%);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  border-radius: 32px;
+  padding: 60px 48px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
+}
+
+.sanctuary-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.sanctuary-header h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: #1c1917;
+  margin: 15px 0;
+}
+
+.sanctuary-header p {
+  color: #57534e;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.sanctuary-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-bottom: 50px;
+}
+
+.sanctuary-card {
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 20px;
+  border: 1px solid #f0efed;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.sanctuary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+.sanctuary-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+.sanctuary-card h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1c1917;
+  margin-bottom: 12px;
+}
+
+.sanctuary-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.sanctuary-explore-banner {
+  background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+  border-radius: 24px;
+  padding: 36px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  color: #ffffff;
+}
+
+.explore-text h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fef3c7;
+  margin-bottom: 6px;
+}
+
+.explore-text p {
+  color: #a8a29e;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.explore-action-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.explore-btn {
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.explore-btn:hover {
+  background: #fef3c7;
+  color: #1c1917;
+  border-color: #fef3c7;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 991px) {
+  .landscape-slide {
+    height: 520px;
+  }
+  
+  .floating-scene-bar {
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+  }
+  
+  .slider-arrow-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .slider-arrow-btn.prev-btn {
+    left: 12px;
+  }
+  
+  .slider-arrow-btn.next-btn {
+    right: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .phong-canh-hero {
+    padding: 40px 16px 20px;
+  }
+  
+  .phong-canh-container {
+    padding: 10px 10px 50px;
+  }
+  
+  .landscape-slide {
+    height: 460px;
+    border-radius: 20px;
+  }
+  
+  .landscape-slider-wrapper {
+    border-radius: 20px;
+  }
+  
+  .floating-scene-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  
+  .scene-pill-badge {
+    padding: 5px 12px;
+    font-size: 0.76rem;
+  }
+  
+  .floating-controls-group {
+    padding: 4px 6px;
+    gap: 4px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  .ctrl-btn {
+    padding: 5px 10px;
+    font-size: 0.72rem;
+  }
+  
+  .landscape-audio-btn {
+    padding: 5px 11px;
+    font-size: 0.72rem;
+  }
+  
+  .slider-arrow-btn {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .slider-arrow-btn.prev-btn {
+    left: 8px;
+  }
+  
+  .slider-arrow-btn.next-btn {
+    right: 8px;
+  }
+  
+  .slider-hint-text {
+    display: none;
+  }
+}

@@ -1,0 +1,186 @@
+
+.walk_cycle{
+background-color: var(--color-brand-2);;
+ border-radius: 80px;
+ width: 100%;
+ position: relative;
+ overflow-x: hidden;
+}
+.walk {
+  position: relative;
+  z-index: 1;
+  left: 30%;
+  width: 100px;
+  bottom: 62px;
+}
+.walk img {
+  max-width: 150px;
+  width: 100px;
+}
+
+.walk_title {
+  width: 100%;
+  font-size: 30px;
+  font-size: 3.5vw;
+  text-align: left;
+  white-space: nowrap;
+  padding-top: var(--space-50);
+  overflow: hidden;
+}
+.walk_title .glowingText{
+  padding-left: 20%;
+}
+.walk_title .replay-text {
+    margin: 80px 0 50px;
+    text-align: right;
+    width: 80%;
+}
+
+
+.frame {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  border-radius: 2px;
+  overflow: hidden;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+.frame:before, .frame:after {
+  content: "";
+  position: absolute;
+  height: 80px;
+  width: 200%;
+  -webkit-animation: movefloorAnim calc(var(--anim-time) * 6) infinite linear;
+          animation: movefloorAnim calc(var(--anim-time) * 6) infinite linear;
+}
+@-webkit-keyframes movefloorAnim {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+@keyframes movefloorAnim {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+.frame:after {
+  inset: auto auto -35px;
+  --s: 10px;
+  /* control the size*/
+  --c1: #cdcdcd;
+  --c2: #686868;
+  --g: conic-gradient(at 90% 40%, #0000 75%, var(--c1) 0);
+  background: var(--g), var(--g) var(--s) var(--s) var(--c2);
+  background-size: calc(2 * var(--s)) calc(2 * var(--s));
+}
+.frame:before {
+  inset: auto auto 36px;
+  --s: 20px;
+  /* control the size*/
+  --c1: #cdcdcd;
+  --c2: #686868;
+  --l1: #0000 48%, var(--c1) 0 52%, #0000 0;
+  --l2: #0000 1.3%, var(--c2) 0 32%, #0000 0;
+  background: linear-gradient(-45deg, var(--l2)), linear-gradient(45deg, var(--l1)), linear-gradient(45deg, var(--l2)) calc(var(--s) / 2) calc(var(--s) / 2), linear-gradient(-45deg, var(--l1)) var(--c2);
+  background-size: calc(2 * var(--s)) var(--s), var(--s) var(--s);
+  border-bottom: 1px solid #000;
+  transform-origin: 50% 100%;
+  transform: rotateX(65deg);
+  z-index: 1;
+}
+
+:root {
+  --anim-time: 1000ms;
+}
+/* flower */
+.flower {
+    margin: 95px;
+    position: absolute;
+    width: 4px;
+    height: 60px;
+    bottom: 0;
+    right: 15px;
+    box-shadow: 18px 60px 1px #659d65,
+                16px 60px 1px #035f03,                
+                20px 60px 1px #035f03;
+}
+.flower:before {
+    display: flex;
+    content: "";
+    width: 30px;
+    height: 24px;
+    position: absolute;
+    bottom: -58px;
+    left: -16px;
+    background-color: #659d65;
+    box-shadow: 0px 0px 0px 2px #035f03, 41px 0px 0px 0px #659d65, 41px 0px 0px 2px #035f03;
+    border-radius: 200px 200px 0px 0px;
+}
+.flower:after {
+    --petal: rgb(183 191 241);
+    --petal-outline: rgb(191 179 131);
+    --petal-overlap: -11px;
+    --petal-overlap-clr: rgb(204 240 255);
+    display: flex;
+    content: '';
+    background-image: radial-gradient(circle, hsl(62,20%,50%), hsl(62,98%,50%), hsl(62,98%,45%), hsl(62,98%,30%));
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0px 0px 7px 0 rgb(96, 151, 2),
+        
+                0px -25px 0 var(--petal-overlap) var(--petal-overlap-clr),
+                -20px -20px 0 var(--petal-overlap) var(--petal-overlap-clr),
+                -25px 0px 0 var(--petal-overlap) var(--petal-overlap-clr),
+                -20px 20px 0 var(--petal-overlap) var(--petal-overlap-clr),
+                0px 25px 0 var(--petal-overlap) var(--petal-overlap-clr),
+                20px 20px 0 var(--petal-overlap) var(--petal-overlap-clr),
+                25px 0px 0 var(--petal-overlap) var(--petal-overlap-clr),
+                20px -20px 0 var(--petal-overlap) var(--petal-overlap-clr),
+
+                0px -25px 0 -5px var(--petal),
+                0px -25px 0 -4px var(--petal-outline),
+                
+
+                -20px -20px 0 -5px var(--petal),
+                -20px -20px 0 -4px var(--petal-outline),
+
+                -25px 0px 0 -5px var(--petal),
+                -25px 0px 0 -4px var(--petal-outline),
+
+                -20px 20px 0 -5px var(--petal),
+                -20px 20px 0 -4px var(--petal-outline),
+
+                0px 25px 0 -5px var(--petal),
+                0px 25px 0 -4px var(--petal-outline),
+
+                20px 20px 0 -5px var(--petal),
+                20px 20px 0 -4px var(--petal-outline),
+
+                25px 0px 0 -5px var(--petal),
+                25px 0px 0 -4px var(--petal-outline),
+
+                20px -20px 0 -5px var(--petal),
+                20px -20px 0 -4px var(--petal-outline)                
+                ;
+    animation:spin 4s linear infinite;
+}
+@keyframes spin { 
+    100% { 
+        transform:rotate(360deg); 
+    }
+}
+/* flower */

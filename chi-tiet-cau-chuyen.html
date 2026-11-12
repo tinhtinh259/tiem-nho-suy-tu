@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Một Món Quà Cho Đêm Mất Ngủ - Trạm Kể Chuyện</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <script>
+        // Chuyển hướng ngay lập tức nếu là Story ID 1 (Những Dòng Chữ Biết Ôm) để tránh chớp nháy
+        (function() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                if (params.get('id') === '1') {
+                    document.documentElement.style.visibility = 'hidden';
+                    window.location.replace('nhung-dong-chu-biet-om.html');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f9f6f0;
+            --card-bg: #ffffff;
+            --text-color: #2c3531;
+            --sub-color: #64748b;
+            --line-color: #e2dacd;
+            --accent-gold: #c89547;
+            --accent-green: #2f5d43;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: radial-gradient(rgba(200, 149, 71, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 100%;
+            padding-top: var(--height-header);
+            min-height: calc(100vh - 200px);
+        }
+
+        .story-article-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px 100px 24px;
+        }
+
+        /* Breadcrumb Trail */
+        .breadcrumb-trail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--sub-color);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-trail a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-trail a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-sep {
+            color: #cbd5e1;
+            font-size: 12px;
+        }
+
+        .breadcrumb-current {
+            color: var(--sub-color);
+            font-weight: 400;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: none !important;
+        }
+
+        /* Hero Image & Header */
+        .article-hero-wrap {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid var(--line-color);
+            box-shadow: 0 15px 40px rgba(47, 93, 67, 0.08);
+        }
+
+        .article-hero-img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .article-tag-badge {
+            display: inline-block;
+            background: rgba(200, 149, 71, 0.12);
+            border: 1px solid rgba(200, 149, 71, 0.25);
+            color: var(--accent-gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .article-title {
+            font-family: var(--font-body);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--accent-green);
+            line-height: 1.35;
+            margin-bottom: 16px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--sub-color);
+            font-size: 14px;
+            margin-bottom: 36px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--line-color);
+        }
+
+        /* Serene Book Body Typography */
+        .article-body {
+            font-family: var(--font-body);
+            font-size: 19px;
+            line-height: 2.0;
+            color: #334155;
+            white-space: pre-line;
+        }
+
+        .article-body p {
+            margin-bottom: 24px;
+        }
+
+        /* Pull-quote box */
+        .quote-box {
+            background: #fffbeb;
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 0 16px 16px 0;
+            padding: 24px 30px;
+            margin: 36px 0;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #78350f;
+            font-style: italic;
+            box-shadow: 0 6px 20px rgba(200, 149, 71, 0.08);
+        }
+
+        .highlight-text {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Interaction Section */
+        .interaction-bar {
+            margin-top: 50px;
+            padding: 36px;
+            background: #ffffff;
+            border: 1px solid var(--line-color);
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(47, 93, 67, 0.05);
+        }
+
+        .hug-btn {
+            background: linear-gradient(135deg, var(--accent-green), #234532);
+            border: none;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(47, 93, 67, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hug-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 14px 40px rgba(213, 168, 100, 0.5);
+        }
+
+        .hug-btn:active {
+            transform: scale(0.98);
+        }
+
+        .hug-count {
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--sub-color);
+        }
+
+        @media(max-width: 768px) {
+            .story-article-container {
+                padding: 40px 20px;
+            }
+
+            .article-hero-img {
+                height: 260px;
+            }
+
+            .article-body {
+                font-size: 18px;
+                line-height: 1.9;
+            }
+
+            .quote-box {
+                padding: 20px 24px;
+                font-size: 18px;
+            }
+
+            .breadcrumb-trail {
+                font-size: 12.5px;
+                gap: 6px;
+                margin-bottom: 16px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 2px;
+            }
+
+            .breadcrumb-trail::-webkit-scrollbar {
+                display: none;
+            }
+
+            .breadcrumb-trail a,
+            .breadcrumb-sep {
+                flex-shrink: 0;
+            }
+
+            .breadcrumb-current {
+                flex-shrink: 1;
+                min-width: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 220px;
+            }
+        }
+    </style>
+    <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <article class="story-article-container">
+            <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+                <a href="trang-chu.html">Trang chủ</a>
+                <span class="breadcrumb-sep">❯</span>
+                <a href="goc-ke-chuyen.html">Chuyện Kể & Góc Nhìn</a>
+                <span class="breadcrumb-sep">❯</span>
+                <span class="breadcrumb-current" id="breadcrumbTitle">Bài viết</span>
+            </nav>
+
+
+
+            <div class="article-hero-wrap">
+                <img src="images/landing/girl-at-night.jpg" alt="Đêm mất ngủ" class="article-hero-img"
+                    id="articleHeroImg">
+            </div>
+
+            <span class="article-tag-badge" id="articleTag">🌙 MẮT NGỦ & ĐÊM MUỘN</span>
+            <h1 class="article-title" id="articleTitle">Một món quà dành cho tất cả những ai đang mất ngủ...</h1>
+
+            <div class="article-meta">
+                <span>✍️ Kể bởi: Tình (Cara Flow)</span>
+                <span>•</span>
+                <span>📅 05 Th08, 2026</span>
+                <span>•</span>
+                <span>⏱️ 3 phút đọc</span>
+            </div>
+
+            <div class="article-body" id="articleBody">
+                Mấy năm trước, trong 1 đêm mất ngủ, mình vô tình đọc được câu chuyện này trên mạng. Câu chuyện ngắn
+                thôi, nhưng đến giờ mỗi khi thấy cuộc sống trở nên u tối, mình đều tự gợi nhớ về nó...
+
+                Có người dùng tài khoản ẩn danh đăng lên vài dòng tâm sự rằng:
+                <span class="highlight-text">"Mình không thể nào ngủ được, vì mỗi lần nhắm mắt giấc mơ đều biến thành ác
+                    mộng, thế giới này thật đáng sợ quá."</span>
+                <span class="highlight-text">"Tối qua, mình lại mơ thấy mình đứng trên đỉnh một tòa nhà rất cao. Bên
+                    dưới là đám đông hô hào • họ cười cợt, vỗ tay, cầm điện thoại quay lại rồi cổ vũ mình nhảy
+                    xuống."</span>
+
+                Bài đăng chỉ kết thúc ở đó. Không ai biết người ấy là ai, hay câu chuyện có phải sự thật không.
+
+                Nhưng ở phần bình luận, có một người để lại câu trả lời thế này:
+
+                <div class="quote-box">
+                    "Mình cũng ở trong giấc mơ đó đấy. Bạn biết kết quả cuối cùng thế nào không? Mình đỡ được bạn rồi."
+                </div>
+
+                Không cần lý lẽ, chẳng cần khuyên răn, chỉ là một lời xác nhận nhẹ nhàng rằng • Trong lúc bạn tưởng mình
+                đang rơi, thì ở nơi nào đó nhất định vẫn có người đang cố giữ bạn lại...
+
+                Vì vậy, gửi đến tất cả những ai đang cảm thấy mệt mỏi, cô đơn hoặc cần 1 cái ôm, thì hãy nhớ rằng:
+                <span class="highlight-text">"Nếu bạn đang đọc đến đây, thì mình đỡ được bạn rồi.” 🫂✨</span>
+            </div>
+
+            <!-- INTERACTION HUG BUTTON -->
+            <div class="interaction-bar">
+                <button class="hug-btn" onclick="sendHug()">
+                    🫂 Gửi Một Cái Ôm Ấm Áp
+                </button>
+                <div class="hug-count" id="hugCount">Đã có 259 cái ôm được gửi trao từ khắp nơi ✨</div>
+            </div>
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+    <script src="js/plugin/jquery.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/global.js"></script>
+
+    <script>
+        const storiesData = {
+            "8": {
+                tag: "🌱 BỐN MÙA • MÙA XUÂN (KHỞI ĐẦU)",
+                title: "Có gió... dưới một tán cây (Khởi đầu)",
+                author: "Tình (Cara Flow)",
+                date: "07 Th08, 2026",
+                readTime: "4 phút đọc",
+                cover: "images/seasons/card-spring.jpg",
+                content: `Có một lần tôi đi ngang qua một con đường, ở đó như một dãy đô thị, có một cái nhà trong khu đó trồng một cây nhãn trước sân nhà. Cây nhãn to lắm nhưng nếu ở quê tôi thì cây nhãn đó đã bị chặt đi rồi, bởi vì trái của cây nhãn đó èo ọt lắm. 
+
+Chạy thêm một đoạn tôi lại thấy một căn nhà bên trái trồng rất nhiều hoa trên ban công, có loại có hoa màu hồng rũ xuống phía bên ngoài ban công luôn. Lúc đó tôi lại thấy rất yêu cuộc sống này, mấy nhà đó đang cố gắng để sống cùng với thiên nhiên, chẳng hiểu sao tôi lại nghĩ thế.
+
+<span class="highlight-text">"Trong một khu phố toàn nhà, đèn đường và lối đi, có 1 cây nhãn to lớn, tôi không sao quên được cái cảm giác đó và có lẽ tôi cũng không diễn đạt nổi chính suy nghĩ của mình."</span>
+
+Ở quê, một cây nhãn không cho nhiều trái có thể bị xem là "không còn giá trị". Nhưng trong khu đô thị ấy, cây nhãn dường như được giữ lại chỉ vì nó là một cái cây. Nó tạo bóng mát, làm mềm đi những khối bê tông, là nơi chim có thể đậu, là một mảnh thiên nhiên còn sót lại giữa phố. Có lẽ chính điều đó đã chạm đến mình. 
+
+<div class="quote-box">
+"Khi nối hai hình ảnh ấy lại, tôi có cảm giác những người ở đó không chỉ xây nhà để ở, mà còn chừa một khoảng cho thiên nhiên cùng sống."
+</div>
+
+Có lẽ cảm xúc của tôi không hẳn là "yêu cái cây" hay "yêu mấy chậu hoa". Đó là cảm giác rất khó gọi tên khi nhận ra rằng, giữa một nơi vốn có thể chỉ toàn xi măng, cửa kính và đèn đường, vẫn có người dành chỗ cho những điều không đem lại lợi ích rõ ràng. 
+
+Tôi cảm thấy biết ơn vì đã từng sống ở quê, nơi có thật nhiều cây trái. Ở quê, cây cối nhiều đến mức đôi khi người ta chỉ nhìn chúng qua giá trị của trái ngọt hay năng suất. Nhưng khi rời khỏi nơi ấy, đến một thành phố mà một cây lớn cũng trở nên hiếm hoi, tôi mới nhận ra mình đã từng được sống giữa một điều rất quý giá mà ngày đó xem là bình thường.`
+            },
+            "9": {
+                tag: "☀️ BỐN MÙA • MÙA HẠ (HỒN NHIÊN)",
+                title: "Có lẽ lá me rơi chính là tuyết của mùa hè (Hồn nhiên)",
+                author: "Tình (Cara Flow)",
+                date: "07 Th08, 2026",
+                readTime: "5 phút đọc",
+                cover: "images/seasons/card-summer.png",
+                content: `Có một câu nói thế này: 
+<span class="highlight-text font-bold">"Có lẽ lá me rơi chính là tuyết của mùa hè."</span> 
+Người lớn nghe xong sẽ mỉm cười vì thấy đẹp, nhưng trẻ con thì có khi sẽ tin là thật.
+
+Có một cậu bé khoảng tám tuổi, ngày nào tan học cũng đi ngang con đường có hai hàng me già. Mùa hè năm ấy nóng đến mức mặt đường rung lên như đang thở. Người lớn chỉ mong tìm được một bóng râm. Còn cậu bé thì ngẩng đầu nhìn tán me, vì cậu biết, chỉ cần có một cơn gió, "tuyết" sẽ rơi. 
+
+Lần đầu tiên cậu gọi lá me là tuyết là vì một buổi trưa. Một chiếc lá nhỏ xoay tròn trong không trung, chậm đến lạ. Nó không rơi thẳng xuống đất mà cứ lững thững, như đang tìm một nơi để đáp. Cậu chìa bàn tay ra. Chiếc lá nằm gọn trong lòng bàn tay nóng hổi.
+
+<div class="quote-box">
+"Ba ơi, ba từng thấy tuyết chưa?"<br>
+Ba cười: "Chưa."<br>
+"Con cũng chưa. Nhưng con nghĩ chắc nó giống vậy."<br>
+Ba không trả lời, chỉ xoa đầu cậu. Từ hôm ấy, mỗi khi lá me rơi, cậu đều bảo: "Tuyết mùa hè lại đến rồi."
+</div>
+
+Những năm sau đó, cậu lớn thêm một chút. Bạn bè bảo cậu ngốc: <i>"Lá thì là lá. Tuyết là tuyết."</i> Cậu không cãi, chỉ lặng lẽ đứng dưới gốc me đợi gió. Cậu biết chúng khác nhau, nhưng cảm giác khi ngửa mặt nhìn những thứ rất nhỏ cùng rơi xuống lại giống nhau đến kỳ lạ. Đều khiến người ta muốn đứng yên thêm một lúc.
+
+Rồi một mùa hè khác đến, ba không còn đưa cậu đi học nữa. Con đường vẫn thế. Tán me vẫn xanh và to hơn. Gió vẫn thổi. Lá vẫn rơi. Chỉ có cậu bé là đã biết, có những người sẽ không đi cùng mình hết mọi mùa hè. Cậu đứng dưới gốc cây rất lâu. Một chiếc lá me đáp lên vai áo, rồi chiếc thứ hai, rồi chiếc thứ ba. Bỗng nhiên cậu nhớ đến câu hỏi năm nào: <i>"Ba từng thấy tuyết chưa?"</i> Có lẽ ba chưa từng thấy. Nhưng ba đã cùng cậu đứng dưới một cơn "tuyết" khác.
+
+<div class="quote-box">
+"Người ta thường nói tuyết là ký ức của mùa đông. Còn với cậu, lá me là ký ức của mùa hè. Là thứ mong manh đến mức chỉ cần một cơn gió là tan vào mặt đất, nhưng cũng đủ nhẹ để sau rất nhiều năm, chỉ cần nhìn thấy một chiếc lá rơi, cậu lại nhớ về một cậu bé từng tin rằng: Có lẽ lá me rơi chính là tuyết của mùa hè."
+</div>`
+            },
+            "10": {
+                tag: "🍁 BỐN MÙA • MÙA THU (TRẦM TĨNH)",
+                title: "Khi chiếc ghế đá chỉ còn một người ngồi (Trầm tĩnh)",
+                author: "Tình (Cara Flow)",
+                date: "07 Th08, 2026",
+                readTime: "5 phút đọc",
+                cover: "images/seasons/card-autumn.png",
+                content: `Chiếc ghế đá nằm dưới một tán cây già ở cuối sân trường. Cô không nhớ nó đã ở đó từ bao giờ, chỉ nhớ rằng từ những năm còn bé, mỗi buổi chiều tan học, mẹ thường ngồi trên chiếc ghế ấy đợi cô. Có hôm mẹ mang theo một túi trái cây, có hôm là vài chiếc bánh nhỏ mua vội trên đường đi làm về. Cô sẽ chạy đến, đặt chiếc cặp xuống bên chân ghế rồi ríu rít kể đủ thứ chuyện xảy ra trong ngày. Mẹ thường nghe, thỉnh thoảng cười, thỉnh thoảng chỉ ừ một tiếng. Những câu chuyện của một đứa trẻ vốn chẳng cần người lớn phải trả lời nhiều, chỉ cần có một người chịu ngồi đó nghe mình nói là đủ.
+
+Ngày ấy, cô nghĩ những buổi chiều như vậy sẽ kéo dài mãi.
+
+Nhưng con người ta lớn lên, những chiếc ghế cũng dần trở nên rộng hơn. Có một ngày cô nhận ra mẹ không còn ngồi đợi mình ở đó nữa. Không phải vì mẹ đã rời đi đâu xa, chỉ là cô đã lớn, đã biết tự về nhà, còn mẹ thì có thêm những công việc phải làm. Sau này, những lần cô trở lại sân trường, chiếc ghế đá vẫn nằm dưới tán cây, chỉ là bên cạnh cô không còn ai nữa.
+
+Cô từng trách mẹ vì nhiều điều. Mẹ thương cô, cô biết, nhưng mẹ chưa bao giờ thật sự biết cách nói ra điều đó. Những lần cô buồn, mẹ thường bảo rằng có gì đâu mà khóc. Những lần cô thất bại, mẹ bảo lần sau cố gắng hơn. Khi cô cần một cái ôm, mẹ thường lúng túng đứng bên cạnh, rồi cuối cùng lại hỏi cô đã ăn cơm chưa. Ngày bé, cô từng nghĩ có lẽ mẹ không hiểu mình. Đến khi lớn hơn, cô mới biết có những người cả đời cũng không học được cách trao đi một thứ mà chính họ chưa từng nhận.
+
+Mẹ cô cũng từng là một đứa trẻ. Một đứa trẻ lớn lên trong một gia đình mà những cái ôm hiếm hơn những lời nhắc nhở, nơi người ta yêu nhau bằng cách nấu một bữa cơm, để dành phần ngon nhất, rồi lặng lẽ đặt nó lên bàn. Không ai dạy mẹ phải nói “mẹ thương con” thế nào, phải ngồi cạnh một đứa trẻ đang khóc ra sao. Mẹ chỉ có những gì bà từng được trao, và cố gắng trao lại bằng cách mà bà biết.
+
+Còn cha thì mang một kiểu yêu thương khác. Ông ít nói, nhưng luôn dặn cô phải cẩn thận, phải tiết kiệm, phải lo xa. Một khoản tiền nhỏ cũng khiến ông nghĩ đến những ngày chẳng may thất nghiệp. Một cơn mưa lớn cũng khiến ông lo đường ngập. Khi cô muốn thử một điều gì mới, điều đầu tiên cha nghĩ đến thường là những chuyện có thể xảy ra nếu thất bại. Ngày bé, cô thấy những nỗi lo ấy thật phiền phức. Sau này, cô mới hiểu cha đã lớn lên trong một thời mà thiếu thốn không phải là một khái niệm xa lạ. Ông từng nhìn thấy những người mình thương mất đi những thứ quan trọng chỉ vì không có đủ tiền, đủ may mắn, hay đủ một chỗ dựa. Ông học cách đề phòng cuộc đời để bảo vệ gia đình mình, rồi vô tình trao lại cho con một phần những nỗi sợ mà ông đã mang theo từ rất lâu.
+
+Có những buổi tối cô nằm trong căn phòng của mình và tự hỏi tại sao gia đình lại có thể truyền cho nhau nhiều thứ đến vậy. Không chỉ là màu mắt, dáng người hay một vài nét giống nhau trên khuôn mặt. Người ta còn truyền cho nhau những cách yêu thương, những im lặng, những định kiến, những nỗi sợ và cả những thiếu thốn mà chẳng ai mong muốn. Chúng đi từ người này sang người khác một cách âm thầm, đôi khi qua một câu nói, đôi khi qua một ánh mắt, đôi khi chỉ là một điều không bao giờ được nói ra.
+
+Có lẽ khi chào đời, không phải chúng ta bắt đầu vẽ từng nét lên một bức tranh trắng tinh. Một nửa bức tranh cuộc đời đã được vẽ kín từ trước. Bởi gia đình ta sinh ra, bởi cha mẹ, bởi những thế hệ đi trước, bởi mảnh đất và hoàn cảnh mà ta tình cờ thuộc về. Có những nét vẽ rất đẹp, có những nét khiến ta đau lòng, cũng có những nét ta chẳng hiểu vì sao mình lại phải mang theo. Nhưng rồi cô chợt nghĩ, có lẽ những người đã vẽ chúng cũng không hoàn toàn là người bắt đầu. Người mẹ mang theo những điều bà chưa từng được học cách trao cho con. Người cha mang theo những nỗi sợ từ thế hệ trước. Và phía sau họ lại là những câu chuyện của ông bà, của những người đã sống trong một thời đại khác, với những mất mát mà cô chưa từng biết tên.
+
+Nghĩ đến đó, cô bỗng thấy lòng mình dịu xuống. Không phải mọi vết thương đều biến mất chỉ vì ta hiểu được nguồn gốc của nó. Nhưng ít nhất, cô không còn muốn trách một người vì những nét vẽ mà chính họ cũng không phải người bắt đầu.
+
+Chiều hôm ấy, cô lại ngồi trên chiếc ghế đá cũ. Một chiếc lá vàng rơi xuống bên cạnh, nằm im trên nền xi măng. Tán cây vẫn rộng như ngày nào, chỉ có người từng ngồi cạnh cô đã không còn ở đó. Cô nhìn khoảng trống bên cạnh mình rất lâu rồi chợt nhận ra, có lẽ cả cuộc đời mình vẫn luôn tìm kiếm một bức tranh hoàn hảo mà chưa từng có ai được trao.
+
+Có lẽ tự do không phải là được bắt đầu với một bức tranh trắng. Bởi chẳng ai trong chúng ta thật sự bắt đầu từ con số không. Ta bước vào cuộc đời với những nét vẽ đã có sẵn, mang theo một phần của gia đình, một phần của nơi mình sinh ra, một phần của những người đã sống trước mình. Nhưng giữa những nét vẽ ấy vẫn luôn có những khoảng trắng.
+
+Và những khoảng trắng đó là phần mà mình được lựa chọn.
+
+<div class="quote-box">
+"Cô đứng dậy khi trời bắt đầu tối. Chiếc ghế đá vẫn chỉ còn một người ngồi, nhưng lần này cô không thấy mình cô độc. Cô chỉ nghĩ rằng, nếu một ngày mình có cơ hội đặt một nét cọ lên bức tranh của một người khác, có lẽ cô sẽ cẩn thận hơn với màu sắc mình chọn.<br><br>Bởi cô không thể sửa lại những nét vẽ đã có.<br>Nhưng cô có thể quyết định chúng sẽ dừng lại ở đâu."
+</div>
+
+Cô bước ra khỏi sân trường, để lại chiếc ghế đá dưới tán cây và một bức tranh vẫn còn dang dở.
+<span class="highlight-text font-bold">Phần còn lại, vẫn thuộc về mình.</span>`
+            },
+            "11": {
+                tag: "❄️ BỐN MÙA • MÙA ĐÔNG (HY VỌNG)",
+                title: "Người gieo hạt mùa đông (Mùa đông)",
+                author: "Tình (Cara Flow)",
+                date: "07 Th08, 2026",
+                readTime: "5 phút đọc",
+                cover: "images/seasons/card-winter.png",
+                content: `Tớ có quen biết một chàng trai, hmm… Cậu ấy trông chẳng có gì đặc biệt. Một vẻ ngoài bình thường, giản dị, có chút mộc mạc khiến người ta dễ nghĩ rằng mình đã hiểu về cậu ấy ngay từ cái nhìn đầu tiên. Nhưng càng tiếp xúc, lại càng thấy cậu ấy khó đoán. Có những điều ở cậu ấy không bao giờ được nói ra, chỉ lặng lẽ nằm ở đâu đó, giống như những viên kẹo luôn có mặt trong túi áo hay cặp sách. Tớ đã từng nghĩ đó chỉ là một thói quen, cho đến một ngày tớ nhìn thấy cậu ấy lấy những viên kẹo ấy đưa cho những đứa trẻ.
+
+Thật kỳ lạ, dường như ánh mắt của cậu ấy cũng thay đổi vào khoảnh khắc ấy. Đôi mắt vốn chẳng dễ đọc bỗng trở nên mềm hơn, trong hơn. Cậu ấy cúi xuống, mỉm cười với đứa trẻ bằng một nụ cười rất tự nhiên, rất nhẹ, giống như khi đứng trước trẻ con, cậu ấy chẳng cần phải giữ lại vẻ bình thản thường ngày của mình nữa. Không phải kiểu cười để làm người khác vui, cũng chẳng phải một nụ cười cố gắng tỏ ra tử tế. Nó tự nhiên đến mức người đứng bên cạnh gần như quên mất rằng mình đang nhìn một người lớn.
+
+Chỉ là kẹo thôi mà?
+
+Rồi tớ chợt nghĩ, liệu sau đó có ai còn nhớ đến viên kẹo ấy không? Tớ không biết. Có lẽ cậu ấy cũng chẳng biết. Một viên kẹo được trao đi rồi thì đâu còn thuộc về người trao nữa. Nó có thể được ăn ngay lúc ấy, có thể được cất vào một góc nào đó, hoặc cũng có thể vài ngày sau chẳng còn ai nhớ nó từng tồn tại. Nhưng điều khiến tớ thấy dịu dàng lại không nằm ở việc viên kẹo ấy có được nhớ đến hay không, mà là việc cậu ấy luôn mang chúng theo bên mình.
+
+Phải chăng cậu ấy sợ một ngày nào đó vô tình gặp một đứa trẻ đang có một ngày không vui, hoặc một đứa trẻ phải chịu những điều quá đỗi người lớn, mà lúc ấy trong túi lại chẳng có gì để trao? Nếu vậy thì có lẽ sẽ tiếc lắm. Tớ không biết cậu ấy có thật sự nghĩ như thế không, nhưng chỉ riêng việc một người luôn chừa sẵn vài viên kẹo cho những cuộc gặp gỡ chưa biết khi nào xảy đến, đối với tớ, đã là một điều rất đỗi dịu dàng.
+
+Tớ kể câu chuyện này không hẳn vì “cậu ấy tốt vì cho trẻ con kẹo”. Tớ chỉ muốn kể về một thứ gì đó nhỏ hơn và lặng lẽ hơn thế. Cậu ấy dường như đã chuẩn bị cho một cuộc gặp gỡ mà chính mình cũng không biết khi nào sẽ xảy ra, như thể trong chiếc túi nhỏ của mình, cậu ấy luôn chừa sẵn một chút ngọt ngào cho một người xa lạ nào đó mà mình có thể tình cờ gặp trên đường. Có lẽ trên thế giới này vẫn có những người như vậy. Họ làm những điều rất nhỏ, nhỏ đến mức nếu không để ý, ta sẽ dễ dàng đi ngang qua mà chẳng hề hay biết.
+
+<div class="quote-box">
+"Khi gieo một hạt mầm xuống đất vào mùa đông, người ta đâu thể biết mùa xuân nó có nảy mầm hay không. Có những hạt nằm im rất lâu dưới lớp đất lạnh, có những hạt chẳng bao giờ thành cây. Nhưng người gieo vẫn gieo, bởi có những điều chỉ có thể trao đi mà không thể biết trước được kết quả."
+</div>
+
+Cậu ấy có lẽ cũng vậy. Cứ lặng lẽ mang theo những viên kẹo, trao đi những nụ cười, gieo xuống cuộc đời những điều nhỏ nhặt mà chẳng thể biết chúng sẽ ở lại nơi nào, có nảy mầm trong lòng ai đó hay rồi cũng tan đi như một khoảnh khắc rất đỗi bình thường.
+
+Nhưng có lẽ, người gieo hạt chưa bao giờ cần biết trước mùa xuân sẽ đến ở đâu.
+
+<span class="highlight-text">"Liệu chúng ta có từng bỏ qua sự dịu dàng của ai đó? Là vì điều ấy quá mờ nhạt, hay chỉ là vì ta đã không đủ để ý để nhìn ra?"</span>`
+            },
+            "12": {
+                tag: "🏔️ QUÁN CHIẾU & BƯỚC TIẾP",
+                title: "Quán chiếu suy nghĩ: Nếu mình bỏ ở đây thì sẽ luôn khó",
+                author: "Tình (Cara Flow)",
+                date: "08 Th09, 2026",
+                readTime: "5 phút đọc",
+                cover: "images/album/draft-4.jpg",
+                content: `Có những ngày trên con đường bạn đi, chông gai và áp lực dồn dập đến mức bạn chỉ muốn buông xuôi tất cả. Nhưng trước khi quyết định dừng lại, hãy cùng chậm lại một nhịp và quán chiếu hai điều giản đơn này:
+
+<div class="quote-box">
+<b>Điều thứ nhất: Bây giờ đang là lúc khó nhất rồi</b><br>
+Khi mà mình thấy cực kỳ, cực kỳ khó, mình cần nghĩ trong đầu rằng: "Từ cái thời điểm này nó sẽ chỉ dễ hơn thôi." Tức là bây giờ đã là khó nhất rồi, mình đã thấy và chạm tới cái khó nhất rồi.
+
+Nếu mình cứ tiếp tục làm, thì ngày mai, ngày mốt, ngày sau nữa, từ từ nó sẽ bớt khó dần đi. Thời điểm này đang là khó nhất rồi, nó sẽ không thể khó hơn được như thế này được nữa. Mình sẽ có kinh nghiệm hơn, mình sẽ quen hơn, mình sẽ giỏi hơn và mọi thứ sẽ bớt khó đi. 
+
+Nhưng để nó bớt khó đi thì điều kiện tiên quyết là <i>mình phải làm tiếp</i>, mình không được bỏ cuộc, mình không được nản lòng ở ngay chỗ này. Bởi vì: <b>Nếu mình bỏ ở đây thì nó sẽ luôn luôn khó.</b> Chỉ có một cách duy nhất là mình tiếp tục đi tiếp, mình làm tiếp thì mới có cơ may là nó bớt khó đi thôi.
+</div>
+
+<div class="quote-box">
+<b>Điều thứ hai: Cúi xuống và nhìn thấy những bước chân của mình</b><br>
+Chúng ta hãy cúi xuống và nhìn thấy những bước chân của chính mình, đừng mãi nhìn lên những người đang đứng trên đỉnh núi nữa. Hãy cúi xuống và tập trung trọn vẹn vào từng bước chân của mình thôi, từng bước một rồi mình sẽ đến được cái nơi mà mình cần đến.
+
+Còn nếu cứ muốn nhìn lên trên đỉnh núi và thấy những người ở trên đỉnh núi, thì hãy đừng làm điều đó một cách hời hợt. Hãy làm điều đó cho trót: Tức là mình hãy tìm hiểu xem cái người đó họ đã trải qua những gì, họ đã có một hành trình như thế nào để lên được đến đỉnh? Mình phải hiểu cái quá trình của họ từ chân núi cho đến đỉnh núi thì mình mới biết được rằng thành công không bao giờ đến qua một đêm.
+
+Nếu mà mình thực sự nghĩ rằng cái việc so sánh với người ta nó quan trọng đến thế, thì <b>mình phải so sánh với cả cái hành trình của người ta</b>, chứ không chỉ là cái thành quả lộng lẫy của người ta. Cứ tìm hiểu xem là để đạt được đến cái đỉnh núi đó, họ đã phải vượt qua bao nhiêu cái khó.
+</div>
+
+<span class="highlight-text font-bold">"Đừng để sự nản lòng hôm nay biến khó khăn thành vĩnh viễn. Cứ cúi xuống đi tiếp từng bước một, đỉnh núi rồi cũng sẽ ở dưới chân bạn."</span>`
+            },
+            "7": {
+                tag: "🍑 TẤM LÒNG CHÂN THÀNH",
+                title: "Thùng đào thối & Lon trà hết hạn: Đừng vội hoài nghi tấm lòng chân thành",
+                author: "Tình (Cara Flow)",
+                date: "07 Th08, 2026",
+                readTime: "6 phút đọc",
+                cover: "images/landing/peach.jpg",
+                content: `Bạn thân đội mưa mang qua tặng một thùng đào, mình về nhà mở ra thì phát hiện một nửa đã bị thối, có nên nói cho bạn biết không? 
+Nói ra thì cảm thấy như đang phụ hoài tấm lòng của bạn, mà không nói thì trong lòng cứ thấy bứt rứt, khó chịu. 
+<span class="highlight-text font-bold">(47.000 người khác đã đồng tình)</span>
+
+Câu chuyện của bạn làm tôi nhớ đến một bài viết từng đọc trước đây:
+
+Tác giả bài viết đó dịp Tết năm ngoái có về quê thăm ông bố già của mình. Lúc ăn cơm tối, người cha bê ra một thùng trà thảo mộc Vương Lão Cát bảo anh uống. Anh hỏi cha lấy đâu ra, ông bảo tháng trước có sang phụ ông chú hàng xóm sửa lại cái chuồng lợn, xong việc thì ông chú tặng cho thùng này. Người con trai nghe vậy thì rất ngạc nhiên, vì đối với một ông lão neo đơn ở nông thôn thì một thùng Vương Lão Cát là một khoản chi tiêu không hề nhỏ. Anh liền thuận tay lật xem ngày sản xuất, thì phát hiện trà đã hết hạn nửa năm rồi.
+
+Ngay khoảnh khắc đó, ngọn lửa giận trong lòng anh bốc lên ngùn ngụt (vì nghĩ lão hàng xóm độc ác, cố tình đem đồ hết hạn đi trả ơn). Nhưng anh không nói cho cha biết chuyện trà hết hạn, mà chỉ bảo cha ngày mai mời ông chú hàng xóm sang nhà ăn cơm trưa.
+
+Trưa hôm sau, ông chú hàng xóm đến đúng hẹn. Trong bữa ăn, tác giả chủ động lấy một lon Vương Lão Cát hết hạn đưa cho ông chú, rồi bảo đây là thùng trà lần trước chú tặng mà cha anh chưa uống hết. Ông chú ban đầu cứ đùn đẩy từ chối không nhận. Tác giả lúc này thầm nghĩ trong bụng: <i>"Quả nhiên lão già này lòng dạ không ra gì, biết hết hạn nên mới không dám uống"</i>.
+
+Cuối cùng, dưới sự kiên trì ép mời của tác giả, ông chú cũng nhận lấy. Ông nâng niu lau lau vỏ lon một cách đầy trân trọng, loay hoay mãi mới giật được khoen mở, rồi cười hớn hở tu một hơi hết nửa lon. Nuốt xong, ông quệt miệng bảo, đây là món quà mà con gái ông mua tặng khi về thăm ông vào dịp Tết năm ngoái. Ông cứ tiếc mãi không dám uống, định bụng cứ cất kỹ để đợi Tết năm nay con gái về thì mang ra cho con uống, ai ngờ năm nay con bé lại bận không về được. Vừa vặn đợt trước sửa chuồng lợn, nghe cha của tác giả khoe năm nay con trai sẽ về quê ăn Tết, ông liền mang cả thùng Vương Lão Cát này sang tặng. Ông còn bảo: <i>"Mấy thứ đồ uống này là dành cho người trẻ tụi bay, thân già này uống không quen..."</i>. Nói xong, ông lại tu một hơi cạn sạch nửa lon còn lại.
+
+<div class="quote-box">
+"Khoảnh khắc đó, nhìn ông lão trước mặt với làn da đen sạm, đôi bàn tay đầy vết chai sạn nhưng gương mặt cứ cười hớn hở với mình, trong lòng tác giả trào lên một cảm giác cực kỳ khó tả... Ông ấy chỉ đang đem tặng thứ mà ông cho là trân quý nhất của mình mà thôi."
+</div>
+
+Một thùng Vương Lão Cát đối với chúng ta có lẽ chẳng là gì, nhưng đối với những người già sống ở một vùng quê khép kín, đó là một thứ đồ xa xỉ, mới lạ và quý giá. Ông ấy không phải không thích uống, mà ông đã chắt chiu, để dành suốt một năm trời là để đợi con gái mình về uống. Khi biết con không về được, nhưng biết con trai nhà hàng xóm sắp về, ông liền đem món quà "quý giá" ấy tặng cho người hàng xóm đã giúp mình sửa chuồng lợn. Còn về hạn sử dụng ư? Bản thân ông cụ còn chẳng hiểu cái chữ đó có nghĩa là gì.
+
+Sau chuyện đó, tác giả đã mua rất nhiều quà sang tặng lại cho ông chú hàng xóm, và cố tình ở lại quê nhà cứng nhắc suốt một tháng trời, chỉ vì sợ ông chú uống lon trà hết hạn kia vào sẽ bị đổ bệnh.
+
+Cho nên bạn à, đôi khi chúng ta đừng nhìn nhận con người một cách quá tà ác. Một người thật sự muốn cố tình tặng bạn những quả đào thối, họ sẽ không tốn công tốn sức đội mưa đội gió để mang đến cho bạn đâu. Hơn nữa, đào thực sự là loại quả cực kỳ dễ hỏng.
+
+<div class="quote-box">
+"Nếu như bạn vẫn nghi ngờ đối phương là cố tình, hãy nhắn cho người tặng một câu: 'Đào ngọt và ngon lắm luôn ấy, tiếc là loại này nhanh dập quá, em vừa về mở ra đã thấy hỏng mất mấy quả, tiếc hùi hụi luôn'. Rồi bạn cứ nhìn cách họ trả lời là sẽ hiểu ngay thôi."
+</div>`
+            },
+            "1": {
+                tag: "🌙 MẤT NGỦ & ĐÊM MUỘN",
+                title: "Một món quà dành cho tất cả những ai đang mất ngủ...",
+                author: "Tình (Cara Flow)",
+                date: "05 Th08, 2026",
+                readTime: "3 phút đọc",
+                cover: "images/landing/girl-at-night.jpg",
+                content: `Mấy năm trước, trong 1 đêm mất ngủ, mình vô tình đọc được câu chuyện này trên mạng.Câu chuyện ngắn thôi, nhưng đến giờ mỗi khi thấy cuộc sống trở nên u tối, mình đều tự gợi nhớ về nó...
+
+Có người dùng tài khoản ẩn danh đăng lên vài dòng tâm sự rằng:
+<span class="highlight-text">"Mình không thể nào ngủ được, vì mỗi lần nhắm mắt giấc mơ đều biến thành ác mộng, thế giới này thật đáng sợ quá."</span>
+<span class="highlight-text">"Tối qua, mình lại mơ thấy mình đứng trên đỉnh một tòa nhà rất cao. Bên dưới là đám đông hô hào • họ cười cợt, vỗ tay, cầm điện thoại quay lại rồi cổ vũ mình nhảy xuống."</span>
+
+Bài đăng chỉ kết thúc ở đó.Không ai biết người ấy là ai, hay câu chuyện có phải sự thật không. 
+
+Nhưng ở phần bình luận, có một người để lại câu trả lời thế này:
+
+        <div class="quote-box">
+            "Mình cũng ở trong giấc mơ đó đấy. Bạn biết kết quả cuối cùng thế nào không? Mình đỡ được bạn rồi."
+        </div>
+
+Không cần lý lẽ, chẳng cần khuyên răn, chỉ là một lời xác nhận nhẹ nhàng rằng • Trong lúc bạn tưởng mình đang rơi, thì ở nơi nào đó nhất định vẫn có người đang cố giữ bạn lại...
+
+Vì vậy, gửi đến tất cả những ai đang cảm thấy mệt mỏi, cô đơn hoặc cần 1 cái ôm, thì hãy nhớ rằng:
+        <span class="highlight-text">"Nếu bạn đang đọc đến đây, thì mình đỡ được bạn rồi.” 🫂✨</span>`
+            },
+            "2": {
+                tag: "☀️ VẠT NẮNG ẤM ÁP",
+                title: "Vạt nắng len qua ô cửa sổ ngày giông bão",
+                author: "Tình (Cara Flow)",
+                date: "03 Th08, 2026",
+                readTime: "4 phút đọc",
+                cover: "images/landing/patch-of-sunlight.jpg",
+                content: `Có những ngày giông bão kéo đến bất chợt, làm nhòe đi ô cửa kính vội vã. Nhưng giữa bầu trời xám xịt ấy, chỉ cần một vạt nắng mảnh dẻ len qua khe cửa cũng đủ làm dịu đi cả căn phòng.
+
+Bạn không cần phải là một ngọn lửa rực rỡ hay mặt trời chói lóa gánh vác cả thế giới.
+
+<div class="quote-box">
+"Đôi khi, giá trị của lòng tốt chỉ đơn giản là xuất hiện đúng lúc, tỏa một chút dịu dàng thế là đủ rồi."
+</div>
+
+Khi bạn mỉm cười với một người lạ đang mệt mỏi trên đường, hay kiên nhẫn lắng nghe ai đó thở dài • bạn đã chính là vạt nắng ấy.
+
+Mong bạn luôn giữ được sự ấm áp đó trong tim.`
+            },
+            "3": {
+                tag: "🍃 BUÔNG BỎ & BÌNH YÊN",
+                title: "Lời nhắn từ chiếc tách gốm sứt quai",
+                author: "Tình (Cara Flow)",
+                date: "01 Th08, 2026",
+                readTime: "5 phút đọc",
+                cover: "images/seasons/card-autumn.png",
+                content: `Một chiếc tách gốm sứt một vết nhỏ ở quai cầm, thay vì bỏ đi, người nghệ nhân Nhật Bản dùng nhựa tráng vàng gắn lại • tạo nên nghệ thuật Kintsugi nổi tiếng.
+
+Con người chúng ta cũng vậy. Chúng ta mải mê đuổi theo sự hoàn hảo mà quên rằng những vết sẹo, những vỡ vụn đã qua mới là thứ nhào nặn nên chiều sâu tâm hồn.
+
+<div class="quote-box">
+"Nhìn nhận vết nứt như một dấu ấn thời gian trải qua, hơn là một tổn thương cần che giấu."
+</div>
+
+Đừng ngại ngần những vết vỡ của bản thân. Chính ánh sáng len lỏi qua những vết nứt ấy mới khiến bạn trở nên độc bản và quý giá.`
+            },
+            "4": {
+                tag: "🌙 ĐÊM MUỘN & THÌ THẦM",
+                title: "Chuyến xe buýt đêm muộn lấp lánh ánh đèn",
+                author: "Tình (Cara Flow)",
+                date: "28 Th07, 2026",
+                readTime: "3 phút đọc",
+                cover: "images/landing/bus.jpg",
+                content: `Trên chuyến xe buýt chuyến cuối lúc 11 giờ đêm, thành phố dịu xuống sau những ồn ào vội vã.
+
+Mọi người trên xe không ai quen ai. Có người lặng lẽ tựa đầu vào cửa kính ngắm đèn đường, có người thiếp đi vì kiệt sức sau ca làm dài. Nhưng khi một cụ già bước lên, hai ba cánh tay cùng chủ động chìa ra giữ tay cụ và nhường chỗ.
+
+<div class="quote-box">
+"Giữa những con người xa lạ chẳng quen biết tên nhau, sự tử tế thầm lặng vẫn như những ngọn đèn nhỏ sưởi ấm đêm lạnh."
+</div>
+
+Bạn không đơn độc trên hành trình này. Xung quanh bạn luôn có những sự quan tâm im lặng như thế.`
+            },
+            "5": {
+                tag: "🌱 HY VỌNG MỚI",
+                title: "Hạt mầm nhỏ dưới lớp tuyết mùa đông",
+                author: "Tình (Cara Flow)",
+                date: "25 Th07, 2026",
+                readTime: "4 phút đọc",
+                cover: "images/seasons/card-winter.png",
+                content: `Mùa đông lạnh giá giấu đi tất cả mầm sống dưới lớp tuyết dày. Nhưng bạn có biết, hạt mầm không hề chết đi • nó đang âm thầm tích lũy năng lượng trong lòng đất tối.
+
+Có những giai đoạn cuộc sống bạn cảm thấy đứng khựng lại, không có tiến triển gì. Đừng nản lòng.
+
+<div class="quote-box">
+"Bóng tối và sự giá lạnh không phải là kết thúc, mà là giai đoạn kiên nhẫn tích tụ năng lượng để sẵn sàng vươn mình vào mùa xuân."
+</div>
+
+Hãy cho bản thân thời gian để nảy mầm theo đúng nhịp điệu của tự nhiên.`
+            },
+            "6": {
+                tag: "🌧️ CƠN MƯA & BÓNG CÂY",
+                title: "Cảm giác đứng bên cửa sổ nhìn mưa lớn",
+                author: "Tình (Cara Flow)",
+                date: "20 Th07, 2026",
+                readTime: "3 phút đọc",
+                cover: "images/seasons/card-summer.png",
+                content: `Cảm giác đứng bên ô cửa sổ ấm áp nhìn mưa trút xuống bên ngoài, hay ngồi dưới bóng râm mát lạnh ngắm ánh nắng chói chang mùa hạ.
+
+Đó là những khoảnh khắc bình yên không tốn một xu nào, nhưng lại mang đến sự thỏa mãn sâu sắc trong lòng.
+
+<div class="quote-box">
+"Hạnh phúc không nằm ở những điều xa xôi đại sự. Hạnh phúc là khi biết thưởng thức trọn vẹn sự an yên của phút giây hiện tại."
+</div>
+
+Hôm nay, hãy thử dừng lại 5 phút và ngắm nhìn thế giới xung quanh mình nhé.`
+            }
+        };
+
+        // Parse query param id
+        const urlParams = new URLSearchParams(window.location.search);
+        const storyId = urlParams.get('id') || "1";
+
+        // Auto-redirect Story #1 ("Một món quà cho ai mất ngủ...") to its dedicated 3D Lofi night experience page
+        if (storyId === "1") {
+            window.location.replace("nhung-dong-chu-biet-om.html");
+        }
+
+        const story = storiesData[storyId] || storiesData["2"];
+
+        // Load story details into DOM
+        document.title = `${story.title} - Trạm Kể Chuyện`;
+        const bcrumb = document.getElementById("breadcrumbTitle");
+        if (bcrumb) bcrumb.innerText = story.title;
+        document.getElementById("articleHeroImg").src = story.cover;
+        document.getElementById("articleHeroImg").alt = story.title;
+        document.getElementById("articleTag").innerText = story.tag;
+        document.getElementById("articleTitle").innerText = story.title;
+        document.querySelector(".article-meta").innerHTML = `
+            <span>✍️ Kể bởi: ${story.author}</span>
+            <span>•</span>
+            <span>📅 ${story.date}</span>
+            <span>•</span>
+            <span>⏱️ ${story.readTime}</span>
+        `;
+        document.getElementById("articleBody").innerHTML = story.content;
+
+        // Hug count interaction
+        let hugs = parseInt(localStorage.getItem(`cara_hug_count_${storyId}`) || "259");
+        document.getElementById("hugCount").innerText = `Đã có ${hugs} cái ôm được gửi trao từ khắp nơi ✨`;
+
+        function sendHug() {
+            hugs++;
+            localStorage.setItem(`cara_hug_count_${storyId}`, hugs);
+            document.getElementById("hugCount").innerText = `Đã có ${hugs} cái ôm được gửi trao từ khắp nơi ✨`;
+
+            const btn = document.querySelector(".hug-btn");
+            btn.innerHTML = "✨ Cảm ơn bạn vì cái ôm ấm áp! 🫂";
+            setTimeout(() => {
+                btn.innerHTML = "🫂 Gửi Thêm Một Cái Ôm";
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>

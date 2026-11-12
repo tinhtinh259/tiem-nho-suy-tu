@@ -1,0 +1,4446 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hóa Thân - Tiệm Nhỏ Suy Tư</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <!-- Google Fonts & Local Offline Fonts -->
+    <link rel="stylesheet" href="fonts/hoa-than-fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/components/freestyle-cards.css">
+
+    <style>
+        :root {
+            --bg: #0d0f13;
+            --card-bg: #161b22;
+            --text-color: #e2e8f0;
+            --sub-color: #94a3b8;
+            --line-color: rgba(255, 255, 255, .08);
+            --accent-gold: #d5a864;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 100%;
+            padding-top: var(--height-header);
+            min-height: calc(100vh - 200px);
+        }
+
+        .hoathan_section {
+            position: relative;
+            padding: 95px 0 110px 0;
+            margin: 0 auto;
+            background: radial-gradient(circle at 50% 15%, rgba(18, 42, 32, 0.4) 0%, rgba(13, 20, 26, 0.65) 45%, #080c10 100%),
+                        linear-gradient(180deg, #0a0d12 0%, #0d141b 30%, #0f1720 65%, #080c10 100%);
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hoathan_section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1050px;
+            height: 550px;
+            background: radial-gradient(ellipse at top, rgba(213, 168, 100, 0.09) 0%, rgba(56, 189, 248, 0.06) 38%, rgba(82, 183, 136, 0.03) 68%, transparent 78%);
+            pointer-events: none;
+            filter: blur(60px);
+            z-index: 1;
+        }
+
+        .hoathan_section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 180px;
+            background: linear-gradient(180deg, transparent 0%, rgba(8, 12, 16, 0.95) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hoathan_section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            margin-top: 12px;
+            color: #ffffff;
+        }
+
+        .section-title p {
+            max-width: 720px;
+            margin: 20px auto 0 auto;
+            color: var(--sub-color);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* Cards Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .hoathan_section .card {
+            position: relative;
+            background: rgba(22, 27, 34, 0.75);
+            border: 1px solid var(--line-color);
+            border-radius: 24px;
+            padding: 35px 28px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(.19, 1, .22, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .hoathan_section .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 28px rgba(213, 168, 100, 0.16);
+            border-color: rgba(213, 168, 100, 0.45);
+            background: rgba(28, 36, 46, 0.92);
+        }
+
+        .symbol {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        /* Sun */
+        .sun {
+            background: radial-gradient(circle, #fde047 20%, #d5a864 70%);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+            border-radius: 50%;
+        }
+
+        /* Tree */
+        .tree {
+            background: radial-gradient(circle at center, #93a78b 10%, #bcc7b4 60%);
+        }
+
+        /* Cookie */
+        .cookie {
+            border-radius: 50%;
+            background: radial-gradient(circle, #d6a874, #b98454);
+        }
+
+        .cookie::before {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #6d4b2e;
+            border-radius: 50%;
+            top: 18px;
+            left: 20px;
+            box-shadow: 20px 10px #6d4b2e, 35px 28px #6d4b2e, 10px 45px #6d4b2e, 40px 50px #6d4b2e;
+        }
+
+        /* Leaf */
+        .leaf {
+            background: linear-gradient(135deg, #f2c084, #d97b42);
+            border-radius: 0 100% 0 100%;
+            transform: rotate(45deg);
+        }
+
+        /* Stone */
+        .stone {
+            border-radius: 55% 45% 50% 40%;
+            background: linear-gradient(135deg, #c9c9c9, #8e8e8e);
+        }
+
+        /* Butterfly */
+        .butterfly {
+            background: transparent;
+        }
+
+        .butterfly::before,
+        .butterfly::after {
+            content: "";
+            position: absolute;
+            width: 35px;
+            height: 50px;
+            background: linear-gradient(135deg, #d8d4f6, #a89cf3);
+        }
+
+        .butterfly::before {
+            left: 5px;
+            border-radius: 80% 20% 80% 20%;
+        }
+
+        .butterfly::after {
+            right: 5px;
+            border-radius: 20% 80% 20% 80%;
+        }
+
+        .hoathan_section .card h3 {
+            margin-bottom: 12px;
+            font-weight: 600;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        .hoathan_section .card p {
+            color: var(--sub-color);
+            line-height: 1.7;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Modal styling */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(10, 15, 12, 0.78);
+            backdrop-filter: blur(14px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            position: relative;
+            width: min(850px, 92%);
+            max-height: 85vh;
+            overflow-y: auto;
+            background: #16221a;
+            border: 1px solid rgba(213, 168, 100, 0.35);
+            border-radius: 28px;
+            padding: 40px;
+            transform: scale(0.92);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(.19, 1, .22, 1);
+            color: #f3f4f6;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
+        }
+
+        .modal.active .modal-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.2s ease;
+        }
+
+        .close:hover {
+            background: rgba(213, 168, 100, 0.3);
+            color: #d5a864;
+        }
+
+        .story-label {
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .modal h2 {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 26px;
+        }
+
+        .story {
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-bottom: 25px;
+            font-size: 15px;
+            white-space: normal;
+        }
+
+        .story p {
+            margin: 0 0 10px 0;
+            line-height: 1.7;
+        }
+
+        .question {
+            margin-top: 30px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+        }
+
+        .question h4 {
+            margin: 0 0 16px 0;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            border: 1px solid rgba(213, 168, 100, 0.3);
+            cursor: pointer;
+            padding: 12px 22px;
+            border-radius: 999px;
+            background: rgba(213, 168, 100, 0.1);
+            color: #d5a864;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            background: #d5a864;
+            color: #0f1712;
+            box-shadow: 0 8px 20px rgba(213, 168, 100, 0.25);
+        }
+
+        .response {
+            margin-top: 20px;
+            display: none;
+            padding: 20px;
+            border-radius: 16px;
+            background: rgba(213, 168, 100, 0.08);
+            border: 1px solid rgba(213, 168, 100, 0.2);
+            color: #e5e7eb;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .response.show {
+            display: block;
+            animation: fade .5s ease;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================
+           CUCUMBER SPECIAL CARD & MODAL STYLES
+           ========================================== */
+        /* Cucumber Symbol (Lát Dưa Leo Tươi & Mát) */
+        .symbol.cucumber {
+            background: radial-gradient(circle at 35% 35%, #a8e6cf 0%, #38ef7d 45%, #11998e 90%);
+            border: 3px solid #78c850;
+            box-shadow: 0 0 25px rgba(56, 239, 125, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .symbol.cucumber::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #eafaf1 25%, rgba(168, 230, 207, 0.5) 75%);
+            border: 2px dashed rgba(17, 153, 142, 0.45);
+        }
+
+        .symbol.cucumber::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            box-shadow:
+                -7px -5px 0 1.5px #11998e,
+                7px -5px 0 1.5px #11998e,
+                -9px 4px 0 1.5px #11998e,
+                9px 4px 0 1.5px #11998e,
+                0px 8px 0 1.5px #11998e;
+        }
+
+        /* Featured Cucumber Card Glow */
+        .hoathan_section .card.featured-cucumber {
+            background: linear-gradient(145deg, #0e2017 0%, #152e20 100%);
+            border: 1px solid rgba(56, 239, 125, 0.4);
+            box-shadow: 0 12px 35px rgba(17, 153, 142, 0.25);
+        }
+
+        .hoathan_section .card.featured-cucumber:hover {
+            border-color: rgba(56, 239, 125, 0.8);
+            box-shadow: 0 22px 50px rgba(56, 239, 125, 0.35);
+            background: linear-gradient(145deg, #132b1f 0%, #1c3c2a 100%);
+        }
+
+        .cucumber-tag-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            color: #062413;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(56, 239, 125, 0.3);
+            animation: cucumberBadgePulse 2.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes cucumberBadgePulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 12px rgba(56, 239, 125, 0.3);
+            }
+
+            100% {
+                transform: scale(1.06);
+                box-shadow: 0 6px 18px rgba(56, 239, 125, 0.6);
+            }
+        }
+
+        /* Modal Highlight Callout & Interactive Bite Box */
+        .cucumber-highlight-quote {
+            background: linear-gradient(135deg, rgba(56, 239, 125, 0.12) 0%, rgba(17, 153, 142, 0.08) 100%);
+            border-left: 4px solid #38ef7d;
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 24px 0;
+            color: #e2f9e5;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.7;
+            font-style: italic;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .cucumber-highlight-quote p {
+            margin: 0;
+        }
+
+        .cucumber-bite-box {
+            margin-top: 30px;
+            padding: 24px;
+            background: rgba(56, 239, 125, 0.06);
+            border: 1px dashed rgba(56, 239, 125, 0.35);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .cucumber-bite-box .bite-prompt {
+            color: #d1fae5;
+            font-size: 15px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .cucumber-bite-box .bite-btn {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            color: #062e19;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(56, 239, 125, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cucumber-bite-box .bite-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 28px rgba(56, 239, 125, 0.5);
+            background: linear-gradient(135deg, #4ef290 0%, #17b9ab 100%);
+        }
+
+        .cucumber-bite-box .bite-result {
+            margin-top: 18px;
+            display: none;
+        }
+
+        .cucumber-bite-box .bite-result.show {
+            display: block;
+            animation: bitePop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes bitePop {
+            0% {
+                opacity: 0;
+                transform: scale(0.9) translateY(12px);
+            }
+
+            70% {
+                transform: scale(1.03);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .bite-card {
+            padding: 16px 20px;
+            border-radius: 14px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .bite-card.sweet {
+            background: rgba(56, 239, 125, 0.15);
+            border: 1px solid rgba(56, 239, 125, 0.4);
+            color: #ecfdf5;
+        }
+
+        .bite-card.sweet h4 {
+            color: #38ef7d;
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+
+        .bite-card.bitter {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fffbeb;
+        }
+
+        .bite-card.bitter h4 {
+            color: #fbbf24;
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+
+        /* ==========================================
+           KEY VISUAL (KV) HERO ORBIT BANNER SECTION
+           (Inspired by hero-landscape-temp)
+           ========================================== */
+        .kv-banner-section {
+            position: relative;
+            width: 100%;
+            min-height: calc(100vh - var(--height-header, 81px));
+            padding: 40px 0 60px 0;
+            background: radial-gradient(circle at 75% 45%, #13241c 0%, #09130d 60%, #070d09 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(213, 168, 100, 0.2);
+            box-shadow: inset 0 -30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .kv-banner-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(213, 168, 100, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .kv-page {
+            position: relative;
+            z-index: 2;
+            width: min(94%, 1240px);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* LEFT CONTENT */
+        .kv-content {
+            position: relative;
+            z-index: 10;
+            max-width: 620px;
+        }
+
+        .kv-eyebrow {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #d5a864;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .kv-eyebrow::before {
+            content: '';
+            width: 32px;
+            height: 2px;
+            background: linear-gradient(90deg, #d5a864, transparent);
+            border-radius: 2px;
+        }
+
+        h1.kv-hero-title {
+            font-family: 'Plus Jakarta Sans', 'Manrope', var(--font-body), sans-serif;
+            font-weight: 800;
+            font-size: clamp(30px, 3.8vw, 50px);
+            line-height: 1.18;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+            margin: 0 0 18px 0;
+            min-height: 1.25em;
+            perspective: 600px;
+            word-break: keep-all;
+            overflow-wrap: normal;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        h1.kv-hero-title .word {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        h1.kv-hero-title .char {
+            display: inline-block;
+            will-change: transform, opacity;
+        }
+
+        .kv-spirit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading, sans-serif);
+            font-weight: 700;
+            font-size: 13.5px;
+            letter-spacing: 0.08em;
+            padding: 8px 18px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            color: #52b788;
+            margin-bottom: 22px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        .kv-spirit-badge .badge-icon {
+            font-size: 15px;
+        }
+
+        .kv-hero-desc {
+            font-size: 15.5px;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 32px;
+            max-width: 520px;
+            min-height: 84px;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .kv-controls-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+
+        .kv-main-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 34px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 15px;
+            color: #0b140e;
+            background: #52b788;
+            text-decoration: none;
+            box-shadow: 0 14px 32px -8px rgba(82, 183, 136, 0.55);
+            transition: all 0.35s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .kv-main-cta:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 38px -6px rgba(82, 183, 136, 0.7);
+            color: #050a07;
+        }
+
+        .kv-sub-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 14.5px;
+            color: #e2e8f0;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .kv-sub-cta:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(213, 168, 100, 0.4);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+
+        .kv-step-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 13.5px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .kv-step-count {
+            font-family: var(--font-heading, sans-serif);
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        .kv-step-nav {
+            display: flex;
+            gap: 18px;
+        }
+
+        .kv-step-nav button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.65;
+            transition: all 0.25s ease;
+            font-family: inherit;
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+
+        .kv-step-nav button:hover {
+            opacity: 1;
+            color: #d5a864;
+            background: rgba(213, 168, 100, 0.1);
+        }
+
+        /* RIGHT: STAGE WRAP */
+        .kv-stage-wrap {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kv-stage {
+            position: relative;
+            width: min(44vw, 540px);
+            height: min(44vw, 540px);
+            max-width: 540px;
+            max-height: 540px;
+        }
+
+        .kv-blob {
+            position: absolute;
+            inset: 6%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 35%, #1e3d2f 0%, #0e2017 65%, #08140e 100%);
+            box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.06), 0 0 70px rgba(82, 183, 136, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        .kv-orbit-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .kv-orbit-path {
+            fill: none;
+            stroke: rgba(213, 168, 100, 0.35);
+            stroke-width: 1.8;
+            stroke-dasharray: 4 10;
+            stroke-linecap: round;
+        }
+
+        .kv-leaf {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            opacity: 0.75;
+            pointer-events: none;
+            z-index: 6;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+        }
+
+        /* ENTITY DISH (Chiếc Lá, Bánh Quy, Viên Sỏi) */
+        .kv-entity {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 95px;
+            height: 95px;
+            transform: translate(-50%, -50%);
+            will-change: left, top, transform;
+            z-index: 15;
+            user-select: none;
+        }
+
+        .kv-entity.is-main {
+            z-index: 22;
+            cursor: default;
+        }
+
+        .kv-entity:not(.is-main) {
+            cursor: pointer;
+        }
+
+        .kv-entity .entity-img-wrap {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 3.5px solid rgba(255, 255, 255, 0.45);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+        }
+
+        .kv-entity:not(.is-main):hover .entity-img-wrap {
+            border-color: rgba(213, 168, 100, 0.9);
+            box-shadow: 0 14px 30px -4px rgba(213, 168, 100, 0.5);
+            transform: scale(1.08);
+        }
+
+        .kv-entity.is-main .entity-img-wrap {
+            border-width: 5px;
+            border-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(82, 183, 136, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .kv-entity img {
+            width: 86%;
+            height: 86%;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+            pointer-events: none;
+        }
+
+        .kv-entity .ring {
+            position: absolute;
+            inset: -9px;
+            border-radius: 50%;
+            border: 1.5px solid #52b788;
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+            pointer-events: none;
+        }
+
+        .kv-entity.is-main .ring {
+            opacity: 1;
+            transform: scale(1);
+            animation: kvPulseRing 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes kvPulseRing {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1.05);
+                opacity: 1;
+                filter: drop-shadow(0 0 8px currentColor);
+            }
+        }
+
+        .kv-floating-note {
+            position: absolute;
+            left: 50%;
+            bottom: 2%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(14, 23, 18, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 9px 20px;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #cbd5e1;
+            z-index: 30;
+            white-space: nowrap;
+        }
+
+        .kv-floating-note .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #52b788;
+            box-shadow: 0 0 0 4px rgba(82, 183, 136, 0.25);
+            animation: kvDotBlink 2s infinite ease-in-out;
+        }
+
+        @keyframes kvDotBlink {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.15);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .kv-banner-section {
+                padding: 40px 16px 50px 16px;
+                min-height: auto;
+            }
+
+            .kv-page {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .kv-stage-wrap {
+                min-height: auto;
+                order: 1;
+            }
+
+            .kv-stage {
+                width: min(88vw, 420px);
+                height: min(88vw, 420px);
+            }
+
+            .kv-content {
+                order: 2;
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .kv-eyebrow {
+                justify-content: center;
+            }
+
+            .kv-eyebrow::before {
+                display: none;
+            }
+
+            .kv-hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .kv-controls-row {
+                justify-content: center;
+            }
+
+            .kv-step-row {
+                justify-content: center;
+            }
+
+            .kv-entity {
+                width: 72px;
+                height: 72px;
+            }
+        }
+
+        /* ==========================================
+           SPECIAL 3D SHOWCASE SECTION (BỘ 3 HÓA THÂN)
+           ========================================== */
+        .hoathan-3d-showcase {
+            position: relative;
+            padding: 85px 0 80px 0;
+            background: linear-gradient(180deg, #09130d 0%, #0d1217 60%, #0a0d12 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+        }
+
+        .hoathan-3d-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 400px;
+            background: radial-gradient(ellipse at top, rgba(213, 168, 100, 0.12) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 70%);
+            pointer-events: none;
+            filter: blur(50px);
+        }
+
+        .showcase-header {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 55px auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .showcase-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 18px;
+            background: rgba(213, 168, 100, 0.12);
+            border: 1px solid rgba(213, 168, 100, 0.35);
+            border-radius: 50px;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #d5a864;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .showcase-badge .badge-dot {
+            width: 7px;
+            height: 7px;
+            background: #d5a864;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #d5a864;
+            animation: dotBlink 2s infinite ease-in-out;
+        }
+
+        @keyframes dotBlink {
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+
+        .showcase-title {
+            font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.25;
+            margin: 0 0 16px 0;
+            letter-spacing: -0.5px;
+            color: #FFFFFF;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .showcase-title span {
+            background: linear-gradient(135deg, #6EE7B7 0%, #34D399 26%, #00794d 54%, #FBBF24 80%, #FB923C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* filter: drop-shadow(0 2px 16px rgba(52, 211, 153, 0.35)) drop-shadow(0 0 24px rgba(56, 189, 248, 0.25)); */
+            display: inline-block;
+        }
+
+        .showcase-desc {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #94a3b8;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           SPECIAL 3D SHOWCASE - LANDSCAPE SPLIT SLIDER
+           ========================================================================== */
+        .showcase-slider-wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Realm Selector Tabs */
+        .showcase-realm-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .realm-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(22, 27, 34, 0.65);
+            backdrop-filter: blur(10px);
+            color: #94a3b8;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+
+        .realm-tab:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.22);
+            transform: translateY(-2px);
+        }
+
+        body:not(.mode-day) .realm-tab.active {
+            background: rgba(213, 168, 100, 0.16);
+            border-color: rgba(213, 168, 100, 0.5);
+            color: #fce0a2;
+            box-shadow: 0 4px 18px rgba(213, 168, 100, 0.2);
+        }
+
+        /* Realm Tabs trong Chế Độ Ban Ngày */
+        body.mode-day .realm-tab {
+            background: rgba(255, 255, 255, 0.88);
+            border-color: rgba(28, 42, 27, 0.14);
+            color: #4A5B47;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        body.mode-day .realm-tab:hover {
+            background: #FFFFFF;
+            color: #1C2A1B;
+            border-color: rgba(85, 122, 39, 0.35);
+        }
+
+        body.mode-day .realm-tab.active {
+            background: rgba(85, 122, 39, 0.14) !important;
+            border-color: rgba(85, 122, 39, 0.5) !important;
+            color: #2D4C15 !important;
+            box-shadow: 0 4px 16px rgba(85, 122, 39, 0.18) !important;
+        }
+
+        .realm-tab-icon {
+            font-size: 15px;
+        }
+
+        /* Main Slider Stage */
+        .showcase-slider-stage {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .showcase-slider-viewport {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 32px;
+        }
+
+        .showcase-slider-track {
+            display: flex;
+            transition: transform 0.65s cubic-bezier(0.25, 1, 0.35, 1);
+            width: 100%;
+            touch-action: pan-y;
+        }
+
+        .showcase-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+        }
+
+        /* Landscape Split Card */
+        .showcase-card {
+            position: relative;
+            background: linear-gradient(180deg, rgba(22, 27, 34, 0.9) 0%, rgba(14, 18, 24, 0.98) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 32px;
+            padding: 38px 46px;
+            display: grid;
+            grid-template-columns: minmax(0, 4.2fr) minmax(0, 5.8fr);
+            gap: 40px;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+            backdrop-filter: blur(24px);
+            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            box-sizing: border-box;
+            min-height: 430px;
+        }
+
+        /* Card Color Themes */
+        .showcase-card.card-cookie {
+            --card-accent: #d97706;
+            --card-accent-rgb: 217, 119, 6;
+            --card-halo: radial-gradient(circle, rgba(245, 158, 11, 0.28) 0%, transparent 70%);
+        }
+
+        .showcase-card.card-leaf {
+            --card-accent: #10b981;
+            --card-accent-rgb: 16, 185, 129;
+            --card-halo: radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, transparent 70%);
+        }
+
+        .showcase-card.card-pebble {
+            --card-accent: #0ea5e9;
+            --card-accent-rgb: 14, 165, 233;
+            --card-halo: radial-gradient(circle, rgba(14, 165, 233, 0.32) 0%, transparent 70%);
+        }
+
+        .showcase-card.card-mayfly {
+            --card-accent: #f59e0b;
+            --card-accent-rgb: 245, 158, 11;
+            --card-halo: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, transparent 70%);
+        }
+
+        .showcase-card:hover {
+            transform: none;
+            border-color: rgba(var(--card-accent-rgb), 0.55);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                0 0 35px rgba(var(--card-accent-rgb), 0.22);
+            background: linear-gradient(180deg, rgba(28, 35, 45, 0.92) 0%, rgba(16, 21, 28, 0.98) 100%);
+        }
+
+        .showcase-card .card-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 180px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(var(--card-accent-rgb), 0.25) 0%, transparent 75%);
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Cột Trái: 3D Visual Stage */
+        .showcase-visual-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .card-visual-wrap {
+            position: relative;
+            width: 100%;
+            height: 270px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 900px;
+        }
+
+        .visual-halo {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: var(--card-halo);
+            filter: blur(28px);
+            transition: all 0.4s ease;
+        }
+
+        .showcase-card:hover .visual-halo {
+            transform: scale(1.2);
+            filter: blur(36px);
+        }
+
+        .visual-water-ring {
+            position: absolute;
+            bottom: 22px;
+            width: 190px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(14, 165, 233, 0.5);
+            box-shadow: 0 0 16px rgba(14, 165, 233, 0.35);
+            transform: rotateX(65deg);
+            animation: pulseRippleCard 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseRippleCard {
+
+            0%,
+            100% {
+                transform: rotateX(65deg) scale(0.85);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: rotateX(65deg) scale(1.15);
+                opacity: 0.9;
+            }
+        }
+
+        .card-visual-img {
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.5));
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+            animation: float3D 4s ease-in-out infinite alternate;
+        }
+
+        .showcase-card:hover .card-visual-img {
+            transform: translateY(-10px) scale(1.1) rotate(3deg);
+            filter: drop-shadow(0 22px 36px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 20px rgba(var(--card-accent-rgb), 0.5));
+        }
+
+        .card-visual-img.visual-cookie {
+            animation-delay: 0s;
+        }
+
+        .card-visual-img.visual-leaf {
+            animation-delay: 0.6s;
+        }
+
+        .card-visual-img.visual-pebble {
+            animation-delay: 1.2s;
+        }
+
+        .card-visual-img.visual-mayfly {
+            animation-delay: 1.8s;
+        }
+
+        @keyframes float3D {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(1.5deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        /* Cột Phải: Content Narrative */
+        .showcase-content-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            min-width: 0;
+        }
+
+        .card-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--card-accent);
+            background: rgba(var(--card-accent-rgb), 0.12);
+            border: 1px solid rgba(var(--card-accent-rgb), 0.3);
+            border-radius: 30px;
+            padding: 5px 14px;
+            width: fit-content;
+            margin-bottom: 14px;
+        }
+
+        .card-badge-icon {
+            font-size: 13px;
+        }
+
+        .card-pretitle {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .card-heading {
+            font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            line-height: 1.25;
+            transition: color 0.3s ease;
+        }
+
+        .showcase-card:hover .card-heading {
+            color: #ffffff;
+        }
+
+        .card-slogan {
+            font-size: 13.5px;
+            font-style: italic;
+            line-height: 1.55;
+            color: var(--card-accent);
+            margin: 0 0 12px 0;
+            font-weight: 500;
+        }
+
+        /* Sensory Feature Bar - Báo hiệu trải nghiệm 3D sống động */
+        .card-sensory-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 14px 0;
+        }
+
+        .sensory-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 11px;
+            font-weight: 600;
+            color: #cbd5e1;
+            letter-spacing: 0.2px;
+            transition: all 0.3s ease;
+        }
+
+        .sensory-pill .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--card-accent);
+            box-shadow: 0 0 8px var(--card-accent);
+            flex-shrink: 0;
+        }
+
+        .showcase-card:hover .sensory-pill {
+            background: rgba(var(--card-accent-rgb), 0.12);
+            border-color: rgba(var(--card-accent-rgb), 0.32);
+            color: #ffffff;
+        }
+
+        .card-summary {
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin: 0 0 20px 0;
+        }
+
+        /* Card Action CTA - Bắt mắt, nảy lên & bừng sáng dẫn lối khi hover */
+        .card-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 13px 26px;
+            border-radius: 18px;
+            background: rgba(var(--card-accent-rgb), 0.14);
+            border: 1.5px solid rgba(var(--card-accent-rgb), 0.4);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            width: fit-content;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Vệt sáng quét ngang nút khi hover */
+        .card-action::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transform: skewX(-22deg);
+            pointer-events: none;
+            transition: none;
+        }
+
+        .card-action .btn-beacon {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--card-accent);
+            box-shadow: 0 0 10px var(--card-accent);
+            animation: beaconPulse 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes beaconPulse {
+
+            0%,
+            100% {
+                transform: scale(0.9);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.35);
+                opacity: 1;
+                box-shadow: 0 0 14px var(--card-accent);
+            }
+        }
+
+        .card-action .btn-text {
+            letter-spacing: 0.3px;
+        }
+
+        .card-action .btn-arrow {
+            font-size: 16px;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-block;
+        }
+
+        /* Khi hover card: Nút nhảy vọt lên & phát sáng rực rỡ lôi cuốn */
+        .showcase-card:hover .card-action {
+            transform: translateY(-5px) scale(1.03);
+            background: var(--card-accent);
+            color: #0b1015;
+            border-color: var(--card-accent);
+            box-shadow: 0 14px 32px -4px rgba(var(--card-accent-rgb), 0.6),
+                0 0 22px rgba(var(--card-accent-rgb), 0.35);
+        }
+
+        .showcase-card:hover .card-action::before {
+            left: 150%;
+            transition: left 0.75s ease-in-out;
+        }
+
+        .showcase-card:hover .card-action .btn-beacon {
+            background: #0b1015;
+            box-shadow: 0 0 8px rgba(11, 16, 21, 0.6);
+        }
+
+        .showcase-card:hover .card-action .btn-arrow {
+            transform: translateX(7px);
+        }
+
+        /* Khi hover trực tiếp vào nút */
+        .card-action:hover {
+            transform: translateY(-7px) scale(1.05) !important;
+            box-shadow: 0 18px 38px -4px rgba(var(--card-accent-rgb), 0.75),
+                0 0 28px rgba(var(--card-accent-rgb), 0.45) !important;
+        }
+
+        /* Slider Navigation Arrows */
+        .showcase-slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(13, 15, 19, 0.82);
+            backdrop-filter: blur(14px);
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+            user-select: none;
+        }
+
+        .showcase-slider-arrow.prev-arrow {
+            left: -25px;
+        }
+
+        .showcase-slider-arrow.next-arrow {
+            right: -25px;
+        }
+
+        .showcase-slider-arrow:hover {
+            background: #d5a864;
+            color: #0d0f13;
+            border-color: #d5a864;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 10px 30px rgba(213, 168, 100, 0.35);
+        }
+
+        /* Dots Pagination */
+        .showcase-slider-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .slider-dot {
+            width: 32px;
+            height: 6px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.16);
+            cursor: pointer;
+            transition: all 0.35s ease;
+            padding: 0;
+        }
+
+        .slider-dot:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .slider-dot.active {
+            width: 48px;
+            background: #d5a864;
+            box-shadow: 0 0 12px rgba(213, 168, 100, 0.45);
+        }
+
+        /* Slider Controls trong Chế Độ Ban Ngày */
+        body.mode-day .showcase-slider-arrow {
+            background: rgba(255, 255, 255, 0.94);
+            border-color: rgba(28, 42, 27, 0.14);
+            color: #1C2A1B;
+            box-shadow: 0 6px 20px rgba(28, 42, 27, 0.08);
+        }
+
+        body.mode-day .showcase-slider-arrow:hover {
+            background: #1C2A1B;
+            color: #FFFFFF;
+            border-color: #1C2A1B;
+            box-shadow: 0 10px 25px rgba(28, 42, 27, 0.2);
+        }
+
+        body.mode-day .slider-dot {
+            background: rgba(28, 42, 27, 0.18);
+        }
+
+        body.mode-day .slider-dot.active {
+            background: #557A27;
+            box-shadow: 0 0 12px rgba(85, 122, 39, 0.4);
+        }
+
+        @media (max-width: 1140px) {
+            .showcase-slider-arrow.prev-arrow {
+                left: 10px;
+            }
+
+            .showcase-slider-arrow.next-arrow {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .showcase-card {
+                grid-template-columns: 1fr;
+                padding: 32px 24px;
+                gap: 20px;
+            }
+
+            .card-visual-wrap {
+                height: 200px;
+            }
+
+            .card-visual-img {
+                max-width: 160px;
+                max-height: 160px;
+            }
+
+            .showcase-slider-arrow {
+                width: 42px;
+                height: 42px;
+            }
+
+            .showcase-slider-arrow.prev-arrow {
+                left: 6px;
+            }
+
+            .showcase-slider-arrow.next-arrow {
+                right: 6px;
+            }
+
+            .realm-tab {
+                padding: 8px 16px;
+                font-size: 12.5px;
+            }
+        }
+
+        /* ==========================================================================
+           DAY / NIGHT SHIFT (CHẾ ĐỘ NGÀY & ĐÊM - TIỆM NHỎ SUY TƯ)
+           ========================================================================== */
+
+        body {
+            transition: background-color 0.6s ease, color 0.6s ease;
+        }
+
+        /* ---------------- THEME ĐÊM (MẶC ĐỊNH) ---------------- */
+        body.mode-night {
+            --bg: #0d0f13;
+            --card-bg: #161b22;
+            --text-color: #e2e8f0;
+            --sub-color: #94a3b8;
+            --line-color: rgba(255, 255, 255, .08);
+            --accent-gold: #d5a864;
+            background-color: var(--bg) !important;
+            color: var(--text-color) !important;
+        }
+
+        body.mode-night .hoathan_section {
+            display: block;
+            animation: fadeInDayNight 0.6s ease;
+        }
+
+        body.mode-night .freestyle-cards {
+            display: none !important;
+        }
+
+        /* ---------------- THEME NGÀY (BÌNH MINH) ---------------- */
+        body.mode-day {
+            --bg: #FAF7F0;
+            --card-bg: #FFFFFF;
+            --text-color: #1C2A1B;
+            --sub-color: #64748B;
+            --line-color: rgba(28, 42, 27, 0.1);
+            background-color: var(--bg) !important;
+            color: var(--text-color) !important;
+        }
+
+        /* Header trong chế độ ngày */
+        body.mode-day header.header,
+        body.mode-day .header {
+            background: rgba(250, 247, 240, 0.9) !important;
+            border-bottom-color: rgba(28, 42, 27, 0.08) !important;
+        }
+
+        body.mode-day .navbar-brand,
+        body.mode-day .nav-link,
+        body.mode-day .navigation-title {
+            color: #1C2A1B !important;
+        }
+
+        /* Hero Banner trong chế độ ngày */
+        body.mode-day .kv-banner-section {
+            background: radial-gradient(circle at 75% 45%, #EAF4DE 0%, #FAF7F0 60%, #F5EFEB 100%) !important;
+            border-bottom-color: rgba(134, 191, 62, 0.3) !important;
+            box-shadow: inset 0 -30px 60px rgba(28, 42, 27, 0.03) !important;
+        }
+
+        body.mode-day .kv-banner-section::after {
+            background: radial-gradient(circle at 20% 30%, rgba(134, 191, 62, 0.12) 0%, transparent 60%) !important;
+        }
+
+        body.mode-day .kv-eyebrow {
+            color: #557A27 !important;
+        }
+
+        body.mode-day .kv-eyebrow::before {
+            background: linear-gradient(90deg, #557A27, transparent) !important;
+        }
+
+        body.mode-day h1.kv-hero-title {
+            color: #1C2A1B !important;
+            text-shadow: 0 4px 20px rgba(28, 42, 27, 0.08) !important;
+        }
+
+        body.mode-day .kv-spirit-badge {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border-color: rgba(28, 42, 27, 0.15) !important;
+            box-shadow: 0 6px 18px rgba(28, 42, 27, 0.06) !important;
+        }
+
+        body.mode-day .kv-hero-desc {
+            color: #4A5846 !important;
+            text-shadow: none !important;
+        }
+
+        body.mode-day .kv-sub-cta {
+            background: rgba(28, 42, 27, 0.06) !important;
+            color: #1C2A1B !important;
+            border-color: rgba(28, 42, 27, 0.15) !important;
+        }
+
+        body.mode-day .kv-sub-cta:hover {
+            background: rgba(28, 42, 27, 0.12) !important;
+            color: #0A1209 !important;
+        }
+
+        body.mode-day .kv-step-row {
+            color: #71816D !important;
+        }
+
+        body.mode-day .kv-step-count {
+            color: #1C2A1B !important;
+        }
+
+        body.mode-day .kv-step-nav button {
+            color: #1C2A1B !important;
+        }
+
+        body.mode-day .kv-step-nav button:hover {
+            color: #557A27 !important;
+            background: rgba(85, 122, 39, 0.12) !important;
+        }
+
+        body.mode-day .kv-orbit-path {
+            stroke: rgba(28, 42, 27, 0.22) !important;
+        }
+
+        body.mode-day .kv-floating-note {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-color: rgba(28, 42, 27, 0.12) !important;
+            box-shadow: 0 10px 25px rgba(28, 42, 27, 0.08) !important;
+            color: #2D3A2C !important;
+        }
+
+        /* 3D Showcase trong chế độ ngày: Bừng sáng nắng mai và chiều sâu mỹ thuật */
+        body.mode-day .hoathan-3d-showcase {
+            background: linear-gradient(180deg, #FAF7F0 0%, #F5EDE1 45%, #EFE5D5 100%) !important;
+            border-top: 1px solid rgba(213, 168, 100, 0.22) !important;
+            border-bottom: 1px solid rgba(28, 42, 27, 0.08) !important;
+            position: relative;
+        }
+
+        body.mode-day .hoathan-3d-showcase::before {
+            background: radial-gradient(ellipse at 50% 0%, rgba(251, 191, 36, 0.16) 0%, rgba(52, 211, 153, 0.08) 45%, transparent 70%) !important;
+            filter: blur(45px) !important;
+            opacity: 1 !important;
+        }
+
+        body.mode-day .showcase-badge {
+            background: rgba(85, 122, 39, 0.08) !important;
+            border: 1px solid rgba(85, 122, 39, 0.22) !important;
+            color: #385519 !important;
+            box-shadow: 0 2px 10px rgba(85, 122, 39, 0.08) !important;
+        }
+
+        body.mode-day .showcase-badge .badge-dot {
+            background: #557A27 !important;
+            box-shadow: 0 0 10px #557A27 !important;
+        }
+
+        body.mode-day .showcase-title {
+            color: #1C2A1B !important;
+        }
+
+        body.mode-day .showcase-title span {
+            background: linear-gradient(135deg, #1C2A1B 0%, #3B6B22 45%, #C07D1E 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        body.mode-day .showcase-desc {
+            color: #4A5846 !important;
+            max-width: 760px;
+        }
+
+        /* 3D Showcase Cards trong chế độ ngày - Chạm khắc ngọc bích & gốm sứ nghệ thuật */
+        body.mode-day .showcase-card {
+            border-radius: 30px !important;
+            box-shadow: 0 16px 38px -10px rgba(45, 55, 42, 0.08),
+                0 4px 12px rgba(0, 0, 0, 0.025),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+            color: #1C2A1B !important;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        /* Tinh chỉnh riêng màu nền & sắc thái cho từng thẻ ban ngày */
+        body.mode-day .showcase-card.card-cookie {
+            background: linear-gradient(175deg, #FFFFFF 0%, #FFFDF8 38%, #FDF5E6 100%) !important;
+            border: 1.5px solid rgba(217, 119, 6, 0.18) !important;
+        }
+
+        body.mode-day .showcase-card.card-leaf {
+            background: linear-gradient(175deg, #FFFFFF 0%, #F8FCF9 38%, #EBF6EE 100%) !important;
+            border: 1.5px solid rgba(16, 185, 129, 0.2) !important;
+        }
+
+        body.mode-day .showcase-card.card-pebble {
+            background: linear-gradient(175deg, #FFFFFF 0%, #F6FAFD 38%, #E7F3FA 100%) !important;
+            border: 1.5px solid rgba(14, 165, 233, 0.2) !important;
+        }
+
+        body.mode-day .showcase-card.card-mayfly {
+            --card-accent: #d97706 !important;
+            --card-accent-rgb: 217, 119, 6 !important;
+            background: linear-gradient(175deg, #FFFFFF 0%, #FFFDF5 38%, #FEF3C7 100%) !important;
+            border: 1.5px solid rgba(245, 158, 11, 0.25) !important;
+        }
+
+        body.mode-day .showcase-card:hover {
+            transform: none !important;
+            border-color: rgba(var(--card-accent-rgb), 0.5) !important;
+            box-shadow: 0 24px 48px -12px rgba(var(--card-accent-rgb), 0.25),
+                0 8px 20px -4px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 #FFFFFF !important;
+        }
+
+        /* Ánh sáng bình minh phía trên thẻ */
+        body.mode-day .showcase-card .card-glow {
+            background: radial-gradient(ellipse at 50% 0%, rgba(var(--card-accent-rgb), 0.2) 0%, rgba(var(--card-accent-rgb), 0.05) 50%, transparent 75%) !important;
+            height: 160px;
+        }
+
+        /* Badge Pill phong cách bưu ấn tinh xảo */
+        body.mode-day .card-badge-pill {
+            background: rgba(var(--card-accent-rgb), 0.08) !important;
+            border: 1px solid rgba(var(--card-accent-rgb), 0.28) !important;
+            color: var(--card-accent) !important;
+            box-shadow: 0 2px 8px rgba(var(--card-accent-rgb), 0.06) !important;
+            backdrop-filter: blur(8px);
+            font-size: 11.5px !important;
+            padding: 6px 14px !important;
+        }
+
+        /* 3D Visual Stage có đĩa hào quang xoay & bóng đổ mặt sàn */
+        body.mode-day .card-visual-wrap {
+            position: relative;
+        }
+
+        body.mode-day .card-visual-wrap::before {
+            content: '';
+            position: absolute;
+            width: 176px;
+            height: 176px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(var(--card-accent-rgb), 0.14) 0%, rgba(var(--card-accent-rgb), 0.03) 60%, transparent 75%);
+            border: 1px dashed rgba(var(--card-accent-rgb), 0.25);
+            animation: spinShowcaseAura 28s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body.mode-day .card-visual-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            width: 96px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(var(--card-accent-rgb), 0.22) 0%, rgba(28, 42, 27, 0.06) 50%, transparent 70%);
+            filter: blur(4px);
+            animation: breatheShadow 4s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes spinShowcaseAura {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes breatheShadow {
+            0% {
+                transform: scale(0.85);
+                opacity: 0.45;
+            }
+
+            100% {
+                transform: scale(1.15);
+                opacity: 0.8;
+            }
+        }
+
+        body.mode-day .visual-halo {
+            background: radial-gradient(circle, rgba(var(--card-accent-rgb), 0.22) 0%, transparent 68%) !important;
+            filter: blur(24px) !important;
+        }
+
+        body.mode-day .showcase-card:hover .visual-halo {
+            transform: scale(1.3) !important;
+            filter: blur(32px) !important;
+        }
+
+        /* Hình 3D nổi bật với đổ bóng ban mai */
+        body.mode-day .card-visual-img {
+            filter: drop-shadow(0 16px 28px rgba(28, 42, 27, 0.16)) !important;
+            z-index: 3 !important;
+        }
+
+        body.mode-day .showcase-card:hover .card-visual-img {
+            transform: translateY(-10px) scale(1.1) rotate(3deg) !important;
+            filter: drop-shadow(0 22px 36px rgba(28, 42, 27, 0.22)) drop-shadow(0 0 20px rgba(var(--card-accent-rgb), 0.45)) !important;
+        }
+
+        body.mode-day .card-visual-img.visual-mayfly {
+            filter: drop-shadow(0 16px 28px rgba(180, 83, 9, 0.16)) drop-shadow(0 0 16px rgba(245, 158, 11, 0.35)) !important;
+        }
+
+        body.mode-day .showcase-card:hover .card-visual-img.visual-mayfly {
+            transform: translateY(-10px) scale(1.1) rotate(3deg) !important;
+            filter: drop-shadow(0 22px 36px rgba(180, 83, 9, 0.24)) drop-shadow(0 0 24px rgba(245, 158, 11, 0.55)) !important;
+        }
+
+        /* Vòng sóng nước của viên sỏi */
+        body.mode-day .visual-water-ring {
+            border-color: rgba(14, 165, 233, 0.6) !important;
+            box-shadow: 0 0 16px rgba(14, 165, 233, 0.35), inset 0 0 8px rgba(14, 165, 233, 0.2) !important;
+            z-index: 2 !important;
+        }
+
+        /* Typography & Chi tiết chữ */
+        body.mode-day .card-pretitle {
+            color: #71816D !important;
+            font-size: 11px !important;
+            letter-spacing: 2.2px !important;
+            font-weight: 700 !important;
+        }
+
+        body.mode-day .card-heading {
+            color: #1C2A1B !important;
+            font-size: 25px !important;
+            letter-spacing: -0.3px !important;
+        }
+
+        body.mode-day .showcase-card:hover .card-heading {
+            color: #0E1A0D !important;
+        }
+
+        /* Slogan dạng Khung Thư / Lời Thì Thầm Triết Lý */
+        body.mode-day .card-slogan {
+            background: rgba(var(--card-accent-rgb), 0.07) !important;
+            border-left: 3.5px solid var(--card-accent) !important;
+            padding: 9px 13px !important;
+            border-radius: 0 12px 12px 0 !important;
+            color: #2D3A2C !important;
+            font-size: 13px !important;
+            line-height: 1.6 !important;
+            font-style: italic !important;
+            font-weight: 600 !important;
+            margin: 0 0 14px 0 !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02) !important;
+        }
+
+        body.mode-day .card-summary {
+            color: #4A5B47 !important;
+            line-height: 1.75 !important;
+            font-size: 13.5px !important;
+        }
+
+        /* Sensory Feature Pills trong chế độ ngày */
+        body.mode-day .sensory-pill {
+            background: rgba(28, 42, 27, 0.04) !important;
+            border: 1px solid rgba(28, 42, 27, 0.1) !important;
+            color: #4A5D45 !important;
+        }
+
+        body.mode-day .showcase-card:hover .sensory-pill {
+            background: rgba(var(--card-accent-rgb), 0.1) !important;
+            border-color: rgba(var(--card-accent-rgb), 0.3) !important;
+            color: #1C2A1B !important;
+        }
+
+        /* Nút Khám Phá CTA Ban Ngày - Nảy lên & phát sáng rực rỡ */
+        body.mode-day .card-action {
+            background: linear-gradient(135deg, rgba(var(--card-accent-rgb), 0.09) 0%, rgba(var(--card-accent-rgb), 0.18) 100%) !important;
+            border: 1.5px solid rgba(var(--card-accent-rgb), 0.36) !important;
+            color: #1C2A1B !important;
+            font-weight: 700 !important;
+            padding: 13px 26px !important;
+            border-radius: 18px !important;
+            box-shadow: 0 4px 14px rgba(var(--card-accent-rgb), 0.1) !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        body.mode-day .showcase-card:hover .card-action {
+            background: linear-gradient(135deg, var(--card-accent) 0%, rgba(var(--card-accent-rgb), 0.92) 100%) !important;
+            color: #FFFFFF !important;
+            border-color: var(--card-accent) !important;
+            box-shadow: 0 14px 32px -4px rgba(var(--card-accent-rgb), 0.52),
+                0 4px 14px rgba(var(--card-accent-rgb), 0.25) !important;
+            transform: translateY(-5px) scale(1.03) !important;
+        }
+
+        body.mode-day .showcase-card:hover .card-action .btn-beacon {
+            background: #FFFFFF !important;
+            box-shadow: 0 0 8px #FFFFFF !important;
+        }
+
+        body.mode-day .showcase-card:hover .card-action .btn-arrow {
+            transform: translateX(7px) !important;
+        }
+
+        body.mode-day .card-action:hover {
+            transform: translateY(-7px) scale(1.05) !important;
+            box-shadow: 0 18px 38px -4px rgba(var(--card-accent-rgb), 0.65),
+                0 6px 18px rgba(var(--card-accent-rgb), 0.3) !important;
+        }
+
+        /* Nút mũi tên slider trong chế độ ngày */
+        body.mode-day .showcase-slider-arrow {
+            background: rgba(255, 255, 255, 0.92) !important;
+            border-color: rgba(28, 42, 27, 0.14) !important;
+            color: #1C2A1B !important;
+            box-shadow: 0 6px 20px rgba(28, 42, 27, 0.08) !important;
+        }
+
+        body.mode-day .showcase-slider-arrow:hover {
+            background: #1C2A1B !important;
+            color: #FFFFFF !important;
+            border-color: #1C2A1B !important;
+            box-shadow: 0 10px 25px rgba(28, 42, 27, 0.2) !important;
+        }
+
+        /* Dots trong chế độ ngày */
+        body.mode-day .slider-dot {
+            background: rgba(28, 42, 27, 0.18) !important;
+        }
+
+        body.mode-day .slider-dot.active {
+            background: #557A27 !important;
+            box-shadow: 0 0 10px rgba(85, 122, 39, 0.4) !important;
+        }
+
+        /* Chuyển đổi ẩn/hiện Section Ngày & Đêm */
+        body.mode-day .hoathan_section {
+            display: none !important;
+        }
+
+        body.mode-day .freestyle-cards {
+            display: block !important;
+            animation: fadeInDayNight 0.6s ease;
+        }
+
+        /* ---------------- MODAL POPUP BAN NGÀY (TONE SÁNG TƯƠI TẮN) ---------------- */
+        body.mode-day .modal {
+            background: rgba(28, 42, 27, 0.45) !important;
+            backdrop-filter: blur(18px) !important;
+        }
+
+        body.mode-day .modal-content {
+            background: #FFFFFF !important;
+            border: 1px solid rgba(28, 42, 27, 0.12) !important;
+            box-shadow: 0 25px 60px rgba(28, 42, 27, 0.15), 0 4px 16px rgba(28, 42, 27, 0.06) !important;
+            color: #1C2A1B !important;
+        }
+
+        body.mode-day .close {
+            background: rgba(28, 42, 27, 0.06) !important;
+            color: #1C2A1B !important;
+            border: 1px solid rgba(28, 42, 27, 0.1) !important;
+        }
+
+        body.mode-day .close:hover {
+            background: #1C2A1B !important;
+            color: #FFFFFF !important;
+        }
+
+        body.mode-day .story-label {
+            color: #557A27 !important;
+            font-weight: 700 !important;
+        }
+
+        body.mode-day .modal h2 {
+            color: #1C2A1B !important;
+            font-weight: 700 !important;
+        }
+
+        body.mode-day .story {
+            color: #334155 !important;
+            font-size: 15.5px !important;
+            line-height: 1.8 !important;
+        }
+
+        body.mode-day .question {
+            background: #FAF8F5 !important;
+            border: 1px solid rgba(28, 42, 27, 0.08) !important;
+            border-radius: 20px !important;
+        }
+
+        body.mode-day .question h4 {
+            color: #1C2A1B !important;
+            font-weight: 700 !important;
+        }
+
+        body.mode-day .perspective-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        body.mode-day .perspective-tab {
+            background: rgba(28, 42, 27, 0.05) !important;
+            border: 1px solid rgba(28, 42, 27, 0.12) !important;
+            color: #4A5846 !important;
+            font-weight: 600 !important;
+            border-radius: 50px !important;
+            padding: 8px 18px !important;
+            cursor: pointer !important;
+            transition: all 0.25s ease !important;
+        }
+
+        body.mode-day .perspective-tab:hover {
+            background: rgba(85, 122, 39, 0.1) !important;
+            color: #385519 !important;
+            border-color: rgba(85, 122, 39, 0.3) !important;
+        }
+
+        body.mode-day .perspective-tab.active {
+            background: #557A27 !important;
+            color: #FFFFFF !important;
+            border-color: #557A27 !important;
+            box-shadow: 0 4px 14px rgba(85, 122, 39, 0.25) !important;
+        }
+
+        body.mode-day .action-btn {
+            background: rgba(85, 122, 39, 0.08) !important;
+            border: 1px solid rgba(85, 122, 39, 0.3) !important;
+            color: #2D5A1A !important;
+            font-weight: 600 !important;
+        }
+
+        body.mode-day .action-btn:hover {
+            background: #557A27 !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 6px 18px rgba(85, 122, 39, 0.25) !important;
+        }
+
+        body.mode-day .response {
+            background: rgba(85, 122, 39, 0.08) !important;
+            border: 1px solid rgba(85, 122, 39, 0.22) !important;
+            color: #2D3A2C !important;
+        }
+
+        /* ---------------- FLOATING AMBIENT CHARM COMPONENT ---------------- */
+        .day-night-charm-wrap {
+            position: fixed;
+            left: 30px;
+            bottom: 35px;
+            z-index: 9990;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .day-night-charm-btn {
+            position: relative;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(213, 168, 100, 0.45);
+            background: rgba(13, 20, 16, 0.88);
+            backdrop-filter: blur(14px);
+            cursor: pointer;
+            outline: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 25px rgba(213, 168, 100, 0.3);
+            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: charmIdleFloat 4s ease-in-out infinite alternate;
+        }
+
+        body.mode-day .day-night-charm-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(227, 163, 61, 0.5);
+            box-shadow: 0 12px 32px rgba(28, 42, 27, 0.12), 0 0 25px rgba(227, 163, 61, 0.35);
+        }
+
+        .day-night-charm-btn:hover {
+            transform: scale(1.12);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 35px rgba(213, 168, 100, 0.5);
+        }
+
+        @keyframes charmIdleFloat {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-9px);
+            }
+        }
+
+        .charm-icon {
+            font-size: 26px;
+            line-height: 1;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: block;
+        }
+
+        .day-night-charm-btn:hover .charm-icon {
+            transform: rotate(25deg) scale(1.15);
+        }
+
+        /* Ambient Orbit Ring quanh nút */
+        .charm-ambient-orbit {
+            position: absolute;
+            inset: -7px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(213, 168, 100, 0.35);
+            pointer-events: none;
+            animation: spinCharmOrbit 16s linear infinite;
+        }
+
+        body.mode-day .charm-ambient-orbit {
+            border-color: rgba(227, 163, 61, 0.45);
+        }
+
+        @keyframes spinCharmOrbit {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* TOOLTIP QUOTE CARD (TÂM TÌNH TIỆM NHỎ) */
+        .charm-tooltip-card {
+            position: absolute;
+            bottom: 76px;
+            left: 0;
+            width: min(340px, 86vw);
+            background: rgba(14, 23, 18, 0.95);
+            border: 1px solid rgba(213, 168, 100, 0.35);
+            border-radius: 20px;
+            padding: 18px 20px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(213, 168, 100, 0.18);
+            backdrop-filter: blur(18px);
+            color: #E2E8F0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px) scale(0.95);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 9995;
+        }
+
+        body.mode-day .charm-tooltip-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-color: rgba(227, 163, 61, 0.35);
+            box-shadow: 0 20px 45px rgba(28, 42, 27, 0.15), 0 0 30px rgba(227, 163, 61, 0.15);
+            color: #1C2A1B;
+        }
+
+        /* Hover hoặc active hiển thị tooltip */
+        .day-night-charm-wrap:hover .charm-tooltip-card,
+        .charm-tooltip-card.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .tooltip-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        body.mode-day .tooltip-header {
+            border-bottom-color: rgba(28, 42, 27, 0.08);
+        }
+
+        .tooltip-title {
+            font-family: var(--font-heading, sans-serif);
+            font-weight: 700;
+            font-size: 13.5px;
+            color: #D5A864;
+            letter-spacing: 0.5px;
+        }
+
+        body.mode-day .tooltip-title {
+            color: #C07D1E;
+        }
+
+        .tooltip-badge {
+            margin-left: auto;
+            font-size: 11px;
+            padding: 3px 9px;
+            border-radius: 50px;
+            background: rgba(213, 168, 100, 0.12);
+            color: #D5A864;
+            font-weight: 600;
+        }
+
+        body.mode-day .tooltip-badge {
+            background: rgba(227, 163, 61, 0.15);
+            color: #C07D1E;
+        }
+
+        .tooltip-quote {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #CBD5E1;
+            margin: 0 0 12px 0;
+            font-style: italic;
+        }
+
+        body.mode-day .tooltip-quote {
+            color: #4A5846;
+        }
+
+        .tooltip-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11.5px;
+            color: #94A3B8;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 8px;
+        }
+
+        body.mode-day .tooltip-footer {
+            border-top-color: rgba(28, 42, 27, 0.06);
+            color: #71816D;
+        }
+
+        .tooltip-hint {
+            color: #D5A864;
+            font-weight: 600;
+        }
+
+        body.mode-day .tooltip-hint {
+            color: #C07D1E;
+        }
+
+        @media (max-width: 576px) {
+            .day-night-charm-wrap {
+                left: 18px;
+                bottom: 24px;
+            }
+
+            .day-night-charm-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            .charm-icon {
+                font-size: 22px;
+            }
+        }
+    </style>
+    <script src="js/include-header-footer.js"></script>
+    <script src="js/plugin/gsap.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- KEY VISUAL (KV) ORBIT HERO BANNER SECTION (Inspired by hero-landscape-temp) -->
+        <section class="kv-banner-section" id="kv-hero">
+            <div class="kv-page">
+                <!-- LEFT CONTENT -->
+                <div class="kv-content">
+                    <div class="kv-eyebrow">Trạm Hóa Thân • Tiệm Nhỏ Suy Tư</div>
+                    <h1 class="kv-hero-title" id="kvTitle"></h1>
+                    <div class="kv-spirit-badge" id="kvSpiritBadge">
+                        <span class="badge-icon" id="kvBadgeIcon">🍃</span>
+                        <span id="kvSpiritText">AN YÊN VỀ CỘI • THẢNH THƠI SỐNG TRỌN</span>
+                    </div>
+                    <div class="kv-hero-desc" id="kvDesc"></div>
+
+                    <div class="kv-controls-row">
+                        <a href="hoa-than/chiec-la.html" class="kv-main-cta" id="kvMainCta">
+                            <span>Bắt Đầu Hóa Thân</span>
+                            <span>✨</span>
+                        </a>
+                        <a href="#trai-nghiem-3d" class="kv-sub-cta">
+                            <span>Khám Phá Bộ 3 3D</span>
+                            <span>↓</span>
+                        </a>
+                    </div>
+
+                    <div class="kv-step-row">
+                        <div class="kv-step-count"><span id="kvStepCurrent">01</span> / <span id="kvStepTotal">03</span>
+                        </div>
+                        <div class="kv-step-nav">
+                            <button id="kvPrevBtn" type="button" aria-label="Thực thể trước">← Trước</button>
+                            <button id="kvNextBtn" type="button" aria-label="Thực thể tiếp theo">Tiếp →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT STAGE WRAP (Orbit Carousel) -->
+                <div class="kv-stage-wrap">
+                    <div class="kv-stage" id="kvStage">
+                        <div class="kv-blob" id="kvBlob"></div>
+
+                        <svg class="kv-orbit-svg" viewBox="0 0 640 640" aria-hidden="true">
+                            <path class="kv-orbit-path" d="M 244 38 A 292 292 0 1 1 244 602" />
+                        </svg>
+
+                        <!-- Floating Nature Elements -->
+                        <svg class="kv-leaf" id="kvLeaf1" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="#8FB86E"
+                                d="M12 2C7 2 2 7 2 14c0 5 3 8 6 8 5 0 12-6 12-14 0-3-3-6-8-6zM6 18c-1-2-1-5 1-8"
+                                stroke="#6FA62E" stroke-width="0.5" />
+                        </svg>
+                        <svg class="kv-leaf" id="kvLeaf2" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="#d5a864"
+                                d="M12 2C7 2 2 7 2 14c0 5 3 8 6 8 5 0 12-6 12-14 0-3-3-6-8-6zM6 18c-1-2-1-5 1-8"
+                                stroke="#b8863b" stroke-width="0.5" />
+                        </svg>
+                        <svg class="kv-leaf" id="kvLeaf3" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="#48cae4"
+                                d="M12 2C7 2 2 7 2 14c0 5 3 8 6 8 5 0 12-6 12-14 0-3-3-6-8-6zM6 18c-1-2-1-5 1-8"
+                                stroke="#0096c7" stroke-width="0.5" />
+                        </svg>
+
+                        <!-- Entity Elements Injected by Script -->
+                        <div id="kvEntityLayer"></div>
+                    </div>
+
+                    <div class="kv-floating-note" id="kvFloatNote">
+                        <span class="dot" id="kvDot"></span>
+                        <span>Nhấp vào bất kỳ thực thể nào để hóa thân...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SPECIAL 3D SHOWCASE SECTION (BỘ 3 HÓA THÂN)
+             ========================================== -->
+        <section class="hoathan-3d-showcase" id="trai-nghiem-3d">
+            <div class="container">
+                <div class="showcase-header">
+                    <div class="showcase-badge">
+                        <span class="badge-dot"></span>
+                        <span>KHÔNG GIAN TRẢI NGHIỆM 3D • SENSORY IMMERSIVE JOURNEY</span>
+                    </div>
+                    <h2 class="showcase-title">
+                        Không Gian <span>Hóa Thân Đa Chiều</span>
+                    </h2>
+                    <p class="showcase-desc">
+                        Rời khỏi những trang viết tĩnh, mời bạn bước vào thế giới thị giác 3D, chuyển động mượt mà và âm
+                        hưởng chữa lành.
+                        Bốn hành trình triết lý độc bản — từ chiếc bánh quy giòn tan nơi lò nướng, chiếc lá an yên buông
+                        mình theo gió thu, viên sỏi vững vàng ngâm mình nơi đáy sông sâu, đến chú phù du rực rỡ trọn vẹn trong 24 giờ nhân gian.
+                    </p>
+                </div>
+
+                <div class="showcase-slider-wrap">
+                    <!-- Slider Navigation Realm Tabs -->
+                    <div class="showcase-realm-tabs" id="showcaseRealmTabs">
+                        <button class="realm-tab active" data-index="0" type="button">
+                            <span class="realm-tab-icon">🍪</span>
+                            <span class="realm-tab-text">01 • Chiếc Bánh Quy</span>
+                        </button>
+                        <button class="realm-tab" data-index="1" type="button">
+                            <span class="realm-tab-icon">🍃</span>
+                            <span class="realm-tab-text">02 • Chiếc Lá Buông Mình</span>
+                        </button>
+                        <button class="realm-tab" data-index="2" type="button">
+                            <span class="realm-tab-icon">🪨</span>
+                            <span class="realm-tab-text">03 • Viên Sỏi Đáy Sâu</span>
+                        </button>
+                        <button class="realm-tab" data-index="3" type="button">
+                            <span class="realm-tab-icon">✨</span>
+                            <span class="realm-tab-text">04 • Con Phù Du</span>
+                        </button>
+                    </div>
+
+                    <!-- Main Slider Stage -->
+                    <div class="showcase-slider-stage">
+                        <!-- Navigation Prev / Next Arrows -->
+                        <button class="showcase-slider-arrow prev-arrow" id="showcasePrevBtn" type="button"
+                            aria-label="Không gian trước">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+
+                        <div class="showcase-slider-viewport" id="showcaseViewport">
+                            <div class="showcase-slider-track" id="showcaseTrack">
+                                <!-- Slide 1: BÁNH QUY -->
+                                <div class="showcase-slide">
+                                    <a href="hoa-than/banh-quy.html" class="showcase-card card-cookie"
+                                         title="Khám phá hành trình Chiếc Bánh Quy">
+                                        <div class="card-glow"></div>
+                                        <!-- Cột Trái: Visual 3D Stage -->
+                                        <div class="showcase-visual-col">
+                                            <div class="card-visual-wrap">
+                                                <div class="visual-halo halo-cookie"></div>
+                                                <img src="hoa-than/cookie.png" alt="Chiếc Bánh Quy"
+                                                    class="card-visual-img visual-cookie" loading="lazy">
+                                            </div>
+                                        </div>
+                                        <!-- Cột Phải: Content Narrative -->
+                                        <div class="showcase-content-col">
+                                            <div class="card-badge-pill">
+                                                <span class="card-badge-icon">🍪</span>
+                                                <span>Không Gian 01 • Lò Nướng Cuộc Đời</span>
+                                            </div>
+                                            <span class="card-pretitle">NẾU BẠN LÀ MỘT</span>
+                                            <h3 class="card-heading">Chiếc Bánh Quy Giòn Tan</h3>
+                                            <p class="card-slogan">"Dẫu có vụn vỡ, vẫn vẹn nguyên vị ngọt lành sẻ chia"
+                                            </p>
+                                            <div class="card-sensory-bar">
+                                                <span class="sensory-pill"><span class="pill-dot"></span>✨ Tương Tác 3D
+                                                    Xoay Chạm</span>
+                                                <span class="sensory-pill"><span class="pill-dot"></span>🎧 Âm Thanh Lò
+                                                    Nướng Ấm Áp</span>
+                                                <span class="sensory-pill"><span class="pill-dot"></span>⏱️ 2 Phút Chữa
+                                                    Lành</span>
+                                            </div>
+                                            <p class="card-summary">
+                                                Chạm để xoay bánh 360°, cảm nhận hơi ấm từ lò nướng và thả lỏng tâm trí
+                                                sau những va vấp đời thường trong không gian 3D dịu êm.
+                                            </p>
+                                            <div class="card-action">
+                                                <span class="btn-beacon"></span>
+                                                <span class="btn-text">Hóa Thân Thành Bánh Quy</span>
+                                                <span class="btn-arrow">→</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 2: CHIẾC LÁ -->
+                                <div class="showcase-slide">
+                                    <a href="hoa-than/chiec-la.html" class="showcase-card card-leaf"
+                                         title="Khám phá hành trình Chiếc Lá">
+                                        <div class="card-glow"></div>
+                                        <!-- Cột Trái: Visual 3D Stage -->
+                                        <div class="showcase-visual-col">
+                                            <div class="card-visual-wrap">
+                                                <div class="visual-halo halo-leaf"></div>
+                                                <img src="hoa-than/leaf.png" alt="Chiếc Lá"
+                                                    class="card-visual-img visual-leaf" loading="lazy">
+                                            </div>
+                                        </div>
+                                        <!-- Cột Phải: Content Narrative -->
+                                        <div class="showcase-content-col">
+                                            <div class="card-badge-pill">
+                                                <span class="card-badge-icon">🍃</span>
+                                                <span>Không Gian 02 • Vũ Điệu Bốn Mùa</span>
+                                            </div>
+                                            <span class="card-pretitle">NẾU BẠN LÀ MỘT</span>
+                                            <h3 class="card-heading">Chiếc Lá Buông Mình</h3>
+                                            <p class="card-slogan">"Vẹn nguyên sắc biếc, an yên buông mình theo gió thu"
+                                            </p>
+                                            <div class="card-sensory-bar">
+                                                <span class="sensory-pill"><span class="pill-dot"></span>🍃 Vũ Điệu Lá
+                                                    Bay 3D</span>
+                                                <span class="sensory-pill"><span class="pill-dot"></span>🎧 Tiếng Gió Rì
+                                                    Rào An Yên</span>
+                                                <span class="sensory-pill"><span class="pill-dot"></span>⏱️ 2 Phút Thư
+                                                    Giãn</span>
+                                            </div>
+                                            <p class="card-summary">
+                                                Phiêu bồng theo làn gió thu dịu mát, ngắm nhìn sắc lá bốn mùa chuyển
+                                                dịch trong không gian 3D và học cách buông bỏ nhẹ nhõm.
+                                            </p>
+                                            <div class="card-action">
+                                                <span class="btn-beacon"></span>
+                                                <span class="btn-text">Hóa Thân Thành Chiếc Lá</span>
+                                                <span class="btn-arrow">→</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 3: VIÊN SỎI -->
+                                <div class="showcase-slide">
+                                    <a href="hoa-than/vien-soi.html" class="showcase-card card-pebble"
+                                        title="Khám phá hành trình Viên Sỏi">
+                                        <div class="card-glow"></div>
+                                        <!-- Cột Trái: Visual 3D Stage -->
+                                        <div class="showcase-visual-col">
+                                            <div class="card-visual-wrap">
+                                                <div class="visual-halo halo-pebble"></div>
+                                                <div class="visual-water-ring"></div>
+                                                <img src="hoa-than/pebble.png" alt="Viên Sỏi"
+                                                    class="card-visual-img visual-pebble" loading="lazy">
+                                            </div>
+                                        </div>
+                                        <!-- Cột Phải: Content Narrative -->
+                                        <div class="showcase-content-col">
+                                            <div class="card-badge-pill">
+                                                <span class="card-badge-icon">🪨</span>
+                                                <span>Không Gian 03 • Đáy Sông Phẳng Lặng</span>
+                                            </div>
+                                            <span class="card-pretitle">NẾU BẠN LÀ MỘT</span>
+                                            <h3 class="card-heading">Viên Sỏi Đáy Sâu</h3>
+                                            <p class="card-slogan">"Vững vàng kiên định, tĩnh lặng dưới dòng nước cuộn
+                                                trôi"</p>
+                                            <div class="card-sensory-bar">
+                                                <span class="sensory-pill"><span class="pill-dot"></span>🌊 Sóng Nước &
+                                                    Bọt Khí 3D</span>
+                                                <span class="sensory-pill"><span class="pill-dot"></span>🎧 Tiếng Suối
+                                                    Tĩnh Lặng</span>
+                                                <span class="sensory-pill"><span class="pill-dot"></span>⏱️ 2 Phút Lắng
+                                                    Đọng</span>
+                                            </div>
+                                            <p class="card-summary">
+                                                Chạm nhẹ vào gợn sóng suối trong vắt, quan sát viên sỏi tròn đầy dưới
+                                                đáy sâu và tìm lại khoảng lặng bình yên vững chãi trong lòng.
+                                            </p>
+                                            <div class="card-action">
+                                                <span class="btn-beacon"></span>
+                                                <span class="btn-text">Hóa Thân Thành Viên Sỏi</span>
+                                                <span class="btn-arrow">→</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- Slide 4: CON PHÙ DU -->
+                                <div class="showcase-slide">
+                                    <a href="hoa-than/phu-du.html" class="showcase-card card-mayfly"
+                                        title="Khám phá hành trình Con Phù Du">
+                                        <div class="card-glow"></div>
+                                        <!-- Cột Trái: Visual 3D Stage -->
+                                        <div class="showcase-visual-col">
+                                            <div class="card-visual-wrap">
+                                                <div class="visual-halo halo-mayfly"></div>
+                                                <img src="hoa-than/mayfly.png" alt="Con Phù Du"
+                                                    class="card-visual-img visual-mayfly" loading="lazy">
+                                            </div>
+                                        </div>
+                                        <!-- Cột Phải: Content Narrative -->
+                                        <div class="showcase-content-col">
+                                            <div class="card-badge-pill">
+                                                <span class="card-badge-icon">✨</span>
+                                                <span>Không Gian 04 • 24 Giờ Rực Rỡ</span>
+                                            </div>
+                                            <span class="card-pretitle">NẾU BẠN LÀ MỘT</span>
+                                            <h3 class="card-heading">Chú Phù Du Tinh Khôi</h3>
+                                            <p class="card-slogan">"Một ngày của nhân gian — Cả một đời rực rỡ trọn vẹn"</p>
+                                            <div class="card-sensory-bar">
+                                                <span class="sensory-pill"><span class="pill-dot"></span>✨ Cánh Phát Quang 3D</span>
+                                                <span class="sensory-pill"><span class="pill-dot"></span>🎧 Gió Ngân Hà Huyền Ảo</span>
+                                                <span class="sensory-pill"><span class="pill-dot"></span>⏱️ 2 Phút Tỉnh Thức</span>
+                                            </div>
+                                            <p class="card-summary">
+                                                Phù du không có ngày mai, chẳng đợi kiếp sau. Đắm mình vào điệu múa ánh sáng giữa trời đất, sống trọn vẹn trong hiện tại và yêu thương không một phút chần chừ.
+                                            </p>
+                                            <div class="card-action">
+                                                <span class="btn-beacon"></span>
+                                                <span class="btn-text">Hóa Thân Thành Phù Du</span>
+                                                <span class="btn-arrow">→</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="showcase-slider-arrow next-arrow" id="showcaseNextBtn" type="button"
+                            aria-label="Không gian tiếp theo">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Dots Pagination -->
+                    <div class="showcase-slider-dots" id="showcaseDots">
+                        <button class="slider-dot active" data-index="0" type="button"
+                            aria-label="Đến không gian 1: Bánh Quy"></button>
+                        <button class="slider-dot" data-index="1" type="button"
+                            aria-label="Đến không gian 2: Chiếc Lá"></button>
+                        <button class="slider-dot" data-index="2" type="button"
+                            aria-label="Đến không gian 3: Viên Sỏi"></button>
+                        <button class="slider-dot" data-index="3" type="button"
+                            aria-label="Đến không gian 4: Con Phù Du"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hoathan_section">
+            <div class="container">
+                <div class="section-title">
+                    <span>CARACON FLOW 🌤️✨</span>
+                    <h2>Trạm Hóa Thân</h2>
+                    <p>
+                        Mỗi sinh thể trong thế giới này đều đang hoàn thành một sứ mệnh riêng.
+                        Dành cho cả những tâm hồn thích âm thầm lắng nghe trong bóng tối... Bạn không cần phải để lại
+                        dấu vết hay áp lực lên tiếng, chỉ cần ở đây và tự do chọn lựa những góc nhìn dịu dàng của riêng
+                        mình.
+                    </p>
+                </div>
+
+                <div class="cards" id="cards"></div>
+            </div>
+        </section>
+
+        <!-- BỘ THẺ SẮC THÁI HÓA THÂN (8 LĂNG KÍNH HÓA THÂN) -->
+        <section class="freestyle-cards" id="bo-the-hoa-than">
+            <div class="container">
+                <h2 class="section-title">8 Lăng Kính & Sắc Thái Hóa Thân</h2>
+                <div class="cards-grid">
+                    <!-- 1. Editorial Card -->
+                    <div class="card-item">
+                        <span class="card-label">1. Trang Bút Ký • Chuẩn Bị</span>
+                        <article class="card card-1" onclick="openPerspectiveModal(0)">
+                            <div>
+                                <div class="card-meta">
+                                    <span>Lăng Kính</span>
+                                    <span>01</span>
+                                </div>
+                                <div class="line"></div>
+                            </div>
+                            <div>
+                                <h2 class="card-title">Mùa của<br>sự chuẩn bị.</h2>
+                                <p class="card-desc">Có những mùa chỉ để tích lũy âm thầm trước khi nở rộ.</p>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="card-link">Đọc thêm &rarr;</a>
+                                <div class="line"></div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- 2. Flower Card -->
+                    <div class="card-item">
+                        <span class="card-label">2. Mùa Hoa Nở • Nhịp Độ Riêng</span>
+                        <article class="card card-2" onclick="openPerspectiveModal(1)">
+                            <div class="card-meta">
+                                <span>Lăng Kính</span>
+                                <span>02</span>
+                            </div>
+                            <div>
+                                <h2 class="card-title">Đừng<br>vội nở hoa.</h2>
+                            </div>
+                            <p class="card-desc">Mỗi bông hoa đều có một thời khắc tỏa hương rực rỡ riêng.</p>
+                        </article>
+                    </div>
+
+                    <!-- 3. Illustration Card -->
+                    <div class="card-item">
+                        <span class="card-label">3. Mầm Xanh Nhỏ • Sức Mạnh Rễ</span>
+                        <article class="card card-3" onclick="openPerspectiveModal(2)">
+                            <div class="card-meta">
+                                <span>Lăng Kính</span>
+                                <span>03</span>
+                            </div>
+
+                            <svg class="sprout-icon" viewBox="0 0 100 100" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 85C50 85 50 50 50 38" stroke="#52634f" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                                <path d="M50 58C50 58 28 48 24 32C38 32 48 44 50 58Z" fill="#8cb369" />
+                                <path d="M50 46C50 46 72 34 76 18C62 18 52 32 50 46Z" fill="#688f4e" />
+                                <ellipse cx="50" cy="85" rx="18" ry="3" fill="#c7d9b7" />
+                            </svg>
+
+                            <div>
+                                <h2 class="card-title" style="font-size: 1.45rem;">Sức mạnh của rễ.</h2>
+                                <p class="card-desc">Khi mọi thứ còn nhỏ bé, điều quan trọng nhất là cắm rễ thật sâu.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- 4. Quote Card -->
+                    <div class="card-item">
+                        <span class="card-label">4. Lời Thì Thầm • Dòng Nước</span>
+                        <article class="card card-4" onclick="openPerspectiveModal(3)">
+                            <span class="quote-icon" style="text-align: left;">“</span>
+                            <h2 class="card-title">Mềm mại<br>không phải<br>yếu đuối.</h2>
+                            <span class="quote-icon" style="text-align: right;">”</span>
+                        </article>
+                    </div>
+
+                    <!-- 5. Letter Card -->
+                    <div class="card-item">
+                        <span class="card-label">5. Lá Thư Tay • Múi Giờ Riêng</span>
+                        <article class="card card-5" onclick="openPerspectiveModal(4)">
+                            <div class="card-meta letter-head">
+                                <span>Letter #01</span>
+                                <span>Gửi Bạn</span>
+                            </div>
+                            <div>
+                                <p class="salutation">Dear you,</p>
+                                <h2 class="card-title" style="font-size: 1.45rem;">Múi giờ của bạn.</h2>
+                                <p class="card-desc">Những gì thuộc về bạn sẽ không vì sự chậm trễ mà biến mất.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="card-link">Mở thư &rarr;</a>
+                            <div class="postal-stamp">THƯ TAY</div>
+                        </article>
+                    </div>
+
+                    <!-- 6. Window Card -->
+                    <div class="card-item">
+                        <span class="card-label">6. Bên Ô Cửa Sổ • Nhìn Thế Giới</span>
+                        <article class="card card-6" onclick="openPerspectiveModal(5)">
+                            <div class="card-meta">
+                                <span>Lăng Kính</span>
+                                <span>06</span>
+                            </div>
+                            <div class="arch-window">
+                                <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=400&q=80"
+                                    alt="Góc nhìn bình yên">
+                            </div>
+                            <div>
+                                <h2 class="card-title" style="font-size: 1.35rem; margin-bottom: 4px;">Góc nhìn ô cửa.
+                                </h2>
+                                <p class="card-desc" style="font-size: 0.78rem;">Lau sạch bụi mờ tâm hồn để nhìn thế
+                                    giới bằng vạt nắng bao dung.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- 7. Organic Shape Card (Cách điệu độc đáo) -->
+                    <div class="card-item card-7-wrapper">
+                        <span class="card-label">7. Cánh Hoa Buông • Đúng Lúc</span>
+                        <article class="card card-7" onclick="openPerspectiveModal(6)">
+                            <!-- Cánh hoa trôi ngẫu hứng -->
+                            <div class="floating-petal petal-1"></div>
+                            <div class="floating-petal petal-2"></div>
+
+                            <div class="card-meta">
+                                <span>Lăng Kính</span>
+                                <span>07</span>
+                            </div>
+
+                            <div style="margin-top: auto; margin-bottom: 20px;">
+                                <h2 class="card-title" style="font-size: 1.6rem;">Mọi sự<br>đúng lúc.</h2>
+                                <p class="card-desc" style="max-width: 80%; margin-top: 12px; font-weight: 500;">
+                                    Thuận theo tự nhiên, tin vào sự an bài dịu dàng của vũ trụ.
+                                </p>
+                            </div>
+
+                            <!-- SVG Hoạ tiết Hoa Lá Nghệ Thuật bám theo đường cong Card -->
+                            <svg class="organic-floral-decor" viewBox="0 0 200 200" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M120 180C140 130 180 110 190 60C170 100 130 120 110 170" stroke="#52634f"
+                                    stroke-width="2" opacity="0.4" />
+                                <!-- Cánh hoa đào nghệ thuật -->
+                                <path d="M140 100C120 70 150 40 175 55C190 75 170 110 140 100Z" fill="#e89ca9"
+                                    opacity="0.75" />
+                                <path d="M115 130C95 105 120 80 145 92C158 110 140 140 115 130Z" fill="#f1b5c0"
+                                    opacity="0.7" />
+                                <!-- Lá viền mềm -->
+                                <path d="M160 145C175 130 195 140 190 160C170 165 155 155 160 145Z" fill="#8cb369"
+                                    opacity="0.8" />
+                                <path d="M125 165C135 150 155 160 150 175C135 180 120 172 125 165Z" fill="#688f4e"
+                                    opacity="0.7" />
+                            </svg>
+                        </article>
+                    </div>
+
+                    <!-- 8. Polaroid / Photo Card -->
+                    <div class="card-item">
+                        <span class="card-label">8. Tấm Ảnh Kỷ Niệm • Hiện Tại</span>
+                        <article class="card card-8" onclick="openPerspectiveModal(7)">
+                            <div class="washi-tape"></div>
+                            <div class="polaroid-frame">
+                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=500&q=80"
+                                    alt="Bình yên">
+                            </div>
+                            <div class="polaroid-footer">
+                                <div>
+                                    <p class="card-desc" style="font-weight: 600; color: #333;">Hiện diện ở hiện tại.
+                                    </p>
+                                    <p class="card-desc" style="font-size: 0.75rem; color: #888;">Bình yên nằm trong
+                                        chính giây phút bạn đang thở.</p>
+                                </div>
+                                <span style="color: #e27d8e; font-size: 1.25rem;">&#9825;</span>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL SHOWCASE -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <button class="close">✕</button>
+                <div class="story-label">TRẠM HÓA THÂN</div>
+                <h2 id="title"></h2>
+                <div class="story" id="story"></div>
+                <div class="question">
+                    <!-- Perspective Switcher Tabs Bar -->
+                    <div class="perspective-tabs" id="perspectiveTabs">
+                        <button class="perspective-tab active" data-tab="hoathan"
+                            onclick="selectPerspective('hoathan')">🎭 Tôi Hóa Thân</button>
+                        <button class="perspective-tab" data-tab="langnghe" onclick="selectPerspective('langnghe')">👁️
+                            Tôi Lắng Nghe</button>
+                        <button class="perspective-tab" data-tab="trochuyen" onclick="selectPerspective('trochuyen')">💬
+                            Tôi Trò Chuyện</button>
+                    </div>
+                    <h4 id="question"></h4>
+                    <div class="actions" id="actions"></div>
+                    <div class="response" id="response"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+    <script src="js/plugin/jquery.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/global.js"></script>
+
+    <script>
+        let activeCharacterObj = null;
+        let activePerspectiveTab = 'hoathan';
+
+        const characters = [
+            {
+                icon: "cucumber",
+                featured: true,
+                badge: "✨ TRIẾT HỌC SỰ SỐNG",
+                title: "🥒 <span class=\"cara-user-name\" data-original-text=\"Bạn\">Bạn</span> nghĩ gì về một quả dưa leo?",
+                preview: "Một quả dưa leo bình thường chứa đựng muôn vàn câu hỏi sâu sắc về sự sống, cơ chế sinh tồn và sự tiếp nối.",
+                story: `Một quả dưa leo xanh, dài, nằm im trên bàn. Có lẽ bạn sẽ nghĩ nó là một loại rau, dù về mặt thực vật học, nó lại là một loại quả. Bạn có thể nghĩ đến một bữa cơm, một đĩa salad, hay đơn giản là cắn một miếng vì nó giòn và mát.
+
+Tôi cũng từng nghĩ về nó như vậy...`,
+                storyHtml: `
+<p>Một quả dưa leo xanh, dài, nằm im trên bàn. Có lẽ bạn sẽ nghĩ nó là một loại rau, dù về mặt thực vật học, nó lại là một loại quả. Bạn có thể nghĩ đến một bữa cơm, một đĩa salad, hay đơn giản là cắn một miếng vì nó giòn và mát.</p>
+
+<p>Tôi cũng từng nghĩ về nó như vậy.</p>
+
+<p>Cho đến khi tôi biết rằng trong dưa leo có một nhóm hợp chất gọi là <strong style="color: #38ef7d;">cucurbitacin</strong>, thứ có thể tạo nên vị đắng và cũng là một phần trong cơ chế phòng vệ của cây.</p>
+
+<p>Tôi chợt thấy lạ.</p>
+
+<p>Tại sao một thứ trông vô hại như vậy lại mang trong mình một chất có thể khiến sinh vật khác không muốn ăn nó?</p>
+
+<p>Rồi tôi nghĩ đến những thứ khác. Hạt táo có amygdalin. Khoai tây khi mọc mầm có thể tích tụ glycoalkaloid. Một số loại cây chứa alkaloid, nhựa, tinh dầu hay những hợp chất mà con người gọi là độc.</p>
+
+<p>Vậy hóa ra, một thứ được chúng ta gọi là thức ăn cũng có thể mang trong mình thứ có khả năng gây hại.</p>
+
+<p>Nhưng nếu nó có độc, tại sao nó lại không tự đầu độc chính mình?</p>
+
+<p>Cây tạo ra những chất ấy để bảo vệ bản thân khỏi sâu bọ, khỏi động vật, khỏi những kẻ muốn ăn nó. Nhưng chính cây lại mang thứ độc ấy trong cơ thể mình. Chẳng phải thật kỳ lạ sao?</p>
+
+<p>Có phải cây đã học được cách cất giấu thứ độc ấy ở một nơi mà nó không làm hại chính mình?</p>
+
+<p>Hay có phải “độc” vốn chẳng phải là một khái niệm tuyệt đối? Một chất độc với loài này, biết đâu lại chẳng có cùng ý nghĩa với loài khác.</p>
+
+<p>Tôi bắt đầu nhìn một cái cây khác đi.</p>
+
+<p>Nó không chạy được. Khi một con sâu bò lên lá, nó không thể bỏ chạy sang một nơi khác. Khi một con vật muốn ăn quả của nó, nó không thể giơ tay lên ngăn lại.</p>
+
+<p style="font-weight: 600; color: #38ef7d; margin-top: 14px;">Vậy nó làm gì để sống?</p>
+<ul style="list-style: none; padding-left: 15px; margin: 12px 0; border-left: 2px solid rgba(56, 239, 125, 0.4);">
+    <li>🌱 Nó tạo ra gai.</li>
+    <li>🌱 Nó tạo ra vị đắng.</li>
+    <li>🌱 Nó tạo ra mùi.</li>
+    <li>🌱 Nó tạo ra độc.</li>
+</ul>
+
+<p>Như thể mỗi loài cây đều có một cách riêng để nói với thế giới rằng: <em>“Đừng ăn tôi.”</em></p>
+
+<p>Nhưng rồi một câu hỏi khác xuất hiện.</p>
+
+<p>Nếu cây không muốn bị ăn, tại sao nó lại tạo ra những quả ngon? Tại sao có những quả ngọt, thơm, mọng nước, có màu sắc rực rỡ đến mức gần như đang mời gọi một sinh vật nào đó đến ăn mình?</p>
+
+<p>Có phải cây thật sự muốn chúng ta ăn nó không? Hay nó chỉ cần một ai đó ăn phần thịt quả, mang hạt của nó đi xa, rồi vô tình giúp nó tiếp tục sống ở một nơi khác?</p>
+
+<p>Nếu vậy thì thật thú vị. Có khi thứ chúng ta gọi là “được ăn” lại chính là một phần trong cách một loài sinh vật sinh tồn.</p>
+
+<p>Nhưng rồi tôi lại nghĩ đến những quả đắng. Nếu trong mười quả dưa leo có hai quả đắng, liệu hai quả ấy có phải đang mang một thứ gì đó đặc biệt hơn không? Nếu lấy hạt từ một quả đắng rồi trồng xuống đất, cây con có tiếp tục cho ra những quả đắng không?</p>
+
+<p>Và nếu có... Có phải đó là cách cây mẹ truyền lại cho con mình một phương thức để sống sót?</p>
+
+<p>Nhưng không. Cây mẹ đâu có biết mình đang làm gì. Nó đâu có ngồi dưới ánh nắng rồi nghĩ: <em>“Sau này con ta phải biết tự bảo vệ mình.”</em></p>
+
+<p>Chỉ là những đặc điểm có khả năng được truyền lại sẽ tiếp tục đi qua các thế hệ. Những gì giúp một cá thể sống sót và sinh sản có thể tồn tại lâu hơn cùng nó.</p>
+
+<p style="font-weight: 600; color: #d5a864; margin-top: 14px;">Vậy thì...</p>
+<p>Có phải sự sống không thật sự biết mình đang đi đâu? Nó chỉ liên tục thử:</p>
+<ul style="list-style: none; padding-left: 15px; margin: 12px 0; border-left: 2px solid rgba(213, 168, 100, 0.4);">
+    <li>✨ Một chút ngọt hơn.</li>
+    <li>✨ Một chút đắng hơn.</li>
+    <li>✨ Một chiếc gai dài hơn.</li>
+    <li>✨ Một lớp vỏ dày hơn.</li>
+    <li>✨ Một chất độc mạnh hơn.</li>
+    <li>✨ Một màu sắc hấp dẫn hơn.</li>
+</ul>
+<p>Và nếu cách đó giúp nó sống tiếp, nó được giữ lại. Nếu không, nó biến mất.</p>
+
+<p>Rồi tôi lại nghĩ đến cây mẹ. Nếu một cây con sinh ra từ cây mẹ nhưng mang những đặc điểm khác đi một chút, rồi cây cháu lại khác thêm một chút nữa, đến một ngày rất xa, liệu nó có còn là cây mẹ ban đầu nữa không?</p>
+
+<p>Nếu tất cả những gì nó làm chỉ là cố gắng bảo tồn sự sống của mình, tại sao kết quả cuối cùng lại là một phiên bản khác của chính nó?</p>
+
+<p>Phải chăng để tiếp tục tồn tại, sự sống không thể mãi giữ nguyên bản thân mình? Một cây phải thay đổi để con cháu của nó tiếp tục sống. Một loài phải thay đổi để không biến mất. Và đôi khi, thay đổi đủ lâu, hậu duệ của nó trở thành một thứ mà tổ tiên ban đầu có lẽ cũng chẳng thể nhận ra.</p>
+
+<p>Vậy rốt cuộc thứ được gọi là “bản thể” nằm ở đâu? Nằm trong hình dáng? Nằm trong cái tên? Hay nằm đâu đó trong những thông tin nhỏ bé được truyền từ thế hệ này sang thế hệ khác?</p>
+
+<p>Tôi không biết. Tôi chỉ biết rằng ban đầu mình đang nhìn một quả dưa leo. Một quả dưa leo rất bình thường.</p>
+
+<p>Nhưng càng nhìn, tôi càng thấy bên trong nó có quá nhiều câu hỏi. Về sự sống. Về cách một sinh vật tự bảo vệ mình. Về việc nó chấp nhận mang trong người một thứ có thể gây hại cho kẻ khác, chỉ để có thêm một cơ hội tồn tại. Về những đứa con sinh ra từ nó, giống nó nhưng không hoàn toàn là nó.</p>
+
+<p style="margin-top: 14px;">Thế nên không nhất thiết là: <em>“Càng độc càng tốt.”</em></p>
+<p>Mà giống như: <em>“Đủ để bảo vệ mình, nhưng không đến mức khiến mình không thể tiếp tục sống.”</em></p>
+
+<p>Và từ đó một câu hỏi rất đẹp mở ra:</p>
+<div class="cucumber-highlight-quote" style="border-left-color: #d5a864; background: linear-gradient(135deg, rgba(213, 168, 100, 0.12) 0%, rgba(56, 239, 125, 0.08) 100%);">
+    <p>“Có phải tự nhiên luôn tồn tại trong một cuộc mặc cả giữa những điều đối lập?<br>Để sống, liệu có phải chúng ta luôn phải tìm một điểm 'vừa đủ'?”</p>
+</div>
+
+<p>Có lẽ đó cũng là cách tự nhiên giữ mọi thứ cân bằng.</p>
+
+<div class="cucumber-highlight-quote">
+    <p>“Và về một điều kỳ lạ hơn hết:<br>Có lẽ sự sống chưa bao giờ cố gắng trở thành bất tử. Nó chỉ cố gắng để một phần của mình được đi tiếp.”</p>
+</div>
+
+<p>...</p>
+
+<p>Tôi nhìn quả dưa leo trên bàn thêm một lúc. Rồi cầm lên. Cắn một miếng.</p>
+<p style="font-weight: 500; color: #a8e6cf; margin-top: 10px;">Ừm. Vẫn không đắng. May quá.<br>Có vẻ hôm nay tự nhiên và tôi đã đạt được một thỏa thuận. 🌱<br>Tôi vẫn chưa muốn chết vì một câu hỏi triết học bắt đầu từ bữa cơm tối.</p>
+
+<div class="cucumber-bite-box">
+    <p class="bite-prompt">🥒 Quả dưa leo trên bàn tối nay của bạn đang nằm im... Bạn có muốn cắn thử một miếng không?</p>
+    <button class="bite-btn" onclick="testCucumberBite(this)">
+        <span>😋</span> Cắn một miếng dưa leo!
+    </button>
+    <div class="bite-result" id="cucumberBiteResult"></div>
+</div>
+`,
+                perspectives: {
+                    hoathan: {
+                        question: "🎭 Góc nhìn Hóa Thân: Đặt mình là Cây Dưa Leo mang cơ chế tự vệ, bạn bảo vệ điều quý giá bên trong mình như thế nào?",
+                        buttons: [
+                            {
+                                text: "Tôi chọn khoảng cách tự vệ dịu dàng",
+                                reply: "Đó là cơ chế sinh tồn tự nhiên. Giống như vị đắng của cucurbitacin, đôi khi sự giữ khoảng cách không phải là ghét bỏ thế giới, mà là cách bạn trân trọng điều thiêng liêng nhất bên trong mình. 🥒✨"
+                            },
+                            {
+                                text: "Tôi chọn tìm điểm 'vừa đủ' giữa các mặt đối lập",
+                                reply: "Đó chính là nghệ thuật sống tuyệt đẹp! Đủ để bảo vệ những tổn thương và điều quý giá bên trong, nhưng không quá mức khiến bạn khép kín với tình yêu thương của thế giới. 🌱✨"
+                            },
+                            {
+                                text: "Tôi chọn học cách mở lòng và thay đổi",
+                                reply: "Tuyệt vời! Nhờ không ngừng học hỏi và đổi thay qua thời gian, sự sống mới có thể vươn xa và đón nhận những cơ hội tươi đẹp nhất."
+                            }
+                        ]
+                    },
+                    langnghe: {
+                        question: "👁️ Góc nhìn Người Lắng Nghe: Chiêm nghiệm về quả dưa leo nhỏ bé, suy nghĩ nào làm tim bạn xao xuyến nhất?",
+                        buttons: [
+                            {
+                                text: "Tự nhiên luôn tồn tại giữa những điều đối lập",
+                                reply: "Một chiêm nghiệm sâu sắc! Sự cân bằng 'vừa đủ' chính là bí quyết giúp tự nhiên lẫn con người giữ gìn sự bình an trong tâm hồn."
+                            },
+                            {
+                                text: "Sự sống không cần bất tử, chỉ cần được tiếp nối",
+                                reply: "Một góc nhìn thật bao dung. Ý nghĩa cuộc đời nằm ở những năng lượng dịu dàng và bài học tốt đẹp bạn truyền lại cho mai sau."
+                            },
+                            {
+                                text: "Thay đổi là quy luật để tồn tại",
+                                reply: "Đúng vậy. Đừng sợ hãi khi thấy mình khác đi so với quá khứ. Sự thay đổi chứng minh bạn đang sống và trưởng thành từng ngày."
+                            }
+                        ]
+                    },
+                    trochuyen: {
+                        question: "💬 Góc nhìn Người Trò Chuyện: Bạn muốn trao lời thì thầm gì cho quả dưa leo trên bàn ăn tối nay?",
+                        buttons: [
+                            {
+                                text: "Cảm ơn vì thỏa thuận hòa bình giữa ta và tự nhiên!",
+                                reply: "Quả dưa leo xanh tươi khẽ gật đầu mỉm cười: 'Chúc bạn một bữa tối ngon miệng và tìm thấy điểm cân bằng dịu dàng nhất nhé!' 🥗✨"
+                            },
+                            {
+                                text: "Dù ngọt hay đắng, cảm ơn sự kiên cường của bạn",
+                                reply: "Làn gió mát lành khẽ thổi qua, gửi lại bạn một lời chúc bình an cho buổi tối."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                icon: "sun",
+                title: "☀️ Tôi là một vạt nắng",
+                preview: "Bạn không cần trở thành mặt trời để có giá trị.",
+                story: `Có những người gọi tôi là ánh bình minh, có những người gọi tôi là nắng sớm. Nhưng thật ra tôi chỉ là một vạt nắng nhỏ. Mỗi buổi sáng, tôi len qua ô cửa sổ, tôi trải mình trên sàn nhà, nằm yên trên bàn học, tôi đậu trên vai một người đang đọc sách và tôi không làm nên những điều phi thường. Có lẽ tôi không thể thay đổi thế giới trong một ngày cũng không thể xóa đi mọi nỗi buồn của con người. 
+Nhưng tôi có thể làm căn phòng trở nên ấm hơn một chút, tôi có thể giúp một chậu cây nhỏ tiếp tục lớn lên hay khiến ai đó ngẩng đầu lên và nhận ra: Hôm nay là một ngày mới.
+Điều tôi nhận ra: Tôi từng nghĩ mình quá nhỏ bé cho đến khi nhìn thấy một hạt mầm hướng về phía mình. Tôi từng nghĩ mình không đủ quan trọng cho đến khi thấy một cụ già kéo chiếc ghế ra ngồi dưới nắng mỗi sáng. Lúc này tôi hiểu rằng… không phải mọi giá trị đều cần thật lớn lao. Có những điều đẹp đẽ chỉ đơn giản là mang đến một chút ấm áp cho người khác.`,
+                perspectives: {
+                    hoathan: {
+                        question: "🎭 Góc nhìn Hóa Thân: Đặt mình làm Vạt Nắng, hôm nay bạn nghĩ mình đã mang lại điều gì ấm áp cho thế giới?",
+                        buttons: [
+                            {
+                                text: "Tôi đã sưởi ấm một căn phòng nhỏ",
+                                reply: "Tuyệt vời lắm! Bạn không cần trở thành mặt trời rực rỡ. Đôi khi chỉ cần là một vạt nắng xuất hiện đúng lúc, gửi trao chút dịu dàng thế là đủ chữa lành rồi. 🌤️✨"
+                            },
+                            {
+                                text: "Tôi vẫn thấy mình còn nhỏ bé",
+                                reply: "Đừng tự ti nhé. Ngay cả một hạt mầm nhỏ cũng luôn nghiêng mình biết ơn vạt nắng khẽ chạm vào nó mỗi sáng. Sự hiện diện của bạn luôn là một điều ý nghĩa."
+                            }
+                        ]
+                    },
+                    langnghe: {
+                        question: "👁️ Góc nhìn Người Lắng Nghe: Đọc xong câu chuyện Vạt Nắng, điều gì chạm đến trái tim bạn?",
+                        buttons: [
+                            {
+                                text: "Tôi nhận ra mình không cần phải phi thường",
+                                reply: "Đúng vậy. Không phải mọi giá trị đều cần thật lớn lao. Việc bạn sống tử tế và dịu dàng mỗi ngày đã là một món quà tuyệt vời cho thế giới."
+                            },
+                            {
+                                text: "Tôi cảm thấy tâm hồn mình được xoa dịu",
+                                reply: "Mong rằng tâm hồn bạn luôn tìm thấy những khoảng lặng bình yên như vạt nắng sớm bên ô cửa."
+                            }
+                        ]
+                    },
+                    trochuyen: {
+                        question: "💬 Góc nhìn Người Trò Chuyện: Nếu có thể thì thầm một lời với Vạt Nắng nhỏ, bạn sẽ nhắn gì?",
+                        buttons: [
+                            {
+                                text: "Cảm ơn vạt nắng vì đã xuất hiện đúng lúc!",
+                                reply: "Vạt nắng khẽ mỉm cười và tỏa ánh ấm áp dịu dàng chiếu lên bờ vai bạn. ☀️"
+                            },
+                            {
+                                text: "Hãy tiếp tục tỏa sáng theo cách riêng nhé",
+                                reply: "Vũ trụ và vạt nắng nhỏ cũng gửi lại bạn một vòng ôm thật ấm áp!"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                icon: "tree",
+                title: "🌳 Tôi là một cái cây",
+                preview: "Biểu tượng của sự kiên trì và bản chất trọn vẹn.",
+                story: `Tôi không biết chạy, tôi không biết nói, tôi cũng không thể viết nên những điều vĩ đại, mỗi ngày, tôi chỉ đứng ở đây lặng lẽ đón ánh nắng mặt trời và hút nước từ lòng đất.
+Tôi giữ đất không bị xói mòn sau những cơn mưa lớn, cho chim chóc một mái nhà, cho người bộ hành một khoảng bóng mát.
+Và điều kỳ lạ nhất là… tôi tạo ra oxy để những người chưa từng biết tên tôi vẫn có thể hít thở. Tôi không cần trở thành dòng sông hay ngọn núi mà chỉ cần làm tốt những gì một cái cây có thể làm. 
+Có lẽ ý nghĩa cuộc sống không nằm ở việc trở thành ai khác mà nằm ở việc sống trọn vẹn với bản chất của mình.`,
+                perspectives: {
+                    hoathan: {
+                        question: "🎭 Góc nhìn Hóa Thân: Nếu bạn là Cái Cây này, điều tốt đẹp nào chỉ riêng bạn mới có thể mang đến?",
+                        buttons: [
+                            {
+                                text: "Tôi sẽ cắm rễ sâu và cố gắng thêm một chút",
+                                reply: "Tuyệt lắm. Không cần chạy thật nhanh. Những cây lớn nhất thế giới cũng từng bắt đầu từ một mầm xanh bé xíu. 🌳✨"
+                            },
+                            {
+                                text: "Hôm nay tôi xin phép cho mình nghỉ ngơi",
+                                reply: "Được chứ. Ngay cả cái cây cũng có những mùa đông ngủ yên. Nghỉ ngơi là cách bạn chuẩn bị cho mùa xuân tiếp theo."
+                            }
+                        ]
+                    },
+                    langnghe: {
+                        question: "👁️ Góc nhìn Người Lắng Nghe: Bài học nào từ Cái Cây làm bạn tâm đắc nhất?",
+                        buttons: [
+                            {
+                                text: "Sống trọn vẹn với bản chất của chính mình",
+                                reply: "Chính xác! Bạn là duy nhất trên thế giới này, hãy tự tin vào con đường của riêng bạn."
+                            },
+                            {
+                                text: "Âm thầm trao đi những giá trị bình dị",
+                                reply: "Sự tử tế thầm lặng của bạn luôn có sức lan tỏa mạnh mẽ hơn bạn nghĩ."
+                            }
+                        ]
+                    },
+                    trochuyen: {
+                        question: "💬 Góc nhìn Người Trò Chuyện: Bạn muốn trao cho Cái Cây một lời thì thầm gì?",
+                        buttons: [
+                            {
+                                text: "Cảm ơn bạn đã cho tôi một khoảng bóng mát",
+                                reply: "Cái Cây xạc xào lá reo vui: 'Bất cứ khi nào mệt mỏi, hãy ghé qua tựa lưng nghỉ chân bạn nhé!' 🍃"
+                            },
+                            {
+                                text: "Chúc bạn luôn vững vàng qua mọi bão giông",
+                                reply: "Bộ rễ Cái Cây khẽ ôm chặt lòng đất, biết ơn lời chúc chân thành từ bạn."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                icon: "cookie",
+                title: "🍪 Bánh quy nhỏ nhắn",
+                preview: "Khám phá bản sắc độc bản của chính bạn.",
+                story: `Có chiếc bánh quy ngọt ngào đẫm chocolate.
+Có chiếc hơi đắng vị matcha.
+Có chiếc méo mó không tròn trịa.
+
+Nhưng dù là loại nào, chúng tôi đều phải trải qua sức nóng của lò nướng mới có thể tỏa hương.
+
+Sự khác biệt chính là hương vị độc bản của bạn.`,
+                perspectives: {
+                    hoathan: {
+                        question: "🎭 Góc nhìn Hóa Thân: Bạn đối xử với chiếc bánh quy độc bản bên trong mình như thế nào?",
+                        buttons: [
+                            {
+                                text: "Tôi đang học cách trân trọng nó",
+                                reply: "Đó là hành trình tuyệt đẹp! Sự độc bản chính là hương vị đặc biệt nhất của bạn. 🍪✨"
+                            },
+                            {
+                                text: "Đôi khi tôi vẫn còn cảm thấy tự ti",
+                                reply: "Không sao cả. Chiếc bánh quy thơm nhất cũng không biết mình thơm cho đến khi ai đó bước qua và mỉm cười."
+                            }
+                        ]
+                    },
+                    langnghe: {
+                        question: "👁️ Góc nhìn Người Lắng Nghe: Thử thách lò nướng gợi cho bạn suy nghĩ gì?",
+                        buttons: [
+                            {
+                                text: "Khó khăn giúp tôi tỏa sáng hương vị riêng",
+                                reply: "Đúng vậy! Mọi thử thách bạn vượt qua đều nhào nặn nên một phiên bản kiên cường hơn."
+                            },
+                            {
+                                text: "Tôi yêu thích những chiếc bánh không hoàn hảo",
+                                reply: "Vẻ đẹp nằm ở sự chân thật chứ không phải ở sự hoàn hảo rập khuôn."
+                            }
+                        ]
+                    },
+                    trochuyen: {
+                        question: "💬 Góc nhìn Người Trò Chuyện: Lời nhắn nhỏ gửi đến Bánh Quy nhỏ:",
+                        buttons: [
+                            {
+                                text: "Hương vị của bạn thật ngọt ngào!",
+                                reply: "Bánh Quy nhỏ tỏa hương thơm ngào ngạt sưởi ấm tâm hồn bạn. 🌸"
+                            },
+                            {
+                                text: "Hãy luôn tự hào về vẻ ngoài riêng biệt nhé",
+                                reply: "Bánh Quy gật đầu vui vẻ và cảm ơn nụ cười của bạn."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                icon: "stone",
+                title: "🪨 Hòn đá cuội dưới lòng suối",
+                preview: "Sự bình yên và những giá trị âm thầm không cần ghi danh.",
+                story: `Tôi không phát sáng. Tôi không nở hoa. Không ai dừng lại để ngắm nhìn tôi.
+Tôi chỉ nằm ở đây, ngày này qua ngày khác, năm này qua năm khác.
+Dòng nước chảy ngang qua tôi. Những con cá nhỏ bơi lướt qua tôi. Những chiếc lá khô nghỉ chân trên tôi.
+Tôi giúp lòng suối ổn định và êm đềm hơn. Tôi là một phần nhỏ của sự bình yên ấy.
+Có những giá trị không cần được nhìn thấy. Có những điều tốt đẹp không cần được ghi nhận. Chúng vẫn tồn tại và đầy ý nghĩa.`,
+                perspectives: {
+                    hoathan: {
+                        question: "🎭 Góc nhìn Hóa Thân: Có giá trị thầm lặng nào bạn đang kiên trì nuôi dưỡng không?",
+                        buttons: [
+                            {
+                                text: "Tôi vẫn âm thầm cố gắng mỗi ngày",
+                                reply: "Cảm ơn vì sự kiên trì vĩ đại đó! Sự tử tế âm thầm của bạn đang giúp dòng đời của ai đó trở nên êm đềm hơn. 🌊✨"
+                            },
+                            {
+                                text: "Tôi thấy mình chưa được công nhận",
+                                reply: "Giống như hòn đá dưới lòng suối, ít ai nhớ tên nhưng suối chẳng thể êm đềm nếu thiếu nó. Giá trị của bạn luôn bền vững dẫu không có lời tung hô."
+                            }
+                        ]
+                    },
+                    langnghe: {
+                        question: "👁️ Góc nhìn Người Lắng Nghe: Sự tĩnh lặng của hòn đá suối giúp gì cho bạn?",
+                        buttons: [
+                            {
+                                text: "Nhắc nhở tôi sống chậm và an yên hơn",
+                                reply: "Hãy cho phép mình được nghỉ chân bên lòng suối tĩnh lặng này nhé."
+                            },
+                            {
+                                text: "Tôi trân trọng những đóng góp lặng lẽ",
+                                reply: "Cảm ơn sự thấu hiểu sâu sắc từ trái tim dịu dàng của bạn."
+                            }
+                        ]
+                    },
+                    trochuyen: {
+                        question: "💬 Góc nhìn Người Trò Chuyện: Bạn muốn thì thầm gì với Hòn Đá Suối?",
+                        buttons: [
+                            {
+                                text: "Bạn là điểm tựa an lành cho lòng suối!",
+                                reply: "Hòn đá cuội cảm nhận dòng nước mát lành reo ca xung quanh. 🪨"
+                            },
+                            {
+                                text: "Cảm ơn sự kiên định bình an của bạn",
+                                reply: "Tĩnh lặng và kiên định, hòn đá gửi lại bạn sự an nhiên."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                icon: "leaf",
+                title: "🍁 Chiếc lá phong mùa thu",
+                preview: "Biểu tượng của sự buông bỏ dịu dàng.",
+                story: `Mùa xuân, tôi là chồi non. Mùa hè, tôi xanh mướt dưới ánh mặt trời.
+Nhưng rồi mùa thu đến. Tôi đổi màu, rời cành và rơi xuống mặt đất.
+Thoạt nhìn, ai cũng nghĩ đó là kết thúc. Nhưng không phải.
+Tôi trở thành dinh dưỡng cho đất, nuôi dưỡng những mầm xanh cho mùa xuân năm sau.
+Tôi hiểu rằng... Có những sự kết thúc không phải để mất đi, mà để mở đường cho điều mới bắt đầu.`,
+                perspectives: {
+                    hoathan: {
+                        question: "🎭 Góc nhìn Hóa Thân: Có điều gì đã hoàn thành sứ mệnh mà bạn sẵn sàng buông bỏ?",
+                        buttons: [
+                            {
+                                text: "Tôi can đảm học cách buông bỏ",
+                                reply: "Cảm ơn vì sự can đảm đó! Có những thứ càng nắm chặt càng đau. Hãy để gió mang chúng đi nhẹ nhàng. 🍂✨"
+                            },
+                            {
+                                text: "Tôi cần thêm thời gian",
+                                reply: "Không sao cả. Chiếc lá cũng không rụng ngay khi hè kết thúc. Hãy cho bản thân thêm thời gian."
+                            }
+                        ]
+                    },
+                    langnghe: {
+                        question: "👁️ Góc nhìn Người Lắng Nghe: Sự ra đi của chiếc lá dạy bạn điều gì?",
+                        buttons: [
+                            {
+                                text: "Kết thúc là sự chuẩn bị cho sự khởi đầu mới",
+                                reply: "Chính xác! Mùa đông qua đi thì mùa xuân rực rỡ sẽ luôn trở lại."
+                            },
+                            {
+                                text: "Trân trọng từng giai đoạn của cuộc đời",
+                                reply: "Mỗi mùa trong năm đều mang một vẻ đẹp diệu kỳ riêng biệt."
+                            }
+                        ]
+                    },
+                    trochuyen: {
+                        question: "💬 Góc nhìn Người Trò Chuyện: Bạn nhắn gửi gì đến Chiếc Lá Thu?",
+                        buttons: [
+                            {
+                                text: "Điệu nhảy đáp đất của bạn thật đẹp!",
+                                reply: "Chiếc lá xoay nhẹ trong gió thu và khẽ mỉm cười thanh thản. 🍁"
+                            },
+                            {
+                                text: "Cảm ơn bạn đã cống hiến trọn vẹn",
+                                reply: "Chiếc lá an hòa nằm xuống lòng đất ấm áp."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                icon: "butterfly",
+                title: "🦋 Con bướm vừa rời kén",
+                preview: "Biểu tượng của sự chuyển hóa sâu sắc.",
+                story: `Ngày còn trong kén, tôi nghĩ bóng tối là cả thế giới.
+Nhưng chính khoảng thời gian ấy đã giúp tôi mọc cánh.
+Có những giai đoạn tưởng như mắc kẹt, thực chất lại là lúc bạn đang thay đổi sâu sắc nhất.`,
+                perspectives: {
+                    hoathan: {
+                        question: "🎭 Góc nhìn Hóa Thân: Bạn có đang ở trong chiếc kén chuẩn bị mọc cánh?",
+                        buttons: [
+                            {
+                                text: "Có, và tôi đang kiên nhẫn chờ đợi",
+                                reply: "Hãy tin vào quá trình! Không ai nhìn thấy đôi cánh khi chúng còn đang hình thành. 🦋✨"
+                            },
+                            {
+                                text: "Tôi đã bắt đầu dang cánh bay!",
+                                reply: "Thật tuyệt vời! Hãy nhớ cảm ơn phiên bản cũ đã kiên trì đi qua những ngày khó khăn."
+                            }
+                        ]
+                    },
+                    langnghe: {
+                        question: "👁️ Góc nhìn Người Lắng Nghe: Bóng tối trong kén mang lại cho bạn niềm tin gì?",
+                        buttons: [
+                            {
+                                text: "Thử thách là bước đệm cho sự lột xác",
+                                reply: "Đúng vậy. Bóng tối trước bình minh luôn là lúc rực rỡ nhất."
+                            },
+                            {
+                                text: "Mọi sự kiên nhẫn đều sẽ gặt hái quả ngọt",
+                                reply: "Đôi cánh rực rỡ sẽ là phần thưởng xứng đáng nhất."
+                            }
+                        ]
+                    },
+                    trochuyen: {
+                        question: "💬 Góc nhìn Người Trò Chuyện: Nhắn gửi đến Chú Bướm vừa rời kén:",
+                        buttons: [
+                            {
+                                text: "Hãy bay thật cao và tự do nhé!",
+                                reply: "Chú bướm vỗ đôi cánh rực rỡ sắc màu bay vút lên bầu trời xanh. 🌈"
+                            },
+                            {
+                                text: "Đôi cánh của bạn đẹp lắm!",
+                                reply: "Chú bướm chao nghiêng cánh chào bạn đầy biết ơn."
+                            }
+                        ]
+                    }
+                }
+            }
+        ];
+
+        const cards = document.getElementById("cards");
+
+        characters.forEach((item, index) => {
+            const featuredClass = item.featured ? 'featured-cucumber' : '';
+            const badgeHtml = item.badge ? `<div class="cucumber-tag-badge">${item.badge}</div>` : '';
+
+            cards.innerHTML += `
+                <div class="card ${featuredClass}" data-index="${index}">
+                    ${badgeHtml}
+                    <div class="symbol ${item.icon}"></div>
+                    <h3>${item.title}</h3>
+                    <p>${item.preview}</p>
+                </div>
+            `;
+        });
+
+        const modal = document.getElementById("modal");
+        const title = document.getElementById("title");
+        const story = document.getElementById("story");
+        const question = document.getElementById("question");
+        const actions = document.getElementById("actions");
+        const response = document.getElementById("response");
+
+        function selectPerspective(tabKey) {
+            activePerspectiveTab = tabKey;
+
+            // Update tab UI states
+            document.querySelectorAll('#perspectiveTabs .perspective-tab').forEach(tab => {
+                if (tab.getAttribute('data-tab') === tabKey) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            if (!activeCharacterObj) return;
+
+            const pData = (activeCharacterObj.perspectives && activeCharacterObj.perspectives[tabKey])
+                || {
+                question: activeCharacterObj.question || "✨ Bạn cảm nhận điều gì?",
+                buttons: activeCharacterObj.buttons || []
+            };
+
+            question.innerHTML = pData.question;
+            actions.innerHTML = "";
+            response.classList.remove("show");
+
+            if (pData.buttons && pData.buttons.length > 0) {
+                pData.buttons.forEach(btn => {
+                    const button = document.createElement("button");
+                    button.className = "action-btn";
+                    button.innerText = btn.text;
+
+                    button.onclick = () => {
+                        response.innerHTML = btn.reply;
+                        response.classList.add("show");
+                        if (typeof applyUserPersona === 'function') {
+                            applyUserPersona(typeof getStoredPersona === 'function' ? getStoredPersona() : localStorage.getItem('caraflow_user_persona'));
+                        }
+                    };
+
+                    actions.appendChild(button);
+                });
+            }
+
+            if (typeof applyUserPersona === 'function') {
+                applyUserPersona(typeof getStoredPersona === 'function' ? getStoredPersona() : localStorage.getItem('caraflow_user_persona'));
+            }
+        }
+
+        document.querySelectorAll(".hoathan_section .card").forEach(card => {
+            card.onclick = () => {
+                const data = characters[card.dataset.index];
+                if (!data) return;
+
+                activeCharacterObj = data;
+                title.innerHTML = data.title;
+                if (data.storyHtml) {
+                    story.innerHTML = data.storyHtml;
+                    story.style.whiteSpace = "normal";
+                } else {
+                    story.innerText = data.story;
+                    story.style.whiteSpace = "pre-line";
+                }
+
+                // Default to 'hoathan' perspective tab on open
+                selectPerspective('hoathan');
+
+                modal.classList.add("active");
+                if (typeof applyUserPersona === 'function') {
+                    applyUserPersona(typeof getStoredPersona === 'function' ? getStoredPersona() : localStorage.getItem('caraflow_user_persona'));
+                }
+            };
+        });
+
+        function openCucumberModal() {
+            const cucumberIndex = characters.findIndex(c => c.icon === "cucumber");
+            const allCards = document.querySelectorAll(".hoathan_section .card");
+            if (cucumberIndex !== -1 && allCards[cucumberIndex]) {
+                allCards[cucumberIndex].click();
+            }
+        }
+
+        function testCucumberBite(btn) {
+            const resultBox = document.getElementById("cucumberBiteResult");
+            if (!resultBox) return;
+
+            // Button press bounce
+            if (btn) {
+                btn.style.transform = 'scale(0.92)';
+                setTimeout(() => {
+                    btn.style.transform = '';
+                }, 150);
+            }
+
+            // Remove show class and trigger reflow to reset transition
+            resultBox.classList.remove("show");
+            void resultBox.offsetWidth;
+
+            const isBitter = Math.random() < 0.2; // 20% chance of bitter cucurbitacin, 80% fresh & crisp
+            if (isBitter) {
+                resultBox.innerHTML = `
+                    <div class="bite-card bitter">
+                        <h4>😖 Ôi! Đắng nhẹ một chút...</h4>
+                        <p>Quả dưa leo này đang mang một chút hợp chất <strong>cucurbitacin</strong> tự vệ mạnh mẽ! Cây mẹ của nó đã phải kiên cường lắm đấy. Bạn vừa trải nghiệm một thông điệp sinh tồn diệu kỳ của tự nhiên. 🌱✨</p>
+                    </div>
+                `;
+            } else {
+                resultBox.innerHTML = `
+                    <div class="bite-card sweet">
+                        <h4>🔊 *Giòn rụm & Mát lịm!* 😋</h4>
+                        <p>Ừm. Không đắng. May quá! Bạn vẫn chưa phải giã từ cõi đời vì một câu hỏi triết học bắt đầu từ bữa cơm tối. Hãy mỉm cười và tiếp tục thưởng thức cuộc sống nhé! 🥒✨</p>
+                    </div>
+                `;
+            }
+            resultBox.classList.add("show");
+        }
+
+        document.querySelector(".close").onclick = () => {
+            modal.classList.remove("active");
+        };
+
+        modal.onclick = (e) => {
+            if (e.target === modal) {
+                modal.classList.remove("active");
+            }
+        };
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                modal.classList.remove("active");
+            }
+        });
+
+        /* PERSPECTIVE CARDS MODAL LOGIC */
+        const perspectiveCharacters = [
+            {
+                title: "📰 Editorial Lens • Mùa Của Sự Chuẩn Bị",
+                story: `Có những khoảng thời gian trong đời tưởng như chững lại khi nhìn dòng đời ngoài kia cuồn cuộn trôi qua.
+Nhưng đất mẹ mùa đông luôn nằm yên không một bóng hoa — không phải vì tàn úa, mà để cắm sâu bộ rễ chờ đợi mùa xuân nảy mầm rực rỡ nhất. Hãy cho phép bản thân được chuẩn bị, học hỏi và tích lũy nhẫn nại.`,
+                question: "🌱 Bạn có sẵn sàng ôm lấy giai đoạn tích lũy của chính mình không?",
+                buttons: [
+                    {
+                        text: "Tôi sẵn sàng học cách kiên nhẫn",
+                        reply: "Tuyệt vời. Bông hoa nở muộn nhất thường là bông hoa lộng lẫy và tỏa hương sâu đậm nhất. 🌸✨"
+                    },
+                    {
+                        text: "Tôi vẫn lo lắng mình tụt lại",
+                        reply: "Đừng lo lắng nhé. Nhịp bước của mỗi người là độc nhất. Hãy tập trung vào hạt mầm trong tay bạn."
+                    }
+                ]
+            },
+            {
+                title: "🌸 Flower Lens • Nhịp Độ Riêng",
+                story: `Hoa sen nở mùa hạ, hoa cúc nở mùa thu, hoa mai chọn tiết đông lạnh để bung xòe sắc thắm. Không loài hoa nào tị ghen với thời điểm nở của loài hoa khác.
+Mỗi người chúng ta đều sở hữu một múi thời gian hoàn hảo của riêng mình — hãy tôn trọng nhịp đập trái tim và đóa hoa cảm xúc bên trong bạn.`,
+                question: "🌺 Hôm nay bạn có đang gây áp lực cho bông hoa trong lòng mình?",
+                buttons: [
+                    {
+                        text: "Tôi sẽ mỉm cười dịu dàng với bản thân",
+                        reply: "Cảm ơn bạn. Khi bạn ngừng thúc ép, mọi vẻ đẹp sẽ tự nhiên tỏa sáng dịu dàng nhất."
+                    },
+                    {
+                        text: "Tôi vẫn thường hay so sánh",
+                        reply: "Hãy hít một hơi thật sâu. Loài hoa đẹp nhất là loài hoa tự tin tỏa hương theo cách của chính nó."
+                    }
+                ]
+            },
+            {
+                title: "🌱 Sprout Lens • Sức Mạnh Của Rễ",
+                story: `Chiếc mầm nhỏ nhô lên khỏi mặt đất phải chống chịu với giông bão và nắng gắt. Điều giữ cho mầm không bị quật ngã chính là hệ rễ âm thầm bám sâu dưới lòng đất.
+Những trải nghiệm, sự kiên trì và nội tâm vững vàng chính là bộ rễ ấy. Khi rễ đã sâu, thân cây sẽ tự khắc vươn tới bầu trời.`,
+                question: "🌳 Bạn đã chăm sóc cho bộ rễ tâm hồn của mình như thế nào?",
+                buttons: [
+                    {
+                        text: "Tôi chăm sóc bằng sự bình yên",
+                        reply: "Bộ rễ của bạn đang rất khỏe mạnh. Hãy tiếp tục vươn mình đón nắng mai nhé! 🌿"
+                    },
+                    {
+                        text: "Tôi cần dành thêm thời gian cho rễ",
+                        reply: "Dành 5 phút lắng nghe chính mình mỗi ngày là liều thuốc dưỡng rễ tuyệt vời nhất."
+                    }
+                ]
+            },
+            {
+                title: "💬 Inspiration Lens • Mềm Mại Không Phải Yếu Đuối",
+                story: `Nước là thứ mềm mại nhất trên đời, nhưng nước lại có thể bào mòn hòn đá cứng đâm xuyên qua vách núi.
+Sự dịu dàng, lắng nghe và nhẫn nại không hề là yếu đuối — đó là biểu hiện của một tâm hồn đủ mạnh mẽ để không bị cuốn vào sự hung hăng. Hãy luôn giữ lấy sự mềm mại dịu dàng của bạn.`,
+                question: "💧 Bạn có tin vào sức mạnh của sự dịu dàng không?",
+                buttons: [
+                    {
+                        text: "Dịu dàng là sức mạnh lớn nhất của tôi",
+                        reply: "Đúng vậy. Một nụ cười ấm áp có thể làm tan chảy những tảng băng lớn nhất trong lòng người khác."
+                    },
+                    {
+                        text: "Đôi khi tôi phải cố tỏ ra cứng cỏi",
+                        reply: "Bên ngoài có thể vươn vai bảo vệ bản thân, nhưng hãy giữ một góc nhỏ mềm mại dịu dàng cho riêng mình."
+                    }
+                ]
+            },
+            {
+                title: "✉️ Letter Lens • Thư Gửi Bạn",
+                story: `Thương gửi bạn,
+Có những người mất rất lâu mới tìm được mùa xuân của riêng mình, có những bức thư đi qua bao năm tháng mới đến đúng tay người nhận. Đừng vội vã, những gì thuộc về bạn sẽ không vì sự chậm trễ mà biến mất.
+Hãy giữ lấy lá thư tay này như lời nhắc nhở: Bạn luôn được thương yêu và trân trọng.`,
+                question: "📮 Bạn có muốn gửi một lời nhắn dịu dàng đến phiên bản tương lai?",
+                buttons: [
+                    {
+                        text: "Nhắn: Cảm ơn bạn vì đã không bỏ cuộc",
+                        reply: "Phiên bản tương lai chắc chắn đang mỉm cười biết ơn bạn của ngày hôm nay! 💌"
+                    },
+                    {
+                        text: "Nhắn: Hãy sống thật hạnh phúc nhé",
+                        reply: "Lời chúc đó đã được gửi đi và chắc chắn sẽ trở thành hiện thực rực rỡ."
+                    }
+                ]
+            },
+            {
+                title: "🖼️ Window Lens • Nhìn Ra Thế Giới",
+                story: `Góc nhìn của chúng ta về thế giới phụ thuộc vào ô cửa sổ mà ta chọn để ngắm nhìn.
+Nếu ô cửa bám bụi của giận hờn, thế giới sẽ xám xịt; nếu được lau sạch bằng sự thấu hiểu và bao dung, vạt nắng nào chiếu qua cũng hóa lung linh. Hãy lau sạch ô cửa tâm hồn để đón nhận trọn vẹn vẻ đẹp của cuộc sống.`,
+                question: "🪟 Ô cửa sổ của bạn hôm nay đang ngắm nhìn điều gì?",
+                buttons: [
+                    {
+                        text: "Tôi nhìn thấy những vạt nắng bình yên",
+                        reply: "Chúc mừng bạn! Góc nhìn tươi sáng sẽ luôn mang lại cho bạn sự an yên và niềm vui."
+                    },
+                    {
+                        text: "Tôi thấy bầu trời hơi nhiều mây",
+                        reply: "Sau cơn mưa mây sẽ tan và ánh nắng mặt trời rực rỡ sẽ lại sưởi ấm tâm hồn bạn."
+                    }
+                ]
+            },
+            {
+                title: "🌸 Organic Lens • Mọi Sự Đúng Lúc",
+                story: `Dòng sông tự chảy theo những đường cong tự nhiên, cánh hoa rơi ngẫu hứng theo chiều gió thổi. Cuộc sống không phải là một đường thẳng tắp theo kịch bản cứng nhắc.
+Những ngã rẽ bất ngờ hay nốt trầm không báo trước đều là nét vẽ nghệ thuật tạo nên bức tranh đời bạn. Hãy tin tưởng vào sự an bài dịu dàng của vũ trụ.`,
+                question: "🍃 Bạn có sẵn sàng đón nhận những điều ngẫu nhiên dịu dàng?",
+                buttons: [
+                    {
+                        text: "Tôi mở lòng đón nhận mọi nốt nhạc",
+                        reply: "Bức tranh cuộc sống của bạn sẽ vô cùng phong phú, độc bản và tràn đầy sắc màu!"
+                    },
+                    {
+                        text: "Tôi vẫn thích sự kiểm soát hơn",
+                        reply: "Nắm giữ một chút và thả trôi một chút, bạn sẽ thấy tâm mình nhẹ nhàng hơn hẳn."
+                    }
+                ]
+            },
+            {
+                title: "📸 Polaroid Lens • Khoảnh Khắc Bình Yên",
+                story: `Một bức ảnh polaroid không chụp lại quá khứ xa xôi hay tương lai chưa tới — nó bắt trọn khoảnh khắc Hiện Tại, nơi duy nhất bạn thực sự sống và hít thở.
+Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... Bình yên không nằm ở đâu xa, hạnh phúc nằm trong chính giây phút bạn biết trân trọng hiện tại.`,
+                question: "📷 Khoảnh khắc nào hôm nay khiến bạn cảm thấy bình yên nhất?",
+                buttons: [
+                    {
+                        text: "Là giây phút này khi đọc những dòng này",
+                        reply: "Cảm ơn bạn. Trân trọng hiện tại chính là chìa khóa mở ra hạnh phúc trọn vẹn nhất. ☕✨"
+                    },
+                    {
+                        text: "Tôi sẽ tìm cho mình một khoảnh khắc yên tĩnh",
+                        reply: "Hãy pha cho mình một tách trà ấm và tận hưởng sự thư thái ngọt ngào đó nhé."
+                    }
+                ]
+            }
+        ];
+
+        function openPerspectiveModal(index) {
+            const data = perspectiveCharacters[index];
+            if (!data) return;
+
+            const tabs = document.getElementById("perspectiveTabs");
+            if (tabs) tabs.style.display = "none";
+
+            title.innerHTML = data.title;
+
+            // Tối ưu khoảng cách dòng và giảm br thừa: chia đoạn văn mềm mại, không để khoảng trống lớn
+            const paragraphs = data.story.split('\n').map(p => p.trim()).filter(Boolean);
+            story.innerHTML = paragraphs.map((p, idx) => `<p style="margin: 0 0 ${idx === paragraphs.length - 1 ? '0' : '10px'} 0; line-height: 1.7;">${p}</p>`).join('');
+            story.style.whiteSpace = "normal";
+
+            question.innerHTML = data.question;
+
+            actions.innerHTML = "";
+            response.classList.remove("show");
+
+            data.buttons.forEach(btn => {
+                const button = document.createElement("button");
+                button.className = "action-btn";
+                button.innerText = btn.text;
+
+                button.onclick = () => {
+                    response.innerHTML = btn.reply;
+                    response.classList.add("show");
+                    if (typeof applyUserPersona === 'function') {
+                        applyUserPersona(typeof getStoredPersona === 'function' ? getStoredPersona() : localStorage.getItem('caraflow_user_persona'));
+                    }
+                };
+
+                actions.appendChild(button);
+            });
+
+            modal.classList.add("active");
+            if (typeof applyUserPersona === 'function') {
+                applyUserPersona(typeof getStoredPersona === 'function' ? getStoredPersona() : localStorage.getItem('caraflow_user_persona'));
+            }
+        }
+    </script>
+
+    <!-- GSAP ORBIT CAROUSEL FOR HERO BANNER (Inspired by hero-landscape-temp) -->
+    <script>
+        (function () {
+            const hoaThanEntities = [
+                {
+                    id: 0,
+                    name: "Chiếc Lá Buông Mình",
+                    spirit: "AN YÊN VỀ CỘI • THẢNH THƠI SỐNG TRỌN",
+                    desc: "Nếu <span class=\"cara-user-name\">bạn</span> là một chiếc lá, bạn sẽ chọn xanh biếc giữa vòm trời hay nhẹ nhàng buông mình đón làn gió thu? Sinh ra không phải để mãi xanh, mà là để sống trọn vẹn từng khoảnh khắc — từ lúc nảy mầm đón nắng mai đến khi thanh thản trở về với đất mẹ.",
+                    img: "hoa-than/leaf.png",
+                    accent: "#52b788",
+                    accentGlow: "rgba(82, 183, 136, 0.45)",
+                    blobBg: "radial-gradient(circle at 40% 35%, #1e3d2f 0%, #0e2017 65%, #08140e 100%)",
+                    href: "hoa-than/chiec-la.html",
+                    badgeIcon: "🍃"
+                },
+                {
+                    id: 1,
+                    name: "Chiếc Bánh Quy Giòn",
+                    spirit: "DÙ VỤN VỠ • <span class=\"cara-user-name\">BẠN</span> VẪN LUÔN QUÝ GIÁ",
+                    desc: "Bánh quy bơ nướng thơm ấm — mộc mạc và chân thành. Dù qua lò nướng áp lực cuộc đời, dù còn chút vụn vỡ hay tròn vẹn, sự hiện diện của <span class=\"cara-user-name\">bạn</span> vẫn luôn tỏa hương thơm lành và xứng đáng được ôm lấy bằng sự dịu dàng nhất.",
+                    img: "hoa-than/cookie.png",
+                    accent: "#e09f3e",
+                    accentGlow: "rgba(224, 159, 62, 0.45)",
+                    blobBg: "radial-gradient(circle at 40% 35%, #3d2c14 0%, #241708 65%, #0f0a04 100%)",
+                    href: "hoa-than/banh-quy.html",
+                    badgeIcon: "🍪"
+                },
+                {
+                    id: 2,
+                    name: "Viên Sỏi Đáy Hồ",
+                    spirit: "TĨNH LẶNG ĐÁY NƯỚC • VỮNG VÀNG NỘI TÂM",
+                    desc: "Viên sỏi phẳng lặng dưới làn nước biếc trong ngần. Từng là tảng đá gồ ghề nơi đỉnh non, trải qua bao ghềnh thác thác ghềnh để mài giũa nên nét tròn trịa kiên định. <span class=\"cara-user-name\">Bạn</span> là điểm tựa bình yên nhất giữa mọi xáo động của nhân gian.",
+                    img: "hoa-than/pebble.png",
+                    accent: "#48cae4",
+                    accentGlow: "rgba(72, 202, 228, 0.45)",
+                    blobBg: "radial-gradient(circle at 40% 35%, #163642 0%, #0d1e26 65%, #050d12 100%)",
+                    href: "hoa-than/vien-soi.html",
+                    badgeIcon: "🪨"
+                }
+            ];
+
+            let activeIndex = 0;
+            let isAnimating = false;
+
+            const stage = document.getElementById('kvStage');
+            const entityLayer = document.getElementById('kvEntityLayer');
+            const titleEl = document.getElementById('kvTitle');
+            const spiritText = document.getElementById('kvSpiritText');
+            const badgeIcon = document.getElementById('kvBadgeIcon');
+            const spiritBadge = document.getElementById('kvSpiritBadge');
+            const descEl = document.getElementById('kvDesc');
+            const mainCta = document.getElementById('kvMainCta');
+            const stepCurrent = document.getElementById('kvStepCurrent');
+            const stepTotal = document.getElementById('kvStepTotal');
+            const blob = document.getElementById('kvBlob');
+            const dot = document.getElementById('kvDot');
+
+            if (!stage || !entityLayer || !titleEl) return;
+
+            stepTotal.textContent = String(hoaThanEntities.length).padStart(2, '0');
+
+            const MAIN_POS = { left: 50, top: 50, scale: 2.85 };
+            const PERIM_POS = [
+                { left: 86, top: 22 },
+                { left: 86, top: 78 }
+            ];
+
+            let slots = [1, 2];
+            const entityEls = {};
+
+            function buildStage() {
+                entityLayer.innerHTML = "";
+                hoaThanEntities.forEach(item => {
+                    const el = document.createElement("div");
+                    el.className = "kv-entity";
+                    el.dataset.entityId = item.id;
+                    el.innerHTML = `
+                    <div class="entity-img-wrap">
+                        <div class="ring"></div>
+                        <img src="${item.img}" alt="${item.name}" loading="lazy">
+                    </div>
+                `;
+                    el.addEventListener("click", () => {
+                        onEntityClick(item.id);
+                    });
+                    entityLayer.appendChild(el);
+                    entityEls[item.id] = el;
+                });
+                renderStage();
+            }
+
+            function renderStage() {
+                Object.values(entityEls).forEach(el => {
+                    el.classList.remove("is-main");
+                });
+
+                const main = entityEls[activeIndex];
+                if (main) {
+                    main.classList.add("is-main");
+                    gsap.set(main, {
+                        left: MAIN_POS.left + "%",
+                        top: MAIN_POS.top + "%",
+                        scale: MAIN_POS.scale,
+                        xPercent: -50,
+                        yPercent: -50,
+                        zIndex: 22
+                    });
+                }
+
+                slots.forEach((entityId, index) => {
+                    const el = entityEls[entityId];
+                    if (el && PERIM_POS[index]) {
+                        gsap.set(el, {
+                            left: PERIM_POS[index].left + "%",
+                            top: PERIM_POS[index].top + "%",
+                            scale: 1,
+                            xPercent: -50,
+                            yPercent: -50,
+                            zIndex: 15
+                        });
+                    }
+                });
+            }
+
+            function setTitleChars(text) {
+                titleEl.innerHTML = '';
+                const words = text.trim().split(/\s+/);
+                words.forEach((word, wIdx) => {
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'word';
+                    [...word].forEach(ch => {
+                        const charSpan = document.createElement('span');
+                        charSpan.className = 'char';
+                        charSpan.textContent = ch;
+                        wordSpan.appendChild(charSpan);
+                    });
+                    titleEl.appendChild(wordSpan);
+                    if (wIdx < words.length - 1) {
+                        const space = document.createTextNode(' ');
+                        titleEl.appendChild(space);
+                    }
+                });
+            }
+
+            function animateTextIn(entity) {
+                setTitleChars(entity.name);
+                gsap.fromTo(titleEl.querySelectorAll('.char'),
+                    { y: 26, opacity: 0, rotateX: -40 },
+                    { y: 0, opacity: 1, rotateX: 0, duration: 0.55, ease: 'power4.out', stagger: 0.016 }
+                );
+
+                gsap.fromTo(spiritBadge,
+                    { opacity: 0, y: 12 },
+                    { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out', delay: 0.05 }
+                );
+                badgeIcon.textContent = entity.badgeIcon;
+                spiritText.innerHTML = entity.spirit;
+                spiritBadge.style.color = entity.accent;
+                spiritBadge.style.borderColor = entity.accent + '44';
+
+                gsap.fromTo(descEl,
+                    { opacity: 0, y: 10 },
+                    { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out', delay: 0.1 }
+                );
+                descEl.innerHTML = entity.desc;
+                if (typeof applyUserPersona === 'function') {
+                    applyUserPersona(typeof getStoredPersona === 'function' ? getStoredPersona() : localStorage.getItem('caraflow_user_persona'));
+                }
+
+                mainCta.href = entity.href;
+                gsap.to(mainCta, {
+                    backgroundColor: entity.accent,
+                    boxShadow: `0 14px 32px -8px ${entity.accentGlow}`,
+                    duration: 0.45,
+                    ease: 'power2.out'
+                });
+
+                if (blob) {
+                    blob.style.background = entity.blobBg;
+                    blob.style.boxShadow = `inset 0 0 80px rgba(255,255,255,0.06), 0 0 70px ${entity.accentGlow}`;
+                }
+
+                if (dot) {
+                    dot.style.background = entity.accent;
+                    dot.style.boxShadow = `0 0 0 4px ${entity.accent}44`;
+                }
+
+                const activeEntityRing = entityEls[entity.id]?.querySelector('.ring');
+                if (activeEntityRing) {
+                    activeEntityRing.style.borderColor = entity.accent;
+                }
+
+                stepCurrent.textContent = String(entity.id + 1).padStart(2, '0');
+            }
+
+            function onEntityClick(entityId) {
+                if (isAnimating || entityId === activeIndex) return;
+                swapToMain(entityId);
+            }
+
+            function swapToMain(newEntityId) {
+                isAnimating = true;
+                const slotIdx = slots.indexOf(newEntityId);
+                if (slotIdx === -1) {
+                    isAnimating = false;
+                    return;
+                }
+
+                const outgoingId = activeIndex;
+                const incomingEl = entityEls[newEntityId];
+                const outgoingEl = entityEls[outgoingId];
+                const incomingEntity = hoaThanEntities.find(d => d.id === newEntityId);
+
+                gsap.set(incomingEl, { zIndex: 25 });
+                gsap.set(outgoingEl, { zIndex: 18 });
+
+                const tl = gsap.timeline({
+                    defaults: { duration: 0.75, ease: 'power3.inOut', overwrite: 'auto' },
+                    onComplete: () => {
+                        slots[slotIdx] = outgoingId;
+                        activeIndex = newEntityId;
+                        renderStage();
+                        isAnimating = false;
+                    }
+                });
+
+                tl.to(incomingEl, {
+                    left: MAIN_POS.left + '%',
+                    top: MAIN_POS.top + '%',
+                    scale: MAIN_POS.scale
+                }, 0)
+                    .to(outgoingEl, {
+                        left: PERIM_POS[slotIdx].left + '%',
+                        top: PERIM_POS[slotIdx].top + '%',
+                        scale: 1
+                    }, 0);
+
+                animateTextIn(incomingEntity);
+            }
+
+            function stepTo(direction) {
+                if (isAnimating) return;
+                const total = hoaThanEntities.length;
+                const next = (activeIndex + direction + total) % total;
+                swapToMain(next);
+            }
+
+            document.getElementById('kvNextBtn')?.addEventListener('click', () => stepTo(1));
+            document.getElementById('kvPrevBtn')?.addEventListener('click', () => stepTo(-1));
+
+            // Parallax Mouse Effect
+            if (stage && blob && window.gsap) {
+                const quickBlobX = gsap.quickTo(blob, 'x', { duration: 0.9, ease: 'power3.out' });
+                const quickBlobY = gsap.quickTo(blob, 'y', { duration: 0.9, ease: 'power3.out' });
+
+                stage.addEventListener('mousemove', (e) => {
+                    const rect = stage.getBoundingClientRect();
+                    const relX = (e.clientX - rect.left) / rect.width - 0.5;
+                    const relY = (e.clientY - rect.top) / rect.height - 0.5;
+                    quickBlobX(relX * 16);
+                    quickBlobY(relY * 16);
+                });
+                stage.addEventListener('mouseleave', () => {
+                    quickBlobX(0);
+                    quickBlobY(0);
+                });
+
+                function floatLeaf(id, x, y, delay) {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    gsap.set(el, { left: x + '%', top: y + '%', position: 'absolute' });
+                    gsap.to(el, { y: '+=14', rotate: 14, duration: 2.8 + Math.random(), ease: 'sine.inOut', yoyo: true, repeat: -1, delay });
+                }
+                floatLeaf('kvLeaf1', 10, 12, 0);
+                floatLeaf('kvLeaf2', 88, 14, 0.4);
+                floatLeaf('kvLeaf3', 12, 82, 0.8);
+
+                gsap.to(blob, { y: '+=10', duration: 3.4, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+                gsap.to('#kvFloatNote', { y: -6, duration: 2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+            }
+
+            function initOrbit() {
+                buildStage();
+                const first = hoaThanEntities[activeIndex];
+                setTitleChars(first.name);
+                gsap.set(titleEl.querySelectorAll('.char'), { opacity: 1, y: 0 });
+                badgeIcon.textContent = first.badgeIcon;
+                spiritText.innerHTML = first.spirit;
+                spiritBadge.style.color = first.accent;
+                spiritBadge.style.borderColor = first.accent + '44';
+                descEl.innerHTML = first.desc;
+                if (typeof applyUserPersona === 'function') {
+                    applyUserPersona(typeof getStoredPersona === 'function' ? getStoredPersona() : localStorage.getItem('caraflow_user_persona'));
+                }
+                mainCta.href = first.href;
+                mainCta.style.background = first.accent;
+                mainCta.style.boxShadow = `0 14px 32px -8px ${first.accentGlow}`;
+
+                gsap.from(Object.values(entityEls).filter(el => !el.classList.contains('is-main')), {
+                    scale: 0, opacity: 0, duration: 0.6, ease: 'back.out(1.6)', stagger: 0.08, delay: 0.2
+                });
+                gsap.from(titleEl.querySelectorAll('.char'), { y: 30, opacity: 0, duration: 0.7, ease: 'power4.out', stagger: 0.02 });
+                gsap.from([spiritBadge, descEl], { y: 16, opacity: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08, delay: 0.15 });
+                gsap.from('#kvFloatNote', { y: 20, opacity: 0, duration: 0.7, ease: 'power3.out', delay: 0.5 });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initOrbit);
+            } else {
+                initOrbit();
+            }
+        })();
+    </script>
+
+    <!-- FLOATING DAY & NIGHT CHARM (TÂM TÌNH TIỆM NHỎ SUY TƯ) -->
+    <div class="day-night-charm-wrap" id="dayNightCharmWrap">
+        <!-- Poetic Floating Tooltip Card -->
+        <div class="charm-tooltip-card" id="charmTooltipCard" role="tooltip">
+            <div class="tooltip-header">
+                <span class="tooltip-icon" id="tooltipIcon">🌙</span>
+                <span class="tooltip-title" id="tooltipTitle">Lời Nhắn Nửa Đêm</span>
+                <span class="tooltip-badge" id="tooltipBadge">Tĩnh Lặng</span>
+            </div>
+            <p class="tooltip-quote" id="tooltipQuote">
+                Tiệm sẽ không làm việc vào ban đêm, vì giờ đó bán có ai mà mua, đi ngủ đi chứ. Thông thường những quyết
+                định vào ban đêm Tiệm nhỏ thường không thực hiện vì Tiệm biết đó là quyết định bởi cảm xúc chứ không
+                phải do lý trí.
+            </p>
+            <div class="tooltip-footer">
+                <span class="tooltip-hint" id="tooltipHint">Nhấp để chuyển sang Ban Ngày ☀️</span>
+            </div>
+        </div>
+
+        <!-- Floating Charm Button -->
+        <button class="day-night-charm-btn" id="dayNightCharmBtn" type="button"
+            aria-label="Chuyển đổi Chế độ Ngày và Đêm" title="Chuyển đổi Ngày & Đêm">
+            <span class="charm-ambient-orbit"></span>
+            <span class="charm-icon" id="charmIcon">🌙</span>
+        </button>
+    </div>
+
+    <script>
+        (function () {
+            const charmBtn = document.getElementById('dayNightCharmBtn');
+            const charmIcon = document.getElementById('charmIcon');
+            const tooltipIcon = document.getElementById('tooltipIcon');
+            const tooltipTitle = document.getElementById('tooltipTitle');
+            const tooltipBadge = document.getElementById('tooltipBadge');
+            const tooltipQuote = document.getElementById('tooltipQuote');
+            const tooltipHint = document.getElementById('tooltipHint');
+
+            const QUOTES = {
+                night: {
+                    icon: "🌙",
+                    title: "Lời Nhắn Nửa Đêm",
+                    badge: "Tĩnh Lặng",
+                    quote: "Tiệm sẽ không làm việc vào ban đêm, vì giờ đó bán có ai mà mua, đi ngủ đi chứ. Thông thường những quyết định vào ban đêm Tiệm nhỏ thường không thực hiện vì Tiệm biết đó là quyết định bởi cảm xúc chứ không phải do lý trí.",
+                    hint: "Nhấp để đón ánh sáng Ban Ngày ☀️"
+                },
+                day: {
+                    icon: "☀️",
+                    title: "Lời Nhắn Ban Mai",
+                    badge: "Rạng Rỡ",
+                    quote: "Nếu hôm qua bạn ngủ trễ thì không có lý do gì mà bạn lại lấy ánh sáng của ngày hôm sau bù đắp vào.",
+                    hint: "Nhấp để về với sự yên ả Ban Đêm 🌙"
+                }
+            };
+
+            function setMode(mode, save = true) {
+                if (mode === 'day') {
+                    document.body.classList.remove('mode-night');
+                    document.body.classList.add('mode-day');
+                    charmIcon.textContent = QUOTES.day.icon;
+                    tooltipIcon.textContent = QUOTES.day.icon;
+                    tooltipTitle.textContent = QUOTES.day.title;
+                    tooltipBadge.textContent = QUOTES.day.badge;
+                    tooltipQuote.textContent = QUOTES.day.quote;
+                    tooltipHint.textContent = QUOTES.day.hint;
+                } else {
+                    document.body.classList.remove('mode-day');
+                    document.body.classList.add('mode-night');
+                    charmIcon.textContent = QUOTES.night.icon;
+                    tooltipIcon.textContent = QUOTES.night.icon;
+                    tooltipTitle.textContent = QUOTES.night.title;
+                    tooltipBadge.textContent = QUOTES.night.badge;
+                    tooltipQuote.textContent = QUOTES.night.quote;
+                    tooltipHint.textContent = QUOTES.night.hint;
+                }
+
+                if (save) {
+                    try {
+                        localStorage.setItem('caraflow_time_mode', mode);
+                    } catch (e) { }
+                }
+            }
+
+            // Lấy chế độ đã lưu, mặc định là Ban Đêm
+            let currentMode = 'night';
+            try {
+                const saved = localStorage.getItem('caraflow_time_mode');
+                if (saved === 'day') currentMode = 'day';
+            } catch (e) { }
+            setMode(currentMode, false);
+
+            if (charmBtn) {
+                charmBtn.addEventListener('click', () => {
+                    currentMode = (currentMode === 'night') ? 'day' : 'night';
+                    setMode(currentMode, true);
+                    if (window.gsap) {
+                        gsap.fromTo(charmIcon, { scale: 0.5, rotate: -45 }, { scale: 1, rotate: 0, duration: 0.5, ease: "back.out(2)" });
+                    }
+                });
+            }
+        })();
+    </script>
+
+    <!-- 3D SHOWCASE LANDSCAPE SLIDER CONTROLLER -->
+    <script>
+        (function initShowcaseSlider() {
+            const track = document.getElementById('showcaseTrack');
+            const prevBtn = document.getElementById('showcasePrevBtn');
+            const nextBtn = document.getElementById('showcaseNextBtn');
+            const tabs = document.querySelectorAll('#showcaseRealmTabs .realm-tab');
+            const dots = document.querySelectorAll('#showcaseDots .slider-dot');
+            const slides = document.querySelectorAll('.showcase-slide');
+
+            if (!track || slides.length === 0) return;
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateSlider(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentIndex = index;
+
+                // Di chuyển track mượt mà
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Cập nhật trạng thái Realm Tabs
+                tabs.forEach((tab, i) => {
+                    if (i === currentIndex) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+
+                // Cập nhật trạng thái Dots
+                dots.forEach((dot, i) => {
+                    if (i === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            // Nút Prev / Next
+            if (prevBtn) {
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    updateSlider(currentIndex - 1);
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    updateSlider(currentIndex + 1);
+                });
+            }
+
+            // Click Realm Tabs
+            tabs.forEach((tab) => {
+                tab.addEventListener('click', () => {
+                    const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
+                    if (!isNaN(targetIdx)) {
+                        updateSlider(targetIdx);
+                    }
+                });
+            });
+
+            // Click Dots
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    const targetIdx = parseInt(dot.getAttribute('data-index'), 10);
+                    if (!isNaN(targetIdx)) {
+                        updateSlider(targetIdx);
+                    }
+                });
+            });
+
+            // Touch Swipe Support cho điện thoại
+            let startX = 0;
+            let diffX = 0;
+            let isDragging = false;
+
+            const viewport = document.getElementById('showcaseViewport');
+            if (viewport) {
+                viewport.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    diffX = 0;
+                    isDragging = true;
+                }, { passive: true });
+
+                viewport.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    diffX = e.touches[0].clientX - startX;
+                }, { passive: true });
+
+                viewport.addEventListener('touchend', () => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    if (diffX > 50) {
+                        updateSlider(currentIndex - 1);
+                    } else if (diffX < -50) {
+                        updateSlider(currentIndex + 1);
+                    }
+                });
+            }
+
+            // Keyboard Arrow Support khi di chuột vào vùng Showcase
+            const showcaseSection = document.getElementById('trai-nghiem-3d');
+            if (showcaseSection) {
+                let isHovering = false;
+                showcaseSection.addEventListener('mouseenter', () => { isHovering = true; });
+                showcaseSection.addEventListener('mouseleave', () => { isHovering = false; });
+
+                window.addEventListener('keydown', (e) => {
+                    if (!isHovering) return;
+                    if (e.key === 'ArrowLeft') {
+                        updateSlider(currentIndex - 1);
+                    } else if (e.key === 'ArrowRight') {
+                        updateSlider(currentIndex + 1);
+                    }
+                });
+            }
+
+            // Khởi tạo slide ban đầu
+            updateSlider(0);
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Những Dòng Chữ Biết Ôm - Tiệm Nhỏ Suy Tư (Caraflow)</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP Core & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+            transition: background 1.2s ease, background-color 1.2s ease;
+        }
+
+        .sans {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .ambient-bg {
+            background: radial-gradient(circle at 50% 50%, #0c1322 0%, #030712 100%);
+            transition: background 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .story-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            will-change: opacity, transform;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 35px rgba(251, 191, 36, 0.7), 0 0 70px rgba(245, 158, 11, 0.4);
+        }
+
+        .warm-glow {
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(245, 158, 11, 0.2);
+        }
+
+        /* Dynamic Glow Blobs */
+        .ambient-blob {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            will-change: transform, background, opacity;
+            transition: all 1.5s ease-out;
+        }
+
+        /* Floating Starlight Particles */
+        @keyframes floatParticle {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(calc(-50% + var(--dx)), calc(-50% - 150px)) scale(1.3) rotate(var(--dr));
+            }
+        }
+
+        .star-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 18px;
+            animation: floatParticle 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* 1. Hiệu ứng lúc vừa vào trang (Bước 1): Hướng dẫn phát sáng lung linh, thở nhẹ chào đón */
+        @keyframes introWarmBreath {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 0 16px rgba(251, 191, 36, 0.35), inset 0 0 10px rgba(251, 191, 36, 0.15);
+                border-color: rgba(251, 191, 36, 0.45);
+                color: #fde68a;
+            }
+            50% {
+                transform: translateY(-4px) scale(1.04);
+                box-shadow: 0 0 35px rgba(251, 191, 36, 0.75), inset 0 0 16px rgba(251, 191, 36, 0.35);
+                border-color: rgba(251, 191, 36, 0.9);
+                color: #ffffff;
+            }
+        }
+
+        /* 2. Hiệu ứng từ Bước 2 trở đi khi dừng lại quá 5.5s: Ánh nến lung linh êm dịu, không bừng sáng đột ngột */
+        @keyframes candleWhisperBreath {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
+                border-color: rgba(251, 191, 36, 0.3);
+                opacity: 0.35;
+                color: #fde68a;
+            }
+            50% {
+                transform: translateY(-2px) scale(1.015);
+                box-shadow: 0 0 22px rgba(251, 191, 36, 0.45);
+                border-color: rgba(251, 191, 36, 0.6);
+                opacity: 0.65;
+                color: #ffffff;
+            }
+        }
+
+        /* Trạng thái 1: Mới vào trang (Bước 1) - Lung linh mời gọi */
+        .scroll-prompt-intro {
+            animation: introWarmBreath 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            opacity: 1 !important;
+            filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.45));
+        }
+
+        /* Trạng thái 2: Đang đọc (Bước 2 trở đi, 0 - 5.5s) - Tuyệt đối tĩnh lặng, mờ êm, không chớp giục giã */
+        .scroll-prompt-reading {
+            opacity: 0.25 !important;
+            transform: translateY(0) scale(0.98) !important;
+            animation: none !important;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.15) !important;
+            border-color: rgba(251, 191, 36, 0.25) !important;
+        }
+
+        /* Trạng thái 3: Dừng quá lâu (> 5.5s) - Khẽ thở như ánh nến dịu dàng */
+        .scroll-prompt-whisper {
+            animation: candleWhisperBreath 3.5s ease-in-out infinite;
+            opacity: 0.65 !important;
+        }
+
+        /* Trạng thái 4: Đang cuộn chuột - Mờ nhẹ, không làm phiền */
+        .scroll-prompt-scrolling {
+            opacity: 0.08 !important;
+            transform: translateY(3px) scale(0.95) !important;
+            animation: none !important;
+            pointer-events: none;
+        }
+
+        /* Trạng thái 5: Cuối trang (Bước 9) - Ẩn hoàn toàn */
+        .scroll-prompt-hidden {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            animation: none !important;
+        }
+    </style>
+    <script src="js/include-header-footer.js"></script>
+</head>
+
+<body class="ambient-bg min-h-screen relative select-none" id="story-body">
+    <!-- <div id="header-placeholder"></div> -->
+
+    <!-- Ambient Story Artwork Background (Phương án 2: Giấu kín ở đầu và bừng sáng FULL Background ở Bước 9 Cuối Truyện) -->
+    <div id="story-art-backdrop" class="fixed inset-0 pointer-events-none z-0 overflow-hidden transition-all duration-[1500ms] ease-out" style="opacity: 0;">
+        <div id="story-art-image" class="absolute inset-0 bg-cover bg-center transition-all duration-[1500ms] ease-out transform scale-105"
+            style="background-image: url('images/landing/girl-at-night.jpg'); filter: brightness(0.9) saturate(1.2);">
+        </div>
+        <!-- Gradient vignette overlay bảo vệ tương phản chữ -->
+        <div id="story-art-overlay" class="absolute inset-0 transition-all duration-[1500ms] ease-out"></div>
+    </div>
+
+    <!-- Ambient Floating Glow Blobs -->
+    <div id="blob-1" class="ambient-blob w-[550px] h-[550px] blur-[150px] opacity-40 -top-24 -left-24 bg-indigo-900/40">
+    </div>
+    <div id="blob-2"
+        class="ambient-blob w-[650px] h-[650px] blur-[170px] opacity-35 -bottom-24 -right-24 bg-amber-700/30"></div>
+
+    <!-- Ambient Rain Sound Floating Button -->
+    <button id="lofi-ambient-btn" title="Bật/Tạm dừng tiếng mưa đêm dịu êm"
+        class="fixed bottom-6 left-6 z-50 pointer-events-auto flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/80 border border-amber-500/30 backdrop-blur-md text-slate-300 hover:text-amber-300 hover:border-amber-400/60 transition-all duration-300 text-xs sans shadow-xl">
+        <span id="lofi-icon">🔈</span>
+        <span id="lofi-status-text">Tiếng mưa đêm (Tạm dừng)</span>
+    </button>
+
+    <!-- Screen Lock Overlay Guard -->
+    <div class="fixed top-0 left-0 w-full h-full z-50 pointer-events-none flex flex-col justify-between p-6 md:p-10">
+        <div class="flex justify-between items-center text-xs tracking-widest uppercase sans text-slate-400">
+            <div class="flex items-center gap-4 pointer-events-auto">
+                <a href="trang-chu.html"
+                    class="hover:text-amber-300 transition-colors flex items-center gap-2 opacity-90">
+                    <img src="images/logo-black.png" alt="Tiệm Nhỏ"
+                        class="w-5 h-5 rounded-full border border-amber-400/40" onerror="this.style.display='none'">
+                    <span>Trang Chủ</span>
+                </a>
+                <span class="opacity-40">•</span>
+                <a href="goc-ke-chuyen.html"
+                    class="hover:text-amber-300 transition-colors flex items-center gap-1.5 opacity-90">
+                    <span>📖 Góc Kể Chuyện</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <span id="step-indicator" class="opacity-60 font-semibold tracking-wider">01 / 09</span>
+                <button type="button" onclick="handleSmartClose(event)" aria-label="Đóng và quay lại" title="Đóng & Quay lại trang trước"
+                    class="pointer-events-auto w-8 h-8 rounded-full border border-slate-700/80 bg-slate-900/60 hover:border-amber-400/60 hover:text-amber-300 flex items-center justify-center text-slate-300 text-sm transition-all duration-300 hover:rotate-90">
+                    ✕
+                </button>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div
+            class="w-full bg-slate-800/60 h-[2px] rounded-full overflow-hidden my-auto fixed bottom-8 left-1/2 -translate-x-1/2 w-[80%] max-w-xl">
+            <div id="progress"
+                class="bg-amber-400 h-full w-full transform scale-x-0 origin-left transition-transform duration-75">
+            </div>
+        </div>
+
+        <div id="scroll-prompt"
+            class="mx-auto pointer-events-auto flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-slate-950/85 border border-amber-400/50 text-amber-300 text-xs md:text-sm font-medium tracking-widest uppercase sans backdrop-blur-md transition-all duration-500 scroll-prompt-intro mb-2">
+            <span class="inline-block animate-bounce text-amber-400 font-bold text-sm">↓</span>
+            <span class="drop-shadow-[0_0_10px_rgba(251,191,36,0.6)] font-semibold">Lăn chuột chậm rãi để lắng nghe câu chuyện</span>
+            <span class="inline-block animate-bounce text-amber-400 font-bold text-sm">↓</span>
+        </div>
+    </div>
+
+    <!-- Canvas SVG Dream Path & Glowing Origami Paper Boat (Thuyền Giấy Mơ) -->
+    <svg class="fixed top-0 left-0 w-full h-full pointer-events-none z-10 opacity-40" viewBox="0 0 1440 900"
+        preserveAspectRatio="none">
+        <defs>
+            <!-- Glowing halo filter for paper boat -->
+            <filter id="boat-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
+                <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+        </defs>
+
+        <!-- Organic Waves River Path (Bắt đầu ẩn ngoài lề trái, lượn tự nhiên dưới chữ và ẩn ngoài lề phải) -->
+        <path id="dream-path"
+            d="M -50 120 C 60 140, 110 320, 150 420 C 200 520, 340 630, 520 640 C 700 650, 880 630, 1060 580 C 1220 520, 1340 360, 1480 180"
+            stroke="rgba(251, 191, 36, 0.45)" stroke-width="2.5" fill="none" stroke-dasharray="6 6" />
+
+        <!-- Interactive Glowing Origami Paper Boat SVG -->
+        <g id="dream-paper-boat" transform="translate(-50, 120)" filter="url(#boat-glow)">
+            <g transform="scale(1.1) translate(-20, -20)">
+                <!-- Boat Hull Base -->
+                <polygon points="4,24 14,30 26,30 36,24 20,26" fill="rgba(251, 191, 36, 0.35)" stroke="#fef08a"
+                    stroke-width="1.5" stroke-linejoin="round" />
+                <!-- Left Sail -->
+                <polygon points="20,4 6,22 20,24" fill="rgba(251, 191, 36, 0.6)" stroke="#fbbf24" stroke-width="1.2"
+                    stroke-linejoin="round" />
+                <!-- Right Sail -->
+                <polygon points="20,4 20,24 34,22" fill="rgba(245, 158, 11, 0.45)" stroke="#fef08a" stroke-width="1.2"
+                    stroke-linejoin="round" />
+                <!-- Center Fold Line -->
+                <line x1="20" y1="4" x2="20" y2="26" stroke="#ffffff" stroke-width="1.2" opacity="0.95" />
+            </g>
+        </g>
+    </svg>
+
+    <!-- Pin Viewport -->
+    <main id="viewport" class="fixed top-0 left-0 w-full h-screen z-20 flex items-center justify-center">
+        <div class="max-w-3xl w-full px-6 md:px-12 text-center relative h-full">
+
+            <!-- Step 1 -->
+            <div class="story-node">
+                <p class="text-xs uppercase tracking-[0.35em] text-amber-300/90 mb-4 sans font-semibold">Gửi Đêm Dài
+                    Khoắc Khoải</p>
+                <h1
+                    class="text-2xl md:text-4xl leading-relaxed bg-gradient-to-r from-amber-100 via-amber-200 to-amber-50 bg-clip-text text-transparent font-light italic drop-shadow-md">
+                    "Một món quà dành cho tất cả những ai đang mất ngủ..."
+                </h1>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="story-node">
+                <p class="text-base md:text-xl text-amber-50/90 font-light leading-loose">
+                    Mấy năm trước, trong một đêm mất ngủ, mình vô tình đọc được câu chuyện này trên mạng.<br><br>
+                    <span class="text-slate-300/80 text-sm italic">Câu chuyện ngắn thôi, nhưng đến giờ mỗi khi thấy cuộc
+                        sống trở nên u tối, mình đều tự gợi nhớ về nó...</span>
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="story-node">
+                <p
+                    class="text-xs uppercase tracking-[0.25em] text-amber-300/90 font-semibold mb-4 sans animate-pulse drop-shadow-[0_0_12px_rgba(251,191,36,0.6)]">
+                    ✨ Có người dùng tài khoản ẩn danh chia sẻ...</p>
+                <blockquote
+                    class="text-lg md:text-2xl text-purple-100 border-l-2 border-amber-400/80 bg-purple-950/20 p-6 rounded-r-2xl shadow-inner font-light italic my-4 text-left">
+                    "Mình không thể nào ngủ được, vì mỗi lần nhắm mắt giấc mơ đều biến thành ác mộng. Thế giới này thật
+                    đáng sợ quá..."
+                </blockquote>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="story-node">
+                <p
+                    class="text-lg md:text-2xl bg-gradient-to-r from-rose-200 via-pink-100 to-rose-300 bg-clip-text text-transparent font-light leading-relaxed drop-shadow">
+                    "Tối qua, mình lại mơ thấy mình đứng trên đỉnh một tòa nhà rất cao. Bên dưới là đám đông hô hào --
+                    họ cười cợt, vỗ tay, cầm điện thoại quay lại rồi cổ vũ mình nhảy xuống."
+                </p>
+                <p class="text-xs text-slate-400 mt-6 sans uppercase tracking-wider">Bài đăng chỉ kết thúc ở đó. Không
+                    ai biết người ấy là ai...</p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="story-node">
+                <p class="text-sm uppercase tracking-[0.2em] text-amber-400/80 mb-6 sans">Nhưng ở phần bình luận, có một
+                    người để lại câu trả lời thế này...</p>
+                <p
+                    class="text-xl md:text-3xl bg-gradient-to-r from-slate-100 via-amber-100 to-slate-200 bg-clip-text text-transparent font-light leading-relaxed">
+                    "Mình cũng ở trong giấc mơ đó đấy.<br>
+                    Bạn biết kết quả cuối cùng thế nào không?"
+                </p>
+            </div>
+
+            <!-- Step 6 (MÀN HÌNH RIÊNG - ĐIỂM NHẤN CẢM XÚC BỪNG SÁNG) -->
+            <div class="story-node">
+                <h2
+                    class="text-3xl md:text-6xl bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-100 bg-clip-text text-transparent font-extrabold leading-tight glow-text tracking-wide drop-shadow-[0_0_40px_rgba(251,191,36,0.85)]">
+                    "Mình đỡ được bạn rồi."
+                </h2>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="story-node">
+                <p class="text-lg md:text-2xl text-amber-50/90 font-light leading-relaxed">
+                    Không cần lý lẽ, chẳng cần khuyên răn.<br>
+                    Chỉ là một lời xác nhận nhẹ nhàng rằng...
+                </p>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="story-node">
+                <p class="text-xl md:text-3xl text-slate-100 font-light leading-relaxed">
+                    Trong lúc bạn tưởng mình đang rơi,<br>
+                    thì ở nơi nào đó... <span
+                        class="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-medium drop-shadow-sm">nhất
+                        định vẫn có người đang cố giữ bạn lại.</span>
+                </p>
+            </div>
+
+            <!-- Step 9 -->
+            <!-- Step 9 -->
+            <div class="story-node transition-opacity duration-700" id="step-9-node">
+                <p class="text-sm uppercase tracking-[0.25em] text-amber-300/95 mb-4 sans font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">Vì vậy, gửi đến
+                    tất cả những ai đang cảm thấy mệt mỏi hay cô đơn</p>
+                <h2
+                    class="text-2xl md:text-4xl bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-200 bg-clip-text text-transparent font-normal leading-relaxed warm-glow mb-6 drop-shadow-[0_3px_15px_rgba(0,0,0,0.95)]">
+                    "Nếu bạn đang đọc đến đây,<br>
+                    thì mình đỡ được bạn rồi."
+                </h2>
+
+                <!-- Mini Footer Card -->
+                <div
+                    class="mt-6 p-6 rounded-2xl bg-slate-950/80 border border-amber-400/40 backdrop-blur-xl max-w-lg mx-auto pointer-events-auto shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
+                    <div class="flex items-center justify-center gap-3 mb-2">
+                        <img src="images/logo-black.png" alt="Logo"
+                            class="w-6 h-6 rounded-full border border-amber-400/40"
+                            onerror="this.src='images/icon/discover-star.svg'">
+                        <span class="text-xs font-semibold tracking-widest text-amber-300 uppercase sans">Tiệm Nhỏ Suy
+                            Tư • Caraflow</span>
+                    </div>
+                    <p class="text-xs text-slate-300/90 leading-relaxed sans mb-4">
+                        Tôi mong rằng từng bức thư, từng thông điệp bạn đi qua nơi đây đều có thể khiến bạn muốn sống
+                        dịu dàng và bình yên hơn một chút.
+                    </p>
+
+                    <!-- Interactive Hug Button & Counter -->
+                    <div class="mb-5 flex flex-col items-center gap-2">
+                        <button id="btn-send-hug"
+                            class="relative group bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-bold text-xs px-6 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-amber-500/20 hover:scale-105 active:scale-95 sans flex items-center gap-2">
+                            <span>🫂 Gửi / Nhận Một Cái Ôm Ấm Áp</span>
+                        </button>
+                        <div class="text-[11px] text-slate-400 sans">
+                            Đã có <span id="hug-count-num" class="text-amber-300 font-bold">259</span> cái ôm được gửi
+                            trao từ khắp nơi ✨
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-2.5 flex-wrap">
+                        <button type="button" onclick="toggleArtFocusMode()" id="btn-art-focus"
+                            class="sans text-[11px] uppercase tracking-widest text-amber-200 border border-amber-400/40 bg-amber-400/15 hover:bg-amber-400/25 px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-1.5 shadow-sm cursor-pointer"
+                            title="Ẩn tạm thời câu chữ để ngắm trọn vẹn bức tranh đêm">
+                            <span>🖼️</span>
+                            <span>Ngắm tranh không chữ</span>
+                        </button>
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                            class="sans text-[11px] uppercase tracking-widest text-slate-400 border border-slate-700 hover:border-amber-400/50 hover:text-amber-300 px-4 py-2 rounded-full transition-all duration-300">
+                            Đọc lại
+                        </button>
+                        <a href="trang-chu.html"
+                            class="sans text-[11px] uppercase tracking-widest text-amber-300 border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 px-4 py-2 rounded-full transition-all duration-300">
+                            Trang Chủ
+                        </a>
+                        <a href="goc-ke-chuyen.html"
+                            class="sans text-[11px] uppercase tracking-widest text-slate-300 border border-slate-700 hover:border-slate-500 px-4 py-2 rounded-full transition-all duration-300">
+                            Góc Kể Chuyện
+                        </a>
+                        <a href="loi-tu-su.html"
+                            class="sans text-[11px] uppercase tracking-widest text-slate-400 border border-slate-800 hover:border-slate-600 px-4 py-2 rounded-full transition-all duration-300">
+                            Lời Tự Sự
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scroll Controller Area (Tạo chiều cao cho việc cuộn chậm rãi, thong thả) -->
+    <div id="scroll-height" class="h-[1080vh]"></div>
+
+    <script>
+        // Xử lý nút Đóng thông minh: Quay lại đúng trang vừa dẫn tới (Trang Chủ hoặc Góc Kể Chuyện)
+        function handleSmartClose(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            const referrer = document.referrer;
+            if (referrer) {
+                try {
+                    const refUrl = new URL(referrer);
+                    // Nếu đến từ cùng website
+                    if (refUrl.origin === window.location.origin) {
+                        if (window.history.length > 1) {
+                            window.history.back();
+                            return;
+                        } else {
+                            window.location.href = referrer;
+                            return;
+                        }
+                    }
+                } catch (err) {
+                    console.warn(err);
+                }
+            }
+            if (window.history.length > 1) {
+                window.history.back();
+                return;
+            }
+            // Mặc định nếu mở link trực tiếp tab mới
+            window.location.href = 'trang-chu.html';
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const nodes = gsap.utils.toArray('.story-node');
+        const totalSteps = nodes.length;
+        const stepIndicator = document.getElementById('step-indicator');
+        const path = document.getElementById('dream-path');
+        const boat = document.getElementById('dream-paper-boat');
+        const pathLength = path.getTotalLength();
+
+        // Khởi tạo trạng thái ban đầu: Node 0 rõ nét, các node sau ẩn hoàn toàn và tắt visibility
+        nodes.forEach((node, i) => {
+            if (i === 0) {
+                gsap.set(node, { autoAlpha: 1, y: 0, scale: 1, pointerEvents: 'auto' });
+            } else {
+                gsap.set(node, { autoAlpha: 0, y: 24, scale: 0.96, pointerEvents: 'none' });
+            }
+        });
+
+        const bodyEl = document.getElementById('story-body');
+        const blob1 = document.getElementById('blob-1');
+        const blob2 = document.getElementById('blob-2');
+        const artBackdrop = document.getElementById('story-art-backdrop');
+        const artOverlay = document.getElementById('story-art-overlay');
+        const artImage = document.getElementById('story-art-image');
+        let activeStep = 0;
+
+        function updateMoodTheme(step) {
+            if (activeStep === step) return;
+            activeStep = step;
+
+            if (step <= 7) {
+                // PHƯƠNG ÁN 2: Bước 1 đến Bước 7 giữ trọn bóng đêm sâu thẳm, giấu kín tranh để tạo bất ngờ
+                if (step <= 2) {
+                    bodyEl.style.background = 'radial-gradient(circle at 50% 40%, #0f172a 0%, #050814 100%)';
+                    blob1.className = 'ambient-blob w-[600px] h-[600px] blur-[150px] opacity-40 -top-20 -left-20 bg-indigo-600/30';
+                    blob2.className = 'ambient-blob w-[650px] h-[650px] blur-[170px] opacity-35 -bottom-20 -right-20 bg-amber-500/20';
+                } else if (step <= 4) {
+                    bodyEl.style.background = 'radial-gradient(circle at 50% 40%, #21102e 0%, #07040f 100%)';
+                    blob1.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-45 top-1/4 -left-32 bg-purple-700/40';
+                    blob2.className = 'ambient-blob w-[600px] h-[600px] blur-[150px] opacity-35 bottom-10 -right-20 bg-rose-600/30';
+                } else if (step <= 6) {
+                    bodyEl.style.background = 'radial-gradient(circle at 50% 40%, #36220b 0%, #080914 100%)';
+                    blob1.className = 'ambient-blob w-[750px] h-[750px] blur-[160px] opacity-70 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-500/45';
+                    blob2.className = 'ambient-blob w-[550px] h-[550px] blur-[140px] opacity-55 bottom-0 right-10 bg-yellow-400/30';
+                } else {
+                    bodyEl.style.background = 'radial-gradient(circle at 50% 40%, #0b1f33 0%, #040812 100%)';
+                    blob1.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-45 -top-10 right-0 bg-sky-600/30';
+                    blob2.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-35 -bottom-10 left-0 bg-amber-500/25';
+                }
+
+                if (artBackdrop) artBackdrop.style.opacity = '0';
+                if (artImage) artImage.style.transform = 'scale(1.08)';
+
+            } else if (step === 8) {
+                // Bước 8: Ánh trăng bắt đầu le lói hé lộ nhẹ (~22% opacity) như điềm báo ánh sáng
+                bodyEl.style.background = 'radial-gradient(circle at 50% 40%, #0e223b 0%, #040812 100%)';
+                blob1.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-50 -top-10 right-0 bg-sky-600/30';
+                blob2.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-40 -bottom-10 left-0 bg-amber-500/30';
+
+                if (artBackdrop) artBackdrop.style.opacity = '0.22';
+                if (artOverlay) artOverlay.style.background = 'rgba(4, 8, 18, 0.78)';
+                if (artImage) artImage.style.transform = 'scale(1.04)';
+
+            } else if (step === 9) {
+                // PHƯƠNG ÁN 2: BƯỚC 9 HIỆN FULL BACKGROUND 100% BỪNG SÁNG RỰC RỠ!
+                bodyEl.style.background = '#040814';
+                blob1.className = 'ambient-blob w-[750px] h-[750px] blur-[170px] opacity-40 -top-10 right-10 bg-amber-400/25';
+                blob2.className = 'ambient-blob w-[750px] h-[750px] blur-[170px] opacity-40 -bottom-10 left-10 bg-sky-500/25';
+
+                if (artBackdrop) {
+                    artBackdrop.style.opacity = '1';
+                }
+                if (artOverlay) {
+                    // Lớp vignette mềm mại ở viền, trung tâm giữ nguyên ánh sáng rực rỡ của vầng trăng và cô bé
+                    artOverlay.style.background = 'radial-gradient(circle at 50% 40%, rgba(3, 7, 18, 0.12) 0%, rgba(3, 7, 18, 0.42) 60%, rgba(3, 7, 18, 0.85) 100%)';
+                }
+                if (artImage) {
+                    artImage.style.transform = 'scale(1.0)';
+                    artImage.style.filter = 'brightness(0.92) saturate(1.2)';
+                }
+            }
+        }
+        updateMoodTheme(1);
+
+        // Master Scroll Timeline
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#scroll-height',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 0.8,
+                onUpdate: (self) => {
+                    const progress = self.progress;
+
+                    // Cập nhật thanh Progress
+                    document.getElementById('progress').style.transform = `scaleX(${progress})`;
+
+                    // Cập nhật vị trí & góc nghiêng của Thuyền Giấy lướt theo đường sông mơ
+                    const currentLen = progress * pathLength;
+                    const p1 = path.getPointAtLength(currentLen);
+                    const p2 = path.getPointAtLength(Math.min(currentLen + 2, pathLength));
+                    const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * (180 / Math.PI);
+
+                    if (boat) {
+                        boat.setAttribute('transform', `translate(${p1.x}, ${p1.y}) rotate(${angle})`);
+                    }
+
+                    // Cập nhật số đếm phân đoạn & Nền Động
+                    const currentStep = Math.min(Math.floor(progress * totalSteps) + 1, totalSteps);
+                    stepIndicator.textContent = `${String(currentStep).padStart(2, '0')} / ${String(totalSteps).padStart(2, '0')}`;
+
+                    // Thay đổi hiệu ứng nền
+                    updateMoodTheme(currentStep);
+                }
+            }
+        });
+
+        // Tạo hiệu ứng chuyển câu sạch bóng (Không bóng ma / Không chồng chữ)
+        // 1. Mỗi câu có khoảng giữ nguyên rõ nét 100% (Hold Plateau) kéo dài 65% quãng đường cuộn
+        // 2. Câu cũ trôi nhẹ lên trên và ẩn hoàn toàn (autoAlpha: 0 -> visibility: hidden)
+        // 3. Câu mới từ dưới dâng lên sắc nét, tuyệt đối không bị bóng mờ của câu kề bên
+        nodes.forEach((node, i) => {
+            if (i < totalSteps - 1) {
+                const nextNode = nodes[i + 1];
+                const isNextHighlight = (i + 1 === 5); // Điểm nhấn Step 6 ("Mình đỡ được bạn rồi")
+
+                const holdEnd = i + 0.65;
+                const fadeOutDuration = 0.22;
+                const fadeInStart = i + 0.78;
+                const fadeInDuration = 0.22;
+
+                // Câu hiện tại: Sau thời gian đọc thong thả, trôi nhẹ lên trên và biến mất hoàn toàn
+                tl.to(node, {
+                    autoAlpha: 0,
+                    y: -24,
+                    scale: 0.96,
+                    duration: fadeOutDuration,
+                    ease: 'power2.in',
+                    pointerEvents: 'none'
+                }, holdEnd);
+
+                // Câu kế tiếp: Dâng lên nhẹ nhàng và sắc nét, kích hoạt visibility
+                tl.fromTo(nextNode, {
+                    autoAlpha: 0,
+                    y: 24,
+                    scale: 0.96,
+                    pointerEvents: 'none'
+                }, {
+                    autoAlpha: 1,
+                    y: 0,
+                    scale: isNextHighlight ? 1.05 : 1,
+                    duration: fadeInDuration,
+                    ease: 'power2.out',
+                    pointerEvents: 'auto'
+                }, fadeInStart);
+            }
+        });
+
+        /* ==========================================================================
+           1. KEYBOARD NAVIGATION SUPPORT (Phím mũi tên & Space)
+           ========================================================================== */
+        window.addEventListener('keydown', (e) => {
+            const currentScroll = window.scrollY;
+            const stepHeight = (document.getElementById('scroll-height').offsetHeight - window.innerHeight) / (totalSteps - 1);
+
+            if (['ArrowDown', 'ArrowRight', 'Space', 'PageDown'].includes(e.code)) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: Math.min(currentScroll + stepHeight, document.getElementById('scroll-height').offsetHeight),
+                    behavior: 'smooth'
+                });
+            } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.code)) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: Math.max(currentScroll - stepHeight, 0),
+                    behavior: 'smooth'
+                });
+            } else if (e.code === 'Escape') {
+                const modal = document.getElementById('full-art-modal');
+                if (modal && modal.classList.contains('opacity-100')) {
+                    toggleFullArtView(false);
+                    return;
+                }
+                const step9Node = document.getElementById('step-9-node');
+                if (step9Node && step9Node.classList.contains('opacity-0')) {
+                    toggleArtFocusMode();
+                    return;
+                }
+                handleSmartClose(e);
+            }
+        });
+
+        /* ==========================================================================
+           FULL ARTWORK FOCUS & LIGHTBOX MODAL
+           ========================================================================== */
+        function toggleArtFocusMode() {
+            const step9Node = document.getElementById('step-9-node');
+            const floatingReturnBtn = document.getElementById('floating-art-return-btn');
+            if (!step9Node) return;
+
+            const isHidden = step9Node.classList.contains('opacity-0');
+            if (!isHidden) {
+                // Ẩn chữ và card để ngắm trọn background tranh đêm bừng sáng
+                step9Node.classList.remove('opacity-100');
+                step9Node.classList.add('opacity-0', 'pointer-events-none');
+                if (floatingReturnBtn) {
+                    floatingReturnBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    floatingReturnBtn.classList.add('opacity-100', 'pointer-events-auto');
+                }
+            } else {
+                // Hiện lại chữ
+                step9Node.classList.remove('opacity-0', 'pointer-events-none');
+                step9Node.classList.add('opacity-100', 'pointer-events-auto');
+                if (floatingReturnBtn) {
+                    floatingReturnBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    floatingReturnBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
+        }
+
+        function toggleFullArtView(show) {
+            const modal = document.getElementById('full-art-modal');
+            if (!modal) return;
+            if (show) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        /* ==========================================================================
+           2. INTERACTIVE HUG BUTTON & STARLIGHT PARTICLES
+           ========================================================================== */
+        const hugBtn = document.getElementById('btn-send-hug');
+        const hugCountEl = document.getElementById('hug-count-num');
+        let hugCount = parseInt(localStorage.getItem('ndcbo_hug_count') || '259', 10);
+        if (hugCountEl) hugCountEl.textContent = hugCount.toLocaleString();
+
+        if (hugBtn) {
+            hugBtn.addEventListener('click', (e) => {
+                hugCount++;
+                if (hugCountEl) hugCountEl.textContent = hugCount.toLocaleString();
+                localStorage.setItem('ndcbo_hug_count', hugCount.toString());
+
+                // Spawn floating particles
+                const rect = hugBtn.getBoundingClientRect();
+                const originX = rect.left + rect.width / 2;
+                const originY = rect.top + rect.height / 2;
+
+                const particles = ['✨', '🫂', '💛', '🌟', '💫', '✨'];
+                for (let i = 0; i < 18; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'star-particle';
+                    particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 120 + 30;
+                    const dx = Math.cos(angle) * distance;
+                    const dr = (Math.random() - 0.5) * 180;
+
+                    particle.style.left = `${originX}px`;
+                    particle.style.top = `${originY}px`;
+                    particle.style.setProperty('--dx', `${dx}px`);
+                    particle.style.setProperty('--dr', `${dr}deg`);
+
+                    document.body.appendChild(particle);
+
+                    setTimeout(() => particle.remove(), 2200);
+                }
+
+                // Bounce button
+                gsap.fromTo(hugBtn, { scale: 0.92 }, {
+                    scale: 1.08, duration: 0.25, ease: 'back.out(2)', onComplete: () => {
+                        gsap.to(hugBtn, { scale: 1, duration: 0.2 });
+                    }
+                });
+            });
+        }
+
+        /* ==========================================================================
+           3. AMBIENT LOFI RAIN SOUND SYNTH
+           ========================================================================== */
+        const lofiBtn = document.getElementById('lofi-ambient-btn');
+        const lofiIcon = document.getElementById('lofi-icon');
+        const lofiText = document.getElementById('lofi-status-text');
+        let isAudioPlaying = false;
+        let audioCtx = null;
+        let noiseSource = null;
+
+        if (lofiBtn) {
+            lofiBtn.addEventListener('click', () => {
+                if (!isAudioPlaying) {
+                    try {
+                        const AudioContext = window.AudioContext || window.webkitAudioContext;
+                        audioCtx = new AudioContext();
+
+                        const bufferSize = 2 * audioCtx.sampleRate;
+                        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                        const output = noiseBuffer.getChannelData(0);
+                        for (let i = 0; i < bufferSize; i++) {
+                            output[i] = Math.random() * 2 - 1;
+                        }
+
+                        noiseSource = audioCtx.createBufferSource();
+                        noiseSource.buffer = noiseBuffer;
+                        noiseSource.loop = true;
+
+                        const filter = audioCtx.createBiquadFilter();
+                        filter.type = 'lowpass';
+                        filter.frequency.setValueAtTime(750, audioCtx.currentTime);
+
+                        const gain = audioCtx.createGain();
+                        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+
+                        noiseSource.connect(filter);
+                        filter.connect(gain);
+                        gain.connect(audioCtx.destination);
+
+                        noiseSource.start();
+                        isAudioPlaying = true;
+                        if (lofiIcon) lofiIcon.textContent = '🔊';
+                        if (lofiText) lofiText.textContent = 'Tiếng mưa đêm (Đang phát)';
+                    } catch (err) {
+                        console.warn('Audio Context error:', err);
+                    }
+                } else {
+                    if (noiseSource) noiseSource.stop();
+                    if (audioCtx) audioCtx.close();
+                    isAudioPlaying = false;
+                    if (lofiIcon) lofiIcon.textContent = '🔈';
+                    if (lofiText) lofiText.textContent = 'Tiếng mưa đêm (Tạm dừng)';
+                }
+            });
+        }
+
+        /* ==========================================================================
+           4. SCROLL PROMPT IDLE DETECTION (TINH TẾ & TÂM LÝ CHO NGƯỜI ĐỌC)
+           - Bước 1: Lung linh thở nhẹ hướng dẫn người đọc
+           - Bước 2+: Dừng đọc -> tĩnh lặng không làm phiền.
+           - Nếu dừng > 5.5s -> Khẽ thở như ánh nến êm đềm nhắc nhẹ
+           ========================================================================== */
+        const scrollPrompt = document.getElementById('scroll-prompt');
+        let scrollIdleTimer = null;
+        let hasStartedJourney = false;
+
+        function setPromptState(state) {
+            if (!scrollPrompt) return;
+            scrollPrompt.classList.remove(
+                'scroll-prompt-intro',
+                'scroll-prompt-reading',
+                'scroll-prompt-whisper',
+                'scroll-prompt-scrolling',
+                'scroll-prompt-hidden'
+            );
+            scrollPrompt.classList.add(state);
+        }
+
+        function handleScrollActivity() {
+            if (!scrollPrompt) return;
+
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            // Nếu đã cuộn tới cuối câu chuyện (Bước 9) -> ẩn hoàn toàn
+            if (scrollHeight > 0 && window.scrollY >= scrollHeight - 120) {
+                setPromptState('scroll-prompt-hidden');
+                if (scrollIdleTimer) clearTimeout(scrollIdleTimer);
+                return;
+            }
+
+            // Đánh dấu người dùng đã bắt đầu cuộn qua Bước 1
+            if (window.scrollY > 80) {
+                hasStartedJourney = true;
+            }
+
+            // Khi người dùng ĐANG cuộn chuột: Làm mờ nhẹ
+            setPromptState('scroll-prompt-scrolling');
+
+            // Xóa bộ hẹn giờ trước đó
+            if (scrollIdleTimer) clearTimeout(scrollIdleTimer);
+
+            // Xử lý khi DỪNG cuộn chuột:
+            if (!hasStartedJourney) {
+                // Vẫn đang ở Bước 1: Sau 600ms trả lại hiệu ứng lung linh chào đón
+                scrollIdleTimer = setTimeout(() => {
+                    if (window.scrollY < 80) {
+                        setPromptState('scroll-prompt-intro');
+                    }
+                }, 600);
+            } else {
+                // Đã từ Bước 2 trở đi:
+                // 1. Ngay khi dừng (sau 300ms): Giữ trạng thái TĨNH LẶNG (reading) để người ta đọc không bị chói/chớp!
+                scrollIdleTimer = setTimeout(() => {
+                    const curScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    if (curScrollHeight > 0 && window.scrollY < curScrollHeight - 120) {
+                        setPromptState('scroll-prompt-reading');
+
+                        // 2. Chỉ khi người dùng dừng lại quá lâu (> 5.5 giây) thì mới khẽ thở như ánh nến nhắc nhẹ
+                        scrollIdleTimer = setTimeout(() => {
+                            const recheckHeight = document.documentElement.scrollHeight - window.innerHeight;
+                            if (recheckHeight > 0 && window.scrollY < recheckHeight - 120) {
+                                setPromptState('scroll-prompt-whisper');
+                            }
+                        }, 5500);
+                    }
+                }, 300);
+            }
+        }
+
+        window.addEventListener('scroll', handleScrollActivity, { passive: true });
+    </script>
+    <!-- <div id="footer-placeholder"></div> -->
+
+    <!-- Lightbox Modal: Chiêm ngưỡng trọn vẹn bức tranh Đêm Mất Ngủ -->
+    <div id="full-art-modal" onclick="if(event.target === this) toggleFullArtView(false)"
+        class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col items-center justify-center p-4">
+        <button type="button" onclick="toggleFullArtView(false)" aria-label="Đóng ngắm tranh" title="Đóng (Esc)"
+            class="absolute top-6 right-6 w-10 h-10 rounded-full border border-amber-400/40 bg-slate-900/80 text-amber-300 hover:bg-amber-500 hover:text-black flex items-center justify-center text-lg transition-all duration-300 shadow-xl cursor-pointer">
+            ✕
+        </button>
+        <div class="max-w-2xl max-h-[88vh] flex flex-col items-center text-center p-2">
+            <div class="relative rounded-2xl overflow-hidden border border-amber-400/35 shadow-2xl shadow-amber-500/20 mb-4 bg-slate-950/60">
+                <img src="images/landing/girl-at-night.jpg" alt="Cô bé chạm tay vào vầng trăng đêm"
+                    class="max-h-[72vh] w-auto object-contain rounded-xl select-none">
+            </div>
+            <p class="text-xs md:text-sm text-amber-200/90 font-light italic sans leading-relaxed max-w-lg">
+                "Dù bóng đêm có rộng lớn đến đâu, luôn có một vầng trăng và người đợi đỡ lấy bạn..."
+            </p>
+        </div>
+    </div>
+
+    <!-- Floating Return Button khi đang ở chế độ Ngắm tranh không chữ -->
+    <button id="floating-art-return-btn" type="button" onclick="toggleArtFocusMode()"
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-500 flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-950/90 border border-amber-400/70 backdrop-blur-md text-amber-300 hover:bg-amber-400 hover:text-black shadow-2xl text-xs sans font-semibold tracking-wider uppercase cursor-pointer hover:scale-105 active:scale-95">
+        <span>✍️</span>
+        <span>Hiện lại câu chữ</span>
+    </button>
+</body>
+
+</html>

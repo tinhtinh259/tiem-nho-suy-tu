@@ -1,0 +1,570 @@
+/* ==========================================================================
+   SCENTED FABRIC POUCHES HANGING IN A ROW (Những Chiếc Túi Thơm Treo Handmade)
+   Tiệm Nhỏ Suy Tư — Caraflow
+   ========================================================================== */
+
+.scented-pouches-section {
+  position: relative;
+  margin: 50px 0 70px 0;
+  padding: 30px 20px 45px 20px;
+  background: linear-gradient(180deg, rgba(253, 251, 247, 0.6) 0%, rgba(247, 240, 229, 0.45) 100%);
+  border-radius: 28px;
+  border: 1px dashed rgba(200, 149, 71, 0.35);
+  overflow: hidden;
+}
+
+.scented-pouches-head {
+  text-align: center;
+  margin-bottom: 35px;
+  position: relative;
+  z-index: 2;
+}
+
+.scented-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 16px;
+  background: rgba(47, 93, 67, 0.08);
+  border: 1px solid rgba(47, 93, 67, 0.25);
+  color: #2f5d43;
+  border-radius: 30px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.scented-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+  font-weight: 700;
+  color: #2c3531;
+  margin-bottom: 8px;
+}
+
+.scented-subtitle {
+  font-size: 0.95rem;
+  color: #5c6b64;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   HANGING TWINE LINE & POUCHES ROW
+   ========================================================================== */
+
+.scented-hang-stage {
+  position: relative;
+  padding-top: 45px;
+  padding-bottom: 25px;
+  margin: 0 auto 30px auto;
+  max-width: 900px;
+}
+
+/* Rustic Twine Wire / Rope across top */
+.scented-twine-wire {
+  position: absolute;
+  top: 45px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #9c7c58 0px,
+    #bfa588 6px,
+    #826343 12px
+  );
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+/* Wooden peg pins at 2 far ends */
+.scented-twine-wire::before,
+.scented-twine-wire::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, #8a6544 30%, #523b24 100%);
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.scented-twine-wire::before {
+  left: -8px;
+}
+
+.scented-twine-wire::after {
+  right: -8px;
+}
+
+/* Pouches Flex Row */
+.scented-pouches-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  gap: 16px;
+  padding: 0 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scented-pouches-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   SINGLE HANGING POUCH COMPONENT
+   ========================================================================== */
+
+.pouch-hanger-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  min-width: 130px;
+  padding-bottom: 10px;
+}
+
+/* Wooden Clothes Peg / Pin */
+.pouch-peg {
+  position: relative;
+  width: 14px;
+  height: 28px;
+  background: linear-gradient(180deg, #d8b48f 0%, #ba9168 60%, #997148 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+  margin-top: -14px; /* Clamps directly on the twine */
+  z-index: 5;
+  transition: transform 0.2s ease;
+}
+
+.pouch-peg::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -1px;
+  right: -1px;
+  height: 3px;
+  background: #64748b;
+  border-radius: 1px;
+}
+
+.pouch-hanger-unit:hover .pouch-peg {
+  transform: translateY(-2px);
+}
+
+/* Hanging loop / string from peg to pouch */
+.pouch-cord {
+  width: 2px;
+  height: 22px;
+  background: repeating-linear-gradient(
+    180deg,
+    #a88a6d 0px,
+    #cfb89f 3px,
+    #8e6e52 6px
+  );
+  margin: 0 auto;
+}
+
+/* Swaying Body Wrapper */
+.pouch-body-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: gentleSway 4.5s ease-in-out infinite alternate;
+}
+
+/* Stagger sway animations */
+.pouch-hanger-unit:nth-child(1) .pouch-body-wrap { animation-delay: 0s; }
+.pouch-hanger-unit:nth-child(2) .pouch-body-wrap { animation-delay: -0.9s; }
+.pouch-hanger-unit:nth-child(3) .pouch-body-wrap { animation-delay: -1.8s; }
+.pouch-hanger-unit:nth-child(4) .pouch-body-wrap { animation-delay: -2.7s; }
+.pouch-hanger-unit:nth-child(5) .pouch-body-wrap { animation-delay: -3.6s; }
+
+@keyframes gentleSway {
+  0% {
+    transform: rotate(-2.5deg);
+  }
+  100% {
+    transform: rotate(2.5deg);
+  }
+}
+
+.pouch-hanger-unit:hover .pouch-body-wrap {
+  animation: activeSwing 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes activeSwing {
+  0% {
+    transform: rotate(-6deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(6deg) scale(1.03);
+  }
+}
+
+.pouch-hanger-unit.active .pouch-body-wrap {
+  animation: none;
+  transform: scale(1.06) translateY(2px);
+}
+
+/* Fabric Pouch Drawstring Top Ruffle */
+.pouch-top-ruffle {
+  width: 44px;
+  height: 12px;
+  border-radius: 6px 6px 0 0;
+  margin-bottom: -3px;
+  z-index: 3;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+/* Ribbon Bow Tie */
+.pouch-ribbon {
+  position: relative;
+  width: 22px;
+  height: 8px;
+  background: #a3704c;
+  border-radius: 4px;
+  z-index: 4;
+  margin-bottom: -4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.pouch-ribbon::before,
+.pouch-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  width: 8px;
+  height: 14px;
+  border-radius: 0 0 2px 2px;
+  background: #a3704c;
+}
+
+.pouch-ribbon::before {
+  left: 2px;
+  transform: rotate(15deg);
+}
+
+.pouch-ribbon::after {
+  right: 2px;
+  transform: rotate(-15deg);
+}
+
+/* Main Fabric Pouch Bag */
+.pouch-bag {
+  width: 86px;
+  height: 104px;
+  border-radius: 18px 18px 26px 26px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-shadow:
+    0 10px 22px rgba(47, 93, 67, 0.08),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.04),
+    inset 0 4px 8px rgba(255, 255, 255, 0.6);
+  border: 1.5px dashed rgba(200, 149, 71, 0.35);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Fabric Stitches Border Effect */
+.pouch-bag::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(255, 255, 255, 0.6);
+  border-radius: 14px 14px 22px 22px;
+  pointer-events: none;
+}
+
+.pouch-hanger-unit.active .pouch-bag {
+  border-color: #2f5d43;
+  box-shadow:
+    0 14px 28px rgba(47, 93, 67, 0.18),
+    0 0 0 3px rgba(47, 93, 67, 0.15),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Icon / Embroidery inside Pouch */
+.pouch-motif {
+  font-size: 1.8rem;
+  margin-bottom: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  transition: transform 0.3s ease;
+}
+
+.pouch-hanger-unit:hover .pouch-motif {
+  transform: scale(1.15);
+}
+
+/* Kraft Paper Tag hanging to side */
+.pouch-tag {
+  background: #fbf5ea;
+  border: 1px solid rgba(186, 145, 104, 0.4);
+  border-radius: 5px;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #4a3e31;
+  letter-spacing: 0.4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
+  margin-top: 10px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.pouch-tag::before {
+  content: '•';
+  color: #c89547;
+  font-size: 0.9rem;
+}
+
+.pouch-hanger-unit:hover .pouch-tag,
+.pouch-hanger-unit.active .pouch-tag {
+  background: #2f5d43;
+  color: #ffffff;
+  border-color: #2f5d43;
+}
+
+.pouch-hanger-unit:hover .pouch-tag::before,
+.pouch-hanger-unit.active .pouch-tag::before {
+  color: #a7f3d0;
+}
+
+/* --------------------------------------------------------------------------
+   FABRIC PALETTE VARIATIONS (5 Handmade Bags)
+   -------------------------------------------------------------------------- */
+
+/* 1. Sage Green (Cỏ Non Sau Mưa) */
+.pouch-sage .pouch-top-ruffle,
+.pouch-sage .pouch-bag {
+  background: linear-gradient(145deg, #dcf2e4 0%, #c4e4d0 100%);
+}
+.pouch-sage .pouch-ribbon,
+.pouch-sage .pouch-ribbon::before,
+.pouch-sage .pouch-ribbon::after {
+  background: #4a8060;
+}
+
+/* 2. Chamomile Oatmeal Linen (Trà Cúc & Gỗ Ấm) */
+.pouch-linen .pouch-top-ruffle,
+.pouch-linen .pouch-bag {
+  background: linear-gradient(145deg, #f7efe4 0%, #ecdcc8 100%);
+}
+.pouch-linen .pouch-ribbon,
+.pouch-linen .pouch-ribbon::before,
+.pouch-linen .pouch-ribbon::after {
+  background: #aa7b49;
+}
+
+/* 3. Apricot Check Gingham (Vỏ Quýt & Nắng Trưa) */
+.pouch-apricot .pouch-top-ruffle,
+.pouch-apricot .pouch-bag {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 10%, transparent 11%),
+    linear-gradient(145deg, #fdecd2 0%, #fadab0 100%);
+  background-size: 12px 12px, 100% 100%;
+}
+.pouch-apricot .pouch-ribbon,
+.pouch-apricot .pouch-ribbon::before,
+.pouch-apricot .pouch-ribbon::after {
+  background: #d97706;
+}
+
+/* 4. Lavender Mist Floral (Hoa Nhài & Gối Mềm) */
+.pouch-lavender .pouch-top-ruffle,
+.pouch-lavender .pouch-bag {
+  background: linear-gradient(145deg, #f1ebf8 0%, #dfd1ee 100%);
+}
+.pouch-lavender .pouch-ribbon,
+.pouch-lavender .pouch-ribbon::before,
+.pouch-lavender .pouch-ribbon::after {
+  background: #7c5295;
+}
+
+/* 5. Terracotta Cinnamon (Lá Thu & Quế Nồng) */
+.pouch-terracotta .pouch-top-ruffle,
+.pouch-terracotta .pouch-bag {
+  background: linear-gradient(145deg, #f9e2d5 0%, #ecc4b0 100%);
+}
+.pouch-terracotta .pouch-ribbon,
+.pouch-terracotta .pouch-ribbon::before,
+.pouch-terracotta .pouch-ribbon::after {
+  background: #b45309;
+}
+
+/* Floating Aroma Sparkles on Active / Hover */
+.aroma-particle {
+  position: absolute;
+  pointer-events: none;
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: floatAroma 1.8s ease-out forwards;
+}
+
+@keyframes floatAroma {
+  0% {
+    opacity: 0.8;
+    transform: translateY(0) scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-28px) scale(1.1) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-55px) scale(1.3) rotate(30deg);
+  }
+}
+
+/* ==========================================================================
+   SCENT WHISPER DISPLAY CARD (Lời Thì Thầm Của Túi Hương)
+   ========================================================================== */
+
+.scent-whisper-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(200, 149, 71, 0.3);
+  border-radius: 20px;
+  padding: 28px 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  box-shadow: 0 12px 30px rgba(47, 93, 67, 0.05);
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.scent-whisper-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(200, 149, 71, 0.25);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.scent-whisper-title-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scent-whisper-icon {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fdfbf7;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 149, 71, 0.25);
+}
+
+.scent-whisper-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2c3531;
+  margin: 0;
+}
+
+.scent-whisper-notes {
+  font-size: 0.84rem;
+  color: #8c7151;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.scent-whisper-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: #edf7f2;
+  border: 1px solid #bce4d0;
+  color: #2f5d43;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.scent-whisper-text {
+  font-size: 1.02rem;
+  color: #334155;
+  line-height: 1.85;
+  margin: 0 0 16px 0;
+  font-style: italic;
+}
+
+.scent-whisper-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.scent-whisper-prompt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .scented-pouches-section {
+    padding: 24px 12px 35px 12px;
+    margin: 35px 0 50px 0;
+  }
+
+  .scented-twine-wire {
+    display: none; /* Hide rigid wire on horizontal scroll for natural look */
+  }
+
+  .scented-pouches-row {
+    justify-content: flex-start;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .pouch-hanger-unit {
+    min-width: 110px;
+  }
+
+  .pouch-bag {
+    width: 76px;
+    height: 94px;
+  }
+
+  .scent-whisper-card {
+    padding: 20px 16px;
+  }
+}

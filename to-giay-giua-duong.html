@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tờ Giấy Giữa Đường: Về Nhà Không Cần Nhanh, Chỉ Cần An Toàn - Trạm Kể Chuyện</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Itim&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f9f6f0;
+            --card-bg: #ffffff;
+            --text-color: #2c3531;
+            --sub-color: #64748b;
+            --line-color: #e2dacd;
+            --accent-gold: #c89547;
+            --accent-green: #2f5d43;
+            --note-bg: #fef9c3;
+            --note-ink: #1e3a8a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: radial-gradient(rgba(200, 149, 71, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 100%;
+            padding-top: var(--height-header, 80px);
+            min-height: calc(100vh - 200px);
+        }
+
+        .story-article-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px 100px 24px;
+        }
+
+        /* Breadcrumb Trail */
+        .breadcrumb-trail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--sub-color);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-trail a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-trail a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-sep {
+            color: #cbd5e1;
+            font-size: 12px;
+        }
+
+        .breadcrumb-current {
+            color: var(--sub-color);
+            font-weight: 400;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: none !important;
+        }
+
+        /* Hero Image Container */
+        .article-hero-wrap {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 32px;
+            box-shadow: 0 12px 36px rgba(47, 93, 67, 0.08);
+            border: 1px solid var(--line-color);
+            background: #e2e8f0;
+            position: relative;
+        }
+
+        .article-hero-img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .article-hero-wrap:hover .article-hero-img {
+            transform: scale(1.02);
+        }
+
+        .article-tag-badge {
+            display: inline-block;
+            background: rgba(200, 149, 71, 0.12);
+            border: 1px solid rgba(200, 149, 71, 0.25);
+            color: var(--accent-gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.1rem, 4.2vw, 3rem);
+            font-weight: 700;
+            color: var(--accent-green);
+            line-height: 1.35;
+            margin-bottom: 16px;
+        }
+
+        .article-subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--sub-color);
+            font-size: 14px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--line-color);
+            flex-wrap: wrap;
+        }
+
+        /* Serene Book Body Typography */
+        .article-body {
+            font-size: 18.5px;
+            line-height: 2.05;
+            color: #334155;
+        }
+
+        .article-body p {
+            margin-bottom: 26px;
+        }
+
+        .highlight-phrase {
+            color: var(--accent-green);
+            font-weight: 600;
+            background: linear-gradient(120deg, rgba(47, 93, 67, 0.08) 0%, rgba(47, 93, 67, 0) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* ==============================================
+           INTERACTIVE HANDWRITTEN STICKY NOTE COMPONENT 
+        ============================================== */
+        .note-stage {
+            margin: 48px auto;
+            perspective: 1200px;
+            position: relative;
+        }
+
+        .note-header-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            padding: 0 8px;
+        }
+
+        .note-status-tag {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .note-toggle-btn {
+            background: #ffffff;
+            border: 1px solid var(--line-color);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .note-toggle-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-1px);
+        }
+
+        .sticky-note-wrapper {
+            position: relative;
+            background: #fff9db;
+            background: linear-gradient(135deg, #fef9c3 0%, #fef08a 60%, #fde047 100%);
+            border-radius: 12px;
+            padding: 40px 36px 36px 36px;
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 20px 35px -8px rgba(202, 138, 4, 0.22),
+                0 0 0 1px rgba(234, 179, 8, 0.3);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform-origin: top center;
+            cursor: pointer;
+        }
+
+        /* Washi tape on top */
+        .sticky-note-wrapper::before {
+            content: "";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-1deg);
+            width: 140px;
+            height: 28px;
+            background: rgba(245, 158, 11, 0.35);
+            backdrop-filter: blur(2px);
+            border-left: 2px dashed rgba(255, 255, 255, 0.4);
+            border-right: 2px dashed rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+            z-index: 2;
+        }
+
+        /* Subtle paper fold crease */
+        .note-fold-crease {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(161, 98, 7, 0.25) 20%, rgba(161, 98, 7, 0.25) 80%, transparent);
+            box-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Folded state styles */
+        .sticky-note-wrapper.is-folded {
+            padding: 30px 36px;
+            transform: rotateX(10deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .sticky-note-wrapper.is-folded .note-fold-crease {
+            opacity: 0.8;
+            height: 2px;
+        }
+
+        .sticky-note-wrapper.is-folded .note-hidden-part {
+            display: none;
+        }
+
+        .sticky-note-wrapper.is-folded .note-preview-cue {
+            display: flex;
+        }
+
+        .note-preview-cue {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 10px 16px;
+            background: rgba(254, 240, 138, 0.7);
+            border-radius: 8px;
+            color: #854d0e;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px dashed rgba(202, 138, 4, 0.5);
+            animation: pulseHint 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseHint {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1.02);
+                opacity: 1;
+            }
+        }
+
+        /* Handwriting typography */
+        .handwriting-text {
+            font-family: 'Itim', 'Charm', cursive;
+            font-size: 26px;
+            line-height: 1.7;
+            color: #1e3a8a;
+            /* Soft pen blue */
+            letter-spacing: 0.4px;
+            text-shadow: 0 0.5px 0 rgba(30, 58, 138, 0.15);
+        }
+
+        .handwriting-quote {
+            font-weight: 700;
+            color: #0f172a;
+            position: relative;
+            display: inline;
+            background: linear-gradient(120deg, transparent 0%, rgba(254, 202, 202, 0.6) 20%, rgba(254, 202, 202, 0.6) 80%, transparent 100%);
+        }
+
+        .note-author-sign {
+            margin-top: 24px;
+            text-align: right;
+            font-family: 'Itim', 'Charm', cursive;
+            font-size: 24px;
+            color: #475569;
+            font-style: italic;
+        }
+
+        /* Concept Spotlight Card: Quái Xế */
+        .spotlight-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 36px;
+            margin: 44px 0;
+            border: 1px solid #e2dacd;
+            box-shadow: 0 10px 30px rgba(47, 93, 67, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-gold), var(--accent-green));
+        }
+
+        .spotlight-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .spotlight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--accent-green);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .spotlight-col {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .spotlight-col h4 {
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spotlight-col.col-racer h4 {
+            color: #2563eb;
+        }
+
+        .spotlight-col.col-reckless h4 {
+            color: #dc2626;
+        }
+
+        .spotlight-col p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #475569;
+            margin-bottom: 0;
+        }
+
+        /* Pull-quote box */
+        .quote-box {
+            background: #fffbeb;
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 0 16px 16px 0;
+            padding: 26px 32px;
+            margin: 40px 0;
+            font-size: 20px;
+            line-height: 1.85;
+            color: #78350f;
+            font-style: italic;
+            box-shadow: 0 6px 20px rgba(200, 149, 71, 0.08);
+            position: relative;
+        }
+
+        .quote-box::after {
+            content: "”";
+            position: absolute;
+            bottom: 6px;
+            right: 24px;
+            font-size: 72px;
+            line-height: 1;
+            font-family: 'Playfair Display', serif;
+            color: rgba(200, 149, 71, 0.2);
+            pointer-events: none;
+        }
+
+        /* Interaction Hug / Safety Pledge Bar */
+        .interaction-bar {
+            margin-top: 56px;
+            padding: 40px 32px;
+            background: #ffffff;
+            border: 1px solid var(--line-color);
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 12px 36px rgba(47, 93, 67, 0.06);
+            position: relative;
+        }
+
+        .pledge-btn {
+            background: linear-gradient(135deg, var(--accent-green), #1b3d2b);
+            border: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 36px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(47, 93, 67, 0.25);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: inherit;
+        }
+
+        .pledge-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 14px 30px rgba(47, 93, 67, 0.35);
+            background: linear-gradient(135deg, #36694c, #1f4732);
+        }
+
+        .pledge-btn:active {
+            transform: translateY(-1px) scale(0.99);
+        }
+
+        .pledge-count {
+            margin-top: 18px;
+            font-size: 15px;
+            color: var(--sub-color);
+            font-weight: 500;
+        }
+
+        /* Related Stories */
+        .related-section {
+            margin-top: 70px;
+            padding-top: 40px;
+            border-top: 1px solid var(--line-color);
+        }
+
+        .related-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--accent-green);
+            margin-bottom: 24px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .related-card {
+            background: #ffffff;
+            border: 1px solid var(--line-color);
+            border-radius: 18px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .related-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(47, 93, 67, 0.08);
+        }
+
+        .related-card-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .related-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent-green);
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }
+
+        .related-card-footer {
+            font-size: 13px;
+            color: var(--sub-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .story-article-container {
+                padding: 20px 16px 80px 16px;
+            }
+
+            .article-hero-img {
+                height: 260px;
+            }
+
+            .sticky-note-wrapper {
+                padding: 26px 20px;
+            }
+
+            .handwriting-text {
+                font-size: 23px;
+                line-height: 1.6;
+            }
+
+            .spotlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .spotlight-card {
+                padding: 24px 20px;
+            }
+
+            .breadcrumb-trail {
+                font-size: 12.5px;
+                gap: 6px;
+                margin-bottom: 16px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 2px;
+            }
+
+            .breadcrumb-trail::-webkit-scrollbar {
+                display: none;
+            }
+
+            .breadcrumb-trail a,
+            .breadcrumb-sep {
+                flex-shrink: 0;
+            }
+
+            .breadcrumb-current {
+                flex-shrink: 1;
+                min-width: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 220px;
+            }
+        }
+    </style>
+    <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <article class="story-article-container">
+            <!-- BREADCRUMB -->
+            <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+                <a href="trang-chu.html">Trang chủ</a>
+                <span class="breadcrumb-sep">/</span>
+                <a href="goc-ke-chuyen.html">Trạm Kể Chuyện</a>
+                <span class="breadcrumb-sep">/</span>
+                <span class="breadcrumb-current">Tờ giấy giữa đường</span>
+            </nav>
+
+            <!-- HERO COVER -->
+            <div class="article-hero-wrap">
+                <img src="images/landing/to-giay-giua-duong.jpg" alt="Tờ giấy note giữa ngã tư đường phố"
+                    class="article-hero-img" id="articleHeroImg">
+            </div>
+
+            <!-- HEADER META -->
+            <span class="article-tag-badge">🛵 GÓC NHÌN & BÀI HỌC ĐƯỜNG PHỐ</span>
+            <h1 class="article-title">Tờ Giấy Giữa Đường: “Về Nhà Không Cần Quá Nhanh, Chỉ Cần An Toàn”</h1>
+            <p class="article-subtitle">Một bức thư tay vội vã trao qua kẽ xe ở ngã tư đèn đỏ đã khiến một người quen
+                thói lạng lách phải đứng hình suy nghĩ suốt một đời.</p>
+
+            <div class="article-meta">
+                <span>✍️ Lời tự sự: Bạn đọc Caraflow</span>
+                <span>•</span>
+                <span>📅 08 Th09, 2026</span>
+                <span>•</span>
+                <span>⏱️ 4 phút đọc</span>
+                <span>•</span>
+                <span>🔖 Chủ đề: Thức tỉnh & Bình an</span>
+            </div>
+
+            <!-- ARTICLE CONTENT BODY -->
+            <div class="article-body">
+                <p>
+                    Hôm đó tôi đang chạy xe, chắc cũng hơi lạng thiệt. Lúc thì né xe hơi, lúc lại chen qua xe máy. Trong
+                    đầu tôi lúc đó chỉ nghĩ đơn giản là mình đang luồn lách cho lẹ, chạy bình thường thôi chứ đâu có gì
+                    ghê gớm hay dữ dội. Tuổi trẻ mà, đôi khi người ta hay nhầm lẫn giữa sự vội vã, liều lĩnh với cái gọi
+                    là "tay lái lụa" hay "chạy ngầu".
+                </p>
+
+                <p>
+                    Vậy mà vừa trờ tới ngã tư, khi dòng xe vừa kịp khựng lại trước đèn đỏ, thì có một cô gái chạy xe tới
+                    sát bên, chìa tay đưa cho tôi một mảnh giấy note màu vàng gấp đôi lại.
+                </p>
+
+                <!-- INTERACTIVE FOLDED NOTE COMPONENT -->
+                <div class="note-stage">
+                    <div class="note-header-label">
+                        <span class="note-status-tag">
+                            <span>📌</span> Tờ giấy note viết tay
+                        </span>
+                        <button type="button" class="note-toggle-btn" id="toggleNoteBtn" onclick="toggleFoldNote()">
+                            <span id="toggleIcon">📂</span>
+                            <span id="toggleText">Gập đôi lại</span>
+                        </button>
+                    </div>
+
+                    <div class="sticky-note-wrapper" id="stickyNoteWrapper" onclick="toggleFoldNote()">
+                        <div class="note-fold-crease"></div>
+
+                        <div class="handwriting-text">
+                            “Anh chạy lạng thấy ghê quá, chặt đầu xe hơi với xe máy người ta, mà nãy giờ anh chỉ đi tới
+                            đây thôi à?
+                            <br><br>
+                            Em thắng lại để ghi mấy dòng này thì không nghĩ mình sẽ đuổi kịp anh đâu.
+                            <br><br>
+                            <span class="handwriting-quote">Em nghĩ, trở về nhà thì không cần quá nhanh, chỉ cần an
+                                toàn. Anh nhớ chưa?</span>
+                            <br><br>
+                            Người lái xe nhanh mà trông ngầu đét được gọi là tay đua thì người ta chỉ được gọi như thế
+                            khi lái xe ở trường đua thôi, còn kiểu của anh chính là một <strong
+                                style="color: #b91c1c; text-decoration: underline;">quái xế</strong>.”
+                        </div>
+
+                        <div class="note-author-sign">
+                            — Cô gái ngã tư đèn đỏ ✍️
+                        </div>
+
+                        <div class="note-preview-cue" id="notePreviewCue">
+                            <span>👉 Bấm vào để mở rộng tờ giấy note...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Đọc xong mấy dòng chữ nắn nót ấy, tôi đứng hình tại chỗ luôn. Giữa cái nắng ban trưa hầm hập phả lên
+                    từ mặt đường nhựa, giữa tiếng còi xe inh ỏi và khói bụi cay mắt, tôi không biết mình nên bật cười
+                    hay nên chui xuống đất vì quê.
+                </p>
+
+                <p>
+                    Mà công nhận thật lòng: <span class="highlight-phrase">cô bạn ấy viết hay quá chừng</span>. Lời lẽ
+                    vừa chọc ghẹo dí dỏm, vừa dạy cho mình một bài học đích đáng, nhưng kỳ lạ là lại chẳng hề mang chút
+                    hằn học hay khó chịu nào. Thay vì bấm còi chửi đổng, thay vì phóng xe lên tạt đầu trả đũa theo thói
+                    thường, cô ấy lại chọn ghé vào lề, rút cuốn sổ tay ghi vội mấy dòng tử tế rồi đuổi theo để trao tận
+                    tay một người xa lạ.
+                </p>
+
+                <div class="quote-box">
+                    “Giữa dòng đời hối hả, không phải ai cũng để lại một dấu ấn sâu đậm bằng một mẩu giấy viết tay…
+                    Người ta có thể quên một lời chửi mắng ngoài đường sau vài phút, nhưng một sự tử tế chân thành thì
+                    sẽ theo họ suốt cả hành trình.”
+                </div>
+
+                <!-- SPOTLIGHT CARD: GIẢI MÃ TỪ QUÁI XẾ -->
+                <div class="spotlight-card">
+                    <span class="spotlight-badge">💡 Góc Ngôn Ngữ & Suy Ngẫm</span>
+                    <h3 class="spotlight-title">“Quái xế” là gì nhỉ? Từ này ở đâu ra vậy ta?</h3>
+                    <p>
+                        Lúc đọc tờ giấy, có một từ làm tôi vừa chột dạ vừa thắc mắc: <em>"Quái xế"</em>. Từ này nghe
+                        quen quen nhưng sao bình thường ít ai định nghĩa rõ ràng?
+                    </p>
+
+                    <div class="spotlight-grid">
+                        <div class="spotlight-col col-racer">
+                            <h4>🏁 Tay Đua (Racer)</h4>
+                            <p>
+                                Là những vận động viên được tôi luyện bài bản, mặc đồ bảo hộ chuyên dụng, lái xe trong
+                                một không gian khép kín và có ranh giới an toàn: <strong>trường đua</strong>. Ở đó, tốc
+                                độ là kỹ thuật và sự tôn trọng tính mạng.
+                            </p>
+                        </div>
+                        <div class="spotlight-col col-reckless">
+                            <h4>⚠️ Quái Xế (Reckless Rider)</h4>
+                            <p>
+                                "Quái" (kỳ quặc, ma mãnh) + "Xế" (chiếc xe). Từ lóng báo chí từ những năm 2000 ám chỉ
+                                những người đem kỹ năng liều mạng ra trình diễn giữa phố đông, biến sự an toàn của người
+                                khác thành trò tiêu khiển của riêng mình.
+                            </p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 18px; font-size: 15px; color: #64748b; font-style: italic;">
+                        👉 Trên đường phố công cộng, không có cúp vô địch nào cho người về đích nhanh hơn 3 giây đèn đỏ.
+                        Chỉ có sự an toàn cho bản thân và những gia đình đang chờ người thân trở về nhà.
+                    </p>
+                </div>
+
+                <p>
+                    Tờ giấy nhỏ xíu thôi mà đến tận hôm nay vẫn nằm ngay ngắn trong ngăn ví của tôi. Nó như một chiếc
+                    gương chiếu hậu vô hình nhắc nhở mỗi khi tôi vô thức vặn ga quá tay hay có ý định lách qua khe hẹp
+                    giữa hai làn xe lớn.
+                </p>
+
+                <p>
+                    Hóa ra, trưởng thành sau tay lái không phải là khi bạn vượt qua được bao nhiêu chiếc xe hơi, mà là
+                    khi bạn biết rằng: <strong>“Trở về nhà không cần quá nhanh, chỉ cần an toàn.”</strong>
+                </p>
+            </div>
+
+            <!-- INTERACTION SECTION -->
+            <div class="interaction-bar">
+                <h3
+                    style="font-family: 'Playfair Display', serif; font-size: 22px; color: var(--accent-green); margin-bottom: 12px;">
+                    Cùng Nhắc Nhau Lái Xe An Toàn 🛵
+                </h3>
+                <p style="font-size: 15px; color: var(--sub-color); max-width: 520px; margin: 0 auto 24px auto;">
+                    Bạn cũng muốn gửi một lời cảm ơn tới cô gái ngã tư và tự nhắc nhở bản thân luôn vững tay lái trở về
+                    nhà chứ?
+                </p>
+
+                <button class="pledge-btn" onclick="sendSafetyPledge()">
+                    <span>💛</span>
+                    <span id="pledgeBtnText">Gửi Một Lời Nhắc An Toàn</span>
+                </button>
+                <div class="pledge-count" id="pledgeCount">
+                    Đã có 342 người cùng mang thông điệp này trên mọi nẻo đường ✨
+                </div>
+            </div>
+
+            <!-- RELATED STORIES -->
+            <section class="related-section">
+                <h3 class="related-title">Góc Nhìn Khác Tại Trạm Kể Chuyện</h3>
+                <div class="related-grid">
+                    <a href="nhung-dong-chu-biet-om.html" class="related-card">
+                        <div>
+                            <div class="related-card-tag">🌙 Đêm Muộn</div>
+                            <div class="related-card-title">Một món quà dành cho tất cả những ai đang mất ngủ...</div>
+                        </div>
+                        <div class="related-card-footer">
+                            <span>Tiệm nhỏ suy tư</span>
+                            <span>3 phút đọc →</span>
+                        </div>
+                    </a>
+
+                    <a href="chi-tiet-cau-chuyen.html?id=7" class="related-card">
+                        <div>
+                            <div class="related-card-tag">✨ Tấm Lòng</div>
+                            <div class="related-card-title">Thùng đào thối & Lon trà hết hạn: Đừng vội hoài nghi tấm
+                                lòng chân thành</div>
+                        </div>
+                        <div class="related-card-footer">
+                            <span>Caraflow</span>
+                            <span>6 phút đọc →</span>
+                        </div>
+                    </a>
+
+                    <a href="chi-tiet-cau-chuyen.html?id=3" class="related-card">
+                        <div>
+                            <div class="related-card-tag">🍃 Bình Yên</div>
+                            <div class="related-card-title">Lời nhắn từ chiếc tách gốm sứt quai</div>
+                        </div>
+                        <div class="related-card-footer">
+                            <span>Caraflow</span>
+                            <span>5 phút đọc →</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+    <script src="js/plugin/jquery.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/global.js"></script>
+
+    <script>
+        // Fold/Unfold Note Interaction
+        let isFolded = false;
+
+        function toggleFoldNote() {
+            const noteWrapper = document.getElementById("stickyNoteWrapper");
+            const toggleIcon = document.getElementById("toggleIcon");
+            const toggleText = document.getElementById("toggleText");
+
+            isFolded = !isFolded;
+
+            if (isFolded) {
+                noteWrapper.classList.add("is-folded");
+                toggleIcon.innerText = "📖";
+                toggleText.innerText = "Mở tờ giấy ra";
+            } else {
+                noteWrapper.classList.remove("is-folded");
+                toggleIcon.innerText = "📂";
+                toggleText.innerText = "Gập đôi lại";
+            }
+        }
+
+        // Safety Pledge Counter with LocalStorage
+        let pledgeCount = parseInt(localStorage.getItem('cara_safety_pledge_count') || "342");
+        let hasPledged = localStorage.getItem('cara_has_pledged') === "true";
+
+        const countEl = document.getElementById("pledgeCount");
+        const btnTextEl = document.getElementById("pledgeBtnText");
+
+        function updatePledgeUI() {
+            countEl.innerText = `Đã có ${pledgeCount} người cùng mang thông điệp này trên mọi nẻo đường ✨`;
+            if (hasPledged) {
+                btnTextEl.innerText = "Đã nhận lời nhắc an toàn 🛵";
+            }
+        }
+
+        function sendSafetyPledge() {
+            if (!hasPledged) {
+                pledgeCount += 1;
+                hasPledged = true;
+                localStorage.setItem('cara_safety_pledge_count', pledgeCount);
+                localStorage.setItem('cara_has_pledged', "true");
+
+                // Micro-feedback
+                const btn = document.querySelector('.pledge-btn');
+                btn.style.transform = "scale(1.08)";
+                setTimeout(() => {
+                    btn.style.transform = "";
+                }, 200);
+
+                updatePledgeUI();
+            } else {
+                alert("Bạn đã lưu lại lời nhắc này rồi! Chúc bạn luôn vạn dặm bình an khi lăn bánh nhé. 💛");
+            }
+        }
+
+        updatePledgeUI();
+    </script>
+</body>
+
+</html>

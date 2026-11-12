@@ -1,0 +1,2245 @@
+/* html,
+body {
+    margin: 0 !important;
+    transition: .4s
+}
+
+#header {
+    height: 188px;
+    background: yellowgreen;
+    display: grid;
+}
+
+#header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#header img:nth-child(1) {
+    max-height: 120px;
+}
+
+#header img:nth-child(2) {
+    max-height: 75px;
+} */
+
+.cube_section .popup .popup-right,
+.cube_section .popup .popup-left,
+.cube_section .popcontainer {
+    border: 1px solid;
+}
+
+
+
+.cube_section .flex-cube {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    background-color: transparent;
+    height: auto;
+    max-width: 1140px;
+    padding: 0 20px;
+    gap: 40px;
+}
+
+.cube_section .text-left {
+    max-width: 520px;
+    width: 100%;
+}
+
+.cube_section .text-left h1 {
+    font-family: var(--font-body);
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 40%, #d5a864 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cube_section .text-left p.text-base {
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.cube_action_link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(213, 168, 100, 0.12);
+    border: 1px solid rgba(213, 168, 100, 0.35);
+    color: #d5a864;
+    font-weight: 600;
+    white-space: nowrap !important;
+    font-size: 0.88rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cube_action_link:hover {
+    background: rgba(213, 168, 100, 0.25);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.cube_section .s_cube {
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    transition: .5s;
+    max-width: 500px;
+    width: 100%;
+}
+
+.cube_section .cube {
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+    transition: .5s;
+    border: 1px solid;
+}
+
+
+.cube_section .side {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    box-sizing: border-box;
+    color: transparent;
+    background-color: #353535;
+    border: 1px #353535 solid;
+    position: relative;
+
+}
+
+.cube_section .left {
+    transform-origin: left center;
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: -160px;
+    top: -15px;
+    border-radius: 25px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: linear-gradient(180deg, #353535 0%, #000000 100%);
+}
+
+.cube_section .right {
+    background-color: #353535;
+    transform-origin: right center;
+    position: relative;
+    border-radius: 30px;
+    width: 200px;
+    height: 200px;
+}
+
+.cube_section .cube .side .button {
+    width: 100%;
+    height: 100%;
+}
+
+.cube_section .cube .side img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.cube_section .cube:hover .side img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+.cube_section .cube:hover {
+    margin-top: -80px;
+    cursor: pointer;
+}
+
+/* style icon */
+.cube_section .s_icon {
+    z-index: 9;
+}
+
+.cube_section .s_icon .item-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #37264b;
+    border-radius: 13px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-right: 0;
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+    transition: .4s;
+}
+
+.cube_section .s_icon .item-icon .text-desk {
+    color: #ffffff;
+}
+
+.cube_section .s_icon .item-icon a {
+    text-decoration: none;
+}
+
+.cube_section .s_icon .item-icon:nth-child(1) {
+    margin-bottom: 20px;
+}
+
+.cube_section .s_icon .item-icon a {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -50%);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.cube_section .s_icon .item-icon span.m0 {
+    overflow: hidden;
+
+
+    text-overflow: ellipsis;
+}
+
+.cube_section #textShare,
+.cube_section #textCreate {
+    color: #ffffff;
+    display: none;
+}
+
+.cube_section #iconShare:hover #textShare,
+.cube_section #iconCreate:hover #textCreate {
+    display: block;
+}
+
+.cube_section .test-mob {
+    font-size: 10px;
+    color: #ffffff;
+}
+
+.cube_section .desktonone {
+    display: none;
+}
+
+/* style popup page trauma */
+.cube_section .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.cube_section .overlay:target {
+    visibility: visible;
+    opacity: 1;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.cube_section .popup {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 0 auto;
+    position: fixed;
+    max-width: 810px;
+    width: calc(100vw - 100px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 33.5px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+    transition: .4s;
+    z-index: 99999999999;
+}
+
+.cube_section .popup h2 {
+    margin-top: 0;
+    color: #333333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.cube_section .popup .close {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -12px;
+    right: -12px;
+    transition: all 200ms;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333333;
+    background-color: #ffffff;
+    border-radius: 25px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.cube_section .popup .close:hover {
+    color: #ffffff;
+    background-color: #37264b;
+}
+
+.cube_section .popup .content {
+    overflow: auto;
+}
+
+.cube_section .popup .entryUser {
+    font-size: 20px;
+    color: #727690;
+    margin: 0;
+    font-weight: 600;
+    white-space: nowrap !important;
+}
+
+.cube_section .popup .entryID {
+    font-size: 20px;
+    color: #97b9b4;
+    margin: 0;
+    font-weight: 600;
+    white-space: nowrap !important;
+}
+
+.cube_section .popup .popup-right img {
+    max-width: 507px;
+    width: 100%;
+    max-height: 507px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cube_section .popup p {
+    margin: 0;
+}
+
+.cube_section .popup .imgRes {
+    display: none;
+}
+
+.cube_section .popup .imgRes img {
+    margin: 20px 0;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.cube_section .popup-Create {
+    max-width: 536px;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    background: #FFF;
+    padding: 41px;
+    box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    z-index: 99999999999;
+}
+
+.cube_section .popcontainer {
+    max-width: 456px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.cube_section .popup-Create h2 {
+    margin: 0 0 29px 0;
+}
+
+.cube_section .popup-Create h3 {
+    margin: 24px 0 0 0;
+}
+
+.cube_section .popup-img {
+    height: 100%;
+}
+
+.cube_section .popup-img img {
+    max-width: 456px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cube_section .popupCreate {
+    background: transparent !important
+}
+
+.cube_section .popup-btn {
+    text-align: center;
+    background: #D24F1D;
+    color: #FFF;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.cube_section .popup-btn a {
+    width: 100%;
+    position: relative;
+    display: block;
+    border: 1px solid;
+    padding: 19px 42px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.cube_section .popup-content {
+    overflow: auto;
+}
+
+.cube_section .popup-content p {
+    padding-right: 2px;
+}
+
+.cube_section .popup-Create::-webkit-scrollbar {
+    width: 8px;
+    height: 18px;
+}
+
+.cube_section .popup-Create::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.536);
+    background-clip: padding-box;
+    background-color: rgba(0, 0, 0, 0, 0.2);
+    -webkit-border-radius: 7px;
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05),
+        inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+.cube_section .popup-Create::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.cube_section .popup-Create::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+#child_hood_container {
+    background: #d4cfd7
+}
+
+/** font css **/
+#child_hood_container h1,
+#child_hood_container h2,
+#child_hood_container h3,
+#child_hood_container h4,
+#child_hood_container p,
+#child_hood_container span,
+#child_hood_container a {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+}
+
+@media only screen and (min-width:280px) {
+    .cube_section .flex-cube .text-left h1 {
+        color: #37264B;
+        display: inline-block;
+        font-weight: 900;
+        font-size: 45px;
+        line-height: 49px;
+        margin: 0;
+    }
+
+    .cube_section .flex-cube .text-base {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: left;
+        color: #37264B;
+        max-width: 660px;
+    }
+
+    .cube_section #showCreate h2 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+        color: #212121;
+    }
+
+    .cube_section #showCreate h3 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 18px;
+        color: #212121;
+    }
+
+    #showCreate p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #212121;
+    }
+
+    .cube_section .popup-btn a {
+        font-weight: 600;
+    white-space: nowrap !important;
+        font-size: 16px;
+        line-height: 0px;
+        color: #FFF;
+        font-weight: 600;
+    white-space: nowrap !important;
+    }
+}
+
+@media only screen and (min-width:1025px) {
+    .cube_section .flex-cube .text-left h1 {
+        color: #37264B;
+        display: inline-block;
+        font-weight: 900;
+        font-size: 45px;
+        line-height: 49px;
+        margin: 0;
+    }
+
+    .cube_section .flex-cube .text-base {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: left;
+        color: #37264B;
+        max-width: 660px;
+    }
+
+    .cube_section #showCreate h2 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+        color: #212121;
+    }
+
+    .cube_section #showCreate h3 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 18px;
+        color: #212121;
+    }
+
+    .cube_section #showCreate p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #212121;
+    }
+
+    .cube_section .popup-btn a {
+        font-weight: 600;
+    white-space: nowrap !important;
+        font-size: 16px;
+        line-height: 0px;
+        color: #FFF;
+        font-weight: 600;
+    white-space: nowrap !important;
+    }
+}
+
+/** font css **/
+@media screen and (max-width: 1052px) {
+    .cube_section .text-left {
+        width: 100%;
+    }
+
+    .cube_section .flex-cube {
+        text-align: center;
+    }
+
+    .cube_section .flex-cube .text-base {
+        max-width: fit-content;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .cube_section .popup-Create a.close {
+        position: absolute;
+        right: 5px;
+        bottom: -50px;
+        color: #ffffff;
+        background-color: #37264b;
+        width: 40px;
+        height: 40px;
+        border-radius: 13px;
+        align-items: center;
+        display: grid;
+        justify-content: center;
+        transition: all 200ms;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .cube_section .flex-cube .text-left {
+        text-align: center;
+    }
+
+    .cube_section .flex-cube .text-base {
+        max-width: inherit;
+        text-align: center;
+    }
+
+    /* style res popup */
+    .cube_section .popup {
+        display: block;
+    }
+
+    .cube_section .popup .popup-left {
+        width: 100%;
+    }
+
+    .cube_section .popup .popup-right {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .cube_section .popup .imgDesk {
+        display: none;
+    }
+
+    .cube_section .popup .imgRes {
+        display: block;
+    }
+
+    .cube_section .popup .content p:nth-child(1) {
+        margin: 0;
+    }
+
+    .cube_section .s_icon {
+        display: flex;
+        position: relative;
+        width: -webkit-fill-available;
+        justify-content: center;
+    }
+
+    .cube_section .s_icon .item-icon {
+        transform: none;
+    }
+
+    .cube_section .s_icon .item-icon:nth-child(1) {
+        margin-right: 20px;
+    }
+
+    .cube_section .s_icon .item-icon a {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .cube_section .s_icon .item-icon img {
+        margin: 0 auto;
+    }
+
+    .cube_section .s_icon #iconCreate:hover {
+        width: 40px;
+        height: 40px;
+        background-color: #37264b;
+        margin-right: 0;
+    }
+
+    .cube_section .s_icon #iconShare:hover {
+        width: 40px;
+        height: 40px;
+        background-color: #37264b;
+        margin-right: 20px;
+    }
+
+}
+
+@media only screen and (max-width:491px) {
+    .cube_section .popcontainer {
+        max-height: 498px;
+    }
+
+    .cube_section .popup {
+        max-height: 445px;
+    }
+
+    .cube_section .popup .content {
+        max-height: 160px;
+    }
+
+    .cube_section .popup-img,
+    .cube_section .popup-img img {
+        max-height: 150px;
+    }
+
+    .cube_section .popup-content {
+        max-height: 193px;
+    }
+
+    .cube_section .popup-Create {
+        transform: translate(0%, -50%);
+        right: 0%;
+        max-height: 440px;
+    }
+
+    .cube_section .left {
+        right: -15px;
+        top: -7px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .cube_section .right {
+        width: 120px;
+        height: 120px;
+    }
+
+    .cube_section .cube {
+        transform: rotateX(-20deg) rotateY(-60deg) rotateZ(0deg);
+    }
+
+    .cube_section .cube:hover {
+        margin-top: 3px;
+    }
+
+    .cube_section .flex-cube {
+        padding: 0px 20px;
+        height: calc(100vh - 188px) !important;
+
+    }
+
+    .cube_section .flex-cube .text-left h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 45px;
+    }
+
+    .cube_section .cube {
+        margin-left: -45px;
+        transform: rotateX(-20deg) rotateY(50deg) rotateZ(0deg);
+    }
+
+    .cube_section .flex-cube .text-base {
+        /* height: calc(100vh - 562px); */
+        height: auto;
+    }
+
+    .m0 {
+        display: none !important;
+    }
+
+    .desktonone {
+        display: block;
+    }
+
+    .cube_section .popup .close {
+        position: fixed;
+        bottom: -45px;
+        top: auto;
+        color: #ffffff;
+        background-color: #37264b;
+        width: 40px;
+        height: 40px;
+        border-radius: 13px;
+        align-items: center;
+        display: grid;
+    }
+
+    .cube_section .s_cube {
+        display: grid;
+        grid-template-columns: 50px 50px 50px;
+        /** tăng thêm 1 nếu có thêm 1 bài viết **/
+        gap: 25px;
+        justify-content: center;
+        margin: 0 auto;
+        /* margin-top: -50px; */
+        margin-left: 35px;
+        transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg)
+    }
+}
+
+@media (min-width:491px) and (max-width:1024px) {
+    .cube_section .popup {
+        max-height: 445px;
+    }
+
+    .cube_section .popup .content {
+        max-height: 160px;
+    }
+
+    .cube_section .popcontainer {
+        max-height: 498px;
+    }
+
+    .cube_section .popup-img,
+    .cube_section .popup-img img {
+        max-height: 150px;
+    }
+
+    .cube_section .popup-content {
+        max-height: 193px;
+    }
+
+    .cube_section .popup-Create {
+        transform: translate(0%, -50%);
+        right: 0%;
+        max-height: 440px;
+    }
+
+    .cube_section .popup {
+        max-height: 100%;
+    }
+
+    .cube_section .popup .content {
+        height: 100%;
+    }
+
+    .cube_section .left {
+        right: -15px;
+        top: -7px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .cube_section .right {
+        width: 120px;
+        height: 120px;
+    }
+
+    .cube_section .cube:hover {
+        margin-top: 3px;
+    }
+
+    .cube_section .flex-cube {
+        padding: 0px 20px;
+        height: calc(100vh - 188px) !important;
+
+    }
+
+    .cube_section .flex-cube .text-left h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 45px;
+    }
+
+    .cube_section .s_cube {
+        /* margin: 0 auto; */
+        /* margin-top: -50px; */
+        /* margin-left: 35px; */
+    }
+
+    .cube_section .cube {
+        margin-left: -45px;
+        transform: rotateX(-20deg) rotateY(50deg) rotateZ(0deg);
+    }
+
+    .cube_section .s_cube {
+        display: grid;
+        grid-template-columns: 50px 50px 50px;
+        /** tăng thêm 1 nếu có thêm 1 bài viết **/
+        gap: 25px;
+        justify-content: center;
+        transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg)
+    }
+}
+
+@media (min-width:1025px) {
+    .cube_section .popup-Create .close {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 0;
+        right: -12px;
+        transition: all 200ms;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333333;
+        background-color: #ffffff;
+        border-radius: 25px;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    }
+
+    .cube_section .popcontainer {
+        max-height: 498px;
+    }
+
+    .cube_section .popup-img,
+    .cube_section .popup-img img {
+        max-height: 150px;
+    }
+
+    .cube_section .popup-content {
+        max-height: 193px;
+    }
+
+    .cube_section .popup-Create {
+        max-height: 440px;
+    }
+
+    .cube_section .s_icon .item-icon a {
+        gap: 18px;
+    }
+
+    .cube_section .popup-Create {
+        transform: translate(-25%, -50%);
+        right: 0;
+    }
+
+    .cube_section .popup .popup-left {
+        max-width: 308px;
+        width: 100%;
+    }
+
+    .cube_section .popup {
+        max-height: 571px;
+    }
+
+    .cube_section .s_icon {
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translate(50%, 0%);
+    }
+
+    .cube_section .s_icon #iconShare:hover {
+        overflow: visible;
+        white-space: normal;
+        width: 200px;
+        transition: .4s;
+        background-color: #ed9c88;
+        margin-right: -200px;
+    }
+
+    .s_icon #iconCreate:hover {
+        overflow: visible;
+        white-space: normal;
+        width: 200px;
+        transition: .4s;
+        background-color: #ed9c88;
+        margin-right: -200px;
+    }
+
+    #child_hood_container {
+        overflow: hidden;
+
+    }
+
+    .cube_section .cube:nth-child(1) {
+        transform: rotateX(-30deg) rotateY(51deg) rotateZ(0deg);
+    }
+
+    .cube_section .cube:nth-child(2) {
+        transform: rotateX(-30deg) rotateY(51deg) rotateZ(0deg) translateY(10%);
+    }
+
+    .cube_section .cube:nth-child(3) {
+        transform: rotateX(-30deg) rotateY(51deg) rotateZ(0deg) translateY(20%);
+    }
+
+    .cube_section .cube:nth-child(4) {
+        transform: rotateX(-30deg) rotateY(51deg) rotateZ(0deg) translateY(30%);
+    }
+
+    .cube_section .cube:nth-child(5) {
+        transform: rotateX(-30deg) rotateY(51deg) rotateZ(0deg) translateY(40%);
+    }
+
+    .cube_section .cube:nth-child(6) {
+        transform: rotateX(-30deg) rotateY(51deg) rotateZ(0deg) translateY(50%);
+    }
+
+    .cube_section .cube:nth-child(7) {
+        transform: rotateX(-30deg) rotateY(51deg) rotateZ(0deg) translateY(60%);
+    }
+
+    .cube_section .side.left {
+        transform: rotateY(180deg) translateX(-55px);
+    }
+
+    .cube_section .side.right {
+        transform: rotateY(-180deg) translateX(200px);
+    }
+
+    .cube_section .cube {
+        margin-left: -115px;
+    }
+
+    .cube_section .s_cube {
+        display: grid;
+        grid-template-columns: 50px 50px 50px;
+        gap: 25px;
+        transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg) translateX(0%);
+    }
+}
+
+@media only screen and (min-width: 1366px) {
+    .cube_section .popup-Create .close {
+        top: -12px;
+    }
+
+    .cube_section .popcontainer {
+        max-height: 800px;
+    }
+
+    .cube_section .popup-img,
+    .cube_section .popup-img img {
+        max-height: 240px;
+    }
+
+    .cube_section .popup-content {
+        max-height: 245px;
+    }
+
+    .cube_section .popup-Create {
+        max-height: 600px;
+    }
+}
+
+/* ==========================================================================
+   3D PRISM ROTATING EXHIBITION SHOWCASE (.cube_section)
+   ========================================================================== */
+.cube_section {
+    position: relative;
+    padding: 90px 20px 110px 20px;
+    background: linear-gradient(180deg, #f9f6f0 0%, #f0e6d6 50%, #f9f6f0 100%);
+    overflow: hidden;
+
+    color: var(--text-main, #2c3531);
+}
+
+.cube_prism_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    perspective: 1200px;
+    width: 100%;
+    max-width: 1060px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+}
+
+/* Sidebar Navigation Menu (Left Column on Desktop) */
+.prism_nav_controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 290px;
+    flex-shrink: 0;
+    z-index: 10;
+    margin: 0;
+}
+
+.prism_nav_header {
+    margin-bottom: 4px;
+    padding-left: 4px;
+}
+
+.prism_nav_label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--accent-gold, #c89547);
+    text-transform: uppercase;
+}
+
+.prism_nav_btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1.5px solid rgba(200, 149, 71, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    color: var(--text-main, #2c3531);
+    padding: 12px 18px;
+    border-radius: 16px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    text-align: left;
+    width: 100%;
+}
+
+.nav_btn_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_btn_icon svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    fill: currentColor;
+}
+
+.nav_btn_icon_old {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.nav_btn_text {
+    flex: 1;
+}
+
+.prism_nav_btn:hover {
+    background: #ffffff;
+    border-color: var(--accent-gold, #c89547);
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(200, 149, 71, 0.15);
+}
+
+.prism_nav_btn.active {
+    background: var(--accent-green, #2f5d43);
+    color: #ffffff;
+    border-color: var(--accent-green, #2f5d43);
+    transform: translateX(8px);
+    box-shadow: 0 10px 24px rgba(47, 93, 67, 0.28);
+}
+
+.prism_nav_btn.auto_spin_btn {
+    margin-top: 6px;
+    border-style: dashed;
+}
+
+/* 3D Prism Stage (Right Column on Desktop) */
+.cube_prism_stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    flex: 1;
+    max-width: 680px;
+    margin-bottom: 0;
+}
+
+.cube_prism_stage::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 580px;
+    height: 475px;
+    background: radial-gradient(circle, rgba(200, 149, 71, 0.22) 0%, rgba(47, 93, 67, 0.08) 50%, rgba(249, 246, 240, 0) 75%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(25px);
+}
+
+.prism_arrow_btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(200, 149, 71, 0.4);
+    background: #ffffff;
+    color: var(--accent-green, #2f5d43);
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 8px 20px rgba(47, 93, 67, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.prism_arrow_btn:hover {
+    background: var(--accent-green, #2f5d43);
+    color: #ffffff;
+    border-color: var(--accent-green, #2f5d43);
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(47, 93, 67, 0.25);
+}
+
+.prism_arrow_btn:active {
+    transform: scale(0.95);
+}
+
+/* 3D Viewport Wrapper */
+.cube_3d_viewport {
+    width: 440px;
+    height: 475px;
+    position: relative;
+    perspective: 1200px;
+    flex-shrink: 0;
+}
+
+/* Inner 3D Scene Container (Facing Camera Upright) */
+.cube_3d_scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg);
+}
+
+.cube_3d_scene:active {
+    cursor: grabbing;
+}
+
+/* 4 Faces of 3D Prism (Luxury Editorial Card Architecture) */
+.cube_3d_face {
+    position: absolute;
+    width: 440px;
+    height: 475px;
+    border-radius: 36px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 24px 20px;
+    box-sizing: border-box;
+    backface-visibility: visible;
+    opacity: 0.35;
+    filter: blur(1.5px) grayscale(25%);
+    pointer-events: none !important;
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease, border-color 0.6s ease;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Glass Prism Reflective Highlight Flare */
+.cube_3d_face::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 35%, rgba(255, 255, 255, 0) 60%, rgba(200, 149, 71, 0.08) 100%);
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* Mirror Specular Reflection Flash on Rotation */
+.cube_3d_face::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -160%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.25) 20%,
+            rgba(255, 255, 255, 0.9) 50%,
+            rgba(255, 255, 255, 0.25) 80%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-28deg);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+}
+
+.cube_3d_face.prism_mirror_flash::after {
+    animation: prismMirrorSheen 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes prismMirrorSheen {
+    0% {
+        left: -160%;
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        left: 160%;
+        opacity: 0;
+    }
+}
+
+/* Position 4 faces in 3D Prism */
+.cube_3d_face.face_1 {
+    transform: rotateY(0deg) translateZ(195px);
+}
+
+.cube_3d_face.face_2 {
+    transform: rotateY(90deg) translateZ(195px);
+}
+
+.cube_3d_face.face_3 {
+    transform: rotateY(180deg) translateZ(195px);
+}
+
+.cube_3d_face.face_4 {
+    transform: rotateY(-90deg) translateZ(195px);
+}
+
+/* Active Front Face */
+.cube_3d_face.active {
+    opacity: 1;
+    filter: none;
+    box-shadow: 0 24px 55px rgba(30, 57, 42, 0.16), 0 4px 16px rgba(0, 0, 0, 0.04);
+    border-color: rgba(30, 57, 42, 0.12);
+    pointer-events: auto !important;
+
+    z-index: 9999 !important;
+}
+
+.cube_3d_face.face_1.active {
+    transform: rotateY(0deg) translateZ(215px);
+}
+
+.cube_3d_face.face_2.active {
+    transform: rotateY(90deg) translateZ(215px);
+}
+
+.cube_3d_face.face_3.active {
+    transform: rotateY(180deg) translateZ(215px);
+}
+
+.cube_3d_face.face_4.active {
+    transform: rotateY(-90deg) translateZ(215px);
+}
+
+/* 1. TOP MEDIA AREA (Mockup Editorial Card) */
+.prism_card_media {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+
+    aspect-ratio: 16 / 10.5;
+    width: 100%;
+    background: #e6e2da;
+    flex-shrink: 0;
+}
+
+.prism_card_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cube_3d_face.active:hover .prism_card_img {
+    transform: scale(1.04);
+}
+
+.prism_media_gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.62) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Media Top Bar Overlay */
+.prism_media_top_bar {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    right: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.prism_media_badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 13px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.prism_media_badge .badge_dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e07a5f;
+    box-shadow: 0 0 6px rgba(224, 122, 95, 0.6);
+}
+
+.prism_media_badge .badge_text {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1e392a;
+}
+
+.prism_media_icon_btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e392a;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    pointer-events: auto !important;
+
+}
+
+.prism_media_icon_btn:active {
+    transform: scale(0.92);
+}
+
+.prism_media_icon_btn.active {
+    background: #1e392a;
+    color: #ffffff;
+}
+
+.prism_media_icon_btn.active svg {
+    fill: currentColor;
+}
+
+/* Media Bottom Bar Overlay */
+.prism_media_bottom_bar {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.prism_media_category {
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.prism_media_counter {
+    color: #ffffff;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* 2. CARD BODY CONTENT */
+.prism_card_body {
+    padding: 18px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.prism_title_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.prism_card_title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #1e392a;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.prism_icon_chip {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #eef2ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #193828;
+}
+
+.prism_icon_chip svg { width: 20px; height: 20px; display: block; color: #193828; fill: currentColor; }
+/* unused */ .dummy_chip_old {
+    width: 20px;
+    height: 20px;
+    display: block;
+    color: #1e392a;
+    flex-shrink: 0;
+}
+
+.prism_card_quote {
+    border-left: 2.5px solid #d4a373;
+    padding-left: 14px;
+    margin: 0 0 16px 0;
+    font-size: 0.86rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #55655d;
+}
+
+.prism_quote_divider {
+    color: #193828;
+}
+
+.dock_lens_btn svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.dock_spin_btn svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+/* 3. ACTIONS ROW */
+.prism_card_actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-bottom: 2px;
+}
+
+.prism_card_cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #1e392a;
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    white-space: nowrap !important;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(30, 57, 42, 0.22);
+    transition: all 0.25s ease;
+    pointer-events: auto !important;
+
+}
+
+.prism_card_cta:hover {
+    background: #14281d;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(30, 57, 42, 0.3);
+}
+
+.prism_card_cta:active {
+    transform: scale(0.98);
+}
+
+.prism_card_cta .cta_arrow {
+    transition: transform 0.25s ease;
+}
+
+.prism_card_cta:hover .cta_arrow {
+    transform: translateX(4px);
+}
+
+.prism_sub_actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.prism_action_btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #1e392a;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    pointer-events: auto !important;
+
+}
+
+.prism_action_btn:hover {
+    border-color: #1e392a;
+    transform: translateY(-1px);
+}
+
+.prism_action_btn:active {
+    transform: scale(0.92);
+}
+
+.prism_action_btn.like_btn.active {
+    background: rgba(224, 122, 95, 0.12);
+    border-color: #e07a5f;
+    color: #e07a5f;
+}
+
+.prism_action_btn.like_btn.active svg {
+    fill: #e07a5f;
+}
+
+/* 4. FLOATING APPLE-STYLE BOTTOM NAVIGATION DOCK */
+.cube_mobile_dock {
+    margin: 56px auto 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 999px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    width: fit-content;
+    max-width: 94vw;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
+}
+
+.dock_nav_arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #5c6b64;
+    transition: all 0.2s ease;
+}
+
+.dock_nav_arrow:hover {
+    color: #1e392a;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.dock_divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 0 2px;
+}
+
+.dock_icons_group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dock_lens_btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #193828;
+}
+
+.dock_lens_btn svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.dock_spin_btn svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dock_lens_btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.dock_lens_btn.active {
+    background: #1e392a;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(30, 57, 42, 0.32);
+    transform: scale(1.05);
+}
+
+.dock_spin_btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #f0ede6;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    color: #1e392a;
+    transition: all 0.25s ease;
+}
+
+.dock_spin_btn:hover {
+    background: #e4dfd4;
+    transform: scale(1.06);
+}
+
+.dock_spin_btn.spinning { background: #193828 !important; color: #ffffff !important; box-shadow: 0 4px 12px rgba(25, 56, 40, 0.35) !important; }
+.dock_spin_btn_spinning_old {
+    background: #c89547;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(200, 149, 71, 0.35);
+}
+
+.dock_spin_btn.spinning .spin_icon {
+    display: inline-block;
+    animation: spinPrismIcon 3s linear infinite;
+}
+
+@keyframes spinPrismIcon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES FOR CUBE SECTION (.cube_section)
+   Tablet & Mobile (<= 1024px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .cube_prism_wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0 !important;
+    }
+
+    /* Hide desktop left sidebar navigation */
+    .prism_nav_controls {
+        display: none !important;
+    }
+
+    /* Hide desktop side arrows */
+    .prism_arrow_btn {
+        display: none !important;
+    }
+
+    /* Center 3D stage and show floating dock */
+    .cube_prism_stage {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+    }
+
+    .cube_section {
+        padding: 50px 16px 85px;
+        overflow: hidden;
+
+        max-width: 100vw;
+    }
+
+    .cube_section_title {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        line-height: 1.25;
+    }
+
+    .cube_section_subtitle {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        padding: 0 10px;
+        max-width: 620px;
+        margin: 0 auto 15px;
+    }
+
+    .cube_section_header {
+        margin: 0 auto 20px;
+    }
+
+    /* 3D Viewport on Tablet/Mobile */
+    .cube_3d_viewport {
+        width: min(390px, 90vw);
+        height: 410px;
+        margin: 0 auto;
+    }
+
+    .cube_3d_face {
+        width: min(390px, 90vw);
+        height: 410px;
+        border-radius: 30px;
+        padding: 12px 12px 20px 12px;
+    }
+
+    /* Position 4 faces in 3D Prism for Tablet/Mobile */
+    .cube_3d_face.face_1 {
+        transform: rotateY(0deg) translateZ(170px);
+    }
+
+    .cube_3d_face.face_2 {
+        transform: rotateY(90deg) translateZ(170px);
+    }
+
+    .cube_3d_face.face_3 {
+        transform: rotateY(180deg) translateZ(170px);
+    }
+
+    .cube_3d_face.face_4 {
+        transform: rotateY(-90deg) translateZ(170px);
+    }
+
+    .cube_3d_face.face_1.active {
+        transform: rotateY(0deg) translateZ(190px);
+    }
+
+    .cube_3d_face.face_2.active {
+        transform: rotateY(90deg) translateZ(190px);
+    }
+
+    .cube_3d_face.face_3.active {
+        transform: rotateY(180deg) translateZ(190px);
+    }
+
+    .cube_3d_face.face_4.active {
+        transform: rotateY(-90deg) translateZ(190px);
+    }
+
+    /* Show floating dock below 3D prism with safe distance */
+    .cube_mobile_dock {
+        display: flex;
+        margin: 56px auto 0;
+    }
+}
+
+/* MOBILE DEVICES (<= 768px) & SMALL SMARTPHONES (<= 480px) */
+@media (max-width: 768px) {
+    .cube_section {
+        padding: 40px 14px 60px;
+    }
+
+    .cube_prism_wrapper {
+        margin-top: 16px;
+        padding-top: 14px;
+    }
+
+    .cube_prism_stage {
+        width: auto !important;
+        max-width: 290px !important;
+    }
+
+    .cube_prism_stage::before {
+        width: 300px;
+        height: 280px;
+    }
+
+    .cube_3d_viewport {
+        width: min(265px, 72vw) !important;
+        height: 325px !important;
+    }
+
+    .cube_3d_face {
+        width: min(265px, 72vw) !important;
+        height: 325px !important;
+        border-radius: 24px !important;
+        background: #fbf9f5 !important;
+        padding: 10px 10px 13px 10px !important;
+    }
+
+    .cube_3d_face.face_1 {
+        transform: rotateY(0deg) translateZ(125px);
+    }
+
+    .cube_3d_face.face_2 {
+        transform: rotateY(90deg) translateZ(125px);
+    }
+
+    .cube_3d_face.face_3 {
+        transform: rotateY(180deg) translateZ(125px);
+    }
+
+    .cube_3d_face.face_4 {
+        transform: rotateY(-90deg) translateZ(125px);
+    }
+
+    .cube_3d_face.face_1.active {
+        transform: rotateY(0deg) translateZ(138px);
+    }
+
+    .cube_3d_face.face_2.active {
+        transform: rotateY(90deg) translateZ(138px);
+    }
+
+    .cube_3d_face.face_3.active {
+        transform: rotateY(180deg) translateZ(138px);
+    }
+
+    .cube_3d_face.face_4.active {
+        transform: rotateY(-90deg) translateZ(138px);
+    }
+
+    .prism_card_media {
+        border-radius: 18px !important;
+        height: 145px !important;
+        aspect-ratio: auto !important;
+    }
+
+    .prism_media_top_bar {
+        top: 9px;
+        left: 9px;
+        right: 9px;
+    }
+
+    .prism_media_badge {
+        padding: 4px 10px;
+        gap: 6px;
+    }
+
+    .prism_media_badge .badge_dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .prism_media_badge .badge_text {
+        font-size: 0.62rem;
+    }
+
+    .prism_media_icon_btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .prism_media_icon_btn svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .prism_media_bottom_bar {
+        bottom: 8px;
+        left: 11px;
+        right: 11px;
+    }
+
+    .prism_media_category,
+    .prism_media_counter {
+        font-size: 0.62rem;
+    }
+
+    .prism_card_body {
+        padding: 12px 4px 0 4px;
+    }
+
+    .prism_title_row {
+        margin-bottom: 6px;
+        gap: 8px;
+    }
+
+    .prism_card_title {
+        font-size: 1.15rem !important;
+    }
+
+    .prism_icon_chip {
+        width: 32px;
+        height: 32px;
+        font-size: 0.95rem;
+    }
+
+    .prism_icon_chip svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .prism_card_quote {
+        font-size: 0.72rem;
+        line-height: 1.45;
+        padding-left: 8px;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+    }
+
+    .prism_card_actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+        margin-top: auto !important;
+    }
+
+    .prism_card_cta {
+        white-space: nowrap !important;
+        flex: 1 !important;
+        justify-content: center !important;
+        min-width: 0 !important;
+        padding: 7px 13px !important;
+        font-size: 0.74rem !important;
+        gap: 6px;
+    }
+
+    .prism_sub_actions {
+        gap: 6px;
+    }
+
+    .prism_action_btn {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 10px !important;
+    }
+
+    .prism_action_btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .cube_mobile_dock {
+        padding: 6px 12px;
+        gap: 5px;
+        margin: 60px auto 0 !important;
+    }
+
+    .dock_lens_btn {
+        width: 34px;
+        height: 34px;
+        font-size: 1.02rem;
+    }
+
+    .dock_lens_btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .dock_spin_btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 0px) {
+    .cube_prism_stage {
+        max-width: 310px !important;
+    }
+
+    .cube_3d_viewport {
+        width: min(270px, 78vw) !important;
+        height: 396px !important;
+    }
+
+    .cube_3d_face {
+        width: min(270px, 78vw) !important;
+        height: 396px !important;
+        border-radius: 22px !important;
+        padding: 9px 9px 13px 9px !important;
+    }
+
+    .prism_card_title {
+        font-size: 1.18rem !important;
+    }
+
+    .prism_card_quote {
+        font-size: 0.76rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .prism_card_actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+        margin-top: auto !important;
+    }
+
+    .prism_card_cta {
+        white-space: nowrap !important;
+        flex: 1 !important;
+        justify-content: center !important;
+        min-width: 0 !important;
+        padding: 9px 12px !important;
+        font-size: 0.76rem !important;
+    }
+
+    .prism_action_btn {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 9px !important;
+    }
+
+    .cube_mobile_dock {
+        margin: 22px auto 0 !important;
+    }
+}
+
+@media (max-width: 1px) {
+    .cube_3d_viewport {
+        width: min(320px, 92vw);
+        height: 480px;
+    }
+
+    .cube_3d_face {
+        width: min(320px, 92vw);
+        height: 480px;
+        border-radius: 28px;
+        padding: 10px 10px 18px 10px;
+    }
+
+    .cube_3d_face.face_1 {
+        transform: rotateY(0deg) translateZ(125px);
+    }
+
+    .cube_3d_face.face_2 {
+        transform: rotateY(90deg) translateZ(125px);
+    }
+
+    .cube_3d_face.face_3 {
+        transform: rotateY(180deg) translateZ(125px);
+    }
+
+    .cube_3d_face.face_4 {
+        transform: rotateY(-90deg) translateZ(125px);
+    }
+
+    .cube_3d_face.face_1.active {
+        transform: rotateY(0deg) translateZ(175px);
+    }
+
+    .cube_3d_face.face_2.active {
+        transform: rotateY(90deg) translateZ(175px);
+    }
+
+    .cube_3d_face.face_3.active {
+        transform: rotateY(180deg) translateZ(175px);
+    }
+
+    .cube_3d_face.face_4.active {
+        transform: rotateY(-90deg) translateZ(175px);
+    }
+
+    .prism_card_media {
+        border-radius: 20px;
+    }
+
+    .prism_card_title {
+        font-size: 1.5rem;
+    }
+
+    .prism_card_quote {
+        font-size: 0.82rem;
+        margin-bottom: 14px;
+    }
+
+    .prism_card_actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+        margin-top: auto !important;
+    }
+
+    .prism_card_cta {
+        white-space: nowrap !important;
+        flex: 1 !important;
+        justify-content: center !important;
+        min-width: 0 !important;
+        padding: 10px 18px;
+        font-size: 0.82rem;
+    }
+
+    .prism_action_btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+    }
+
+    .dock_lens_btn {
+        width: 34px;
+        height: 34px;
+        font-size: 1.05rem;
+    }
+
+    .dock_spin_btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.85rem;
+    }
+
+    .cube_mobile_dock {
+        padding: 6px 12px;
+        gap: 5px;
+        margin: 50px auto 0;
+    }
+}

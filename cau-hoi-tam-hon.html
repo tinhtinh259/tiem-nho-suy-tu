@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Những Câu Hỏi Hiếm Khi Nghe - Tiệm Nhỏ Suy Tư</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <!-- reset & core stylesheets -->
+    <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-parchment: #f9f6f0;
+            --bg-card: #ffffff;
+            --text-main: #2c3531;
+            --text-sub: #5c6b64;
+            --accent-green: #2f5d43;
+            --accent-gold: #c89547;
+            --line-color: #e2dacd;
+            --notebook-line: rgba(184, 134, 59, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-parchment);
+            background-image: radial-gradient(rgba(200, 149, 71, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        main {
+            width: 100%;
+            padding-top: var(--height-header);
+            min-height: calc(100vh - 200px);
+        }
+
+        .journal-section {
+            padding: 60px 20px 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Banner Header */
+        .journal-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .journal-header .stamp-badge {
+            display: inline-block;
+            font-family: 'Charm', cursive;
+            font-size: 15px;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .journal-header h1 {
+            font-family: var(--font-body);
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: var(--accent-green);
+            margin: 8px 0 16px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .journal-header p {
+            color: var(--text-sub);
+            font-size: 15px;
+            line-height: 1.8;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .journal-header::after {
+            content: "🌿 📜 🌸";
+            display: block;
+            font-size: 16px;
+            letter-spacing: 12px;
+            margin-top: 24px;
+            opacity: 0.7;
+        }
+
+        /* Quick Navigation Bar */
+        .journal-nav-ribbon {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid var(--line-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .ribbon-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-sub);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .ribbon-btn:hover,
+        .ribbon-btn.active {
+            background: var(--accent-green);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(47, 93, 67, 0.25);
+        }
+
+        /* Question Journal Entry Card (Collapsible Accordion) */
+        .journal-entry {
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--line-color);
+            box-shadow: 0 8px 25px rgba(47, 93, 67, 0.05);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s ease;
+        }
+
+        .journal-entry.active {
+            box-shadow: 0 14px 40px rgba(47, 93, 67, 0.1);
+            border-color: rgba(200, 149, 71, 0.4);
+        }
+
+        .journal-entry::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-gold), var(--accent-green));
+        }
+
+        /* Header Toggle Bar */
+        .entry-header-toggle {
+            padding: 24px 32px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            user-select: none;
+            transition: background 0.25s ease;
+        }
+
+        .entry-header-toggle:hover {
+            background: rgba(249, 246, 240, 0.7);
+        }
+
+        .journal-entry.active .entry-header-toggle {
+            padding: 20px 32px 14px 32px;
+        }
+
+        .entry-header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .entry-meta-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .entry-number {
+            font-family: 'Charm', cursive;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .entry-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-green);
+            font-weight: 600;
+            background: rgba(47, 93, 67, 0.08);
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .entry-preview-title {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.5;
+            transition: all 0.25s ease;
+        }
+
+        .journal-entry.active .entry-preview-title {
+            display: none;
+        }
+
+        .entry-arrow-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(200, 149, 71, 0.3);
+            background: #ffffff;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .entry-header-toggle:hover .entry-arrow-icon {
+            border-color: var(--accent-gold);
+            background: rgba(200, 149, 71, 0.08);
+            transform: translateY(2px);
+        }
+
+        .journal-entry.active .entry-arrow-icon {
+            transform: rotate(180deg);
+            background: var(--accent-green);
+            color: #ffffff;
+            border-color: var(--accent-green);
+            box-shadow: 0 4px 12px rgba(47, 93, 67, 0.25);
+        }
+
+        .journal-entry.active .entry-header-toggle:hover .entry-arrow-icon {
+            transform: rotate(180deg) translateY(-2px);
+            background: #254a35;
+        }
+
+        .entry-arrow-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.25s ease;
+        }
+
+        /* Collapsible Body */
+        .entry-body-collapse {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, padding 0.3s ease;
+            padding: 0 32px;
+        }
+
+        .journal-entry.active .entry-body-collapse {
+            max-height: 1200px;
+            opacity: 1;
+            padding: 0 32px 32px 32px;
+            transition: max-height 0.5s ease-in-out, opacity 0.4s ease;
+        }
+
+        .entry-full-question {
+            font-family: var(--font-body);
+            font-size: 19px;
+            line-height: 1.75;
+            color: var(--text-main);
+            margin: 0 0 24px 0;
+            white-space: pre-line;
+            font-weight: 600;
+            padding-top: 16px;
+            border-top: 1px dashed var(--line-color);
+        }
+
+        /* Lined Notebook Paper Box */
+        .notebook-paper {
+            background-color: #fdfbf7;
+            background-image: repeating-linear-gradient(transparent,
+                    transparent 31px,
+                    var(--notebook-line) 31px,
+                    var(--notebook-line) 32px);
+            border: 1px solid var(--line-color);
+            border-radius: 16px;
+            padding: 16px 20px 16px 45px;
+            position: relative;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Red Margin Line on Left */
+        .notebook-paper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 32px;
+            width: 1px;
+            background: rgba(220, 100, 100, 0.3);
+        }
+
+        .notebook-textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: 'Charm', cursive, 'Poppins', sans-serif;
+            font-size: 18px;
+            line-height: 32px;
+            color: #2b3a32;
+            min-height: 128px;
+            resize: vertical;
+            padding: 0;
+        }
+
+        .notebook-textarea::placeholder {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            color: #a0aec0;
+            font-style: italic;
+        }
+
+        .entry-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+        }
+
+        .pen-hint {
+            font-size: 12px;
+            color: #a0aec0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .save-status {
+            font-size: 12px;
+            color: var(--accent-green);
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .save-status.active {
+            opacity: 1;
+        }
+
+        /* Pagination Controls Bar */
+        .journal-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .page-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line-color);
+            background: #ffffff;
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            min-width: 40px;
+            height: 40px;
+            box-sizing: border-box;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .page-btn.page-btn-nav {
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .page-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            display: block;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background: var(--accent-green);
+            color: #ffffff;
+            border-color: var(--accent-green);
+            box-shadow: 0 6px 16px rgba(47, 93, 67, 0.2);
+        }
+
+        .page-btn.active {
+            background: var(--accent-green);
+            color: #ffffff;
+            border-color: var(--accent-green);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* Custom Clear Confirmation Modal Popup */
+        .clear-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2500;
+            background: rgba(15, 23, 18, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.35s ease;
+        }
+
+        .clear-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .clear-modal-box {
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid var(--line-color);
+            padding: 36px 40px;
+            max-width: 460px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9);
+            transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative;
+        }
+
+        .clear-modal-overlay.active .clear-modal-box {
+            transform: scale(1);
+        }
+
+        .clear-modal-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .clear-modal-title {
+            font-family: var(--font-body);
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3531;
+            margin-bottom: 10px;
+        }
+
+        .clear-modal-desc {
+            font-size: 14px;
+            color: #5c6b64;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .clear-modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn-modal-cancel {
+            border: 1px solid var(--line-color);
+            background: #fdfbf7;
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-modal-cancel:hover {
+            background: #f4efe6;
+        }
+
+        .btn-modal-confirm {
+            border: none;
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+        }
+
+        .btn-modal-confirm:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+        }
+
+        @media(max-width: 768px) {
+            .journal-entry {
+                padding: 28px 24px;
+            }
+
+            .entry-question {
+                font-size: 17px;
+            }
+
+            .notebook-paper {
+                padding-left: 28px;
+            }
+
+            .notebook-paper::before {
+                left: 20px;
+            }
+        }
+    </style>
+    <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="journal-section">
+            <div class="journal-header">
+                <nav class="breadcrumb-trail"
+                    style="display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 14px; color: #64748b; margin-bottom: 20px;"
+                    aria-label="Breadcrumb">
+                    <a href="trang-chu.html" style="color: #2f5d43; text-decoration: none; font-weight: 500;">Trang
+                        chủ</a>
+                    <span style="color: #cbd5e1; font-size: 12px;">❯</span>
+                    <span style="color: #64748b;">Chiêm Nghiệm</span>
+                    <span style="color: #cbd5e1; font-size: 12px;">❯</span>
+                    <span style="color: #64748b; font-weight: 500;">Câu hỏi tâm hồn</span>
+                </nav>
+
+                <span class="stamp-badge">🍂 Sổ Nhật Ký Tĩnh Lặng</span>
+                <h1>Cuộc Hẹn Với Chính Mình </h1>
+                <p>
+                    Có lẽ đây là những câu hỏi ta ít khi tự hỏi, và cũng ít khi được nghe ai đó hỏi mình.
+                    Hãy gạt đi những ồn ào xung quanh, tự thưởng cho mình một trang giấy trắng và viết lại nét bút riêng
+                    tư nhất của bạn...
+                </p>
+
+                <div style="margin-top: 24px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                    <button onclick="exportJournal()"
+                        style="border: 1px solid var(--line-color); background: #ffffff; color: var(--accent-green); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 50px; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                        📥 Tải Nhật Ký Về Máy (.txt)
+                    </button>
+                    <button onclick="clearJournal()"
+                        style="border: 1px solid var(--line-color); background: rgba(220,100,100,0.06); color: #c53030; font-size: 13px; font-weight: 500; padding: 8px 18px; border-radius: 50px; cursor: pointer; transition: all 0.25s ease;">
+                        🧹 Xóa Trang Sổ Để Viết Mới
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIBBON QUICK NAV -->
+            <div class="journal-nav-ribbon" id="ribbonNav"></div>
+
+            <!-- JOURNAL ENTRIES CONTAINER -->
+            <div id="journalContainer"></div>
+
+            <!-- PAGINATION CONTROLS -->
+            <div class="journal-pagination" id="paginationControls"></div>
+        </section>
+
+        <!-- CUSTOM CLEAR MODAL -->
+        <div class="clear-modal-overlay" id="clearModalOverlay">
+            <div class="clear-modal-box">
+                <div class="clear-modal-icon">🧹 📜</div>
+                <div class="clear-modal-title">Làm Sạch Trang Sổ?</div>
+                <div class="clear-modal-desc">
+                    Bạn có chắc chắn muốn xóa tất cả những dòng chữ riêng tư đã viết trên trang sổ để viết lại từ đầu
+                    không?
+                </div>
+                <div class="clear-modal-actions">
+                    <button class="btn-modal-cancel" onclick="closeClearModal()">Giữ Lại Dòng Chữ</button>
+                    <button class="btn-modal-confirm" onclick="confirmClearJournal()">Xóa & Viết Mới</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+    <script src="js/plugin/jquery.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/global.js"></script>
+
+    <script>
+        const questionEntries = [
+            {
+                id: "q1",
+                tag: "🍂 Sứ mệnh & Buông bỏ",
+                text: "Có điều gì trong cuộc sống của bạn đã hoàn thành sứ mệnh của nó nhưng bạn vẫn đang cố giữ lại không?"
+            },
+            {
+                id: "q2",
+                tag: "☀️ Hạnh phúc đơn sơ",
+                text: "Điều gì khiến bạn cảm thấy hạnh phúc nhất trong cuộc sống?"
+            },
+            {
+                id: "q3",
+                tag: "💎 Bản sắc riêng",
+                text: "Những điều mình thấy đáng quý ở bản thân có thật sự đáng quý không?"
+            },
+            {
+                id: "q4",
+                tag: "🌌 Tần số năng lượng",
+                text: "Nếu việc mình gặp ai đó và họ để lại cho mình một bài học lớn như vậy, thì người đó có cảm nhận được không bạn nhỉ (kiểu như tần số năng lượng ấy)? Và có ai từng học được điều gì âm thầm từ mình không nhỉ?"
+            },
+            {
+                id: "q5",
+                tag: "☕ Im lặng & Tổn thương",
+                text: "Tại sao chiếc cốc vỡ còn phát ra tiếng, thế mà lúc con người tan nát lại chọn cách im lặng..."
+            },
+            {
+                id: "q6",
+                tag: "⚡ Vệt sáng ký ức",
+                text: "Có những người xuất hiện trong đời chúng ta như một tia chớp, rực rỡ, chói lòa rồi biến mất, nhưng ánh sáng của họ thì để lại vệt mờ trong đôi mắt ta suốt phần đời còn lại."
+            },
+            {
+                id: "q7",
+                tag: "🌧️ Cảm giác thỏa mãn",
+                text: "Chuyện khiến bạn hài lòng nhất trong cuộc sống này là gì vậy?\n\n(Đối với mình thì, trời mưa lớn và mình đang ở nhà đứng bên cửa sổ nhìn cơn mưa thật to, nhìn người khác, nhìn cây và cảnh vật trong cơn mưa. Thích đứng ở trong bóng râm để nhìn ánh nắng thật chói chang, nhìn cơn gió và bóng cây trong nắng. Cái cảm giác thật hài lòng và thỏa mãn.)"
+            },
+            {
+                id: "q8",
+                tag: "🏔️ Góc nhìn thiên nhiên",
+                text: "Theo bạn, núi có màu gì?"
+            },
+            {
+                id: "q9",
+                tag: "🍪 Hương vị bản thân",
+                text: "Nếu bạn là một chiếc bánh quy, bạn sẽ là loại nào?"
+            },
+            {
+                id: "q10",
+                tag: "📱 Ký ức trong album",
+                text: "Người khiến bạn chụp màn hình tin nhắn lưu vào album là ai?"
+            },
+            {
+                id: "q11",
+                tag: "🎨 Sắc màu cuộc sống",
+                text: "Bạn có bao nhiêu cây màu?"
+            },
+            {
+                id: "q12",
+                tag: "✍️ Cây viết & Túi bút",
+                text: "Bạn có bao nhiêu cây viết? (Và tớ thật sự muốn biết, tớ đang lựa túi đựng bút dạng túi cuộn đây...)"
+            },
+            {
+                id: "q13",
+                tag: "🧸 Tiệm băn khoăn (Tempo-7)",
+                text: "Nếu bạn được chọn một khoảnh khắc nhỏ bé trong tuần qua để lưu lại thành một bức ảnh động GIF trong ký ức, đó sẽ là khoảnh khắc nào?"
+            },
+            {
+                id: "q14",
+                tag: "🍵 Trái tim dịu dàng (Tempo-7)",
+                text: "Điều gì dịu dàng nhất ai đó từng làm cho bạn mà họ thậm chí không hề hay biết?"
+            },
+            {
+                id: "q15",
+                tag: "🌟 Ghi công bản thân",
+                text: "Có điều tốt đẹp nào bạn đã âm thầm làm suốt thời gian qua nhưng chưa từng ghi công cho chính mình không?"
+            },
+            {
+                id: "q16",
+                tag: "💔 Cảm xúc & Chi tiết",
+                text: "Bạn có từng mất thiện cảm với một người chỉ vì một hành động rất nhỏ không?"
+            },
+            {
+                id: "q17",
+                tag: "🤝 Kết nối người lạ",
+                text: "Vì sao mình thích tâm sự cùng người lạ?"
+            },
+            {
+                id: "q18",
+                tag: "🌙 Thế giới giấc mơ",
+                text: "Bạn có nghĩ giấc mơ là tổng hợp những khía cạnh, những suy nghĩ, những vấn đề, hình ảnh mà bạn tiếp xúc trong ngày hôm đó và vì nó cứ tiếp nhận quá nhiều thông tin hình ảnh mà nó không biết để làm gì, cho nên tối đến nó xào nấu, nó cook thành một câu chuyện tổng hợp những vấn đề đó lại không?"
+            },
+            {
+                id: "q19",
+                tag: "🪞 Phản chiếu nội tâm",
+                text: "Người khác trong mắt bạn thực ra chính là tấm gương phản chiếu con người bạn. Vì sao bạn ngưỡng mộ ai, điều đó lại tiết lộ rằng bạn đang thiếu điều gì?"
+            },
+            {
+                id: "q20",
+                tag: "✨ Giá trị độc bản",
+                text: "Bạn nghĩ điều tốt đẹp nào mà chỉ riêng bạn mới có thể mang đến cho thế giới này?"
+            },
+            {
+                id: "q21",
+                tag: "🌱 Sự dịu dàng mờ nhạt",
+                text: "Liệu chúng ta có từng bỏ qua sự dịu dàng của ai đó? Là vì điều ấy quá mờ nhạt, hay chỉ là vì ta đã không đủ để ý để nhìn ra?"
+            },
+            {
+                id: "q22",
+                tag: "📚 Nhân vật & Sách",
+                text: "Có nhân vật nào trong sách khiến bạn nghĩ về họ nhiều ngày sau khi đã đọc xong không?"
+            },
+            {
+                id: "q23",
+                tag: "⏳ Ký ức & Thời gian",
+                text: "Nếu có thể quay về quá khứ, bạn muốn quay lại thời điểm nào? Câu hỏi đó cho biết một điều khá đặc biệt bạn có nhận ra không?"
+            },
+            {
+                id: "q23",
+                tag: "⏳ Con người",
+                text: "Người đàng hoàng có dáng vẻ ra sao?"
+            }
+        ];
+
+        const ITEMS_PER_PAGE = 10;
+        let currentPage = 1;
+
+        // Toggle Entry Accordion
+        function toggleEntry(id) {
+            const el = document.getElementById(`entry_${id}`);
+            if (el) {
+                el.classList.toggle("active");
+            }
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(questionEntries.length / ITEMS_PER_PAGE);
+            const pagContainer = document.getElementById("paginationControls");
+            if (!pagContainer) return;
+            pagContainer.innerHTML = "";
+
+            if (totalPages <= 1) return;
+
+            // Prev Button
+            const prevBtn = document.createElement("button");
+            prevBtn.className = "page-btn page-btn-nav";
+            prevBtn.setAttribute("aria-label", "Trang trước");
+            prevBtn.title = "Trang trước";
+            prevBtn.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>`;
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => goToPage(currentPage - 1);
+            pagContainer.appendChild(prevBtn);
+
+            // Page Number Buttons
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement("button");
+                btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                btn.innerText = i;
+                btn.onclick = () => goToPage(i);
+                pagContainer.appendChild(btn);
+            }
+
+            // Next Button
+            const nextBtn = document.createElement("button");
+            nextBtn.className = "page-btn page-btn-nav";
+            nextBtn.setAttribute("aria-label", "Trang sau");
+            nextBtn.title = "Trang sau";
+            nextBtn.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => goToPage(currentPage + 1);
+            pagContainer.appendChild(nextBtn);
+        }
+
+        function renderRibbonNav() {
+            const ribbonNav = document.getElementById("ribbonNav");
+            if (!ribbonNav) return;
+            ribbonNav.innerHTML = "";
+
+            questionEntries.forEach((q, idx) => {
+                const btn = document.createElement("button");
+                const itemPage = Math.floor(idx / ITEMS_PER_PAGE) + 1;
+                const isCurrentPageItem = itemPage === currentPage;
+
+                btn.className = `ribbon-btn ${isCurrentPageItem ? 'active' : ''}`;
+                btn.innerText = `#${idx + 1}`;
+
+                btn.onclick = () => {
+                    if (currentPage !== itemPage) {
+                        currentPage = itemPage;
+                        renderJournalEntries();
+                    }
+
+                    setTimeout(() => {
+                        const el = document.getElementById(`entry_${q.id}`);
+                        if (el) {
+                            el.classList.add("active");
+                            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, 50);
+                };
+                ribbonNav.appendChild(btn);
+            });
+        }
+
+        function renderJournalEntries() {
+            const container = document.getElementById("journalContainer");
+            if (!container) return;
+            container.innerHTML = "";
+
+            const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIdx = startIdx + ITEMS_PER_PAGE;
+            const currentEntries = questionEntries.slice(startIdx, endIdx);
+
+            currentEntries.forEach((q, relIdx) => {
+                const realIdx = startIdx + relIdx;
+                const savedVal = localStorage.getItem(`cara_journal_${q.id}`) || "";
+
+                // Very 1st item of current page opens by default!
+                const isFirstOnPage = relIdx === 0;
+
+                const entryHtml = `
+                    <div class="journal-entry ${isFirstOnPage ? 'active' : ''}" id="entry_${q.id}">
+                        <div class="entry-header-toggle" onclick="toggleEntry('${q.id}')">
+                            <div class="entry-header-info">
+                                <div class="entry-meta-bar">
+                                    <span class="entry-number">Trang #${realIdx + 1}</span>
+                                    <span class="entry-tag">${q.tag}</span>
+                                </div>
+                                <div class="entry-preview-title">${q.text.split('\n')[0]}</div>
+                            </div>
+                            <div class="entry-arrow-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </div>
+                        </div>
+
+                        <div class="entry-body-collapse">
+                            <div class="entry-full-question">${q.text.replace(/\n/g, '<br>')}</div>
+
+                            <div class="notebook-paper">
+                                <textarea 
+                                    class="notebook-textarea" 
+                                    data-id="${q.id}" 
+                                    placeholder="Viết lại đôi dòng suy ngẫm cho riêng bạn..."
+                                >${savedVal}</textarea>
+                            </div>
+
+                            <div class="entry-footer">
+                                <span class="pen-hint">✒️ Nhật ký tự lưu trên thiết bị của bạn</span>
+                                <span class="save-status" id="save_${q.id}">✓ Đã lưu trang sổ này</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += entryHtml;
+            });
+
+            // Auto-Save Handler for textareas
+            document.querySelectorAll(".notebook-textarea").forEach(textarea => {
+                textarea.addEventListener("input", function () {
+                    const id = this.dataset.id;
+                    const val = this.value;
+                    localStorage.setItem(`cara_journal_${id}`, val);
+
+                    const status = document.getElementById(`save_${id}`);
+                    if (status) {
+                        status.classList.add("active");
+                        setTimeout(() => {
+                            status.classList.remove("active");
+                        }, 2000);
+                    }
+                });
+            });
+
+            renderPagination();
+            renderRibbonNav();
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderJournalEntries();
+            const container = document.getElementById("journalContainer");
+            if (container) {
+                container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Initialize on load
+        renderJournalEntries();
+
+        // Export Journal to .txt file
+        function exportJournal() {
+            let content = "=== TRẠM KÝ ỨC & SỔ NHẬT KÝ TĨNH LẶNG (CARA FLOW) ===\n\n";
+            let count = 0;
+
+            questionEntries.forEach((q, idx) => {
+                const ans = localStorage.getItem(`cara_journal_${q.id}`) || "";
+                if (ans.trim()) {
+                    count++;
+                    content += `[CÂU HỎI #${idx + 1} - ${q.tag}]\n${q.text}\n\n[CÂU TRẢ LỜI CỦA BẠN]:\n${ans}\n\n----------------------------------------\n\n`;
+                }
+            });
+
+            if (count === 0) {
+                alert("Bạn chưa viết câu trả lời nào vào sổ cả. Hãy gõ vài dòng tâm sự trước khi tải về nhé!");
+                return;
+            }
+
+            const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "nhat-ky-tam-hon-caraflow.txt";
+            a.click();
+        }
+
+        // Show custom clear modal
+        function clearJournal() {
+            const modal = document.getElementById("clearModalOverlay");
+            if (modal) {
+                modal.classList.add("active");
+            }
+        }
+
+        function closeClearModal() {
+            const modal = document.getElementById("clearModalOverlay");
+            if (modal) {
+                modal.classList.remove("active");
+            }
+        }
+
+        function confirmClearJournal() {
+            questionEntries.forEach(q => {
+                localStorage.removeItem(`cara_journal_${q.id}`);
+            });
+            document.querySelectorAll(".notebook-textarea").forEach(textarea => {
+                textarea.value = "";
+            });
+            closeClearModal();
+        }
+    </script>
+</body>
+
+</html>

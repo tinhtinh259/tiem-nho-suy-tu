@@ -1,0 +1,2451 @@
+:root {
+    --color-env-top: #B7EB60;
+    --color-env-banner: #D9F2FF;
+    --color-env-body: #006A4A;
+    --env-asset-bg-objects: url('/images/animation-2024/objects-env.webp');
+   
+    --env-grass-01-width: 80px;
+    --env-grass-01-height: 48px;
+    --env-grass-01-background-position: -27.5em -9.5em;    
+
+    --env-grass-02-width: 60px;
+    --env-grass-02-height: 50px;
+    --env-grass-02-background-position: -28em -13em;    
+
+    --env-grass-03-width: 40px;
+    --env-grass-03-height: 42px;
+    --env-grass-03-background-position: -28.5em -17em;    
+
+    --env-grass-04-width: 80px;
+    --env-grass-04-height: 48px;
+    --env-grass-04-background-position: -33.8em -9em;
+
+    --env-grass-05-width: 60px;
+    --env-grass-05-height: 50px;
+    --env-grass-05-background-position: -34.5em -13em;
+
+    --env-grass-06-width: 40px;
+    --env-grass-06-height: 42px;
+    --env-grass-06-background-position: -35em -17em;    
+}
+
+.reset-2023,
+body {
+    overflow-x: hidden;
+    /* touch-action: pan-y; */
+}
+
+body {
+    margin: 0;
+    padding: 0 !important;
+    width: 100%;
+    background: #dfdfdf
+}
+
+#header {
+    z-index: 999999999 !important
+}
+main {
+    background-color: var(--color-env-banner);
+}
+.desk {
+    display: none
+}
+.mob{
+    display: block;
+}
+
+@keyframes moveUpDown {
+
+    0%,
+    100% {
+        transform: translateY(15px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes moveUpDown2 {
+
+    0%,
+    100% {
+        transform: translateY(24px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes moveUpDown3 {
+
+    0%,
+    100% {
+        transform: translateY(5px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes moveUpDown4 {
+
+    0%,
+    100% {
+        transform: translateY(2px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes recylingsimbol {
+    100% {
+        transform: rotateZ(-360deg)
+    }
+}
+
+@keyframes propeller {
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
+@keyframes bluring {
+
+    0%,
+    100% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+.anima_container {
+    display: grid;
+}
+.env_house img{
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+    max-width: max-content;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;    
+}
+.env_house img.mob{
+    margin-bottom: -2px;
+}
+.env_house img.desk{
+    padding-left: 0.7em;
+    margin-bottom: -3px;
+}
+
+.env_post_time {
+    display: inline-block
+}
+
+@media only screen and (min-width:1024px) {
+    .env_content_poluted_text .env_post_time li {
+        float: right
+    }
+}
+
+@media only screen and (max-width:1024px) {
+    .env_content_poluted_text .env_tag_text {
+        float: left
+    }
+
+    .env_content_poluted_text .env_button_view {
+        display: inline-block !important;
+        min-width: 185px
+    }
+}
+
+@media only screen and (min-width:1px) {
+    :root{
+        --scale-objects: 0.45;
+    }
+
+    .desktop_min {
+        display: none
+    }
+
+    #rec {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        z-index: 5;
+    }
+
+    .svg_container {
+        position: relative;
+        padding-bottom: 117px;
+    }
+
+    #bg_road,
+    #fake_road img,
+    .env_asset {
+        position: absolute
+    }
+
+    #fake_road img {
+        top: 0;
+        z-index: 1;
+        right: 0;
+        width: 28px
+    }
+    
+    .env_road_main{
+        position: absolute;
+        top:0;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        max-width: 310px;
+        width: 100%;
+    }
+    .env_road_main,
+    .env_road_main img{
+        pointer-events: none;
+    }
+    .env_road_main.env_road_main_desk{
+        display: none;
+    }
+    .env_house{
+        position: absolute;
+        width: 100%;
+        margin: 0 auto;
+        background-color: var(--color-env-banner);
+    }
+    #bg_road {
+        background-color: var(--color-env-body);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1
+    }
+   
+    .env_content_forest_text {
+        top: 8.5em;
+        right: 0.5em;
+    }
+
+    .env_content_factory_text {
+        text-align: left
+    }
+
+    .env_content_factory_text,
+    .env_content_forest_text,
+    .env_content_poluted_text,
+    .env_content_repair_shop_text,
+    .env_content_trashbin_text {
+        max-width: 230px;
+        width: 100%;
+        padding: 0 20px;
+        z-index: 4;
+    }
+    .env_content_repair_shop_text{
+        max-width: 252px;
+    }
+    .env_content_forest_text,
+    .env_content_poluted_text{
+        max-width: 280px;
+    }
+    .env_content_trashbin_text {
+        top: 92em;
+        left: 0;
+        text-align: left
+    }
+
+    .env_content_poluted_text {
+        top: 150em;
+        right: 0;
+        text-align: left;
+    }
+
+    .env_content_repair_shop_text {
+        top: 193em;
+        left: 0;
+        text-align: left
+    }
+
+    .env_post_time #date-env::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -12px;
+        width: 5px;
+        height: 5px;
+        border-radius: 99px;
+        background: #fff;
+        line-height: 18px;
+        -webkit-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        -o-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+    }
+
+    .env_post_time li span {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 116.667%;
+        color: #fff;
+        position: relative;
+        text-transform: uppercase
+    }
+
+    .env_post_time li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        text-align: left
+    }
+
+    .env_content_forest_text ul li,
+    .env_content_poluted_text ul li,
+    .env_content_repair_shop_text li {
+        font-family: var(--font-body);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #fff
+    }
+    .env_content_forest_text p,
+    .env_content_factory_text p,
+    .env_content_poluted_text p,
+    .env_content_repair_shop_text p,
+    .env_content_trashbin_text p {
+        font-family: var(--font-body);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #fff;
+        margin: 0 0 20px 0;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        line-clamp: 7;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .env_content_forest_text h2,
+    .env_content_poluted_text h2,
+    .env_content_repair_shop_text h2,
+    .env_content_trashbin_text h2 {
+        font-family: var(--font-body);
+        font-style: normal;
+        font-size: clamp(30px, 5vw, 30px);
+        font-weight: 900;
+        color: #fff;
+        margin: 4px 0 8px 0;
+        line-height: 113%;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    /* .env_content_forest_text h2{
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+    .env_content_poluted_text h2,
+    .env_content_repair_shop_text h2 {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+    .env_content_trashbin_text h2 {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    } */
+    .env_content_forest_text h2{
+        max-width: none;
+    }
+
+    .env_content_poluted_text .env_tag_text {
+        justify-content: start !important
+    }
+
+    .env_content_poluted_text .env_tag_text,
+    .env_content_repair_shop_text .env_tag_text,
+    .env_content_trashbin_text .env_tag_text {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px 0;
+    }
+
+    .env_content_poluted_text .env_tag_text li,
+    .env_content_repair_shop_text .env_tag_text li,
+    .env_content_trashbin_text .env_tag_text li {
+        margin-right: 5px;
+        background: #fff;
+        border: 1px solid #e3e3e3;
+        border-radius: 4px;
+        flex-direction: row;
+        align-items: center;
+        padding: 4px;
+        color: #757575;
+        font-weight: 400;
+        font-size: 12px
+    }
+
+    .env_content_poluted_text .env_button_view,
+    .env_content_repair_shop_text .env_button_view,
+    .env_content_trashbin_text .env_button_view {
+        text-decoration: none;
+        color: #ffffff;
+        background: #d24f1d;
+        border-radius: 4px;
+        font-family: var(--font-body);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        display: block;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+        z-index: 9;
+        max-width: 225px;
+        margin-top: 16px;
+        line-height: 20px;
+    }
+
+    .env_content ul {
+        padding-left: 0;
+        list-style: none
+    }
+
+    .env_content_forest_text ul {
+        display: grid;
+        row-gap: 20px
+    }
+
+    .section_2_banner {
+        height: 230px;
+        position: relative;
+        background: var(--color-env-banner);
+        border-bottom: 1px solid var(--color-env-banner);
+    }
+
+    .section_2_banner::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        height: 5px;
+        width: 100%;
+        background: var(--color-env-banner);
+        z-index: 1
+    }
+
+    .section_2_banner img {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+        width: 100%;
+        height: 100%
+    }
+
+    .env_banner_title {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, 150%);
+        -moz-transform: translate(-50%, 150%);
+        -ms-transform: translate(-50%, 150%);
+        -o-transform: translate(-50%, 150%);
+        transform: translate(-50%, 150%);
+        font-size: clamp(33px, 5vw, 48px);
+        font-family: var(--font-body);
+        font-style: normal;
+        font-weight: 900;
+        color: var(--color-env-body);
+        margin: 0;
+        z-index: 5;
+        max-width: 440px;
+        width: 100%;
+        text-align: center
+    }
+
+    .svg_road_layout_contain {
+        height: 100%;
+        max-width: 65px;
+        position: absolute;
+        top: -72px;
+        max-height: 100%;
+        right: 50px;
+        display: none;
+    }
+    #svg_road,
+    .section_2_content {
+        position: relative;
+        margin: 0 auto
+    }
+
+    #road_layout {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -9
+    }
+
+    .section_2_content {
+        /* max-width: 360px; */
+        max-width: 480px;
+        width: 100%
+    }
+
+    .section_2 {
+        margin-top: 0;
+        height: 100vh
+    }
+
+    #svg_road {
+        z-index: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 327px;
+        vertical-align: middle;
+        margin-top: 0;
+        /* margin-top: -2px; */
+    }
+
+    .env_content_factory_text,
+    .env_content_forest_text {
+        display: block;
+        width: 100%;
+    }
+
+    .env_content_factory_text {
+        top: 66em;
+        right: 0
+    }
+
+    .section_2_3 {
+    padding-top: 48px;
+       padding-bottom: 64px;
+    }
+    .section_2_3.multiple_slides {
+        padding-bottom: 94px;
+    }
+    .svg_leaves{
+        -webkit-animation: scale(1.5);
+        -moz-animation: scale(1.5);
+        -ms-animation: scale(1.5);
+        -o-animation: scale(1.5);
+        transform: scale(1.5);
+    }
+    .ani_light_green_leaf {
+        transform-box: fill-box;
+        transform-origin: bottom
+    }
+    .ani_light_green_leaf.leave_22,
+    .ani_light_green_leaf.leave_19,
+    .ani_light_green_leaf.leave_11 {
+        transform-origin: left;
+    }
+
+    .ani_light_green_leaf.leave_23,
+    .ani_light_green_leaf.leave_4 {
+        transform-origin: right;
+    }
+    
+    .ani_light_green_leaf.leave_21,
+    .ani_light_green_leaf.leave_23,
+    .ani_light_green_leaf.leave_15,
+    .ani_light_green_leaf.leave_13,
+    .ani_light_green_leaf.leave_10,
+    .ani_light_green_leaf.leave_9,
+    .ani_light_green_leaf.leave_6,
+    .ani_light_green_leaf.leave_3, 
+    .ani_light_green_leaf.leave_1 {
+        -webkit-animation: 4s infinite grow;
+        -moz-animation: 4s infinite grow;
+        -ms-animation: 4s infinite grow;
+        -o-animation: 4s infinite grow;
+        animation: 4s infinite grow;
+    }
+
+    .ani_light_green_leaf.leave_24,
+    .ani_light_green_leaf.leave_22,
+    .ani_light_green_leaf.leave_20,
+    .ani_light_green_leaf.leave_16,
+    .ani_light_green_leaf.leave_12,
+    .ani_light_green_leaf.leave_11,
+    .ani_light_green_leaf.leave_8,
+    .ani_light_green_leaf.leave_7,
+    .ani_light_green_leaf.leave_4 {
+        -webkit-animation: 4s 2s infinite grow;
+        -moz-animation: 4s 2s infinite grow;
+        -ms-animation: 4s 2s infinite grow;
+        -o-animation: 4s 2s infinite grow;
+        animation: 4s 2s infinite grow;
+    }
+
+    .ani_light_green_leaf.leave_25,
+    .ani_light_green_leaf.leave_19,
+    .ani_light_green_leaf.leave_17,
+    .ani_light_green_leaf.leave_14,
+    .ani_light_green_leaf.leave_13,
+    .ani_light_green_leaf.leave_5,
+    .ani_light_green_leaf.leave_2 {
+        -webkit-animation: 4s 3s infinite grow2;
+        -moz-animation: 4s 3s infinite grow2;
+        -ms-animation: 4s 3s infinite grow2;
+        -o-animation: 4s 3s infinite grow2;
+        animation: 4s 3s infinite grow2;
+    }
+
+    .ani_light_green_leaf.leave_18,
+    .ani_light_green_leaf.leave_13{
+        -webkit-animation: 4s 3s infinite grow2-leave7;
+        -moz-animation: 4s 3s infinite grow2-leave7;
+        -ms-animation: 4s 3s infinite grow2-leave7;
+        -o-animation: 4s 3s infinite grow2-leave7;  
+        animation: 4s 3s infinite grow2-leave7;
+    }
+    /* scale-objects */
+    .env_vidacity,
+    .env_grass,
+    .env_river,
+    .env_woman,
+    .env_worm,
+    .env_decor_tree,
+    .env_stall,
+    .env_solar,
+    .env_building,
+    .env_bamboo_tree,
+    .env_bamboo_tree_anim,
+    .env_bamboo_house,
+    .env_2house,
+    .env_pond,
+    .env_bush {        
+        -webkit-animation: scale(var(--scale-objects));
+        -moz-animation: scale(var(--scale-objects));
+        -ms-animation: scale(var(--scale-objects));
+        -o-animation: scale(var(--scale-objects));
+        transform: scale(var(--scale-objects));
+    }
+
+    .env_asset_bg {
+        background-image: var(--env-asset-bg-objects);
+        background-repeat: no-repeat
+    }    
+    .env_bush {
+        width: 226px;
+        height: 206px;
+        background-position: 0 -9em;
+        transform-origin:left;
+        top: 20.5em;
+        left: 21em;
+        z-index: 0;
+    }
+    .env_bee{
+        width: 72px;
+        height: 101px;
+        background-position: -23.5em -2em;
+        transform-origin:left;
+        top: 22em;
+        left: 30em;
+    }
+    .env_pond{
+        --scale-objects: 0.55;
+        width: 560px;
+        height: 308px;
+        background-position: -68em -0.5em;
+        transform-origin: left;
+        top: 55.5em;
+        left: 0.5em;
+    }
+    .env_dragonfly{
+        width: 145px;
+        height: 156px;
+        background-position: -39.5em 0;
+        transform-origin:right;
+        top: 2em;
+        right: 17em;
+    }
+    .env_2house{
+        --scale-objects: 0.4;
+        width: 520px;
+        height: 382px;
+        background-position: -78.5em -54em;
+        transform-origin: left;
+        top: 64.5em;
+        left: 1em;
+    }    
+    .env_bamboo_house {
+        --scale-objects: 0.3;
+        width: 637px;
+        height: 434px;
+        background-position: -41em -23em;
+        transform-origin: left;
+        top: 73em;
+        left: 1em;
+        z-index: 2;
+    }
+    .env_bamboo_tree_1{
+        width: 78px;
+        height: 110px;
+        background-position: -15.5em -13em;
+        transform-origin: left;
+        left: 11em;
+        top: 70em;
+    }
+    .env_bamboo_tree_2{
+        --scale-objects: 0.36;        
+        width: 78px;
+        height: 104px;
+        background-position: -21.5em -13em;
+        transform-origin: left;
+        top: 77.5em;
+        left: 1.1em;
+    }
+    .env_bamboo_tree_3{
+        transform-origin:right;
+    }        
+    .env_bamboo_tree_4{ 
+        transform-origin: left;
+        top: 89.5em;
+        left: 19em;
+        z-index: 2;
+    }
+    .env_bamboo_tree_5 {
+        transform-origin: left;
+        top: 79em;
+        left: 11em;
+        z-index: 1;
+    }
+    .env_bamboo_tree_6{
+        transform-origin: left;
+    }
+    .env_bamboo_tree_anim{
+        --scale-objects: 0.4;
+    }
+    .env_land {
+        width: calc(100vw * 2);
+        height: 760px;
+        background-position: -9.5em -165em;
+        top: 113em;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0) scale(0.5);
+        -moz-transform: translate(-50%, 0) scale(0.5);
+        -ms-transform: translate(-50%, 0) scale(0.5);
+        -o-transform: translate(-50%, 0) scale(0.5);
+        transform: translate(-50%, 0) scale(0.5);
+    }
+   
+    .env_decor_tree_01{
+        --scale-objects: 0.33;        
+        width: 337px;
+        height: 300px;
+        background-position: -61.5em -83em;
+        transform-origin: left;
+        top: 137em;
+        left: 7em;
+    }
+    .env_decor_tree_02{
+        width: 107px;
+        height: 176px;
+        background-position: -83em -105.5em;
+        transform-origin: left;
+        top: 128em;
+        left: 0;
+    }
+    .env_decor_tree_03{
+        width: 150px;
+        height: 270px;
+        background-position: -83em -83em;
+        transform-origin: right;
+        top: 116.5em;
+        right: 0;
+    }
+   
+    .env_decor_tree_04{
+        width: 266px;
+        height: 240px;
+        background-position: -95em -83em;
+        transform-origin: left;
+        top: 223em;
+        left: -3em;
+    }  
+    .env_decor_tree_05{
+        width: 83px;
+        height: 104px;
+        background-position: -92.5em -100em;
+        transform-origin: left;
+        top: 130em;
+        left: 4em;
+    }
+    .env_decor_tree_06{
+        width: 117px;
+        height: 131px;
+        background-position: -92em -108em;
+        transform-origin:right;
+        top: 132em;
+        right: 0;
+    }
+    .env_woman{
+        width: 86px;
+        background-position: -104.5em -4em;
+        transform-origin: right;
+        height: 225px;
+        top: 140em;
+        right: 3em;
+    }
+    .env_building{
+        width: 599px;
+        height: 711.55px;
+        background-position: -0.7em -44em;
+        transform-origin:right;
+        top: 13em;
+        right: 1em;
+    }
+    .env_solar {
+        width:515px;
+        height: 299px;
+        background-position: -0.7em -22em;
+        transform-origin:right;
+        top: 40.5em;
+        right: 0;
+    }
+    
+    .env_stall{
+        --scale-objects: 0.366;
+        width: 528px;
+        height: 456px;
+        background-position: -43em -53.2em;
+        transform-origin:left;
+        top: 125em;
+        left: 6em;
+    }
+    .env_worm{
+        width: 78px;
+        height: 60px;
+        background-position: -48.5em -2em;
+        transform-origin: right;
+        top: 140em;
+        right: 1.5em;
+        -webkit-transform: scale(0.4);
+        -moz-transform: scale(0.4);
+        -ms-transform: scale(0.4);
+        -o-transform: scale(0.4);
+        transform: scale(0.4);
+    }
+    .svg_leaves{
+        position: absolute;
+        margin: 0 auto 0 0;
+        -webkit-transform: scale(0.45);
+        -moz-transform: scale(0.45);
+        -ms-transform: scale(0.45);
+        -o-transform: scale(0.45);
+        transform: scale(0.45);
+        z-index: 1;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        top: 123em;
+        text-align: right;
+        right: -10em;
+        width: 605px;
+        left: initial;
+    }
+    .env_river{
+        --scale-objects: 0.37;
+        width: 715px;
+        height: 660px;
+        background-position: -54.7em -121em;
+        transform-origin: right;
+        right: 0;
+        top: 178em;
+        position: fixed;
+    }
+   
+    .env_butterfly{
+        width: 78px;
+        height: 74px;
+        background-position: -10em -3em;
+        transform-origin:right;
+        top: 14em;
+        right: 34em;
+    }
+    .env_dragonfly_child{
+        top: 20em;
+        right: 3em;
+    }
+    .env_vidacity{
+        --scale-objects: 0.9;
+        position: absolute;
+        width: 534px;
+        height: 375px;
+        transform-origin: left;
+        top: 214em;
+        left: -11em;
+    }
+    .env_urban{
+        width: 132px;
+        height: 99px;
+        background-position: -63.5em -102em;
+        transform-origin: left;
+        top: 233em;
+        left: 1.5em;
+    }
+    .env_road_branch{
+        width: 139px;
+        height: 273px;
+        background-position: -81.5em -33.2em;
+        transform-origin: right;
+        right: 3.6em;
+        bottom: -4em;
+        z-index: -1;
+    }
+    .env_decor_01{
+        transform-origin:left;
+    }
+    .env_decor_02{
+        transform-origin:left;
+    }
+    .env_decor_03{
+        transform-origin:left;
+    }
+    .env_decor_04{
+        width: var(--env-grass-02-width);
+        height: var(--env-grass-02-height);
+        background-position: var(--env-grass-02-background-position);
+        transform-origin: left;
+        top: 105em;
+        left: 19em;
+    }
+    .env_decor_05{
+        width: var(--env-grass-02-width);
+        height: var(--env-grass-02-height);
+        background-position: var(--env-grass-02-background-position);
+        transform-origin:right;
+        top: 48em;
+        right: 15em;
+    }
+    .env_decor_06{
+        width: var(--env-grass-05-width);
+        height: var(--env-grass-05-height);
+        background-position: var(--env-grass-05-background-position);
+        transform-origin: left;
+        top: 135em;
+        left: 5em;
+    }
+    .env_decor_07{
+        width: var(--env-grass-05-width);
+        height: var(--env-grass-05-height);
+        background-position: var(--env-grass-05-background-position);
+        transform-origin: right;
+        top: 142em;
+        right: 1em;
+    }
+    .env_decor_08{
+        transform-origin:left;
+    }
+    .env_decor_09{
+        width: var(--env-grass-01-width);
+        height: var(--env-grass-01-height);
+        background-position: var(--env-grass-01-background-position);
+        transform-origin:left;
+        top: 179em;
+        left: 2.5em;
+    }
+    .env_decor_10{
+        width: var(--env-grass-01-width);
+        height: var(--env-grass-01-height);
+        background-position: var(--env-grass-01-background-position);
+        transform-origin: right;
+        top: 214em;
+        right: 1em;
+    }       
+   
+    /* start hide objects mobile */  
+    .env_icon_recycle_1,
+    .env_icon_recycle_2,
+    .env_bamboo_tree_6,
+    .env_bamboo_tree_3,  
+    .env_decor_08,
+    .env_decor_03,
+    .env_decor_02,
+    .env_decor_01,
+    .env_bush,
+    .env_bee {
+        display: none;
+     }
+     
+    /* end hide objects mobile */  
+     .related--author img{
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+
+    /* 6022 cut top road */
+    .section_2_1{
+        position: relative;
+        height: calc(100vh/2);
+        margin-top: 0;
+        max-height: 320px;
+    }
+    .section_2_banner{
+        height: 200px;
+    }
+    .env_house{
+        position: absolute;
+        bottom: 0;
+        padding-top: 0;
+    }
+    .env_house img.mob{
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        transform-origin: bottom;
+    }
+    .section_2_1 .env_banner_title{
+        font-size: clamp(33px, 5vw, 48px);
+        line-height: 1;
+    }
+    .env_objects{
+        position: absolute;
+        top: -4.3em;
+        left: 0;
+        right: 0;
+    }
+     /* 6022 cut top road */
+}
+/* open full width objects */
+@media only screen and (min-width:325px) {
+    .env_road_branch{
+        right: 3.8em;
+    }
+}
+@media only screen and (min-width:420px) {
+    .section_2_content {
+        max-width: 360px;
+        width: 100%
+    }
+    .env_decor_tree_03{
+        width: 188px;
+        right: -1em;
+    }
+    .env_solar {
+        width: 597px;
+        right: -1.8em;
+    }
+    .env_river{
+        top: 176.5em;
+    }
+   
+    .env_content_forest_text{
+        top: 9.5em;
+    }
+    .env_content_repair_shop_text{
+        max-width: 275px;
+        top: 190.5em;
+        left: -2em;
+    }
+    .env_content_trashbin_text{
+        max-width: 275px;
+        left: -2em;
+    }
+    .env_content_poluted_text{
+        max-width: 290px;
+        top: 150em;
+    }
+    .env_content_repair_shop_text p {
+        padding-right: 0;
+    }
+}
+@media only screen and (min-width:480px) {
+    .env_solar {
+        width: 597px;
+        right: -3em;
+    }
+    .env_river{
+        width: 850px;
+    }
+    .env_butterfly{
+        top: 15em;
+        right: 38em
+    }
+    .env_content_poluted_text{
+        top: 151em;
+    }
+}
+/* open full width objects */
+@media only screen and (min-width:492px) {
+    .env_land {        
+        top: 112em;
+    }
+    .env_river{
+        width: 905px;
+        top: 177.5em;
+    }
+    .env_decor_tree_02{
+        left: -2em;
+    }
+    #svg_road{
+        margin-top: 0;
+    }
+    .env_dragonfly_child{
+        right: 10em;
+    }
+    .env_content_forest_text,
+    .env_content_poluted_text{
+        right: -2em;
+    }
+}
+@media only screen and (min-width:640px) {
+    .env_river{
+        position: absolute;
+        top: 162em;
+        right: -5em;
+    }
+}
+@media only screen and (min-width:768px) {
+    .env_land {
+        background-position: -0.5em -165em;
+    }
+    .env_banner_title {
+        max-width: 100%;
+        top: 50%;
+        -webkit-transform: translate(-50%, 100%);
+        -moz-transform: translate(-50%, 100%);
+        -ms-transform: translate(-50%, 100%);
+        -o-transform: translate(-50%, 100%);
+        transform: translate(-50%, 100%);
+    }
+    /* 6022 cut top road */
+    .section_2_1{
+        position: relative;
+        height: calc(100vh/2);
+        margin-top: 0;
+        max-height: 350px;
+    }
+    .section_2_banner{
+        height: 230px;
+    }
+    /* 6022 cut top road */
+}
+@media only screen and (min-width:992px) {
+    .env_land {
+        background-position: 15.5em -165em;
+    }
+  
+}
+@media (min-width:1200px) and (max-width:1366px) {
+    .post_related_stories {
+        display: flex;
+        flex-wrap: wrap
+    }
+}
+@media only screen and (min-width:1200px) {
+    .section_2_3 {
+        padding-top: 80px;
+    }
+    .env_land {
+        width: 1654px;
+        background-position: -0.6em -165em;
+    }
+}
+@media only screen and (min-width:1366px) {
+    .env_road_main.env_road_main_mob{
+        display: none;
+    }
+    .env_decor_04{
+        display: none;
+     }
+    .env_road_main.env_road_main_desk{
+        display: block;
+        max-width: 1277px;
+    }
+    :root{
+        --scale-objects: 0.9;
+    }
+    .env_bamboo_tree_2,
+    .env_bamboo_tree_anim,
+    .env_pond,
+    .env_2house,
+    .env_bamboo_house,
+    .env_decor_tree_01,
+    .env_stall,
+    .env_urban,
+    .env_road_branch{
+        --scale-objects: 0.9;
+    }
+    .env_river{
+        --scale-objects: 0.85;
+    }
+    /* start hide objects mobile */   
+    .env_icon_recycle_1,
+    .env_icon_recycle_2,
+    .env_bamboo_tree_6, 
+    .env_bamboo_tree_3,
+    .env_decor_08,
+    .env_decor_03,
+    .env_decor_02,
+    .env_decor_01,
+    .env_bush,
+    .env_bee {
+       display: block;
+    }
+
+    /* end hide objects mobile */  
+    .desk {
+        display: block
+    }
+    .mob{
+        display: none;
+    }
+    .section_2_banner {
+        height: 358px;
+    }
+    .section_2_banner img {
+        top: 0;
+    }
+    .env_house{
+        padding-top: 0;
+    }
+    .desktop_min {
+        display: block
+    }
+    .mobile_min {
+        display: none
+    }
+    .env_content_forest_text h2, .env_content_poluted_text h2, .env_content_repair_shop_text h2, .env_content_trashbin_text h2{
+        font-size: 45px;
+        line-height: 49px;
+        margin: 8px 0 12px 0;
+    }
+    .env_content_forest_text h2  {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+    .env_content_trashbin_text h2,
+    .env_content_repair_shop_text h2,
+    .env_content_poluted_text h2  {
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+    }
+    
+    .env_content_forest_text p, .env_content_factory_text p, .env_content_poluted_text p, .env_content_repair_shop_text p, .env_content_trashbin_text p{
+        margin: 0 0 16px 0;
+        font-size: 16px;
+        line-height: 20px;
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+    }
+    .env_content_poluted_text .env_button_view, .env_content_repair_shop_text .env_button_view, .env_content_trashbin_text .env_button_view{
+        margin-top: 28px;
+    }   
+    .svg_container {
+        padding-bottom: 250px;
+    }
+    #rec {
+        width: 100px;
+        height: 180px;
+        z-index: 6;
+    }
+    .env_house{
+        position: absolute;
+        width: 100%;
+        margin: 0 auto;
+        background-color: var(--color-env-banner);
+    }
+    .env_objects{
+        position: absolute;
+        /* top: 12.5em; */
+        top: 0.5em;
+        left: 0;
+        right: 0;
+    }
+    #svg_road {
+        max-width:1276px;
+        position: relative;
+        /* right: -5.1em; */
+        right: -3em;
+        justify-content:end;
+        align-items: end;
+        /* margin-top: -2em; */
+        margin-top: 0;
+    }
+    
+    #fake_road img {
+        position: inherit;
+        z-index: 1;
+        width: 59px;
+        margin-top: -108px
+    }
+
+    .section_2_content {
+        max-width: 1356px;
+        width: calc(100% - 100px)
+    }
+
+    .env_content_forest_text {
+        max-width: 355px;
+        width: 100%;
+        top: 5em;
+        left: 4em;
+    }
+
+    .env_content_factory_text {
+        max-width: 470px;
+        width: 100%;
+        top: 40em;
+        right: 80px;
+        text-align: left
+    }
+
+    .env_content_trashbin_text {
+        max-width: 355px;
+        width: 100%;
+        top: 95em;
+        left: 4em;
+        text-align: left
+    }
+
+    .env_content_poluted_text {
+        max-width: 355px;
+        width: 100%;
+        top: 155em;
+        right: 8em;
+        text-align: left
+    }
+
+    .env_content_poluted_text .env_post_time li,
+    .env_content_poluted_text .env_post_time li span,
+    .env_content_poluted_text h2,
+    .env_content_poluted_text p {
+        color: #5A311B;
+    }
+    .env_content_poluted_text .env_post_time #date-env::after {
+        background-color: #5A311B;
+    }
+
+    .env_content_repair_shop_text {
+        max-width: 355px;
+        width: 100%;
+        top: 203.5em;
+        left: 4em;
+        text-align: left;
+    }
+    
+    .env_asset svg {
+        max-width: 100% !important
+    }
+
+    .post_related_stories {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 40px;
+    }
+    .env_banner_title {
+        max-width: 100%;
+        top: 41%;
+        font-size: clamp(88px, 5vw, 88px);
+        -webkit-transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+    .env_content_forest_text h2{
+        max-width: none;
+    }
+    .svg_road_layout_contain {
+        height: 100%;
+        max-width: 65px;
+        position: absolute;
+        top: -86px;
+        max-height: 100%;
+        right: 39.2em;
+        z-index: 1;
+    }
+    .env_bush,
+    .env_bee{
+        display: block;
+    }
+
+    .env_bush {
+        width: 226px;
+        height: 206px;
+        top: 20.5em;
+        left: 21em;
+        z-index: 0;
+        background-position: 0 -9em;
+    }
+    .env_bee{
+        width: 72px;
+        height: 101px;
+        top: 22em;
+        left: 30em;
+        background-position: -23.5em -2em;
+    }
+    .env_pond{
+        width: 560px;
+        height: 308px;
+        top: 37em;
+        left: 2em;
+        background-position: -68em -0.5em;
+    }
+    .env_dragonfly{
+        width: 145px;
+        height: 156px;
+        top: 1.2em;
+        background-position: -39.5em 0;
+        right: 2.5em;
+    }
+    .env_2house{
+        width: 520px;
+        height: 382px;
+        top: 62em;
+        left: 6em;
+        background-position: -78.5em -54em;
+    }    
+    .env_bamboo_house {
+        width: 637px;
+        height: 434px;
+        background-position: -41em -23em;
+        top: 92em;
+        left: 28.5em;
+        z-index: 2;
+    }
+    .env_bamboo_tree_1{
+        width: 78px;
+        height: 110px;
+        top: 63em;
+        left: 31em;
+        background-position: -15.5em -13em;
+    }
+    .env_bamboo_tree_2{
+        width: 78px;
+        height: 104px;
+        top: 73.5em;
+        left: 3.1em;
+        background-position: -21.5em -13em;
+    }
+    .env_bamboo_tree_3{
+        width: 78px;
+        height: 110px;
+        top: 105em;
+        right: 10em;
+        background-position: -15.5em -13em;
+    }
+    .env_bamboo_tree_4{
+        top: 80.5em;
+        left: 8.5em; 
+        z-index: 2;
+    }
+    .env_bamboo_tree_5 {
+        top: 87.5em;
+        left: 55em;
+        z-index: 1;
+    }
+    .env_bamboo_tree_6{
+        top: 114em;
+        left: 27em;
+        z-index: 2;
+    } 
+    .env_land{
+        width: 100vw;
+        top: 138em;
+        left: 50%;
+        background-position: -6.5em -165em;
+        -webkit-transform: translate(-50%, 0) scale(1);
+        -moz-transform: translate(-50%, 0) scale(1);
+        -ms-transform: translate(-50%, 0) scale(1);
+        -o-transform: translate(-50%, 0) scale(1);
+        transform: translate(-50%, 0) scale(1);
+    }
+    .env_decor_tree_01{
+        width: 337px;
+        height: 300px;
+        top: 172em;
+        left: 17em;
+        background-position: -61.5em -83em;
+        z-index: 2;
+    }
+    .env_decor_tree_02{
+        width: 107px;
+        height: 176px;
+        top: 149em;
+        left: -1em;
+        background-position: -83em -105.5em;
+    }
+    .env_decor_tree_03{
+        width: 198px;
+        height: 270px;
+        top: 134.5em;
+        right: -1em;
+        background-position: -83em -83em;
+    }
+    .env_decor_tree_04{
+        width: 266px;
+        height: 240px;
+        top: 248em;
+        left: -9em;
+        background-position: -95em -83em; 
+    }  
+    .env_decor_tree_05{
+        width: 83px;
+        height: 104px;
+        top: 143em;
+        left: 11em;
+        background-position: -92.5em -100em;
+    }
+    .env_decor_tree_06{
+        width: 117px;
+        height: 131px;
+        top: 155em;
+        right: 0;
+        background-position: -92em -108em;
+    }
+    .env_woman{
+        width: 86px;
+        height: 225px;
+        top: 174.5em;
+        right: 34em;
+        background-position: -104.5em -4em;
+    }
+    .env_building{
+        width: 599px;
+        height: 711.55px;
+        top: 4em;
+        background-position: -0.7em -44em;
+        right: -2em;
+    }
+    .env_solar {
+        width: 515px;
+        top: 80em;
+        position: fixed;
+        right: 0;
+    }
+   
+    .env_stall{
+        width: 528px;
+        height: 456px;
+        left: 14.6em;
+        top: 145em;
+        background-position: -43em -53.2em;
+        z-index: 2;
+    }
+    .env_worm{
+        width: 78px;
+        height: 60px;
+        top: 170em;
+        right: -1em;
+        background-position: -48.5em -2em;
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    .svg_leaves{
+        position: absolute;
+        margin: 0 auto 0 0;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        z-index: 1;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        top: 136em;
+        text-align: right;
+        right: 13.7em;
+        width: 605px;
+        /* overflow-x: clip; */
+        left: initial;
+        min-height: 280px;
+    }
+    .env_river{
+        width: 740px;
+        height: 660px;
+        top: 211em;
+        background-position: -54.7em -121em;
+        position: fixed;
+        right: 0;
+    }
+    .env_butterfly{
+        width: 78px;
+        height: 74px;
+        top: 0;
+        right: 18em;
+        background-position: -10em -3em;
+    }
+    .env_dragonfly_child{
+        top: 20em;
+        right: 2em;
+    }
+    .env_vidacity{
+        --scale-objects: 1;
+        width: 981px;
+        height: 475px;
+        top: 227.2em;
+        left: 4em;
+    }
+   
+    .env_urban{
+        width: 279px;
+        height: 123px;
+        top: 258em;
+        left: 7em;
+        background-position: -63em -108.5em;
+    }
+    .env_road_branch{
+        width: 316px;
+        height: 479px;
+        background-position: -91em -20.2em;
+        z-index: -1;
+        right: 11.3em;
+        bottom: -6em;
+    }  
+    .env_decor_01{
+        width: var(--env-grass-01-width);
+        height: var(--env-grass-01-height);
+        background-position: var(--env-grass-01-background-position);
+        top: 28em;
+        left: 12em;
+    }
+    .env_decor_02{
+        width: var(--env-grass-03-width);
+        height: var(--env-grass-03-height);
+        background-position: var(--env-grass-03-background-position);
+        top: 58em;
+        left: 5em;
+    }
+    .env_decor_03{
+        width: var(--env-grass-01-width);
+        height: var(--env-grass-01-height);
+        background-position: var(--env-grass-01-background-position);
+        top: 86em;
+        left: 28em;
+    }
+    .env_decor_04{
+        width: var(--env-grass-02-width);
+        height: var(--env-grass-02-height);
+        background-position: var(--env-grass-02-background-position);
+        top: 122em;
+        left: 16em;
+    }
+    .env_decor_05{
+        width: var(--env-grass-03-width);
+        height: var(--env-grass-03-height);
+        background-position: var(--env-grass-03-background-position);
+        top: 48em;
+        right: 15em;
+    }
+    .env_decor_06{
+        width: var(--env-grass-06-width);
+        height: var(--env-grass-06-height);
+        background-position: var(--env-grass-06-background-position);
+        top: 153em;
+        left: 12em;
+    }
+    .env_decor_07{
+        width: var(--env-grass-04-width);
+        height: var(--env-grass-04-height);
+        background-position: var(--env-grass-04-background-position);
+        top: 174em;
+        right: 1em;
+    }
+    .env_decor_08{
+        width: var(--env-grass-03-width);
+        height: var(--env-grass-03-height);
+        background-position: var(--env-grass-03-background-position);
+        top: 188em;
+        left: 41em;
+    }
+    .env_decor_09{
+        width: var(--env-grass-01-width);
+        height: var(--env-grass-01-height);
+        background-position: var(--env-grass-01-background-position);
+        top: 200em;
+        left: 2.5em;
+    }
+    .env_decor_10{
+        width: var(--env-grass-01-width);
+        height: var(--env-grass-01-height);
+        background-position: var(--env-grass-01-background-position);
+        top: 229em;
+        right: 16em;
+    }      
+    .env_icon_recycle_1,
+    .env_icon_recycle_2{
+        width: 12px;
+        height: 12px;
+        bottom: 6.3em;
+        -webkit-animation: 2.5s linear infinite recylingsimbol;
+        -moz-animation: 2.5s linear infinite recylingsimbol;
+        -ms-animation: 2.5s linear infinite recylingsimbol;
+        -o-animation: 2.5s linear infinite recylingsimbol;
+        animation: 2.5s linear infinite recylingsimbol;
+    } 
+    .env_icon_recycle_1 {       
+        background-position: -10px -45px;        
+        left: 49.5em;
+    }
+    .env_icon_recycle_2 {
+        background-position: -10px -65px;
+        left: 52em;
+    }
+   
+}
+@media (min-width:1366px) and (min-height:450px) {
+    .section_2_1{
+        position: relative;
+        max-height: 400px;
+        height: calc(100vh/1.5);
+        margin-top: 20px;
+    }
+    .section_2_banner{
+        height: 236px;
+    }
+    .env_house{
+        position: absolute;
+        bottom: 0;
+    }
+    .env_house img{
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        transform: scale(0.7);
+        transform-origin: bottom;
+    }
+    .section_2_1 .env_banner_title{
+        font-size: clamp(48px, 5vw, 88px);
+        line-height: 1;
+    }
+}
+@media (min-width:1366px) and (min-height:640px) {
+    .section_2_1{
+        height: calc(100vh/1.8);
+    }
+    
+}
+    @media (min-width:1366px) and (min-height:720px) {
+        .section_2_banner{
+            height: 250px;
+        }
+   
+    .env_house img{
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        transform: scale(0.8);
+        transform-origin: bottom;
+    }
+}
+@media only screen and (min-width:1399px){
+    :root{
+        --scale-objects: 1;
+    }
+    .env_bamboo_tree_2,
+    .env_bamboo_tree_anim,
+    .env_pond,
+    .env_2house,
+    .env_bamboo_house,
+    .env_decor_tree_01,
+    .env_stall,
+    .env_urban,
+    .env_road_branch{
+        --scale-objects: 1;
+    }
+    .env_river{
+        --scale-objects: 1;
+    }
+    #svg_road{
+        margin-top: -1px;
+    }
+    .env_river{
+        top: 213.5em;
+    }
+    .env_bamboo_tree_5{
+        top: 85.5em;
+        left: 57em;
+    }
+    .env_content_repair_shop_text,
+    .env_content_forest_text,
+    .env_content_trashbin_text {
+        left: 6.3em;
+    }
+}
+@media only screen and (min-width:1500px){
+    .env_content_repair_shop_text,
+    .env_content_forest_text,
+    .env_content_trashbin_text {
+        left: 6.7em;
+    }
+}
+@media only screen and (min-width:1540px){
+    .env_solar{
+        width: 597px;
+    }
+    .env_land{
+        background-position: -0.6em -165em;
+    }
+    .svg_leaves{
+        right: 16.7em;
+    }
+}
+@media only screen and (min-width:1779px){
+    .env_river{
+        width: 905px;
+        height: 660px;
+        background-position: -54.7em -121em;
+    }
+    .env_land{
+        width: 1654px;
+    }
+    .env_solar {
+        position: absolute;
+        top: 54em;
+        right: -10em;
+    }
+    .env_dragonfly_child{
+        right: 12em;
+    }
+}
+@media only screen and (min-width:1864px){   
+    .env_river{
+        position: absolute;
+        width: 905px;
+        height: 660px;
+        right: -16em;
+        top: 188em;
+        background-position: -54.7em -121em;
+    }
+    .env_dragonfly_child{
+        top: 20em;
+        right: 13em;
+    }
+}
+
+@media only screen and (max-width:491px) {
+    .env_content_repair_shop_text p {
+        padding-right: 20px
+    }
+
+    .env_content_poluted_text .env_button_view,
+    .env_content_repair_shop_text .env_button_view,
+    .env_content_trashbin_text .env_button_view {
+        max-width: 165px;
+        margin-top: 25px !important;
+        padding: 10px
+    }
+    .svg_leaves{
+        right: 0;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0) scale(0.45);
+        -moz-transform: translate(-50%, 0) scale(0.45);
+        -ms-transform: translate(-50%, 0) scale(0.45);
+        -o-transform: translate(-50%, 0) scale(0.45);
+        transform: translate(-50%, 0) scale(0.45);
+        display: block;
+        width: calc(100% * 2);
+    }
+}
+@media only screen and (max-width:340px) {
+    .svg_leaves{
+        z-index: 0;  
+        -webkit-transform: translate(-50%, 0) scale(0.4);
+        -moz-transform: translate(-50%, 0) scale(0.4);
+        -ms-transform: translate(-50%, 0) scale(0.4);
+        -o-transform: translate(-50%, 0) scale(0.4); 
+        transform: translate(-50%, 0) scale(0.4); 
+    }    
+    .env_stall{
+        left: 4em;
+    }
+    .env_decor_tree_01{
+        left: 5em;
+        top:137em;
+    }
+    .env_decor_tree_05{
+        left: 3em;
+    }
+    .env_decor_04{
+        left: 17em;
+    }
+    .env_decor_06{
+        left: 3em;
+    }
+    .env_decor_10{
+        right: 0.5em;
+    }     
+   
+    .env_vidacity{
+        --scale-objects: 0.8;
+        left: -9em;
+    }
+    .env_content_forest_text{
+        max-width: 252px;
+    }
+    .env_content_repair_shop_text{
+        padding-right: 0;
+        max-width: 230px;
+    }
+    .env_bamboo_tree_4{ 
+        left: 17em;
+    }
+}
+/* env animation */
+@keyframes moveBug {
+    0%,
+    100% {
+        -webkit-transform: translateX(0) scale(var(--scale-bug));
+        -moz-transform: translateX(0) scale(var(--scale-bug));
+        -ms-transform: translateX(0) scale(var(--scale-bug));
+        -o-transform: translateX(0) scale(var(--scale-bug));
+        transform: translateX(0) scale(var(--scale-bug))
+    }
+
+    25% {
+        -webkit-transform: translateX(30px) translateY(-30px) rotate(5deg) scale(var(--scale-bug));
+        -moz-transform: translateX(30px) translateY(-30px) rotate(5deg) scale(var(--scale-bug));
+        -ms-transform: translateX(30px) translateY(-30px) rotate(5deg) scale(var(--scale-bug));
+        -o-transform: translateX(30px) translateY(-30px) rotate(5deg) scale(var(--scale-bug));
+        transform: translateX(30px) translateY(-30px) rotate(5deg) scale(var(--scale-bug))
+    }
+
+    50% {
+        -webkit-transform: translateX(60px) translateY(0) scale(var(--scale-bug));
+        -moz-transform: translateX(60px) translateY(0) scale(var(--scale-bug));
+        -ms-transform: translateX(60px) translateY(0) scale(var(--scale-bug));
+        -o-transform: translateX(60px) translateY(0) scale(var(--scale-bug));
+        transform: translateX(60px) translateY(0) scale(var(--scale-bug))
+    }
+
+    75% {
+        -webkit-transform: translateX(30px) translateY(30px) rotate(-5deg) scale(var(--scale-bug));
+        -moz-transform: translateX(30px) translateY(30px) rotate(-5deg) scale(var(--scale-bug));
+        -ms-transform: translateX(30px) translateY(30px) rotate(-5deg) scale(var(--scale-bug));
+        -o-transform: translateX(30px) translateY(30px) rotate(-5deg) scale(var(--scale-bug));
+        transform: translateX(30px) translateY(30px) rotate(-5deg) scale(var(--scale-bug))
+    }
+}
+@-webkit-keyframes grow {
+    0% {
+        opacity: .5;
+        -webkit-transform: scale(.5);
+        -moz-transform: scale(.5);
+        -ms-transform: scale(.5);
+        -o-transform: scale(.5);
+        transform: scale(.5)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(.5);
+        -moz-transform: scale(.5);
+        -ms-transform: scale(.5);
+        -o-transform: scale(.5);
+        transform: scale(.5)
+    }
+}
+@-webkit-keyframes grow2 {
+    0% {
+        opacity: .5;
+        -webkit-transform: scale(.7);
+        -moz-transform: scale(.7);
+        -ms-transform: scale(.7);
+        -o-transform: scale(.7);
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(.7);
+        -moz-transform: scale(.7);
+        -ms-transform: scale(.7);
+        -o-transform: scale(.7);
+        transform: scale(.7);
+    }
+}
+@-webkit-keyframes grow2-leave7 {
+    0% {
+        opacity: .5;
+        -webkit-transform: scale(.7) translateY(0);
+        -moz-transform: scale(.7) translateY(0);
+        -ms-transform: scale(.7) translateY(0);
+        -o-transform: scale(.7) translateY(0);
+        transform: scale(.7) translateY(0)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1) translateY(5px);
+        -moz-transform: scale(1) translateY(5px);
+        -ms-transform: scale(1) translateY(5px);
+        -o-transform: scale(1) translateY(5px);
+        transform: scale(1) translateY(5px)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(.7) translateY(0);
+        -moz-transform: scale(.7) translateY(0);
+        -ms-transform: scale(.7) translateY(0);
+        -o-transform: scale(.7) translateY(0);
+        transform: scale(.7) translateY(0)
+    }
+}
+.env_bee{
+    --scale-bug: 0.6;
+    -webkit-animation: 15s linear infinite moveBug;
+    -moz-animation: 15s linear infinite moveBug;
+    -ms-animation: 15s linear infinite moveBug;
+    -o-animation: 15s linear infinite moveBug;
+    animation: 15s linear infinite moveBug;
+}
+.env_dragonfly{
+    --scale-bug: 1;
+    -webkit-animation: 20s linear infinite moveBug;
+    -moz-animation: 20s linear infinite moveBug;
+    -ms-animation: 20s linear infinite moveBug;
+    -o-animation: 20s linear infinite moveBug;
+    animation: 20s linear infinite moveBug;
+}
+.env_dragonfly{
+    --scale-bug: 1;
+    -webkit-animation: 20s linear infinite moveBug;
+    -moz-animation: 20s linear infinite moveBug;
+    -ms-animation: 20s linear infinite moveBug;
+    -o-animation: 20s linear infinite moveBug;
+    animation: 20s linear infinite moveBug;
+}
+.env_butterfly{
+    --scale-bug: 0.8;
+    -webkit-animation: 20s linear infinite moveBug;
+    -moz-animation: 20s linear infinite moveBug;
+    -ms-animation: 20s linear infinite moveBug;
+    -o-animation: 20s linear infinite moveBug;
+    animation: 20s linear infinite moveBug;
+}
+
+/* bamboo grow animation */
+a.bottom-path {
+    position: relative;
+    z-index: 100;
+}
+
+:root{
+    --time-grow-bamboo: 2s;
+}
+#mid-leaf.animate {
+    opacity:1;
+    -webkit-animation: growing_leaf var(--time-grow-bamboo) forwards;
+    -moz-animation: growing_leaf var(--time-grow-bamboo) forwards;
+    -ms-animation: growing_leaf var(--time-grow-bamboo) forwards;
+    -o-animation: growing_leaf var(--time-grow-bamboo) forwards;
+    animation: growing_leaf var(--time-grow-bamboo) forwards;
+}
+#mid-leaf_2.animate {
+    opacity:1;
+    -webkit-animation: growing_leaf_2 var(--time-grow-bamboo) forwards;
+    -moz-animation: growing_leaf_2 var(--time-grow-bamboo) forwards;
+    -ms-animation: growing_leaf_2 var(--time-grow-bamboo) forwards;
+    -o-animation: growing_leaf_2 var(--time-grow-bamboo) forwards;
+    animation: growing_leaf_2 var(--time-grow-bamboo) forwards;
+}
+#mid-leaf_3.animate {
+    opacity:1;
+    -webkit-animation: growing_leaf_3 var(--time-grow-bamboo) forwards;
+    -moz-animation: growing_leaf_3 var(--time-grow-bamboo) forwards;
+    -ms-animation: growing_leaf_3 var(--time-grow-bamboo) forwards;
+    -o-animation: growing_leaf_3 var(--time-grow-bamboo) forwards;
+    animation: growing_leaf_3 var(--time-grow-bamboo) forwards;
+}
+#top-leaf.animate{
+    opacity:1;
+    -webkit-animation: growing_leaf_top var(--time-grow-bamboo) forwards;
+    -moz-animation: growing_leaf_top var(--time-grow-bamboo) forwards;
+    -ms-animation: growing_leaf_top var(--time-grow-bamboo) forwards;
+    -o-animation: growing_leaf_top var(--time-grow-bamboo) forwards;
+    animation: growing_leaf_top var(--time-grow-bamboo) forwards;
+}
+#mid-tree,
+#mid-tree_2,
+#mid-tree_3,
+#top-tree {
+    -webkit-transform: translateX(0) scale3d(0, 0, 1);
+    -moz-transform: translateX(0) scale3d(0, 0, 1);
+    -ms-transform: translateX(0) scale3d(0, 0, 1);
+    -o-transform: translateX(0) scale3d(0, 0, 1);
+    transform: translateX(0) scale3d(0, 0, 1);
+}
+#mid-tree.animate {
+    -webkit-transform: translateX(0) scale3d(0, 0, 1);
+    -moz-transform: translateX(0) scale3d(0, 0, 1);
+    -ms-transform: translateX(0) scale3d(0, 0, 1);
+    -o-transform: translateX(0) scale3d(0, 0, 1);
+    transform: translateX(0) scale3d(0, 0, 1);
+    transform-origin: bottom;
+    -webkit-animation: growing var(--time-grow-bamboo) forwards;
+    -moz-animation: growing var(--time-grow-bamboo) forwards;
+    -ms-animation: growing var(--time-grow-bamboo) forwards;
+    -o-animation: growing var(--time-grow-bamboo) forwards;
+    animation: growing var(--time-grow-bamboo) forwards;
+}
+#mid-tree_2.animate {
+    -webkit-transform: translateX(0) scale3d(0, 0, 1);
+    -moz-transform: translateX(0) scale3d(0, 0, 1);
+    -ms-transform: translateX(0) scale3d(0, 0, 1);
+    -o-transform: translateX(0) scale3d(0, 0, 1);
+    transform: translateX(0) scale3d(0, 0, 1);
+    transform-origin: bottom;
+    -webkit-animation: growing-2 var(--time-grow-bamboo) forwards;
+    -moz-animation: growing-2 var(--time-grow-bamboo) forwards;
+    -ms-animation: growing-2 var(--time-grow-bamboo) forwards;
+    -o-animation: growing-2 var(--time-grow-bamboo) forwards;
+    animation: growing-2 var(--time-grow-bamboo) forwards;
+}
+#mid-tree_3.animate {
+    -webkit-transform: translateX(0) scale3d(0, 0, 1);
+    -moz-transform: translateX(0) scale3d(0, 0, 1);
+    -ms-transform: translateX(0) scale3d(0, 0, 1);
+    -o-transform: translateX(0) scale3d(0, 0, 1);
+    transform: translateX(0) scale3d(0, 0, 1);
+    transform-origin: bottom;
+    -webkit-animation: growing-3 var(--time-grow-bamboo) forwards;
+    -moz-animation: growing-3 var(--time-grow-bamboo) forwards;
+    -ms-animation: growing-3 var(--time-grow-bamboo) forwards;
+    -o-animation: growing-3 var(--time-grow-bamboo) forwards;
+    animation: growing-3 var(--time-grow-bamboo) forwards;
+}
+#top-tree.animate{transform: translateX(0) scale3d(0, 0, 1);
+    transform-origin: bottom;
+    -webkit-animation: growing-top var(--time-grow-bamboo) forwards var(--time-grow-bamboo);
+    -moz-animation: growing-top var(--time-grow-bamboo) forwards var(--time-grow-bamboo);
+    -ms-animation: growing-top var(--time-grow-bamboo) forwards var(--time-grow-bamboo);
+    -o-animation: growing-top var(--time-grow-bamboo) forwards var(--time-grow-bamboo);
+    animation: growing-top var(--time-grow-bamboo) forwards var(--time-grow-bamboo);
+}
+@-webkit-keyframes growing-top {
+    0% {
+        opacity: 1;
+        transform: translateX(3px) translateY(-60px) scale3d(0.2, 0.2, 1)
+    }
+
+    20% {
+        transform: translateX(3px) translateY(-40px) scale3d(0.4, 0.4, 1);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translateX(3px) translateY(-20px) scale3d(0.6, 0.6, 1);
+        opacity: 1;
+    }
+
+    60% {
+        transform: translateX(1px) translateY(0px) scale3d(0.8, 0.8, 1);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateX(1px) translateY(0px) scale3d(0.9, 0.9, 1);
+        opacity: 1;
+    }
+    100% {
+        transform:translateX(0px) translateY(0px) scale3d(1, 1, 1);
+        opacity: 1;
+    }
+}
+@keyframes growing-top {
+    0% {
+        opacity: 1;
+        transform: translateX(3px) translateY(-60px) scale3d(0.2, 0.2, 1)
+    }
+
+    20% {
+        transform: translateX(3px) translateY(-40px) scale3d(0.4, 0.4, 1);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translateX(3px) translateY(-20px) scale3d(0.6, 0.6, 1);
+        opacity: 1;
+    }
+
+    60% {
+        transform: translateX(1px) translateY(0px) scale3d(0.8, 0.8, 1);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateX(1px) translateY(0px) scale3d(0.9, 0.9, 1);
+        opacity: 1;
+    }
+    100% {
+        transform:translateX(0px) translateY(0px) scale3d(1, 1, 1);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes growing {
+    0% {
+        transform: translateX(2px) scale3d(0.2, 0.2, 1);
+    }
+
+    20% {
+        transform: translateX(2px) scale3d(0.4, 0.4, 1);
+    }
+
+    40% {
+        transform: translateX(1.5px) scale3d(0.6, 0.6, 1);
+    }
+
+    60% {
+        transform: translateX(0.5px) translateY(-4.5px) scale3d(0.8, 0.8, 1);
+    }
+
+    80% {
+        transform: translateX(0.5px) translateY(-5.5px) scale3d(0.9, 0.9, 1);
+    }
+
+    100% {
+        transform: translateX(0px) scale3d(1, 1, 1);
+    }
+}
+@keyframes growing {
+    0% {
+        transform: translateX(2px) scale3d(0.2, 0.2, 1);
+    }
+
+    20% {
+        transform: translateX(2px) scale3d(0.4, 0.4, 1);
+    }
+
+    40% {
+        transform: translateX(1.5px) scale3d(0.6, 0.6, 1);
+    }
+
+    60% {
+        transform: translateX(0.5px) translateY(-4.5px) scale3d(0.8, 0.8, 1);
+    }
+
+    80% {
+        transform: translateX(0.5px) translateY(-5.5px) scale3d(0.9, 0.9, 1);
+    }
+
+    100% {
+        transform: translateX(0px) scale3d(1, 1, 1);
+    }
+}
+@-webkit-keyframes growing-2 {
+    0% {
+        transform: translateX(21px) translateY(-34px) scale3d(0.2, 0.2, 1)
+    }
+    20% {
+        transform: translateX(17px) translateY(-33px) scale3d(0.4, 0.4, 1)
+    }
+    40% {
+        transform: translateX(11px) translateY(-20px) scale3d(0.6, 0.6, 1)
+    }
+    60% {
+        transform:  translateX(5.5px) translateY(-9px) scale3d(0.8, 0.8, 1)
+    }
+    80% {
+        transform: translateX(2.5px) translateY(-3px) scale3d(0.9, 0.9, 1)
+    }
+    100% {
+        transform: translateX(0px) translateY(0px) scale3d(1, 1, 1)
+    }
+}
+@keyframes growing-2 {
+    0% {
+        transform: translateX(21px) translateY(-34px) scale3d(0.2, 0.2, 1)
+    }
+    20% {
+        transform: translateX(17px) translateY(-33px) scale3d(0.4, 0.4, 1)
+    }
+    40% {
+        transform: translateX(11px) translateY(-20px) scale3d(0.6, 0.6, 1)
+    }
+    60% {
+        transform:  translateX(5.5px) translateY(-9px) scale3d(0.8, 0.8, 1)
+    }
+    80% {
+        transform: translateX(2.5px) translateY(-3px) scale3d(0.9, 0.9, 1)
+    }
+    100% {
+        transform: translateX(0px) translateY(0px) scale3d(1, 1, 1)
+    }
+}
+@-webkit-keyframes growing-3 {          
+    0% {
+        transform: translateX(-8px) translateY(6px) scale3d(0.2, 0.2, 1)
+    }
+
+    20% {
+        transform: translateX(-10px) translateY(-21px) scale3d(0.4, 0.4, 1)
+    }
+
+    40% {
+        transform: translateX(-7px) translateY(-15px) scale3d(0.6, 0.6, 1)
+    }
+
+    60% {
+        transform: translateX(-3px) translateY(-5px) scale3d(0.8, 0.8, 1)
+    }
+
+    80% {
+        transform:translateX(-1.5px) translateY(-3px) scale3d(0.9, 0.9, 1)
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px) scale3d(1, 1, 1)
+    }
+}
+@keyframes growing-3 {          
+    0% {
+        transform: translateX(-8px) translateY(6px) scale3d(0.2, 0.2, 1)
+    }
+
+    20% {
+        transform: translateX(-10px) translateY(-21px) scale3d(0.4, 0.4, 1)
+    }
+
+    40% {
+        transform: translateX(-7px) translateY(-15px) scale3d(0.6, 0.6, 1)
+    }
+
+    60% {
+        transform: translateX(-3px) translateY(-5px) scale3d(0.8, 0.8, 1)
+    }
+
+    80% {
+        transform:translateX(-1.5px) translateY(-3px) scale3d(0.9, 0.9, 1)
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px) scale3d(1, 1, 1)
+    }
+}
+@-webkit-keyframes growing_leaf {
+    0% {
+        opacity:0;
+    }
+
+    80%,
+    100% {
+        opacity:1;
+    }
+}
+@keyframes growing_leaf {
+    0% {
+        opacity:0;
+    }
+
+    80%,
+    100% {
+        opacity:1;
+    }
+}
+@-webkit-keyframes growing_leaf_2 {
+    0% {
+        opacity:0;
+    }
+
+    98%,
+     100% {
+        opacity:1;
+    }
+}
+@keyframes growing_leaf_2 {
+    0% {
+        opacity:0;
+    }
+
+    98%,
+     100% {
+        opacity:1;
+    }
+}
+@-webkit-keyframes growing_leaf_3 {
+    0% {
+        opacity:0;
+    }
+
+    70%,
+    100% {
+        opacity:1;
+    }
+}
+@keyframes growing_leaf_3 {
+    0% {
+        opacity:0;
+    }
+
+    70%,
+    100% {
+        opacity:1;
+    }
+}
+@-webkit-keyframes growing_leaf_top {
+    0% {
+        opacity: 0;
+    }
+    80%,
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes growing_leaf_top {
+    0% {
+        opacity: 0;
+    }
+    80%,
+    100% {
+        opacity: 1;
+    }
+}
+/* bamboo grow animation */

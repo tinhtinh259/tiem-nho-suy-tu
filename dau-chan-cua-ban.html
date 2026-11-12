@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dấu Chân Của Bạn • Tiệm Nhỏ Suy Tư</title>
+  <meta name="description" content="Tiệm không phải nơi nói cho người ta phải sống thế nào. Nó chỉ đưa cho bạn một góc nhỏ để ngồi xuống, nhìn lại những dấu chân mình đã để lại.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Studio Ghibli Timeline Inspired Styles (Shared with buoc-chan.html) -->
+  <link rel="stylesheet" href="css/components/buoc-chan-timeline.css">
+
+  <!-- Header & Footer Loader -->
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body class="timeline-active">
+  <!-- Standard Glassmorphism Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Intro Hero Section (100vh) -->
+  <section class="timeline-hero-section">
+    <span class="timeline-hero-badge">☕ GÓC CHIÊM NGHIỆM • DÀNH RIÊNG CHO <span class="cara-user-name">BẠN</span></span>
+    <h1 class="timeline-hero-title">Dấu Chân Của <span class="cara-user-name">Bạn</span></h1>
+    <p class="timeline-hero-subtitle">
+      "Tiệm không phải nơi nói cho người ta phải sống thế nào.<br>
+      Nó chỉ đưa cho bạn một góc nhỏ để ngồi xuống, nhìn lại những dấu chân mình đã để lại."
+    </p>
+
+    <div class="timeline-scroll-hint" onclick="window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' })">
+      <span>Cuộn chuột để nhìn lại những dấu chân</span>
+      <div class="timeline-scroll-icon"></div>
+    </div>
+  </section>
+
+  <!-- Interactive Cinematic Timeline Container -->
+  <main class="timeline" data-app="timeline">
+    <!-- Panels Stage generated dynamically from timelineItems -->
+    <ul class="panels" data-panels></ul>
+
+    <!-- Giant 3D Background Morphing Characters (01, MƯA, LẶNG, BUÔNG, YÊN, BẠN) -->
+    <div class="years-layer" aria-hidden="true">
+      <div class="years-wrapper" data-timeline="years-wrapper"></div>
+    </div>
+  </main>
+
+  <!-- Outro Reflection Section -->
+  <section class="timeline-outro-section">
+    <div class="timeline-outro-card">
+      <span class="timeline-hero-badge">👣 DẤU ẤN CỦA RIÊNG BẠN</span>
+      <h2 class="timeline-outro-title">Biết Ơn Mọi Dấu Chân Mình Đã Đi Qua</h2>
+      <p class="timeline-outro-text">
+        "Dù là bước chân dũng cảm hay ngập ngừng, dù vững vàng hay có lúc ngã quỵ... Tất cả đều là minh chứng bạn đã sống hết mình. Cảm ơn bạn đã dừng chân ghé lại góc nhỏ này để nhìn lại chính mình."
+      </p>
+
+      <div class="timeline-outro-actions">
+        <a href="dau-chan-cua-tiem.html" class="timeline-btn timeline-btn-primary">
+          <span>👣 Xem Dấu Chân Của Tiệm</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+        <a href="loi-tu-su.html" class="timeline-btn timeline-btn-secondary">
+          <span>Ghé Thăm Lời Tự Sự</span>
+        </a>
+        <a href="trang-chu.html" class="timeline-btn timeline-btn-secondary">
+          <span>Về Không Gian Trang Chủ</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Standard Edge-to-Edge Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript Libraries: GSAP, ScrollTrigger, Lenis -->
+  <script src="js/plugin/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.16/dist/lenis.min.js"></script>
+
+  <!-- Global & Timeline Controllers -->
+  <script src="js/header.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/dau-chan-cua-ban.js"></script>
+</body>
+
+</html>

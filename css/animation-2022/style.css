@@ -1,0 +1,1229 @@
+:root{
+    --color-env-banner: #b6d258;
+}
+.reset-2023,
+body {
+    overflow-x: hidden
+}
+
+body {
+    margin: 0;
+    padding: 0 !important;
+    width: 100%;
+    background: #dfdfdf
+}
+
+#header {
+    z-index: 999999999 !important
+}
+.reset-2023.year_2022{
+    background: linear-gradient(180deg,#81bb61 -19%,#b6d258 100%);
+}
+@keyframes moveUpDown {
+
+    0%,
+    100% {
+        transform: translateY(15px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes moveUpDown2 {
+
+    0%,
+    100% {
+        transform: translateY(24px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes moveUpDown3 {
+
+    0%,
+    100% {
+        transform: translateY(5px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes moveUpDown4 {
+
+    0%,
+    100% {
+        transform: translateY(2px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes recylingsimbol {
+    100% {
+        transform: rotateZ(-360deg)
+    }
+}
+
+@keyframes bluring {
+
+    0%,
+    100% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+#env_forest_group {
+    animation: 3s ease-in-out infinite moveUpDown2
+}
+
+#env_fish_1,
+.banana,
+.fishbone {
+    animation: 3s ease-in-out infinite moveUpDown4
+}
+
+#env_factory_layout #Vector,
+.env_fish_1 {
+    animation: 3s ease-in-out infinite moveUpDown
+}
+
+.env_fish_2 {
+    animation: 2s ease-in-out infinite moveUpDown2
+}
+
+.fishbone2 {
+    animation: 2.5s ease-in-out infinite moveUpDown2
+}
+
+.can {
+    animation: 3.9s ease-in-out infinite moveUpDown
+}
+
+#env_fish_2,
+#env_oil_mob,
+.apple,
+.oil {
+    animation: 3.5s ease-in-out infinite moveUpDown3
+}
+
+.apple2 {
+    animation: 2.5s ease-in-out infinite moveUpDown
+}
+
+.factory_smok {
+    animation: 2s ease-in-out infinite moveUpDown
+}
+
+#env_tool {
+    animation: 3.5s ease-in-out infinite moveUpDown
+}
+
+#env_tool_icon {
+    animation: 1.5s ease-in-out infinite bluring
+}
+
+.oil_water {
+    transform: translateY(12px)
+}
+
+#env_icon_recycle svg,
+#env_icon_recycle_2 svg,
+#env_icon_recycle_2_mob svg,
+#env_icon_recycle_mob svg {
+    animation: 2.5s linear infinite recylingsimbol
+}
+
+.anima_container {
+    display: grid
+}
+
+@media only screen and (min-width:1024px) {
+    .env_content_poluted_text .env_post_time li {
+        float: right
+    }
+}
+
+@media only screen and (max-width:1024px) {
+    .env_content_poluted_text .env_tag_text {
+        float: left
+    }
+
+    .env_content_poluted_text .env_button_view {
+        display: inline-block !important;
+        min-width: 185px
+    }
+}
+
+.env_post_time {
+    display: inline-block
+}
+
+@media only screen and (min-width:200px) {
+
+    #env_decor_01,
+    #env_decor_02,
+    #env_decor_03,
+    .desktop_min {
+        display: none
+    }
+
+    #rec {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        z-index: 2
+    }
+
+    .svg_container {
+        position: relative;
+        padding-bottom: 100px
+    }
+
+    #bg_road,
+    #fake_road img,
+    .env_asset {
+        position: absolute
+    }
+
+    #fake_road img {
+        top: 0;
+        z-index: 1;
+        right: 0;
+        width: 28px
+    }
+
+    #bg_road {
+        background: url('/images/animation-2022/svg/env_bg.svg') center center/cover no-repeat;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1
+    }
+
+    .env_content_forest_text {
+        top: 10em
+    }
+
+    .env_content_factory_text {
+        text-align: left
+    }
+
+    .env_content_factory_text,
+    .env_content_forest_text,
+    .env_content_poluted_text,
+    .env_content_repair_shop_text,
+    .env_content_trashbin_text {
+        max-width: 300px;
+        width: 100%;
+        padding: 0 20px;
+        z-index: 9999
+    }
+
+    .env_content_trashbin_text {
+        top: 103em;
+        left: 0;
+        text-align: left
+    }
+
+    .env_content_poluted_text {
+        top: 146em;
+        right: 0;
+        text-align: left
+    }
+
+    .env_content_repair_shop_text {
+        top: 195em;
+        left: 0;
+        text-align: left
+    }
+
+    .env_post_time #date-env::after {
+        content: "";
+        position: absolute;
+        top: 7px;
+        right: -12px;
+        width: 5px;
+        height: 5px;
+        border-radius: 99px;
+        background: #fff
+    }
+
+    .env_post_time li span {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        color: #fff;
+        position: relative;
+        text-transform: uppercase
+    }
+
+    .env_post_time li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        text-align: left
+    }
+
+    .env_content_factory_text p,
+    .env_content_forest_text ul li,
+    .env_content_poluted_text p,
+    .env_content_poluted_text ul li,
+    .env_content_repair_shop_text li,
+    .env_content_repair_shop_text p,
+    .env_content_trashbin_text p {
+        font-family: var(--font-body);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #fff
+    }
+
+    .env_content_forest_text h2,
+    .env_content_poluted_text h2,
+    .env_content_repair_shop_text h2,
+    .env_content_trashbin_text h2 {
+        font-family: var(--font-body);
+        font-style: normal;
+        font-size: clamp(32px, 5vw, 38px);
+        font-weight: 900;
+        color: #fff;
+        margin: 15px 0
+    }
+
+    .env_content_poluted_text .env_tag_text {
+        justify-content: start !important
+    }
+
+    .env_content_poluted_text .env_tag_text,
+    .env_content_repair_shop_text .env_tag_text,
+    .env_content_trashbin_text .env_tag_text {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center
+    }
+
+    .env_content_poluted_text .env_tag_text li,
+    .env_content_repair_shop_text .env_tag_text li,
+    .env_content_trashbin_text .env_tag_text li {
+        margin-right: 5px;
+        background: #fff;
+        border: 1px solid #e3e3e3;
+        border-radius: 4px;
+        flex-direction: row;
+        align-items: center;
+        padding: 4px;
+        color: #757575;
+        font-weight: 400;
+        font-size: 12px
+    }
+
+    .env_content_poluted_text .env_button_view,
+    .env_content_repair_shop_text .env_button_view,
+    .env_content_trashbin_text .env_button_view {
+        text-decoration: none;
+        color: #fff;
+        background: #d24f1d;
+        border-radius: 4px;
+        font-family: var(--font-body);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        display: block;
+        text-align: center;
+        padding: 14px;
+        position: relative;
+        z-index: 9;
+        max-width: 225px;
+        margin-top: 35px
+    }
+
+    .env_content ul {
+        padding-left: 0;
+        list-style: none
+    }
+
+    .env_content_forest_text ul {
+        display: grid;
+        row-gap: 20px
+    }
+
+    .section_2_banner {
+        height: 230px;
+        position: relative;
+        background: #81bb61;
+        border-bottom: 1px solid #81bb61
+    }
+
+    .section_2_banner::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        height: 5px;
+        width: 100%;
+        background: #81bb61;
+        z-index: 1
+    }
+
+    .section_2_banner img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%
+    }
+
+    .env_banner_title {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -40%);
+        font-size: clamp(48px, 5vw, 48px);
+        font-family: var(--font-body);
+        font-style: normal;
+        font-weight: 900;
+        color: #ffb925;
+        margin: 0;
+        z-index: 2;
+        max-width: 440px;
+        width: 100%;
+        text-align: center
+    }
+
+    .svg_road_layout_contain {
+        height: 100%;
+        max-width: 65px;
+        position: absolute;
+        top: -72px;
+        max-height: 100%;
+        right: 50px
+    }
+
+    #svg_road,
+    .section_2_content {
+        position: relative;
+        margin: 0 auto
+    }
+
+    #road_layout {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -9
+    }
+
+    .section_2_content {
+        max-width: 480px;
+        width: 100%
+    }
+
+    .section_2 {
+        margin-top: 0;
+        height: 100vh
+    }
+
+    .section_2_3 {
+        padding-top: 40px;
+        padding-bottom: 100px
+    }
+
+    #svg_road {
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 327px;
+        vertical-align: middle;
+        padding-left: 30px
+    }
+
+    .env_content_factory_text,
+    .env_content_forest_text {
+        display: block;
+        max-width: 280px;
+        width: 100%;
+        padding: 0 20px
+    }
+
+    .env_content_factory_text {
+        top: 66em;
+        right: 0
+    }
+
+    #env_forest_mob {
+        display: block;
+        top: 48em;
+        right: 26px;
+        z-index: 2;
+        max-width: 240px
+    }
+
+    #env_factory_mob {
+        top: 77em;
+        right: 0;
+        width: 100%;
+        z-index: -1
+    }
+
+    #env_trashbin_mob {
+        top: 125em;
+        left: 0;
+        z-index: -1
+    }
+
+    #env_trashbin_mob svg {
+        max-width: 250px
+    }
+
+    #env_icon_recycle svg,
+    #env_icon_recycle_mob svg {
+        max-width: 25px
+    }
+
+    #env_icon_recycle_mob {
+        right: 36px;
+        bottom: 17%
+    }
+
+    #env_icon_recycle_2 svg,
+    #env_icon_recycle_2_mob svg {
+        max-width: 20px
+    }
+
+    #env_icon_recycle_2_mob {
+        bottom: 28%;
+        left: 48px
+    }
+
+    #env_poluted_mob {
+        max-width: 240px;
+        top: 166.5em;
+        right: 35px;
+        z-index: -1
+    }
+
+    #env_repair_shop_mob svg {
+        max-width: 270px
+    }
+
+    #env_repair_shop_mob {
+        top: 220em;
+        z-index: 3;
+        left: 0
+    }
+
+    #env_forest_1 {
+        opacity: 0
+    }
+
+    .section_2_3 {
+        max-width: 480px;
+        margin: 0 auto
+    }
+    .year_2022 .post_related_stories{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        gap: 24px;
+    }
+}
+
+@media only screen and (min-width:492px) {
+    .section_2_banner {
+        height: 378px
+    }
+
+    #env_poluted {
+        top: 179em;
+        right: 77px
+    }
+}
+
+@media (min-width:1200px) and (max-width:1366px) {
+    .year_2022 .post_related_stories {
+        display: flex;
+        flex-wrap: wrap
+    }
+}
+
+@media only screen and (min-width:1366px) {
+    .section_2_banner {
+        height: 400px
+    }
+
+    .env_banner_title {
+        top: 50%
+    }
+
+    .desktop_min {
+        display: block
+    }
+
+    .mobile_min {
+        display: none
+    }
+
+    #rec {
+        width: 100px;
+        height: 180px;
+        z-index: 3
+    }
+
+    #svg_road {
+        max-width: 1140px
+    }
+
+    #env_forest {
+        right: -30px;
+        top: -130px;
+        z-index: 2
+    }
+
+    #env_factory {
+        right: 50px;
+        top: 30em;
+        z-index: 0
+    }
+
+    #env_trashbin {
+        right: 75px;
+        left: inherit;
+        top: 97em;
+        z-index: 1
+    }
+
+    #env_poluted {
+        left: -3em;
+        top: 146.5em;
+        z-index: 0
+    }
+
+    #env_repair_shop {
+        right: -129px;
+        left: inherit;
+        top: 205em;
+        z-index: 1
+    }
+
+    #env_repair_shop svg {
+        width: 100%;
+        max-width: 540px !important
+    }
+
+    #env_decor_01 {
+        left: 80px;
+        top: 107.7em;
+        z-index: 0
+    }
+
+    #env_decor_02 {
+        left: 300px;
+        top: 207em;
+        z-index: 1
+    }
+
+    #env_decor_03 {
+        left: 150px;
+        top: 190em;
+        z-index: 1
+    }
+
+    .svg_road_layout_contain {
+        height: 100%;
+        max-width: 65px;
+        position: absolute;
+        top: -72px;
+        max-height: 100%;
+        right: 33.3em
+    }
+
+    #fake_road img {
+        position: inherit;
+        z-index: 1;
+        width: 59px;
+        margin-left: 20px;
+        margin-top: -108px
+    }
+
+    .section_2_content {
+        max-width: 1220px;
+        width: calc(100% - 100px)
+    }
+
+    .env_content_forest_text {
+        max-width: 440px;
+        width: 100%;
+        top: 10em;
+        left: 38px
+    }
+
+    .env_content_factory_text {
+        max-width: 470px;
+        width: 100%;
+        top: 40em;
+        right: 80px;
+        text-align: left
+    }
+
+    .env_content_trashbin_text {
+        max-width: 425px;
+        width: 100%;
+        top: 95em;
+        left: 38px;
+        text-align: left
+    }
+
+    .env_content_poluted_text {
+        max-width: 450px;
+        width: 100%;
+        top: 155em;
+        right: 0;
+        text-align: left
+    }
+
+    .env_content_repair_shop_text {
+        max-width: 420px;
+        width: 100%;
+        top: 215em;
+        left: 38px;
+        text-align: left
+    }
+
+    #env_icon_recycle {
+        right: 90px;
+        bottom: 20%
+    }
+
+    #env_icon_recycle_2 {
+        bottom: 31%;
+        left: 115px
+    }
+
+    .env_asset svg {
+        max-width: 100% !important
+    }
+
+    #env_decor_01,
+    #env_decor_02,
+    #env_decor_03 {
+        display: inherit
+    }
+
+    .env_banner_title {
+        max-width: 100%
+    }
+
+    .year_2022 .post_related_stories {
+        display: flex;
+        flex-wrap: nowrap
+    }
+}
+
+@media only screen and (max-width:491px) {
+    .env_content_repair_shop_text p {
+        padding-right: 20px
+    }
+
+    .env_content_poluted_text .env_button_view,
+    .env_content_repair_shop_text .env_button_view,
+    .env_content_trashbin_text .env_button_view {
+        max-width: 165px;
+        margin-top: 25px !important;
+        padding: 10px
+    }
+
+    #env_repair_shop svg {
+        max-width: 260px !important
+    }
+
+    #env_repair_shop {
+        left: 0 !important
+    }
+
+    .env_assets_container {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        max-width: 360px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 9
+    }
+}
+
+@media only screen and (max-width:1366px) {
+    body {
+        padding-top: 0 !important
+    }
+
+    .section_2_banner img {
+        top: 30px !important
+    }
+
+    .env_banner_title {
+        transform: translate(-50%, 50%) !important
+    }
+}
+
+.reset-2023 {
+    border-top: 5px solid #fff;
+    background: linear-gradient(180deg, #81bb61 -19%, #b6d258 100%);
+    max-width: 100vw
+}
+
+main {
+    background-color: #b6d258
+}
+
+.section_2_4 h2 {
+    font-weight: 900;
+    font-size: 38px;
+    line-height: 49px;
+    color: #d24f1d
+}
+
+.section_2_4 p.p-3 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    max-width: 90%;
+    margin: 0 auto;
+    color: #5a311b
+}
+
+.reset-2023 .env_button_view {
+    text-decoration: none;
+    color: #fff;
+    background: #d24f1d;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px 70px;
+    z-index: 9
+}
+
+.reset-2023 img.img-right {
+    position: relative;
+    float: right
+}
+
+.reset-2023 img.img-left {
+    position: relative;
+    float: left
+}
+
+.reset-2023 img.desktop {
+    display: block;
+}
+
+.reset-2023 img.mobile {
+    display: none
+}
+
+@media only screen and (min-width:1366px) {
+    .section_2_3 {
+        max-width: 100%
+    }
+    .reset-2023 img.desktop {
+        margin-bottom: 100px
+    }
+
+    #env_forest,
+    #env_forest_anim {
+        width: 563px;
+        height: 487px;
+        right: -30px;
+        z-index: 6
+    }
+
+    #env_box,
+    #env_tool {
+        width: 112px;
+        left: 292px
+    }
+
+    #env_fishbone_1,
+    #env_fishbone_2 {
+        background-position: -14.5em -165em;
+        width: 98px
+    }
+
+    #env_box,
+    #env_decor_01,
+    #env_decor_02,
+    #env_decor_03,
+    #env_factory,
+    #env_forest,
+    #env_forest_anim,
+    #env_icon_recycle,
+    #env_icon_recycle_2,
+    #env_poluted,
+    #env_repair_shop,
+    #env_tool,
+    #env_tool_icon,
+    #env_trashbin,
+    .env_wave_poluted::before {
+        position: absolute
+    }
+
+    .env_asset_bg {
+        background-image: url('/images/animation-2022/objects.png');
+        background-repeat: no-repeat
+    }
+
+    #env_forest_anim {
+        top: -7em;
+        background-position: -41em -64em;
+        -webkit-animation: 3s ease-in-out infinite moveUpDown2;
+        -moz-animation: 3s ease-in-out infinite moveUpDown2;
+        -ms-animation: moveUpDown2 3s ease-in-out infinite;
+        -o-animation: 3s ease-in-out infinite moveUpDown2;
+        animation: 3s ease-in-out infinite moveUpDown2
+    }
+
+    #env_forest {
+        top: 4.7em;
+        background-position: 0 -64em
+    }
+
+    #env_factory {
+        width: 1178px;
+        height: 999px;
+        right: 50px;
+        top: 30em;
+        z-index: 0;
+        background-position: 0 0
+    }
+
+    #env_trashbin {
+        width: 572px;
+        height: 560px;
+        right: 67px;
+        left: inherit;
+        top: 96em;
+        z-index: 0;
+        background-position: 0 -96em
+    }
+
+    #env_decor_01 {
+        width: 348px;
+        height: 300px;
+        left: 232px;
+        top: 119.7em;
+        z-index: 0;
+        background-position: -43.7em -140em
+    }
+
+    #env_decor_02 {
+        width: 181px;
+        height: 122px;
+        left: 493px;
+        top: 227em;
+        z-index: 1;
+        background-position: -29.5em -162em
+    }
+
+    #env_decor_03 {
+        width: 180px;
+        height: 300px;
+        left: 360px;
+        top: 204em;
+        z-index: 1;
+        background-position: -68.5em -141em
+    }
+
+    #env_poluted {
+        width: 700px;
+        height: 696px;
+        left: -3em;
+        top: 146.5em;
+        z-index: 0;
+        background-position: -36em -96em
+    }
+
+    #env_repair_shop {
+        width: 543px;
+        height: 450px;
+        right: -130px;
+        left: inherit;
+        top: 209em;
+        z-index: 1;
+        background-position: 0 -132em
+    }
+
+    #env_icon_recycle {
+        width: 46px;
+        height: 46px;
+        right: 90px;
+        bottom: 20%;
+        background-position: 0 -161em;
+        -webkit-animation: 2.5s linear infinite recylingsimbol;
+        -moz-animation: 2.5s linear infinite recylingsimbol;
+        -ms-animation: recylingsimbol 2.5s linear infinite;
+        -o-animation: 2.5s linear infinite recylingsimbol;
+        animation: 2.5s linear infinite recylingsimbol
+    }
+
+    #env_icon_recycle_2 {
+        width: 36px;
+        height: 38px;
+        bottom: 31%;
+        left: 115px;
+        background-position: -4em -161.4em;
+        -webkit-animation: 2.5s linear infinite recylingsimbol;
+        -moz-animation: 2.5s linear infinite recylingsimbol;
+        -ms-animation: recylingsimbol 2.5s linear infinite;
+        -o-animation: 2.5s linear infinite recylingsimbol;
+        animation: 2.5s linear infinite recylingsimbol
+    }
+
+    #env_tool_icon {
+        width: 36px;
+        height: 40px;
+        bottom: 58%;
+        left: 158px;
+        background-position: 0 -170.4em;
+        -webkit-animation: 1.5s ease-in-out infinite bluring;
+        -moz-animation: 1.5s ease-in-out infinite bluring;
+        -ms-animation: bluring 1.5s ease-in-out infinite;
+        -o-animation: 1.5s ease-in-out infinite bluring;
+        animation: 1.5s ease-in-out infinite bluring
+    }
+
+    #env_tool {
+        height: 79px;
+        bottom: 32%;
+        background-position: -3em -169.5em;
+        -webkit-animation: 3.5s ease-in-out infinite moveUpDown;
+        -moz-animation: 3.5s ease-in-out infinite moveUpDown;
+        -ms-animation: moveUpDown 3.5s ease-in-out infinite;
+        -o-animation: 3.5s ease-in-out infinite moveUpDown;
+        animation: 3.5s ease-in-out infinite moveUpDown
+    }
+
+    #env_box {
+        height: 93px;
+        bottom: 18%;
+        background-position: -11.5em -168.5em
+    }
+
+    #env_fish_1 {
+        width: 92px;
+        height: 46px;
+        bottom: 23%;
+        left: 269px;
+        background-position: -7em -161em;
+        -webkit-animation: 3s ease-in-out infinite moveUpDown;
+        -moz-animation: 3s ease-in-out infinite moveUpDown;
+        -ms-animation: moveUpDown 3s ease-in-out infinite;
+        -o-animation: 3s ease-in-out infinite moveUpDown;
+        animation: 3s ease-in-out infinite moveUpDown
+    }
+
+    #env_fish_2 {
+        width: 118px;
+        height: 50px;
+        bottom: 11%;
+        left: 430px;
+        background-position: -14em -161em;
+        -webkit-animation: 2s ease-in-out infinite moveUpDown2;
+        -moz-animation: 2s ease-in-out infinite moveUpDown2;
+        -ms-animation: moveUpDown2 2s ease-in-out infinite;
+        -o-animation: 2s ease-in-out infinite moveUpDown2;
+        animation: 2s ease-in-out infinite moveUpDown2
+    }
+
+    #env_apple_1 {
+        width: 54px;
+        height: 46px;
+        bottom: 22%;
+        left: 30px;
+        background-position: .5em -164.5em;
+        -webkit-animation: 2.5s ease-in-out infinite moveUpDown;
+        -moz-animation: 2.5s ease-in-out infinite moveUpDown;
+        -ms-animation: moveUpDown 2.5s ease-in-out infinite;
+        -o-animation: 2.5s ease-in-out infinite moveUpDown;
+        animation: 2.5s ease-in-out infinite moveUpDown
+    }
+
+    #env_apple_2 {
+        width: 38px;
+        height: 39px;
+        bottom: 20%;
+        left: 479px;
+        background-position: -5em -164em;
+        -webkit-animation: 3.5s ease-in-out infinite moveUpDown3;
+        -moz-animation: 3.5s ease-in-out infinite moveUpDown3;
+        -ms-animation: moveUpDown3 3.5s ease-in-out infinite;
+        -o-animation: 3.5s ease-in-out infinite moveUpDown3;
+        animation: 3.5s ease-in-out infinite moveUpDown3
+    }
+
+    #env_fishbone_1 {
+        height: 46px;
+        bottom: 29%;
+        left: 200px;
+        -webkit-animation: 3s ease-in-out infinite moveUpDown4;
+        -moz-animation: 3s ease-in-out infinite moveUpDown4;
+        -ms-animation: moveUpDown4 3s ease-in-out infinite;
+        -o-animation: 3s ease-in-out infinite moveUpDown4;
+        animation: 3s ease-in-out infinite moveUpDown4
+    }
+
+    #env_fishbone_2 {
+        height: 46px;
+        bottom: 6%;
+        left: 430px;
+        -webkit-animation: 2.5s ease-in-out infinite moveUpDown;
+        -moz-animation: 2.5s ease-in-out infinite moveUpDown;
+        -ms-animation: moveUpDown 2.5s ease-in-out infinite;
+        -o-animation: 2.5s ease-in-out infinite moveUpDown;
+        animation: 2.5s ease-in-out infinite moveUpDown
+    }
+
+    #env_banana {
+        width: 75px;
+        height: 46px;
+        bottom: 28%;
+        left: 400px;
+        background-position: -8.4em -164.5em;
+        -webkit-animation: 3s ease-in-out infinite moveUpDown4;
+        -moz-animation: 3s ease-in-out infinite moveUpDown4;
+        -ms-animation: moveUpDown4 3s ease-in-out infinite;
+        -o-animation: 3s ease-in-out infinite moveUpDown4;
+        animation: 3s ease-in-out infinite moveUpDown4
+    }
+
+    #env_oil {
+        width: 98px;
+        height: 98px;
+        bottom: 10%;
+        left: 208px;
+        background-position: -22em -165em;
+        -webkit-animation: 3.5s ease-in-out infinite moveUpDown3;
+        -moz-animation: 3.5s ease-in-out infinite moveUpDown3;
+        -ms-animation: moveUpDown3 3.5s ease-in-out infinite;
+        -o-animation: 3.5s ease-in-out infinite moveUpDown3;
+        animation: 3.5s ease-in-out infinite moveUpDown3
+    }
+
+    #env_can {
+        width: 68px;
+        height: 49px;
+        bottom: 10%;
+        left: 40px;
+        background-position: -23em -161em;
+        -webkit-animation: 3.9s ease-in-out infinite moveUpDown;
+        -moz-animation: 3.9s ease-in-out infinite moveUpDown;
+        -ms-animation: moveUpDown 3.9s ease-in-out infinite;
+        -o-animation: 3.9s ease-in-out infinite moveUpDown;
+        animation: 3.9s ease-in-out infinite moveUpDown
+    }
+
+    .env_wave_factory::before {
+        position: absolute;
+        content: "";
+        background: #138949;
+        z-index: 1
+    }
+
+    .env_wave_fish1::before {
+        width: 92px;
+        height: 46px;
+        bottom: 20%;
+        left: 269px
+    }
+
+    .env_wave_fish2::before {
+        width: 118px;
+        height: 42px;
+        bottom: 8%;
+        left: 430px
+    }
+
+    .env_wave_poluted::before {
+        content: "";
+        background: #54d6c8;
+        z-index: 1
+    }
+
+    .env_wave_apple1::before {
+        width: 54px;
+        height: 26px;
+        bottom: 19%;
+        left: 30px
+    }
+
+    .env_wave_apple2::before {
+        width: 38px;
+        height: 18px;
+        bottom: 18%;
+        left: 479px
+    }
+
+    .env_wave_can::before {
+        width: 68px;
+        height: 30px;
+        bottom: 8%;
+        left: 40px
+    }
+
+    .env_wave_oil::before {
+        width: 98px;
+        height: 38px;
+        bottom: 8%;
+        left: 208px
+    }
+
+    .env_wave_banana::before {
+        width: 75px;
+        height: 20px;
+        bottom: 28%;
+        left: 400px
+    }
+
+    .env_wave_fishbone1::before {
+        width: 98px;
+        height: 25px;
+        bottom: 28%;
+        left: 200px
+    }
+
+    .env_wave_fishbone2::before {
+        width: 98px;
+        height: 35px;
+        bottom: 3%;
+        left: 430px
+    }
+
+    .env_banner_title {
+        font-size: clamp(48px, 5vw, 88px);
+        transform: translate(-50%, 0)
+    }
+}

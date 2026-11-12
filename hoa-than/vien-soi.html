@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Nếu Bạn Là Một Viên Sỏi... • Tiệm Nhỏ Suy Tư 🪨</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../fonts/hoa-than-fonts.css">
+	<link rel="stylesheet" href="../css/plugin/normalize-5.0.0.min.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+	<link rel="stylesheet" href="./css/hoa-than-core.css">
+	<link rel="stylesheet" href="./css/vien-soi-theme.css">
+
+	<!-- Three.js Import Map in Head -->
+	<script type="importmap">
+      {
+        "imports": {
+          "three": "../js/plugin/three/three.module.js"
+        }
+      }
+    </script>
+	<!-- GSAP & Lenis -->
+	<script src="../js/plugin/gsap.min.js"></script>
+	<script src="../js/plugin/ScrollTrigger.min.js"></script>
+	<script src="../js/plugin/lenis.min.js"></script>
+	<script src="../js/include-header-footer.js"></script>
+	<script src="../js/header.js"></script>
+</head>
+
+<body data-theme="vien-soi">
+
+	<!-- Caraflow Site Header Component -->
+	<div id="header-placeholder"></div>
+
+	<!-- Pebble Journey Nav ("Hành Trình Sỏi" thông minh, không che khuất chữ) -->
+	<nav class="subheader-hoathan cookie-box-nav" id="subheader-hoathan" aria-label="Hành trình sỏi">
+		<button class="cookie-box-toggle" id="cookieBoxToggle" type="button" aria-expanded="true" title="Thu gọn / Mở rộng">
+			<span class="cookie-box-icon">🪨</span>
+			<span class="cookie-box-title">Hành Trình Sỏi</span>
+			<span class="cookie-box-arrow">‹</span>
+		</button>
+		<ul class="cookie-box-list" id="cookieBoxList">
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#flip" data-target="flip">
+					<span class="nav-dot" style="--dot-color: #38bdf8;"></span>
+					<span class="nav-label">1. Sắc Sỏi</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#steps" data-target="steps">
+					<span class="nav-dot" style="--dot-color: #94a3b8;"></span>
+					<span class="nav-label">2. 4 Tầng Đá</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#numbers" data-target="numbers">
+					<span class="nav-dot" style="--dot-color: #f59e0b;"></span>
+					<span class="nav-label">3. Tôi Luyện</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#final" data-target="final">
+					<span class="nav-dot" style="--dot-color: #10b981;"></span>
+					<span class="nav-label">4. Trạm Dừng</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+
+	<main class="main">
+		<div class="flip__figures">
+			<img class="flip__first-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+			<img class="flip__second-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+			<img class="flip__third-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+		</div>
+
+		<!-- Model Container (Viên Sỏi 3D) -->
+
+		<div class="model">
+			<div class="model-wrapper">
+				<div class="donut-figure" id="donut">
+					<!-- Water Ripples under the pebble (Gợn sóng đáy sông) -->
+					<div class="pebble-water-ripples" id="pebble-water-ripples" aria-hidden="true">
+						<span class="water-ripple r1"></span>
+						<span class="water-ripple r2"></span>
+						<span class="water-ripple r3"></span>
+					</div>
+
+					<!-- Ambient River Bubbles (Bọt khí lòng sông) -->
+					<div class="pebble-bubbles" id="pebble-bubbles" aria-hidden="true">
+						<span class="water-bubble b1"></span>
+						<span class="water-bubble b2"></span>
+						<span class="water-bubble b3"></span>
+						<span class="water-bubble b4"></span>
+					</div>
+
+					<div class="cookie-rotator" id="donut-rotator">
+						<img id="donut-img" class="donut-img" src="./pebble.png?v=1" alt="Viên Sỏi Tâm Hồn">
+						<div class="pebble-water-sheen" id="pebble-water-sheen" aria-hidden="true"></div>
+					</div>
+					<div class="donut-shadow" id="donut-shadow"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Hero Section -->
+
+		<section class="hero" id="hero">
+			<img class="main__figure"
+				src="./assets/svg/hero-figure.svg" alt="figure"
+				width="1158" height="760" loading="lazy">
+
+			<div class="container hero__container">
+				<div class="hero__top">
+					<div class="hero__heading-box">
+						<span class="hero__script-badge">Tiệm Nhỏ Suy Tư</span>
+						<h1 class="hero__heading">
+							<span class="hero__word">
+								<span class="hero__char">V</span>
+								<span class="hero__char">I</span>
+								<span class="hero__char">Ê</span>
+								<span class="hero__char">N</span>
+							</span>
+							<span class="hero__space">&nbsp;</span>
+							<span class="hero__word">
+								<span class="hero__char">S</span>
+								<span class="hero__cookie-slot hero__pebble-slot" id="hero-cookie-slot" aria-label="Ỏ">
+									<span class="hero__hook-mark" id="hero-hook-mark" aria-hidden="true">
+										<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero__hook-svg">
+											<path d="M8 8 C8 4.5, 11 3, 14 3 C17.5 3, 19.5 4.8, 19 8 C18.2 10.8, 14.8 12.2, 14 15 C13.6 16.2, 13.8 17.5, 13.8 18.5" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+										</svg>
+									</span>
+								</span>
+								<span class="hero__char">I</span>
+							</span>
+						</h1>
+						<p class="hero__second-text">
+							Nếu bạn là một viên sỏi, bạn có ngại những va đập của dòng nước chảy xiết? 
+							Sỏi không tự nhiên tròn trịa. Nó từng là tảng đá gồ ghề nơi đỉnh non, trải qua bao ghềnh thác thác ghềnh để kết tinh thành sự vững chãi, phẳng lặng và bình an dưới đáy hồ sâu.
+						</p>
+						<button class="primary__btn hero__btn"
+							onclick="document.querySelector('#flip').scrollIntoView({behavior: 'smooth'});">
+							Khám Phá Sắc Sỏi
+						</button>
+					</div>
+				</div>
+
+				<div class="hero__bottom"></div>
+			</div>
+
+			<div class="hero__pointer" id="scroll-btn" tabindex="0" onclick="document.querySelector('#flip').scrollIntoView({behavior: 'smooth'});">
+				<img class="hero__mouse-icon"
+					src="./assets/svg/mouse.svg" alt="mouse-icon"
+					width="16" height="24" loading="lazy">
+				<img class="hero__arrow"
+					src="./assets/svg/arrow-bottom.svg" alt="arrow-icon"
+					width="24" height="24" loading="lazy">
+			</div>
+		</section>
+
+		<!-- Transition Section -->
+
+		<div id="transition"></div>
+
+		<!-- Flip Section -->
+
+		<section class="flip" id="flip">
+			<div class="container">
+				<div class="flip__heading-box heading-box">
+					<h2 class="flip__heading second-heading">
+						LUÔN LUÔN
+						<span class="heading__special">
+							VỮNG VÀNG TĨNH LẶNG
+						</span> <br>
+						LUÔN LUÔN
+						<span class="heading__special">
+							TRÒN ĐẦY AN NHIÊN
+						</span>
+					</h2>
+					<p class="flip__text">
+						Viên sỏi không tranh giành vị trí với bờ đá, cũng chẳng ngại ngần trước dòng nước cuốn trôi. 
+						Nó học cách mỉm cười trước những va đập của thời gian, để mỗi vết xước hôm qua trở thành nét tròn mịn, an hòa của hôm nay.
+					</p>
+				</div>
+				<div class="flip__shadow"></div>
+			</div>
+		</section>
+
+		<!-- Steps Section (4 Sắc Thái Viên Sỏi) -->
+
+		<section class="steps" id="steps">
+			<div class="steps__indicators">
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+			</div>
+			<div class="steps__cards">
+				<div class="steps__card-first">
+					<h3 class="steps__card-heading white">
+						Sỏi
+						Trắng
+						<span class="steps__card-heading-special">
+							Thuần Khiết
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-1-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Trong ngần đáy nước, giữ trọn nét tinh khôi.
+						</p>
+						<p class="steps__card-text white">
+							Viên sỏi thạch anh trắng muốt dưới làn nước suối mát lành. 
+							Bạn mang tâm hồn thuần khiết, chân thành, luôn nhìn cuộc đời bằng ánh mắt bao dung và đem lại cảm giác bình yên dịu êm cho mọi người xung quanh.
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading white">
+						Hắc
+						Thạch
+						<span class="steps__card-heading-special">
+							Kiên Định
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-2-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Vững chãi trước sóng xô, thầm lặng chở che.
+						</p>
+						<p class="steps__card-text white">
+							Viên sỏi đen bóng mịn màng như màn đêm tĩnh mịch. 
+							Bạn có nội lực thâm trầm và kiên định, là điểm tựa an toàn, vững chãi nhất cho những người thân yêu giữa những biến động của cuộc đời.
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading white">
+						Hổ
+						Phách
+						<span class="steps__card-heading-special">
+							Ấm Áp
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-3-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Lưu giữ hơi ấm của mặt trời, xua tan lạnh giá dòng trôi.
+						</p>
+						<p class="steps__card-text white">
+							Viên sỏi mang sắc nâu vàng óng ánh của đất trời và nắng hạ. 
+							Dù ngâm mình dưới đáy nước lạnh giá, bạn vẫn luôn tỏa ra nguồn năng lượng ấm áp, biết thấu hiểu và sưởi ấm những trái tim đang cô đơn.
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading white">
+						Bích
+						Ngọc
+						<span class="steps__card-heading-special">
+							Tự Tại
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-4-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Mềm mại trước nước, cứng cỏi trước thời gian.
+						</p>
+						<p class="steps__card-text white">
+							Sắc xanh rêu ngọc bích hòa quyện cùng thiên nhiên non nước. 
+							Dành cho bạn — người đã hiểu lẽ vô thường, biết buông bỏ những góc cạnh sắc nhọn để tâm hồn mình trôi chảy nhẹ nhàng và an nhiên.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Second Transition Section -->
+
+		<div id="second-transition"></div>
+
+		<!-- Numbers Section (Hành Trình Viên Sỏi) -->
+
+		<section class="numbers" id="numbers">
+			<div class="container numbers__container">
+				<div class="numbers__heading-box heading-box">
+					<h2 class="numbers__heading second-heading">
+						Hành trình <span class="heading__special">của một viên sỏi</span>
+					</h2>
+				</div>
+				<div class="numbers__box">
+					<div class="numbers__item">
+						<div class="numbers__item-number">1</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Rời Vách Núi
+							</h3>
+							<p class="numbers__item-text">
+								Dũng cảm bước ra khỏi vùng an toàn, đón nhận những thử thách đầu đời
+							</p>
+						</div>
+					</div>
+					<div class="numbers__item">
+						<div class="numbers__item-number">2</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Qua Ghềnh Thác
+							</h3>
+							<p class="numbers__item-text">
+								Để dòng nước mài giũa những góc cạnh sắc nhọn, tôi luyện nên sự nhẫn nại
+							</p>
+						</div>
+					</div>
+					<div class="numbers__item">
+						<div class="numbers__item-number">3</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Tròn Trịa Đáy Hồ
+							</h3>
+							<p class="numbers__item-text">
+								Tìm thấy sự bình an tĩnh tại, an nhiên phản chiếu bầu trời non nước
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="numbers__text-box">
+					<p class="numbers__text">
+						Dũng cảm bước ra khỏi vùng an toàn, đón nhận những thử thách đầu đời
+					</p>
+					<p class="numbers__text">
+						Để dòng nước mài giũa những góc cạnh sắc nhọn, tôi luyện nên sự nhẫn nại
+					</p>
+					<p class="numbers__text">
+						Tìm thấy sự bình an tĩnh tại, an nhiên phản chiếu bầu trời non nước
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Final Section -->
+
+	<footer class="final" id="final">
+		<img class="final__hand-icon" src="./assets/svg/hand.svg"
+			alt="hand-icon" width="40px" height="40px" loading="lazy">
+		<div class="final__bg-text-box">
+			<span class="final__bg-text">VIÊN SỎI</span>
+		</div>
+		<div class="final__light-figure"></div>
+		<div class="container">
+			<div class="final__order-box">
+				<h2 class="final__heading second-heading">
+					Dù là hạt cát hay viên sỏi nhỏ, <br>
+					<span class="heading__special">bạn là mảnh ghép không thể thiếu của đất trời</span>
+				</h2>
+				<span class="final__order-text">
+					Viên sỏi nằm yên dưới đáy hồ sâu, không cần ồn ào nhưng vẫn tạo nên vẻ đẹp tĩnh lặng nhiệm màu. Hãy cứ tự tin với sự trầm tĩnh và kiên định của riêng bạn.
+				</span>
+
+				<div class="final__buttons">
+					<button class="primary__btn final__btn" onclick="window.location.href='../hoa-than.html#trai-nghiem-3d'">
+						Về Trạm Hóa Thân ✨
+					</button>
+					<button class="primary__btn final__btn final__btn--next" onclick="window.location.href='./phu-du.html'">
+						Hóa Thân: Phù Du ✨ →
+					</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Caraflow Site Footer Component -->
+	<div id="footer-placeholder"></div>
+
+	<script src="./js/hoa-than-core.js"></script>
+
+</body>
+
+</html>

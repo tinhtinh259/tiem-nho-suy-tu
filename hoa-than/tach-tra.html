@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- [BƯỚC 1: TIÊU ĐỀ TRANG VÀ ICON] -->
+	<title>Nếu Bạn Là Một Tách Trà... • Tiệm Nhỏ Suy Tư 🍵</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Font & CSS Core Dùng Chung -->
+	<link rel="stylesheet" href="../fonts/hoa-than-fonts.css">
+	<link rel="stylesheet" href="../css/plugin/normalize-5.0.0.min.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+	<link rel="stylesheet" href="./css/hoa-than-core.css">
+
+	<!-- ==========================================================================
+	     [BƯỚC 2: BẢNG MÀU TÁCH TRÀ (THEME STYLES)]
+	     Tông màu gốm mộc Wabi-Sabi, trà xanh thanh khiết và đất ấm
+	     ========================================================================== -->
+	<style>
+		:root {
+			/* 1. Màu chủ đạo và màu nền Hero */
+			--donut-landing-main-color: #8fb996;
+			--donut-landing-second-color: #1e2d22;
+			--theme-hero-bg: #1e2d22;
+			--theme-hero-title-color: #d8e2dc;
+			--theme-special-color: #a3c4bc;
+
+			/* 2. Màu hộp điều hướng Subheader Box */
+			--theme-nav-border: rgba(143, 185, 150, 0.4);
+			--theme-nav-shadow: rgba(20, 32, 23, 0.3);
+			--theme-nav-toggle-bg: linear-gradient(135deg, rgba(163, 196, 188, 0.35), rgba(143, 185, 150, 0.15));
+			--theme-nav-toggle-border: rgba(143, 185, 150, 0.3);
+			--theme-nav-toggle-hover: linear-gradient(135deg, rgba(163, 196, 188, 0.5), rgba(143, 185, 150, 0.25));
+			--theme-nav-title-color: #1e2d22;
+			--theme-nav-arrow-color: #415d43;
+			--theme-nav-link-color: #2d4130;
+			--theme-nav-link-hover-bg: rgba(143, 185, 150, 0.18);
+			--theme-nav-link-hover-color: #111a13;
+
+			/* 3. Màu nền 4 thẻ vị trà */
+			--theme-card1-bg: #2f4835; /* Trà Xanh Thái Nguyên */
+			--theme-card2-bg: #f4f1de; /* Bạch Trà Mây Ngàn */
+			--theme-card3-bg: #4a2810; /* Ô Long Rang */
+			--theme-card4-bg: #fdf0d5; /* Cúc Mật Ong */
+
+			/* 4. Màu chữ viết tay nghệ thuật */
+			--theme-card1-special: #a3c4bc;
+			--theme-card2-special: #344e41;
+			--theme-card3-special: #e09f3e;
+			--theme-card4-special: #bc6c25;
+
+			/* 5. Màu chữ nội dung thẻ */
+			--theme-card-heading-color: var(--donut-landing-second-color);
+			--theme-card-text-color: var(--donut-landing-second-color);
+
+			/* 6. Màu 4 chấm chỉ số */
+			--theme-ind1-color: #709775;
+			--theme-ind2-color: #a3c4bc;
+			--theme-ind3-color: #e09f3e;
+			--theme-ind4-color: #dda15e;
+
+			/* 7. Trạm dừng & nút chuyển trang */
+			--theme-final-bg-text-font: "Charm", "Playfair Display", cursive, serif;
+			--theme-next-btn-bg: rgba(143, 185, 150, 0.25);
+			--theme-next-btn-border: #8fb996;
+			--theme-next-btn-hover-bg: #8fb996;
+			--theme-next-btn-hover-shadow: rgba(143, 185, 150, 0.45);
+		}
+
+		/* Tách trà gốm mộc 3D */
+		.donut-img {
+			transform: rotate(0deg);
+			filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.45));
+		}
+	</style>
+
+	<!-- Three.js Import Map -->
+	<script type="importmap">
+      {
+        "imports": {
+          "three": "../js/plugin/three/three.module.js"
+        }
+      }
+    </script>
+	<!-- GSAP & Lenis Plugins -->
+	<script src="../js/plugin/gsap.min.js"></script>
+	<script src="../js/plugin/ScrollTrigger.min.js"></script>
+	<script src="../js/plugin/lenis.min.js"></script>
+	<script src="../js/include-header-footer.js"></script>
+	<script src="../js/header.js"></script>
+</head>
+
+<body data-theme="custom">
+
+	<!-- Caraflow Site Header Component -->
+	<div id="header-placeholder"></div>
+
+	<!-- ==========================================================================
+	     [BƯỚC 3: HỘP ĐIỀU HƯỚNG VỊ TRÀ (SUBHEADER)]
+	     ========================================================================== -->
+	<nav class="subheader-hoathan cookie-box-nav" id="subheader-hoathan" aria-label="Hương vị trà">
+		<button class="cookie-box-toggle" id="cookieBoxToggle" type="button" aria-expanded="true" title="Thu gọn / Mở rộng">
+			<span class="cookie-box-icon">🍵</span>
+			<span class="cookie-box-title">Vị Trà Suy Tư</span>
+			<span class="cookie-box-arrow">‹</span>
+		</button>
+		<ul class="cookie-box-list" id="cookieBoxList">
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#flip" data-target="flip">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind1-color);"></span>
+					<span class="nav-label">1. Hương Trà</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#steps" data-target="steps">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind2-color);"></span>
+					<span class="nav-label">2. Tính Cách</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#numbers" data-target="numbers">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind3-color);"></span>
+					<span class="nav-label">3. Hành Trình</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#final" data-target="final">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind4-color);"></span>
+					<span class="nav-label">4. Trạm Dừng</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+	<main class="main">
+		<!-- Các họa tiết mờ nền SVG -->
+		<div class="flip__figures">
+			<img class="flip__first-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659" height="658" loading="lazy">
+			<img class="flip__second-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659" height="658" loading="lazy">
+			<img class="flip__third-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659" height="658" loading="lazy">
+		</div>
+
+		<!-- ==========================================================================
+		     [BƯỚC 4: VẬT THỂ TÁCH TRÀ 3D]
+		     ========================================================================== -->
+		<div class="model">
+			<div class="model-wrapper">
+				<div class="donut-figure" id="donut">
+					<div class="cookie-rotator" id="donut-rotator">
+						<img id="donut-img" class="donut-img" src="./assets/tea.png" alt="Tách Trà Tâm Hồn">
+					</div>
+					<div class="donut-shadow" id="donut-shadow"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ==========================================================================
+		     [BƯỚC 5: HERO SECTION]
+		     ========================================================================== -->
+		<section class="hero" id="hero">
+			<img class="main__figure" src="./assets/svg/hero-figure.svg" alt="figure" width="1158" height="760" loading="lazy">
+
+			<div class="container hero__container">
+				<div class="hero__top">
+					<div class="hero__heading-box">
+						<span class="hero__script-badge">Tiệm Nhỏ Suy Tư</span>
+						<h1 class="hero__heading">
+							<span class="hero__word">
+								<span class="hero__char">T</span>
+								<span class="hero__char">Á</span>
+								<span class="hero__char">C</span>
+								<span class="hero__char">H</span>
+							</span>
+							<span class="hero__space">&nbsp;</span>
+							<span class="hero__word">
+								<span class="hero__char">T</span>
+								<span class="hero__char">R</span>
+								<span class="hero__cookie-slot hero__leaf-slot" id="hero-cookie-slot" aria-label="À">
+									<span class="hero__accent" id="hero-leaf-accent" aria-hidden="true" style="transform: translateX(-50%) rotate(32deg);"></span>
+								</span>
+							</span>
+						</h1>
+						<p class="hero__second-text">
+							Nếu bạn là một tách trà, bạn sẽ chọn tỏa ngát hương ngào ngạt hay dịu dàng lắng đọng nơi đáy cốc?
+							Trà sinh ra không phải để vội vã uống cạn, mà là để được chậm rãi nâng niu và sẻ chia sự ấm áp cho những ai cần được vỗ về.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="hero__pointer" id="scroll-btn">
+				<img class="hero__mouse-icon" src="./assets/svg/mouse.svg" alt="mouse-icon" width="17px" height="24px" loading="lazy">
+				<img class="hero__arrow" src="./assets/svg/arrow-bottom.svg" alt="arrow-bottom" width="13px" height="15px" loading="lazy">
+			</div>
+		</section>
+
+		<!-- ==========================================================================
+		     [BƯỚC 6: FLIP SECTION]
+		     ========================================================================== -->
+		<section class="flip" id="flip">
+			<div class="container">
+				<div class="flip__content">
+					<h2 class="flip__heading second-heading">
+						Hương trà thơm nhất, <br>
+						<span class="heading__special">khi lòng người biết chậm lại</span>
+					</h2>
+					<p class="flip__text">
+						Đừng vội vã uống cạn một tách trà nóng. Hãy ngắm làn khói mỏng bay lên, hít hà hương mộc mạc và cảm nhận sự ấm áp lan tỏa từ lòng bàn tay đến tận đáy tâm hồn.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ==========================================================================
+		     [BƯỚC 7: 4 THẺ VỊ TRÀ & BÀI HỌC CUỘC SỐNG]
+		     ========================================================================== -->
+		<section class="steps" id="steps">
+			<ul class="steps__indicators" id="steps-indicators">
+				<li class="steps__indicator active" data-step="0" title="Trà Xanh Mộc"></li>
+				<li class="steps__indicator" data-step="1" title="Bạch Trà Tinh Khôi"></li>
+				<li class="steps__indicator" data-step="2" title="Ô Long Lửa Ấm"></li>
+				<li class="steps__indicator" data-step="3" title="Trà Cúc Mật Ong"></li>
+			</ul>
+
+			<div class="steps__cards">
+					<!-- Thẻ 1: Trà Xanh Mộc -->
+					<div class="steps__card-first">
+						<h3 class="steps__card-heading white">
+							Trà Xanh
+							Thái Nguyên
+							<span class="steps__card-heading-special">
+								Tiền Chát Hậu Ngọt
+							</span>
+						</h3>
+						<div class="steps__card-text-block">
+							<img class="steps__card-image" src="./assets/svg/card-1-quote.svg" alt="Quote Icon" width="31" height="21" loading="lazy">
+							<p class="steps__card-text-heading white">
+								Gian nan thử thách chỉ làm hậu vị thêm đậm sâu.
+							</p>
+							<p class="steps__card-text white">
+								Vị chát nhẹ nơi đầu môi rồi chuyển thành vị ngọt thanh nơi cuống họng. Bạn luôn kiên định vượt qua những khó khăn ban đầu vì bạn tin rằng điều ngọt ngào nhất luôn đợi ở cuối hành trình.
+							</p>
+						</div>
+					</div>
+
+					<!-- Thẻ 2: Bạch Trà Mây Ngàn -->
+					<div class="steps__card">
+						<h3 class="steps__card-heading">
+							Bạch Trà
+							Mây Ngàn
+							<span class="steps__card-heading-special">
+								Thuần Khiết
+							</span>
+						</h3>
+						<div class="steps__card-text-block">
+							<img class="steps__card-image" src="./assets/svg/card-2-quote.svg" alt="Quote Icon" width="31" height="21" loading="lazy">
+							<p class="steps__card-text-heading">
+								Tĩnh lặng giữa sương mây, thanh tao không vướng bụi trần.
+							</p>
+							<p class="steps__card-text">
+								Búp trà mỏng manh ngậm sương mai trên đỉnh núi cao. Bạn mang trong mình tâm hồn thuần khiết, dịu dàng và luôn lan tỏa sự trong trẻo, an yên cho những người xung quanh.
+							</p>
+						</div>
+					</div>
+
+					<!-- Thẻ 3: Ô Long Lửa Ấm -->
+					<div class="steps__card">
+						<h3 class="steps__card-heading white">
+							Ô Long
+							Lửa Ấm
+							<span class="steps__card-heading-special">
+								Trưởng Thành
+							</span>
+						</h3>
+						<div class="steps__card-text-block">
+							<img class="steps__card-image" src="./assets/svg/card-3-quote.svg" alt="Quote Icon" width="31" height="21" loading="lazy">
+							<p class="steps__card-text-heading white">
+								Càng qua lửa nhiệt, hương thơm càng bền bỉ nồng nàn.
+							</p>
+							<p class="steps__card-text white">
+								Trải qua bao tầng lửa rang kỹ lưỡng, lá trà cuộn tròn tích tụ tinh hoa. Bạn là người sâu sắc, từng trải, luôn là chỗ dựa vững chãi và đáng tin cậy nhất trong mắt người thương.
+							</p>
+						</div>
+					</div>
+
+					<!-- Thẻ 4: Trà Cúc Mật Ong -->
+					<div class="steps__card">
+						<h3 class="steps__card-heading">
+							Hoa Cúc
+							Mật Ong
+							<span class="steps__card-heading-special">
+								Xoa Dịu
+							</span>
+						</h3>
+						<div class="steps__card-text-block">
+							<img class="steps__card-image" src="./assets/svg/card-4-quote.svg" alt="Quote Icon" width="31" height="21" loading="lazy">
+							<p class="steps__card-text-heading">
+								Vỗ về những âu lo bằng một làn hương dịu ngọt.
+							</p>
+							<p class="steps__card-text">
+								Sự kết hợp ấm áp xua tan những mệt nhoài sau một ngày dài bươn chải. Bạn luôn biết cách chăm sóc, vỗ về người khác và nhắc nhở họ: "Hôm nay bạn vất vả rồi, nghỉ ngơi thôi!".
+							</p>
+						</div>
+					</div>
+				</div>
+		</section>
+
+		<!-- ==========================================================================
+		     [BƯỚC 8: 3 BƯỚC HÀNH TRÌNH TÁCH TRÀ]
+		     ========================================================================== -->
+		<section class="numbers" id="numbers">
+			<div class="container">
+				<h2 class="numbers__heading second-heading">
+					Hành trình của một <br>
+					<span class="heading__special">tách trà thơm</span>
+				</h2>
+
+				<div class="numbers__box">
+					<div class="numbers__item active">
+						<span class="numbers__item-number">01</span>
+						<p class="numbers__item-text">
+							<strong>Ngậm Sương Đón Nắng:</strong> Búp trà non ấp ủ tinh hoa đất trời nơi đỉnh núi cao hoang sơ.
+						</p>
+					</div>
+
+					<div class="numbers__item">
+						<span class="numbers__item-number">02</span>
+						<p class="numbers__item-text">
+							<strong>Vò Nén Qua Lò Sao:</strong> Chịu đựng sức nóng của chảo lửa để đánh thức từng tầng hương thơm tiềm ẩn.
+						</p>
+					</div>
+
+					<div class="numbers__item">
+						<span class="numbers__item-number">03</span>
+						<p class="numbers__item-text">
+							<strong>Chìm Vào Nước Sôi:</strong> Đắm mình trong làn nước nóng bỏng để nở bung trọn vẹn và sẻ chia vị ngọt cho đời.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- ==========================================================================
+	     [BƯỚC 9: TRẠM DỪNG NGHỈ CHÂN]
+	     ========================================================================== -->
+	<footer class="final" id="final">
+		<img class="final__hand-icon" src="./assets/svg/hand.svg" alt="hand-icon" width="40px" height="40px" loading="lazy">
+		<div class="final__bg-text-box">
+			<span class="final__bg-text">TÁCH TRÀ</span>
+		</div>
+		<div class="final__light-figure"></div>
+		<div class="container">
+			<div class="final__order-box">
+				<h2 class="final__heading second-heading">
+					Cuộc đời như một tách trà, <br>
+					<span class="heading__special">đắng trước ngọt sau, hãy cứ thong dong</span>
+				</h2>
+				<span class="final__order-text">
+					Trà ngon cần thời gian để ngấm, lòng người cần những khoảng lặng để thấu suốt. Dù hôm nay có chút đắng chát, hãy tin rằng hậu vị ngọt lành vẫn đang dịu dàng đợi bạn.
+				</span>
+
+				<div class="final__buttons">
+					<button class="primary__btn final__btn" onclick="window.location.href='../hoa-than.html#trai-nghiem-3d'">
+						Về Trạm Hóa Thân ✨
+					</button>
+					<button class="primary__btn final__btn final__btn--next" onclick="window.location.href='./banh-quy.html'">
+						Hóa Thân: Bánh Quy 🍪 →
+					</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Caraflow Site Footer Component -->
+	<div id="footer-placeholder"></div>
+
+	<!-- ==========================================================================
+	     [BƯỚC 10: GSAP COLOR FILTERS CHO TÁCH TRÀ]
+	     Màu búp trà xanh mộc -> bạch trà sương mù -> ô long hổ phách -> hoa cúc ấm áp
+	     ========================================================================== -->
+	<script>
+		window.HOA_THAN_CUSTOM_CONFIG = {
+			flavorFilters: [
+				"drop-shadow(0 0 20px rgba(0,0,0,0.35)) hue-rotate(0deg) saturate(1.2) brightness(1.02)",   // 1. Trà xanh
+				"drop-shadow(0 0 20px rgba(0,0,0,0.35)) hue-rotate(25deg) saturate(0.65) brightness(1.15)", // 2. Bạch trà
+				"drop-shadow(0 0 20px rgba(0,0,0,0.35)) hue-rotate(-35deg) saturate(1.4) brightness(0.95)", // 3. Ô Long rang
+				"drop-shadow(0 0 20px rgba(0,0,0,0.35)) hue-rotate(-20deg) saturate(1.6) brightness(1.1)"   // 4. Hoa cúc
+			],
+			step2Glow: "drop-shadow(0 0 35px rgba(224, 159, 62, 0.85)) brightness(1.12) contrast(1.05)",  // Hơi nóng lò sao
+			step3Glow: "drop-shadow(0 0 35px rgba(143, 185, 150, 0.9)) brightness(1.08) contrast(1.02)"   // Tách trà ngát hương
+		};
+	</script>
+
+	<!-- Engine Chuyển Động Chung -->
+	<script src="./js/hoa-than-core.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+/* 
+- File env-year-bottom.css => css for the ENV-bottom section outside the gsap road.
+- This is the Env event section, the structure will be the same in each year (2022 + 2023 + 2024), this part will be updated every year.
+- Env 2025 please create a new file and do not update this file.
+Note 2024:
+    - Enjoyed reading? same structure, different style (font-size and color) compared to 2022 + 2023
+    - Hide Present Year in 2024
+    - Blog posts and blogs title spacing
+    - Slide 
+*/
+
+@media screen and (min-width:1px) {
+    /* style road bottom */
+    .reset-2023 {
+        border-top: 5px solid #fff;
+        background: var(--color-env-body);
+        max-width: 100vw;
+    }
+    main {
+        background-color: var(--color-env-banner);
+    }
+    .section_2_4 h2 {
+        font-weight: 900;
+        font-size: 38px;
+        line-height: 49px;
+        color: #d24f1d;
+        margin-bottom: 8px;
+        margin-top: 0;
+    }
+    .section_2_4 p.p-3 {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        max-width: 90%;
+        margin: 0 auto;
+        color: #5a311b
+    }
+    .section_2_4 .button-explore {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .reset-2023 .env_button_view {
+        text-decoration: none;
+        color: #fff;
+        background: #d24f1d;
+        border-radius: 4px;
+        font-family: "Source Sans Pro";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        width: 100%;
+        display: inline-block;
+        max-width: 170px;
+        padding: 10px;
+        z-index: 9
+    }
+    .year_2024 .present_2024{
+        color: #ffffff;
+    }
+    .year_2023 .present_2023{
+        color: #5A311B; 
+    }
+    .year_2022 .present_2022{
+        color: #5A311B;
+    }
+    .reset-2023 .env_button_view.present_year {
+        background: transparent;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .reset-2023 img.desktop {
+        display: block;
+    }
+    .reset-2023 img.mobile {
+        display: none
+    }
+    .year_2024 .post_related_section h2 {
+        color: #ffffff;
+        font-size: 26px;
+        line-height: 30px;
+    }
+    .env_reimagine.year_2024 .post_related_section p {
+        font-size: 14px;
+        line-height: 18px;
+        color: #ffffff;
+    }
+    .section_2_4 {
+        padding-bottom: 147px;
+    }
+    .year_2022 .section_2_4{
+        padding-bottom: 50px;
+    }
+    .year_2023 .section_2_4 {
+        padding-bottom: 150px;
+    }
+    .env_bottom {
+        position: relative;
+        margin-top: 40px;
+    }
+    .env_bg_road_bottom {
+        width: 100%;
+        height: 60px;
+    }
+    .env_bg_road_bottom img {
+        width: 100%;
+        height: 60px;
+        object-fit: cover;
+    }
+    .env_event_year {
+        max-width: 100%;
+    }
+    .env_event_year .m-slider__item_reset,
+    .env_event_year .m-slider__item_rebuild,
+    .env_event_year .m-slider__item_reimagine {
+        padding: 0;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        text-align: center;
+    }   
+    .env_event_year .m-slider__item_rebuild .img-illus {
+        margin-bottom: -12px;
+    }
+    .env_reimagine.year_2024 .section_2_4 h2 {
+        font-family: "Source Sans Pro";
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px;
+        color: #FFFFFF;
+        margin-bottom: 8px;
+        margin-top: 0;
+    }
+    .env_reimagine.year_2024 .section_2_4 p.p-3 {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        max-width: 90%;
+        margin: 0 auto;
+        color: #FFFFFF;
+    }
+    
+    .env_bg_road_bottom {
+        position: relative;
+        z-index: 0;
+    }
+    .env_character_bottom{
+        position: absolute;
+        bottom: -44px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .env_character_bottom img{
+        height: 100%;
+    }
+    .year_2022 .env_event_year .m-slider__item_reset,
+    .year_2023 .env_event_year .m-slider__item_rebuild,
+    .year_2024 .env_event_year .m-slider__item_reimagine {
+        display: none;
+    }
+    .env_event_year .img-illus {
+        height: 192px;
+    }
+    .env_event_year .img-illus img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .year_2024 .swiper_blog_slide .env_event_blog .m-slider__item{
+        display: none;
+    }
+    .year_2024 .swiper_blog_slide .env_event_blog .m-slider__item:nth-child(1),
+    .year_2024 .swiper_blog_slide .env_event_blog .m-slider__item:nth-child(2),
+    .year_2024 .swiper_blog_slide .env_event_blog .m-slider__item:nth-child(3){
+        display: block;
+    }
+}
+@media screen and (min-width:1200px) {
+    .section_2_4 {
+        padding-bottom: 115px;
+    }
+}
+@media screen and (min-width:1366px) {   
+    .year_2022 .section_2_4{
+        padding-bottom: 150px;
+    } 
+    .env_reimagine.year_2024 .section_2_4 h2 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+    .env_reimagine.year_2022 .section_2_4 p.p-3,
+    .env_reimagine.year_2023 .section_2_4 p.p-3 {
+        max-width: 410px;
+    }
+    .env_reimagine.year_2022 .section_2_4 p.p-3,
+    .env_reimagine.year_2023 .section_2_4 p.p-3,
+    .env_reimagine.year_2024 .section_2_4 p.p-3 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .year_2024 .post_related_section h2 {
+        color: #ffffff;
+        font-size: 36px;
+        line-height: 40px;
+    }
+    .reset-2023 .env_button_view{
+        padding: 10px 0;
+        max-width: 165px;
+    }
+    .env_bottom {
+        margin-top: 64px;
+    }   
+    .env_reimagine img.img-right {
+        position: relative;
+        float: right
+    }
+    .env_reimagine img.img-center {
+        position: relative;
+    }
+    .env_reimagine img.img-left {
+        position: relative;
+        float: left
+    }
+    .reset-2023 .env_button_view.present_2024 {
+        max-width: 198px;
+        margin-left: 15%;
+    }    
+    .env_event_year {
+        max-width: 1035px;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+        justify-content: center;
+        position: relative;
+        bottom: 0;
+        z-index: 1;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    .env_event_year .m-slider__item_reset, .env_event_year .m-slider__item_rebuild, .env_event_year .m-slider__item_reimagine{
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    .year_2022 .env_event_year .m-slider__item_reset,
+    .year_2024 .env_event_year .m-slider__item_reimagine {
+        display: block;
+    }
+    .year_2023 .env_event_year .m-slider__item_rebuild{
+        display: flex;
+    }
+    .slide_unique .custom-pagi{
+        display: none;
+    }
+}

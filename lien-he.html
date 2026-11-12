@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên Hệ - Tiệm Nhỏ Suy Tư</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <main style="padding-top: 81px;">
+    <section class="page-hero">
+      <span class="page-badge">Kết Nối Warm Contact</span>
+      <h1 class="page-title">Gửi Lời Nhắn Đến Tình</h1>
+      <p class="page-subtitle">"Dù là một câu chào nhỏ, một tâm sự về chú mèo hay ý kiến đóng góp, Tình luôn ở đây lắng nghe bạn."</p>
+    </section>
+
+    <section class="page-content-section">
+      <div class="page-container">
+        
+        <form class="letter-form" onsubmit="handleContactSubmit(event)">
+          <div style="margin-bottom: 20px; text-align: center;">
+            <h3 style="color: var(--color-1, #d5a864); font-size: 22px; margin-bottom: 8px;">💌 Hòm Thư Liên Hệ Trực Tiếp</h3>
+            <p style="color: #94a3b8; font-size: 13px;">Tình sẽ hồi âm lại cho bạn qua email sớm nhất có thể ha!</p>
+          </div>
+
+          <label for="cname">Tên hoặc Biệt danh của bạn:</label>
+          <input type="text" id="cname" placeholder="Bạn tên là gì..." required>
+
+          <label for="cemail">Email để Tình phản hồi:</label>
+          <input type="email" id="cemail" placeholder="email@cuaban.com" required>
+
+          <label for="cmessage">Lời nhắn dịu dàng gửi đến Tình:</label>
+          <textarea id="cmessage" rows="5" placeholder="Hãy viết những điều bạn muốn chia sẻ ở đây..." required></textarea>
+
+          <button type="submit" class="letter-submit-btn">Gửi Lời Nhắn 🕊️</button>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/plugin/jquery.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/email-config.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.letter-submit-btn');
+      const originalText = btn ? btn.innerHTML : '';
+      const name = document.getElementById('cname').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      const message = document.getElementById('cmessage').value.trim();
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = 'Đang chuyển thư đi... 🕊️';
+      }
+
+      sendCaraflowEmail({
+        formType: "Hòm Thư Liên Hệ",
+        senderName: name,
+        senderEmail: email,
+        subject: `[LIÊN HỆ TRỰC TIẾP] Lời nhắn từ ${name} (${email})`,
+        message: message,
+        extraData: {
+          "Mục Đích": "👉 TRẢ LỜI / HỒI ÂM CHO ĐỘC GIẢ",
+          "Email Để Phản Hồi": email
+        }
+      }).then((result) => {
+        if (result.success) {
+          alert('✨ Cảm ơn bạn đã gửi lời nhắn cho Tình! Bức thư đã được gửi trực tiếp đến hộp thư của Tình rồi nhé. Chúc bạn một ngày thật an yên! 💖');
+          e.target.reset();
+        } else {
+          const confirmMailto = confirm('Có chút trục trặc kết nối khi gửi tự động. Bạn có muốn mở ứng dụng Email để gửi trực tiếp cho Tình không?');
+          if (confirmMailto) {
+            openCaraflowMailtoFallback({
+              subject: `[Tiệm Nhỏ - Liên Hệ] Lời nhắn từ ${name}`,
+              body: `Chào Tình,\n\nMình là ${name} (${email}).\n\nNội dung lời nhắn:\n${message}`
+            });
+          }
+        }
+      }).catch((err) => {
+        console.error(err);
+        alert('✨ Lời nhắn đã được ghi nhận. Cảm ơn bạn rất nhiều!');
+      }).finally(() => {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+        }
+      });
+      e.target.reset();
+    }
+    // Auto-fill question from URL if arriving from Soul Search
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const question = urlParams.get('question');
+      if (question) {
+        const msgField = document.getElementById('cmessage');
+        if (msgField) {
+          msgField.value = `Chào Tình, mình đang có trăn trở này muốn tâm sự cùng bạn:\n"${question}"\n\n`;
+          msgField.focus();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

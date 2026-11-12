@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+
+  <g fill="#D8B55B">
+
+    <!-- ngôi sao chính -->
+    <path d="
+      M16 2
+      L18.8 13.2
+      L30 16
+      L18.8 18.8
+      L16 30
+      L13.2 18.8
+      L2 16
+      L13.2 13.2
+      Z
+    "></path>
+
+    <!-- sparkle nhỏ -->
+    <path d="
+      M25 4
+      L25.8 7.2
+      L29 8
+      L25.8 8.8
+      L25 12
+      L24.2 8.8
+      L21 8
+      L24.2 7.2
+      Z
+    "></path>
+
+    <!-- sparkle nhỏ -->
+    <path d="
+      M6 22
+      L6.8 25.2
+      L10 26
+      L6.8 26.8
+      L6 30
+      L5.2 26.8
+      L2 26
+      L5.2 25.2
+      Z
+    "></path>
+
+  </g>
+
+</svg>

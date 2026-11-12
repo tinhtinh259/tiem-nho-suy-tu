@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Nếu Bạn Là Một Chú Phù Du... • Tiệm Nhỏ Suy Tư ✨</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="Một ngày của nhân gian là một đời của phù du. Dẫu chỉ có 24 giờ, phù du vẫn chọn sống thật rực rỡ và tinh khôi. Trải nghiệm hóa thân sâu sắc về hiện tại và yêu thương không trì hoãn.">
+
+	<!-- Font & CSS Core Dùng Chung -->
+	<link rel="stylesheet" href="../fonts/hoa-than-fonts.css">
+	<link rel="stylesheet" href="../css/plugin/normalize-5.0.0.min.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+	<link rel="stylesheet" href="./css/hoa-than-core.css">
+	<link rel="stylesheet" href="./css/phu-du-theme.css">
+
+	<style>
+		/* Tinh chỉnh riêng cho visual Phù Du */
+		.hero__mayfly-slot {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 0.82em;
+			height: 0.85em;
+			margin: 0 0.04em;
+			vertical-align: -0.02em;
+		}
+
+		.hero__mayfly-accent {
+			position: absolute;
+			top: -0.22em;
+			left: 48%;
+			transform: translateX(-50%) rotate(28deg);
+			width: 0.22em;
+			height: 0.07em;
+			background: linear-gradient(90deg, #f59e0b, #fef08a);
+			border-radius: 999px;
+			box-shadow: 0 0 12px rgba(251, 191, 36, 0.9);
+			pointer-events: none;
+		}
+
+		/* Luminous dust particles floating in the hero */
+		.mayfly-dust-container {
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			overflow: hidden;
+			z-index: 1;
+		}
+
+		.mayfly-particle {
+			position: absolute;
+			width: 4px;
+			height: 4px;
+			background: #fde68a;
+			border-radius: 50%;
+			box-shadow: 0 0 10px #fbbf24, 0 0 20px #f59e0b;
+			opacity: 0.6;
+			animation: floatParticle 8s infinite ease-in-out;
+		}
+
+		@keyframes floatParticle {
+			0%, 100% {
+				transform: translateY(0) scale(0.8);
+				opacity: 0.3;
+			}
+			50% {
+				transform: translateY(-40px) scale(1.3);
+				opacity: 0.85;
+			}
+		}
+
+		/* Chiếc hộp không trì hoãn (Reflection Healing Box) */
+		.healing-reflection {
+			position: relative;
+			margin: 60px auto 30px;
+			max-width: 680px;
+			padding: 36px 32px;
+			background: rgba(17, 24, 39, 0.75);
+			border: 1px solid rgba(245, 158, 11, 0.35);
+			border-radius: 24px;
+			backdrop-filter: blur(16px);
+			-webkit-backdrop-filter: blur(16px);
+			box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(245, 158, 11, 0.12);
+			text-align: center;
+			color: #fff;
+			z-index: 5;
+		}
+
+		.healing-reflection__title {
+			font-family: var(--donut-landing-main-font);
+			font-size: 1.6rem;
+			color: #fef3c7;
+			margin-bottom: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+		}
+
+		.healing-reflection__desc {
+			font-size: 0.95rem;
+			line-height: 1.6;
+			color: rgba(254, 243, 199, 0.82);
+			margin-bottom: 22px;
+		}
+
+		.healing-reflection__input {
+			width: 100%;
+			box-sizing: border-box;
+			padding: 14px 18px;
+			border-radius: 14px;
+			border: 1px solid rgba(245, 158, 11, 0.3);
+			background: rgba(30, 41, 59, 0.6);
+			color: #fef08a;
+			font-size: 1rem;
+			font-family: inherit;
+			outline: none;
+			transition: all 0.3s ease;
+			resize: none;
+			min-height: 80px;
+		}
+
+		.healing-reflection__input:focus {
+			border-color: #fbbf24;
+			box-shadow: 0 0 15px rgba(251, 191, 36, 0.35);
+			background: rgba(30, 41, 59, 0.85);
+		}
+
+		.healing-reflection__input::placeholder {
+			color: rgba(254, 243, 199, 0.4);
+		}
+
+		.healing-reflection__btn {
+			margin-top: 16px;
+			background: linear-gradient(135deg, #f59e0b, #d97706);
+			color: #0f172a;
+			font-weight: 700;
+			padding: 12px 28px;
+			border: none;
+			border-radius: 999px;
+			cursor: pointer;
+			font-size: 0.95rem;
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+		}
+
+		.healing-reflection__btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 22px rgba(245, 158, 11, 0.6);
+			background: linear-gradient(135deg, #fbbf24, #f59e0b);
+		}
+
+		.healing-reflection__toast {
+			margin-top: 14px;
+			font-size: 0.9rem;
+			color: #6ee7b7;
+			opacity: 0;
+			transition: opacity 0.4s ease;
+		}
+
+		.healing-reflection__toast.show {
+			opacity: 1;
+		}
+	</style>
+
+	<!-- Three.js Import Map -->
+	<script type="importmap">
+      {
+        "imports": {
+          "three": "../js/plugin/three/three.module.js"
+        }
+      }
+    </script>
+	<!-- GSAP & Lenis Plugins -->
+	<script src="../js/plugin/gsap.min.js"></script>
+	<script src="../js/plugin/ScrollTrigger.min.js"></script>
+	<script src="../js/plugin/lenis.min.js"></script>
+	<script src="../js/include-header-footer.js"></script>
+	<script src="../js/header.js"></script>
+</head>
+
+<body data-theme="phu-du">
+
+	<!-- Caraflow Site Header Component -->
+	<div id="header-placeholder"></div>
+
+	<!-- Hộp điều hướng con Subheader -->
+	<nav class="subheader-hoathan cookie-box-nav" id="subheader-hoathan" aria-label="Hộp điều hướng">
+		<button class="cookie-box-toggle" id="cookieBoxToggle" type="button" aria-expanded="true"
+			title="Thu gọn / Mở rộng">
+			<span class="cookie-box-icon">✨</span>
+			<span class="cookie-box-title">Trạm Suy Tư</span>
+			<span class="cookie-box-arrow">‹</span>
+		</button>
+		<ul class="cookie-box-list" id="cookieBoxList">
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#flip" data-target="flip">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind1-color);"></span>
+					<span class="nav-label">1. Định Mệnh</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#steps" data-target="steps">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind2-color);"></span>
+					<span class="nav-label">2. 24 Giờ Rực Rỡ</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#numbers" data-target="numbers">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind3-color);"></span>
+					<span class="nav-label">3. Lời Nhắc Hiện Sinh</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#final" data-target="final">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind4-color);"></span>
+					<span class="nav-label">4. Trạm Dừng</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+	<main class="main">
+		<!-- Các họa tiết mờ nền SVG -->
+		<div class="flip__figures">
+			<img class="flip__first-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659"
+				height="658" loading="lazy">
+			<img class="flip__second-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659"
+				height="658" loading="lazy">
+			<img class="flip__third-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659"
+				height="658" loading="lazy">
+		</div>
+
+		<!-- Model Container (Con Phù Du 3D) -->
+		<div class="model">
+			<div class="model-wrapper">
+				<div class="donut-figure" id="donut">
+					<div class="cookie-rotator" id="donut-rotator">
+						<img id="donut-img" class="donut-img" src="./mayfly.png" alt="Con Phù Du Tinh Khôi">
+					</div>
+					<div class="donut-shadow" id="donut-shadow"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Hero Section -->
+		<section class="hero" id="hero">
+			<!-- Bụi sáng dạ quang -->
+			<div class="mayfly-dust-container">
+				<span class="mayfly-particle" style="top: 20%; left: 15%; animation-delay: 0s;"></span>
+				<span class="mayfly-particle" style="top: 45%; left: 80%; animation-delay: 2s;"></span>
+				<span class="mayfly-particle" style="top: 70%; left: 25%; animation-delay: 4s;"></span>
+				<span class="mayfly-particle" style="top: 30%; left: 65%; animation-delay: 1.5s;"></span>
+				<span class="mayfly-particle" style="top: 85%; left: 75%; animation-delay: 3s;"></span>
+			</div>
+
+			<img class="main__figure" src="./assets/svg/hero-figure.svg" alt="figure" width="1158" height="760"
+				loading="lazy">
+
+			<div class="container hero__container">
+				<div class="hero__top">
+					<div class="hero__heading-box">
+						<span class="hero__script-badge">Tiệm Nhỏ Suy Tư</span>
+						<h1 class="hero__heading">
+							<span class="hero__word">
+								<span class="hero__char">P</span>
+								<span class="hero__char">H</span>
+								<span class="hero__cookie-slot hero__mayfly-slot" id="hero-cookie-slot" aria-label="Ù">
+									<span class="hero__mayfly-accent" id="hero-mayfly-accent" aria-hidden="true"></span>
+								</span>
+							</span>
+							<span class="hero__space">&nbsp;</span>
+							<span class="hero__word">
+								<span class="hero__char">D</span>
+								<span class="hero__char">U</span>
+							</span>
+						</h1>
+						<p class="hero__second-text">
+							Nếu bạn là một chú phù du, bạn sẽ làm gì với vỏn vẹn 24 giờ của cuộc đời?
+							Phù du không biết ngày mai là gì, châu chấu chẳng sống được tới sang năm, và con người cũng
+							chẳng thể chờ đến kiếp sau. Dẫu chỉ có một ngày, phù du vẫn chọn sống thật rực rỡ và tinh
+							khôi — lấy Ngân Hà làm bạn, lấy sương sớm làm thức ăn, và múa lên những đường cong tuyệt đẹp
+							giữa đất trời.
+						</p>
+						<button class="primary__btn hero__btn"
+							onclick="document.querySelector('#flip').scrollIntoView({behavior: 'smooth'});">
+							Khám Phá 24 Giờ Rực Rỡ
+						</button>
+					</div>
+				</div>
+
+				<div class="hero__bottom"></div>
+			</div>
+
+			<div class="hero__pointer" id="scroll-btn" tabindex="0"
+				onclick="document.querySelector('#flip').scrollIntoView({behavior: 'smooth'});">
+				<img class="hero__mouse-icon" src="./assets/svg/mouse.svg" alt="mouse-icon" width="16" height="24"
+					loading="lazy">
+				<img class="hero__arrow" src="./assets/svg/arrow-bottom.svg" alt="arrow-icon" width="24" height="24"
+					loading="lazy">
+			</div>
+		</section>
+
+		<!-- Transition Section -->
+		<div id="transition"></div>
+
+		<!-- Flip Section -->
+		<section class="flip" id="flip">
+			<div class="container">
+				<div class="flip__heading-box heading-box">
+					<h2 class="flip__heading second-heading">
+						CHẲNG ĐỢI NGÀY MAI
+						<span class="heading__special">
+							KHÔNG HẸN KIẾP SAU
+						</span> <br>
+						SỐNG TRỌN HÔM NAY
+						<span class="heading__special">
+							RỰC RỠ TỪNG GIÂY
+						</span>
+					</h2>
+					<p class="flip__text">
+						Phù du không có ngày mai, châu chấu chẳng sống qua mùa đông, và con người chẳng thể chờ đến kiếp sau.
+						Đừng trì hoãn yêu thương bằng những câu "hôm khác nhé" — hãy sống trọn vẹn và rực rỡ ngay lúc này.
+					</p>
+				</div>
+				<div class="flip__shadow"></div>
+			</div>
+		</section>
+
+		<!-- Steps Section (4 Khoảnh Khắc Sinh Mệnh Của Phù Du) -->
+		<section class="steps" id="steps">
+			<div class="steps__indicators">
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+			</div>
+			<div class="steps__cards">
+				<!-- Thẻ 1 -->
+				<div class="steps__card-first">
+					<h3 class="steps__card-heading white">
+						Bình Minh
+						<span class="steps__card-heading-special">
+							Khởi Sinh
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image" src="./assets/svg/card-1-quote.svg" alt="Quote Icon" width="31"
+							height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Sớm mai thức giấc, tinh khôi đón lấy tia nắng đầu tiên của thế gian.
+						</p>
+						<p class="steps__card-text white">
+							Sáng sinh ra, tối trở về với mặt nước — đó là định mệnh của phù du. Nhưng khi bình minh ló rạng,
+							nó không than vãn về sự ngắn ngủi mà lập tức bung đôi cánh pha lê, uống lấy giọt sương mai thuần khiết
+							và bắt đầu hành trình của mình với cả một bầu trời say mê.
+						</p>
+					</div>
+				</div>
+
+				<!-- Thẻ 2 -->
+				<div class="steps__card">
+					<h3 class="steps__card-heading white">
+						Vũ Điệu
+						<span class="steps__card-heading-special">
+							Ngân Hà
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image" src="./assets/svg/card-2-quote.svg" alt="Quote Icon" width="31"
+							height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Lấy gió làm nhạc, lấy dải Ngân Hà làm bạn tri kỷ.
+						</p>
+						<p class="steps__card-text white">
+							Giữa khoảng trời bao la, phù du múa lên những đường cong kiều diễm nhất của sinh mệnh.
+							Nó không cần thức ăn trần thế, không vướng bận lo toan tích góp cho ngày mai. Toàn bộ năng lượng
+							của nó được đốt cháy trọn vẹn cho từng sải cánh lấp lánh trong nắng trời.
+						</p>
+					</div>
+				</div>
+
+				<!-- Thẻ 3 -->
+				<div class="steps__card">
+					<h3 class="steps__card-heading white">
+						Lễ Cưới
+						<span class="steps__card-heading-special">
+							Hoàng Hôn
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image" src="./assets/svg/card-3-quote.svg" alt="Quote Icon" width="31"
+							height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Khoảnh khắc tình yêu giao thoa, cái chết hóa thành lễ vật lãng mạn nhất.
+						</p>
+						<p class="steps__card-text white">
+							Khi hoàng hôn nhuộm đỏ chân trời, phù du tìm được bạn đời của mình. Chúng ôm lấy nhau trong vũ điệu
+							cuối cùng và cùng rơi xuống mặt nước biếc. Sự sống được truyền tiếp thiêng liêng — không hề sợ hãi,
+							chỉ có sự hiến dâng trọn vẹn và thuần khiết đến tận cùng.
+						</p>
+					</div>
+				</div>
+
+				<!-- Thẻ 4 -->
+				<div class="steps__card">
+					<h3 class="steps__card-heading white">
+						Giấc Ngủ
+						<span class="steps__card-heading-special">
+							Đáy Nước
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image" src="./assets/svg/card-4-quote.svg" alt="Quote Icon" width="31"
+							height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Trở về với lớp bùn sâu, để lại mầm sống tươi xanh cho ngày sau.
+						</p>
+						<p class="steps__card-text white">
+							Hàng ngàn quả trứng chìm ngược theo dòng nước, ngủ yên chờ ngày nắng mới đánh thức. Phù du khép lại
+							vòng đời mà không một lời oán trách, bởi vì trong 24 giờ ngắn ngủi ấy, nó đã hưởng trọn vẻ đẹp, tình yêu
+							và ánh sáng phong phú nhất của trần gian.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Second Transition Section -->
+		<div id="second-transition"></div>
+
+		<!-- Numbers Section (3 Lời Nhắc Cho Con Người) -->
+		<section class="numbers" id="numbers">
+			<div class="container numbers__container">
+				<div class="numbers__heading-box heading-box">
+					<h2 class="numbers__heading second-heading">
+						3 Lời Nhắc <span class="heading__special">Từ Kiếp Phù Du</span>
+					</h2>
+				</div>
+				<div class="numbers__box">
+					<div class="numbers__item">
+						<div class="numbers__item-number">1</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Hiện Diện Trọn Vẹn Hôm Nay
+							</h3>
+							<p class="numbers__item-text">
+								Một ngày trôi qua sẽ chẳng bao giờ quay lại. Đừng sống trong nuối tiếc của ngày hôm qua
+								hay nỗi sợ hãi ngày mai.
+							</p>
+						</div>
+					</div>
+					<div class="numbers__item">
+						<div class="numbers__item-number">2</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Yêu Thương Không Trì Hoãn
+							</h3>
+							<p class="numbers__item-text">
+								Gặp một lần là ít đi một lần. Muốn yêu ai hãy yêu, muốn gặp ai hãy gặp, đừng chờ đến
+								kiếp sau.
+							</p>
+						</div>
+					</div>
+					<div class="numbers__item">
+						<div class="numbers__item-number">3</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Sự Rực Rỡ Của Quá Trình
+							</h3>
+							<p class="numbers__item-text">
+								Giá trị của sinh mệnh không đo bằng trăm năm, mà đo bằng sự say mê và tinh khôi bạn đã
+								sống từng ngày.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="numbers__text-box">
+					<p class="numbers__text">
+						Một ngày trôi qua sẽ chẳng bao giờ quay lại. Đừng sống trong nuối tiếc của ngày hôm qua hay nỗi
+						sợ hãi ngày mai.
+					</p>
+					<p class="numbers__text">
+						Gặp một lần là ít đi một lần. Muốn yêu ai hãy yêu, muốn gặp ai hãy gặp, đừng chờ đến kiếp sau.
+					</p>
+					<p class="numbers__text">
+						Giá trị của sinh mệnh không đo bằng trăm năm, mà đo bằng sự say mê và tinh khôi bạn đã sống từng
+						ngày.
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Final Section -->
+	<footer class="final" id="final">
+		<img class="final__hand-icon" src="./assets/svg/hand.svg" alt="hand-icon" width="40px" height="40px"
+			loading="lazy">
+		<div class="final__bg-text-box">
+			<span class="final__bg-text">PHÙ DU</span>
+		</div>
+		<div class="final__light-figure"></div>
+		<div class="container">
+			<div class="final__order-box">
+				<h2 class="final__heading second-heading">
+					Dẫu chỉ một ngày giữa nhân gian, <br>
+					<span class="heading__special">bạn xứng đáng sống một đời rực rỡ</span>
+				</h2>
+				<span class="final__order-text">
+					Ý nghĩa của sinh mệnh chính là sự rực rỡ của quá trình. Chúc bạn kiên cường. Chúc bạn hiên ngang.
+					Chúc bạn sống một đời say mê và trọn vẹn từng khoảnh khắc hiện tại.
+				</span>
+
+				<div class="final__buttons">
+					<button class="primary__btn final__btn final__btn--reflection" id="openReflectionBtn" type="button"
+						style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.35), rgba(217, 119, 6, 0.2)); border-color: #fbbf24; color: #fef08a;">
+						Gửi Lời Yêu Thương 💌
+					</button>
+					<button class="primary__btn final__btn"
+						onclick="window.location.href='../hoa-than.html#trai-nghiem-3d'">
+						Về Trạm Hóa Thân ✨
+					</button>
+					<button class="primary__btn final__btn final__btn--next"
+						onclick="window.location.href='./banh-quy.html'">
+						Hóa Thân: Bánh Quy 🍪 →
+					</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Modal Chiếc Hộp Không Trì Hoãn -->
+	<div class="healing-modal-overlay" id="reflectionModal" aria-hidden="true">
+		<div class="healing-modal-content">
+			<button class="healing-modal-close" id="closeReflectionBtn" type="button" aria-label="Đóng">✕</button>
+			<h3 class="healing-reflection__title">
+				<span>✨</span> Chiếc Hộp Không Trì Hoãn
+			</h3>
+			<p class="healing-reflection__desc">
+				Có lời yêu thương, cảm ơn hay xin lỗi nào bạn từng chần chừ chưa kịp nói?
+				Hãy viết ra đây ngay lúc này và thả trôi nó như một đốm sáng phù du gửi vào không gian:
+			</p>
+			<textarea class="healing-reflection__input" id="reflectionInput"
+				placeholder="Viết điều bạn muốn gửi đến người bạn trân quý ngay hôm nay..."></textarea>
+			<div>
+				<button class="healing-reflection__btn" id="reflectionBtn" type="button">
+					<span>Gửi Đốm Sáng Yêu Thương</span>
+					<span>✨</span>
+				</button>
+			</div>
+			<div class="healing-reflection__toast" id="reflectionToast">
+				Đốm sáng đã vút bay vào dải Ngân Hà. Đừng quên gửi lời này đến họ bằng xương bằng thịt hôm nay nhé! 💛
+			</div>
+		</div>
+	</div>
+
+	<!-- Caraflow Site Footer Component -->
+	<div id="footer-placeholder"></div>
+
+	<!-- Core Engine JS -->
+	<script src="./js/hoa-than-core.js"></script>
+
+	<!-- Script xử lý Modal & Gửi Lời Yêu Thương -->
+	<script>
+		// Modal open / close logic
+		const reflectionModal = document.getElementById('reflectionModal');
+		const openReflectionBtn = document.getElementById('openReflectionBtn');
+		const closeReflectionBtn = document.getElementById('closeReflectionBtn');
+
+		function openModal() {
+			if (reflectionModal) {
+				reflectionModal.classList.add('active');
+				reflectionModal.setAttribute('aria-hidden', 'false');
+				document.getElementById('reflectionInput')?.focus();
+			}
+		}
+
+		function closeModal() {
+			if (reflectionModal) {
+				reflectionModal.classList.remove('active');
+				reflectionModal.setAttribute('aria-hidden', 'true');
+			}
+		}
+
+		openReflectionBtn?.addEventListener('click', openModal);
+		closeReflectionBtn?.addEventListener('click', closeModal);
+		reflectionModal?.addEventListener('click', function (e) {
+			if (e.target === reflectionModal) {
+				closeModal();
+			}
+		});
+
+		// Gửi đốm sáng
+		document.getElementById('reflectionBtn')?.addEventListener('click', function () {
+			const input = document.getElementById('reflectionInput');
+			const toast = document.getElementById('reflectionToast');
+			if (!input || !input.value.trim()) {
+				input.focus();
+				return;
+			}
+
+			this.disabled = true;
+			this.style.opacity = '0.7';
+			toast.classList.add('show');
+
+			const btnRect = this.getBoundingClientRect();
+			for (let i = 0; i < 14; i++) {
+				const spark = document.createElement('span');
+				spark.style.position = 'fixed';
+				spark.style.left = (btnRect.left + btnRect.width / 2) + 'px';
+				spark.style.top = (btnRect.top + btnRect.height / 2) + 'px';
+				spark.style.width = '6px';
+				spark.style.height = '6px';
+				spark.style.borderRadius = '50%';
+				spark.style.background = '#fef08a';
+				spark.style.boxShadow = '0 0 14px #fbbf24';
+				spark.style.pointerEvents = 'none';
+				spark.style.zIndex = '99999';
+				spark.style.transition = 'all 1.2s cubic-bezier(0.1, 0.8, 0.3, 1)';
+				document.body.appendChild(spark);
+
+				const angle = Math.random() * Math.PI * 2;
+				const dist = 60 + Math.random() * 90;
+				requestAnimationFrame(() => {
+					spark.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist - 90}px) scale(0)`;
+					spark.style.opacity = '0';
+				});
+
+				setTimeout(() => spark.remove(), 1300);
+			}
+
+			setTimeout(() => {
+				input.value = '';
+				this.disabled = false;
+				this.style.opacity = '1';
+				toast.classList.remove('show');
+				closeModal();
+			}, 2800);
+		});
+	</script>
+
+</body>
+
+</html>

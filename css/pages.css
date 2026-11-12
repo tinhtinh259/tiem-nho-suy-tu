@@ -1,0 +1,1602 @@
+/* Light, Warm & Gentle Theme - Tiệm Nhỏ Suy Tư / TìnhTình */
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@600;700&family=Itim&family=Quicksand:wght@600;700&display=swap');
+@import url('components/garden-cat-experience.css');
+
+:root {
+    --bg-warm: #faf8f5;
+    --bg-card: #ffffff;
+    --bg-soft-rose: #f9e8ee;
+    --bg-soft-mint: #e6f4ef;
+    --bg-soft-sand: #f5ebe1;
+    --bg-soft-lavender: #f0e6f0;
+    --bg-soft-blue: #e5eff5;
+    --text-primary: #2d3748;
+    --text-secondary: #64748b;
+    --border-warm: rgba(213, 168, 100, 0.25);
+    --accent-gold: #c69c5e;
+}
+
+body {
+    background-color: var(--bg-warm);
+    color: var(--text-primary);
+    font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Page Hero Section - Warm Luminous Gradient */
+.page-hero {
+    background: linear-gradient(135deg, #fdfbf7 0%, #f4ede2 100%);
+    padding: 70px 20px 50px 20px;
+    text-align: center;
+    color: var(--text-primary);
+    position: relative;
+    border-bottom: 1px solid var(--border-warm);
+}
+
+.page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 3px;
+    background: var(--accent-gold);
+    border-radius: 2px;
+}
+
+.page-badge {
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid var(--border-warm);
+    color: var(--accent-gold);
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.page-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--desk-40, 34px);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.page-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 680px;
+    margin: 0 auto 20px auto;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Page Main Section */
+.page-content-section {
+    padding: 50px 20px;
+    background-color: var(--bg-warm);
+    min-height: 50vh;
+}
+
+.page-container {
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+/* Article Cards Grid - Pastel Colors from User Palette */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 28px;
+    margin-top: 25px;
+}
+
+.story-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 18px;
+    padding: 24px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.tempo-stories-collection .story-card {
+    padding: 0;
+}
+
+/* Pastel Variations */
+.story-card:nth-child(5n+1) {
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft-rose) 100%);
+    border-top: 4px solid #f2c4ce;
+}
+
+.story-card:nth-child(5n+2) {
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft-mint) 100%);
+    border-top: 4px solid #b8dfd1;
+}
+
+.story-card:nth-child(5n+3) {
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft-sand) 100%);
+    border-top: 4px solid #e0cebd;
+}
+
+.story-card:nth-child(5n+4) {
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft-lavender) 100%);
+    border-top: 4px solid #d6bfd6;
+}
+
+.story-card:nth-child(5n+5) {
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft-blue) 100%);
+    border-top: 4px solid #b8d4e4;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.story-card-tag {
+    font-size: 12px;
+    color: var(--accent-gold);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.story-card-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.story-card-excerpt {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.story-card-meta {
+    font-size: 12px;
+    color: #718096;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 14px;
+}
+
+/* Floating 259 Corner Badge */
+.floating-259-badge {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #d5a864, #b8860b);
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 6px 18px rgba(213, 168, 100, 0.4);
+    cursor: pointer;
+    z-index: 998;
+    transition: all 0.3s ease;
+    border: 2px solid #ffffff;
+}
+
+.floating-259-badge:hover {
+    transform: scale(1.1) rotate(6deg);
+    box-shadow: 0 8px 24px rgba(213, 168, 100, 0.6);
+}
+
+/* Interactive Cosmic / Letter Box (Luxury Aesthetic with Inline Dark Card) */
+.cosmic-box {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #fdfbf7 50%, #f5ebd9 100%);
+    border: 1.5px solid rgba(198, 156, 94, 0.35);
+    border-radius: 28px;
+    padding: 34px 35px 24px 35px;
+    margin: 35px 0;
+    box-shadow: 0 16px 40px rgba(198, 156, 94, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    overflow: visible;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cosmic-box-left {
+    flex: 1;
+    min-width: 240px;
+    text-align: left;
+    position: relative;
+    z-index: 5;
+    transition: all 0.4s ease;
+}
+
+.cosmic-box-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(198, 156, 94, 0.15);
+    border: 1px solid rgba(198, 156, 94, 0.3);
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8c6328;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.cosmic-box-title {
+    font-family: 'Roboto', serif, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c221e;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.cosmic-box-desc {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    max-width: 480px;
+}
+
+.cosmic-box-btn {
+    background: linear-gradient(135deg, #c69c5e 0%, #d8b073 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 12px 30px !important;
+    border-radius: 30px !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(198, 156, 94, 0.35) !important;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cosmic-box-btn:hover {
+    background: linear-gradient(135deg, #b58b4d 0%, #c69c5e 100%) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 10px 25px rgba(198, 156, 94, 0.45) !important;
+}
+
+/* Slide-in Dark Message Box (Hidden when closed so height stays compact) */
+.cosmic-dark-slidebox {
+    display: none;
+    width: 0;
+    max-width: 0;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(145deg, #1b1d28 0%, #111218 100%);
+    border: 1.5px solid rgba(216, 176, 115, 0.45);
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transform-origin: left center;
+    transform: scaleX(0.2);
+    pointer-events: none;
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+.cosmic-dark-slidebox>* {
+    opacity: 0;
+    transition: opacity 0.3s ease 0.12s;
+}
+
+.cosmic-dark-slidebox.open {
+    display: block;
+    width: 380px;
+    max-width: 380px;
+    opacity: 1;
+    padding: 24px 20px 18px 20px;
+    margin: 0 10px;
+    transform: scaleX(1);
+    pointer-events: auto;
+    animation: cosmicSlideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cosmic-dark-slidebox.open>* {
+    opacity: 1;
+}
+
+@keyframes cosmicSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scaleX(0.4);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scaleX(1);
+    }
+}
+
+.cosmic-dark-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 4px 8px;
+}
+
+.cosmic-dark-close:hover {
+    color: #e6c89c;
+}
+
+.cosmic-dark-number {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #e6c89c;
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -1px;
+}
+
+.cosmic-dark-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #d8b073;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.cosmic-dark-text {
+    font-size: 12.5px;
+    color: #cbd5e1;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.cosmic-dark-text.sub {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.45;
+    margin-bottom: 16px;
+}
+
+.cosmic-dark-action-btn {
+    background: linear-gradient(135deg, #e6c89c 0%, #c69c5e 100%);
+    color: #111218;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 12.5px;
+    padding: 9px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(198, 156, 94, 0.35);
+}
+
+.cosmic-dark-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(198, 156, 94, 0.5);
+}
+
+.cosmic-box-btn.is-active {
+    background: linear-gradient(135deg, #2b2e3e 0%, #171822 100%) !important;
+    color: #e6c89c !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid rgba(216, 176, 115, 0.4) !important;
+}
+
+/* Right Section: Kitten Wrapper with Warm Sun Glow */
+.cosmic-cat-container {
+    position: relative;
+    width: 150px;
+    flex-shrink: 0;
+    z-index: 100;
+}
+
+.cosmic-cat-wrapper {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    mix-blend-mode: multiply;
+}
+
+.cosmic-cat-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.85);
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(245, 230, 205, 0.9) 0%, rgba(216, 176, 115, 0.35) 50%, rgba(255, 255, 255, 0) 75%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.55;
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.cosmic-cat-wrapper:hover::before {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(198, 156, 94, 0.4));
+}
+
+.cosmic-cat-wrapper:hover {
+    transform: scale(1.05);
+}
+
+.cosmic-cat-img-box {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: transparent;
+    position: relative;
+}
+
+.cosmic-cat-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    mix-blend-mode: multiply;
+    transition: opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.35s ease;
+}
+
+.cosmic-cat-img.cat-sleep {
+    position: relative;
+    opacity: 1;
+    z-index: 1;
+}
+
+.cosmic-cat-img.cat-awake {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Hovering button or cat opens eyes! */
+.cosmic-box:hover .cosmic-cat-img.cat-awake,
+.cosmic-cat-wrapper:hover .cosmic-cat-img.cat-awake,
+.cosmic-box-btn:hover~.cosmic-cat-container .cosmic-cat-img.cat-awake,
+.cosmic-box.cat-is-awake .cosmic-cat-img.cat-awake {
+    opacity: 1;
+}
+
+.cosmic-box:hover .cosmic-cat-img.cat-sleep,
+.cosmic-cat-wrapper:hover .cosmic-cat-img.cat-sleep,
+.cosmic-box.cat-is-awake .cosmic-cat-img.cat-sleep {
+    opacity: 0;
+}
+
+.cosmic-cat-img.cat-bounce {
+    animation: catBouncePurr 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes catBouncePurr {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    30% {
+        transform: scale(1.12) rotate(-5deg);
+    }
+
+    60% {
+        transform: scale(0.96) rotate(3deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Floating Sparkle Particles */
+.cosmic-sparkle {
+    position: absolute;
+    pointer-events: none;
+    font-size: 15px;
+    color: #e6c89c;
+    z-index: 25;
+    user-select: none;
+    animation: cosmicSparkleFloat 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cosmicSparkleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.4) rotate(0deg);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.3) rotate(15deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-45px) scale(0.7) rotate(30deg);
+    }
+}
+
+/* Meow Floating Bubble (Deluxe High Contrast Speech Bubble) */
+.cat-meow-bubble {
+    position: absolute;
+    top: -34px;
+    right: -10px;
+    left: auto;
+    transform: rotate(-2deg) scale(0.85);
+    font-family: 'Sour Gummy', 'Itim', 'Quicksand', 'Roboto', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #6a4616;
+    background: rgba(255, 252, 245, 0.98);
+    border: 1px solid rgba(198, 156, 94, 0.45);
+    border-radius: 20px;
+    padding: 5px 15px;
+    box-shadow: 0 6px 20px rgba(198, 156, 94, 0.3), 0 2px 6px rgba(0, 0, 0, 0.08);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 9999;
+}
+
+.cat-meow-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 25px;
+    transform: rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 252, 245, 0.98);
+    border-right: 1px solid rgba(198, 156, 94, 0.45);
+    border-bottom: 1px solid rgba(198, 156, 94, 0.45);
+}
+
+.cat-meow-bubble.show-meow {
+    opacity: 1;
+    transform: translateY(-10px) rotate(-2deg) scale(1.05);
+}
+
+@media (max-width: 991px) {
+    .cosmic-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .cosmic-box-left {
+        text-align: center;
+    }
+
+    .cosmic-box-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cosmic-dark-slidebox.open {
+        width: 100%;
+        max-width: 100%;
+        margin: 15px 0;
+    }
+
+    .cosmic-cat-container {
+        margin-top: 15px;
+    }
+
+    .cat-meow-bubble {
+        right: 50%;
+        transform: translateX(50%) rotate(-2deg) scale(0.85);
+    }
+
+    .cat-meow-bubble::after {
+        right: 50%;
+        transform: translateX(50%) rotate(45deg);
+    }
+
+    .cat-meow-bubble.show-meow {
+        transform: translateX(50%) translateY(-10px) rotate(-2deg) scale(1.05);
+    }
+}
+
+.cosmic-display {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--text-primary, #334155);
+    line-height: 1.8;
+    margin: 20px 0;
+    padding: 22px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px dashed var(--border-warm, #e2d9cc);
+}
+
+/* Script / Letter Special Typography Rules */
+/* ONLY use script font for letter messages as requested by user */
+.letter-font,
+.letter-handwriting,
+.quote-handwriting {
+    font-family: var(--font-script-primary, 'FleurDeLeah', 'Qwigley', cursive) !important;
+    font-size: 26px !important;
+    line-height: 1.4 !important;
+}
+
+/* Letter Form on thu-cua-ban.html */
+.letter-form {
+    background: #ffffff;
+    border: 1px solid var(--border-warm);
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.letter-form label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.letter-form input,
+.letter-form textarea,
+.letter-form select {
+    width: 100%;
+    padding: 12px 16px;
+    background: #faf8f5;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.letter-form input:focus,
+.letter-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background: #ffffff;
+}
+
+.letter-submit-btn {
+    background: var(--accent-gold);
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 14px rgba(198, 156, 94, 0.3);
+}
+
+.letter-submit-btn:hover {
+    background: #b58b4f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(198, 156, 94, 0.45);
+}
+
+/* Letter Welcome Intro Card on thu-cua-ban.html */
+.letter-welcome-card {
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+    background: linear-gradient(135deg, #fdfbf7 0%, #faf5eb 100%);
+    border: 1px solid rgba(198, 156, 94, 0.35);
+    border-radius: 20px;
+    padding: 28px 30px;
+    box-shadow: 0 10px 30px rgba(198, 156, 94, 0.08);
+    text-align: center;
+}
+
+.welcome-heading-quote {
+    color: #4a5568;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.welcome-gentle-quote {
+    background: rgba(198, 156, 94, 0.1);
+    border-left: 3px solid var(--accent-gold, #c69c5e);
+    border-radius: 12px;
+    padding: 16px 20px;
+    color: #2d3748;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* Safety note banner */
+.safety-note {
+    background: var(--bg-soft-mint);
+    border-left: 4px solid #48bb78;
+    padding: 18px 22px;
+    border-radius: 0 14px 14px 0;
+    margin: 25px 0 35px 0;
+    font-size: 14px;
+    color: #2f855a;
+    line-height: 1.7;
+}
+
+/* ---------------------------------------------------- */
+/* SECTION: KHU VƯỜN MẢNH GHÉP TÂM HỒN (96 ICONS GRID) */
+/* ---------------------------------------------------- */
+/* ---------------------------------------------------- */
+/* ALBUM SANCTUARY (KHÔNG GIAN CỦA CARA) DESIGN SYSTEM   */
+/* ---------------------------------------------------- */
+
+/* Hero Botanical Leaf Corner Ornaments */
+.hero-botanical-left {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 240px;
+    max-width: 30vw;
+    pointer-events: none;
+    opacity: 0.9;
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+.hero-botanical-right {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 240px;
+    max-width: 30vw;
+    pointer-events: none;
+    opacity: 0.9;
+    z-index: 1;
+    mix-blend-mode: multiply;
+    transform: scaleX(-1);
+}
+
+/* Album Stack Grid (3 Cols Row 1, 1 Col Row 2) */
+.album-stack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+    .album-stack {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .album-stack {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Album Card Design */
+.album-card {
+    background: #ffffff;
+    border: 1px solid rgba(220, 205, 185, 0.5);
+    border-radius: 24px;
+    padding: 28px 24px 22px 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.album-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(198, 156, 94, 0.12);
+    border-color: var(--accent-gold, #c69c5e);
+}
+
+.album-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.album-img-badge {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.album-img-badge.orange-badge {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border: 1px solid #fdecda;
+}
+
+.album-img-badge.pink-badge {
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+    border: 1px solid #fbcfe8;
+}
+
+.album-img-badge.green-badge {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 1px solid #bbf7d0;
+}
+
+.album-img-badge.purple-badge {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    border: 1px solid #e9d5ff;
+}
+
+.album-card-tag {
+    display: inline-block;
+    color: #c69c5e;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.album-card-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.album-card-desc {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.album-card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.album-card-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fdfbf7;
+    border: 1px solid rgba(198, 156, 94, 0.3);
+    color: #c69c5e;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.album-card:hover .album-card-arrow {
+    background: #c69c5e;
+    color: #ffffff;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(198, 156, 94, 0.3);
+}
+
+/* Hug Quote Card Design (Matching Mockup) */
+.cara-hug-quote-card {
+    background: linear-gradient(135deg, #fffcf9 0%, #fdebf0 100%);
+    border: 1px solid rgba(240, 195, 205, 0.5);
+    border-radius: 28px;
+    padding: 35px 40px;
+    margin: 40px 0 50px 0;
+    box-shadow: 0 12px 32px rgba(225, 175, 190, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 650px) {
+    .cara-hug-quote-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+}
+
+.cara-hug-flower-img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 15px rgba(200, 130, 150, 0.15));
+    flex-shrink: 0;
+}
+
+.cara-hug-quote-body {
+    text-align: center;
+}
+
+.cara-hug-badge {
+    display: inline-block;
+    background: #ffffff;
+    color: #c69c5e;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(213, 168, 100, 0.25);
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cara-hug-quote-text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #2d3748;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.cara-hug-author {
+    font-size: 12.5px;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+}
+
+/* Soul Garden Section (Matching Mockup with Corner Foliage) */
+.soul-garden-section {
+    margin: 50px 0 60px 0;
+    background: #fdfbf7;
+    border: 1px solid rgba(215, 198, 175, 0.45);
+    border-radius: 32px;
+    padding: 45px 35px;
+    box-shadow: 0 15px 40px rgba(198, 156, 94, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.garden-botanical-left {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 220px;
+    pointer-events: none;
+    opacity: 0.75;
+    mix-blend-mode: multiply;
+}
+
+.garden-botanical-right {
+    position: absolute;
+    bottom: 0;
+    right: -60px;
+    width: 220px;
+    pointer-events: none;
+    opacity: 0.75;
+    mix-blend-mode: multiply;
+    transform: scaleX(-1) rotate(-45deg);
+}
+
+.soul-garden-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 30px auto;
+}
+
+.soul-garden-badge {
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid var(--border-warm, rgba(213, 168, 100, 0.3));
+    color: var(--accent-gold, #c69c5e);
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+.soul-garden-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary, #2d3748);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.soul-garden-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary, #64748b);
+    line-height: 1.7;
+}
+
+/* Garden Tabs */
+.garden-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.garden-tab-btn {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #4a5568;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    outline: none;
+    position: relative;
+}
+
+.garden-tab-btn:hover,
+.garden-tab-btn.active {
+    background: var(--accent-gold, #c69c5e);
+    color: #ffffff;
+    border-color: var(--accent-gold, #c69c5e);
+    box-shadow: 0 4px 12px rgba(198, 156, 94, 0.3);
+}
+
+/* Garden Grid (Mosaic 96 Icons) */
+.garden-grid-wrap {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(198, 156, 94, 0.2);
+    border-radius: 24px;
+    padding: 12px 16px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.garden-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    gap: 12px;
+    max-height: 440px;
+    overflow-y: auto;
+    padding: 14px 10px 10px 10px;
+    scroll-behavior: smooth;
+}
+
+/* Garden Icon Items - 5 Warm Pastel Variations */
+.garden-icon-item {
+    aspect-ratio: 1 / 1;
+    background: #ffffff;
+    border: 1px solid rgba(230, 215, 195, 0.7);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.garden-icon-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.garden-icon-item:nth-child(5n+1) {
+    background: linear-gradient(135deg, #ffffff 0%, #fffcf5 100%);
+    border-color: #fce7ca;
+}
+
+.garden-icon-item:nth-child(5n+2) {
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+    border-color: #fbcfe8;
+}
+
+.garden-icon-item:nth-child(5n+3) {
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    border-color: #bbf7d0;
+}
+
+.garden-icon-item:nth-child(5n+4) {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border-color: #bae6fd;
+}
+
+.garden-icon-item:nth-child(5n+5) {
+    background: linear-gradient(135deg, #ffffff 0%, #faf5ff 100%);
+    border-color: #e9d5ff;
+}
+
+.garden-icon-item:hover {
+    transform: translateY(-4px) scale(1.1);
+    border-color: var(--accent-gold, #c69c5e);
+    box-shadow: 0 8px 22px rgba(198, 156, 94, 0.28);
+    z-index: 10;
+}
+
+.garden-icon-item.picked {
+    background: linear-gradient(135deg, #fffcf5 0%, #fdeecb 100%);
+    border-color: var(--accent-gold, #c69c5e);
+    box-shadow: 0 0 12px rgba(198, 156, 94, 0.35);
+}
+
+.garden-icon-item.picked::after {
+    content: "✨";
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: 11px;
+    z-index: 12;
+}
+
+.garden-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.garden-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+}
+
+.garden-grid::-webkit-scrollbar-thumb {
+    background: var(--accent-gold, #c69c5e);
+    border-radius: 10px;
+}
+
+/* Garden Action Bar */
+.garden-action-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(198, 156, 94, 0.3);
+}
+
+.garden-stat {
+    font-size: 14px;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.garden-stat-icon {
+    font-size: 18px;
+}
+
+.garden-random-btn {
+    background: var(--accent-gold, #c69c5e);
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(198, 156, 94, 0.3);
+}
+
+.garden-random-btn:hover {
+    background: #b58b4f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(198, 156, 94, 0.45);
+}
+
+/* Garden Tilling Soil Animation & Particle Burst Effect */
+.garden-random-btn.tilling {
+    animation: buttonSoilDig 0.45s ease;
+    background: #b8863b !important;
+}
+
+@keyframes buttonSoilDig {
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(0.92) translateY(5px) rotate(-10deg); }
+    55% { transform: scale(1.08) translateY(-8px) rotate(6deg); }
+    80% { transform: scale(0.98) translateY(2px) rotate(-2deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.garden-grid-wrap.tilling-soil {
+    animation: soilTillShake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes soilTillShake {
+    10%, 90% { transform: translate3d(-1px, 1px, 0) rotate(-0.3deg); }
+    20%, 80% { transform: translate3d(2px, -2px, 0) rotate(0.4deg); }
+    30%, 50%, 70% { transform: translate3d(-3px, 2px, 0) rotate(-0.5deg); }
+    40%, 60% { transform: translate3d(3px, -1px, 0) rotate(0.5deg); }
+}
+
+/* Flying Soil & Sprout Particle */
+.soil-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 16px;
+    user-select: none;
+    animation: flyAndFadeSoil 0.75s ease-out forwards;
+}
+
+.soil-particle.dirt-dot {
+    width: 8px;
+    height: 8px;
+    background: #8c5a38;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+@keyframes flyAndFadeSoil {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx, 30px), var(--ty, -60px)) scale(var(--s, 0.4)) rotate(var(--rot, 180deg));
+    }
+}
+
+/* Icon Item Sprouting Highlight */
+.garden-icon-item.sprouting {
+    animation: soilSproutBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+    border-color: #c69c5e !important;
+    box-shadow: 0 0 25px rgba(198, 156, 94, 0.8) !important;
+    z-index: 20 !important;
+}
+
+@keyframes soilSproutBounce {
+    0% { transform: scale(0.6) translateY(12px); opacity: 0.5; }
+    50% { transform: scale(1.3) translateY(-10px); }
+    80% { transform: scale(0.95) translateY(2px); }
+    100% { transform: scale(1.15) translateY(-4px); opacity: 1; }
+}
+
+/* Soil Hole Digging Animation Effect */
+.garden-icon-item.digging-hole {
+    position: relative;
+    overflow: visible !important;
+}
+
+.soil-hole-graphic {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 90%;
+    height: 18px;
+    background: radial-gradient(ellipse at center, #361f12 0%, #633f25 70%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 5;
+    animation: soilHoleExpand 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes soilHoleExpand {
+    0% { transform: translateX(-50%) scale(0); opacity: 0; }
+    30% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+    70% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+    100% { transform: translateX(-50%) scale(0.2); opacity: 0; }
+}
+
+.garden-icon-item.sprouting-from-hole img {
+    animation: plantRiseFromHole 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes plantRiseFromHole {
+    0% { transform: translateY(18px) scale(0.5); opacity: 0.3; }
+    60% { transform: translateY(-10px) scale(1.25); opacity: 1; }
+    85% { transform: translateY(2px) scale(0.95); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+/* Soul Piece Popup Modal */
+.soul-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.soul-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.soul-modal-card {
+    background: #ffffff;
+    border: 1px solid var(--border-warm, rgba(213, 168, 100, 0.3));
+    border-radius: 28px;
+    padding: 35px 28px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.soul-modal.open .soul-modal-card {
+    transform: scale(1);
+}
+
+.soul-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.soul-modal-close:hover {
+    color: #2d3748;
+}
+
+.soul-modal-icon-wrap {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 16px auto;
+    background: linear-gradient(135deg, #fffcf7 0%, #fdeecb 100%);
+    border: 2px solid var(--accent-gold, #c69c5e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    box-shadow: 0 8px 20px rgba(198, 156, 94, 0.25);
+}
+
+.soul-modal-icon-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.soul-modal-tag {
+    display: inline-block;
+    background: var(--bg-soft-rose, #f9e8ee);
+    color: #c69c5e;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.soul-modal-quote {
+    font-family: 'Charm', cursive, sans-serif;
+    font-size: 18px;
+    color: #2d3748;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    font-style: italic;
+}
+
+.soul-modal-author {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 22px;
+}
+
+.soul-modal-collect-btn {
+    background: var(--accent-gold, #c69c5e);
+    color: #ffffff;
+    border: none;
+    padding: 11px 26px;
+    border-radius: 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(198, 156, 94, 0.3);
+}
+
+.soul-modal-collect-btn:hover {
+    background: #b58b4f;
+    transform: translateY(-2px);
+}
+
+/* Lightbox Navigation Buttons (Prev / Next) */
+.soul-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid var(--border-warm, rgba(213, 168, 100, 0.35));
+    color: var(--accent-gold, #c69c5e);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+.soul-modal-nav.prev-btn {
+    left: -20px;
+}
+
+.soul-modal-nav.next-btn {
+    right: -20px;
+}
+
+@media (max-width: 480px) {
+    .soul-modal-nav.prev-btn {
+        left: 8px;
+        top: auto;
+        bottom: 15px;
+        transform: none;
+    }
+
+    .soul-modal-nav.next-btn {
+        right: 8px;
+        top: auto;
+        bottom: 15px;
+        transform: none;
+    }
+}
+
+.soul-modal-nav:hover {
+    background: var(--accent-gold, #c69c5e);
+    color: #ffffff;
+    border-color: var(--accent-gold, #c69c5e);
+    box-shadow: 0 6px 20px rgba(198, 156, 94, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.soul-modal-footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(198, 156, 94, 0.25);
+}
+
+.soul-modal-index {
+    font-size: 12.5px;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+/* Lightbox Slide Animation */
+.soul-modal-card.sliding {
+    animation: soulSlidePulse 0.3s ease;
+}
+
+@keyframes soulSlidePulse {
+    0% {
+        opacity: 0.7;
+        transform: scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Tempo Cute Soft 3D Cards */
+.cute-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.cute-card {
+    background: #faf6f0;
+    border: 2px solid #eddcd2;
+    border-radius: 24px;
+    padding: 30px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px rgba(237, 220, 210, 0.4);
+}
+
+.cute-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    border-color: #c69c5e;
+    box-shadow: 0 16px 35px rgba(198, 156, 94, 0.15);
+}
+
+.cute-card-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}

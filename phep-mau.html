@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tháo Nút Thắt Tâm Trí & Trạm Trú Ẩn Cho Người Lớn - Caraflow</title>
+  <meta name="description" content="Nơi tháo gỡ áp lực, chuyển hóa góc nhìn và tìm lại sự bình yên nội tại cho người trưởng thành. Khám phá 4 bài học sinh tồn của loài mèo và bộ thẻ tháo gỡ tâm lý thực tế.">
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/components/phep-mau-dashboard.css">
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <main style="padding-top: 81px;">
+    <!-- 3D HỘP GIẢI PHÓNG ÁP LỰC HERO SECTION (2 CỘT CONCEPT TRANG-CHU SECTION 1) -->
+    <section class="phep-mau-3d-hero" id="hobienHero">
+      <div class="phep-mau-hero-bg-glow"></div>
+      <div class="container">
+        <div class="landing_dflex phep-mau-hero-dflex">
+          <!-- CỘT TRÁI: BADGE + TITLE_SEC + CONTENT_SEC + BUTTONS + INSIGHT WIDGET -->
+          <div class="landing_left txt phep-mau-hero-left">
+            <span class="hero-pill-badge">✦ TIỆM HỒ BIẾN PHÉP MÀU ✦</span>
+
+            <div class="title_sec">
+              <h2>Hồ biến </h2>
+              <div class="title_dots">
+                <span class="dots"></span>
+                <span class="right">phép&nbsp;màu</span>
+              </div>
+            </div>
+
+            <div class="content_sec">
+              <p>
+                Phép màu lớn nhất của người trưởng thành không nằm ở cây đũa thần trong cổ tích, mà là khoảnh khắc bạn tự tay đổi góc nhìn — biến những tảng đá đè nặng trong lòng thành ánh sao dẫn lối.
+              </p>
+              <p>
+                Hãy chọn một cảm xúc đang làm bạn nặng lòng, nhấn <strong>“✨ Hô Biến Phép Màu”</strong> hoặc kéo chuột để làm tan rã lo âu thành bụi sao và nhặt lấy thần chú thức tỉnh cho riêng mình.
+              </p>
+            </div>
+
+            <div class="hero-buttons-group">
+              <button type="button" class="btn-hero-primary" id="heroQuickAlchemyBtn">
+                <span>✨ Hô Biến Phép Màu</span>
+                <span>🪄</span>
+              </button>
+              <a href="#vienKeoBocDuong" class="btn-hero-secondary">
+                <span>Viên Kẹo Bọc Đường</span>
+                <span>➔</span>
+              </a>
+            </div>
+
+            <!-- Dynamic Mental Reframing Insight Card (Cozy Alchemical Widget) -->
+            <div class="reframe-insight-card" id="reframeInsightCard">
+              <div class="reframe-insight-badge">✦ THẦN CHÚ CHUYỂN HÓA GÓC NHÌN ✦</div>
+              <h4 class="reframe-insight-title" id="reframeInsightTitle">🌪️ Áp Lực ➔ 🚀 Sức Bật</h4>
+              <p class="reframe-insight-quote" id="reframeInsightQuote">
+                Áp lực thực chất chỉ là năng lượng đang bị dồn ứ. Khi bạn ngừng sợ hãi và phân tách nó thành từng việc nhỏ, tảng đá đè nặng hôm nay sẽ trở thành bệ phóng đẩy bạn tiến xa hơn.
+              </p>
+            </div>
+          </div>
+
+          <!-- CỘT PHẢI: 3D THREE.JS CANVAS CONTAINER + CONTROLS -->
+          <div class="landing_right phep-mau-hero-right">
+            <!-- 3D Three.js Interactive Canvas Container -->
+            <div class="three-text-canvas-wrapper" id="three-container">
+              <div class="three-drag-hint" id="threeDragHint">
+                <span class="hint-icon">↔</span> Kéo chuột để tháo rã thành bụi sao • Nhấn "Hô Biến" để chuyển hóa
+              </div>
+            </div>
+
+            <!-- Interactive Control Bar -->
+            <div class="phep-mau-hero-controls">
+              <div class="word-presets-group">
+                <button type="button" class="word-chip active" data-index="0" data-before="AP LUC" data-after="SUC BAT" title="Chuyển hóa Áp Lực thành Sức Bật">Áp Lực ➔ Sức Bật 🚀</button>
+                <button type="button" class="word-chip" data-index="1" data-before="BE TAC" data-after="BUOC NGOAT" title="Chuyển hóa Bế Tắc thành Bước Ngoặt">Bế Tắc ➔ Bước Ngoặt ✨</button>
+                <button type="button" class="word-chip" data-index="2" data-before="SO SANH" data-after="DOC BAN" title="Chuyển hóa So Sánh thành Độc Bản">So Sánh ➔ Độc Bản 💎</button>
+                <button type="button" class="word-chip" data-index="3" data-before="DAN VAT" data-after="BAI HOC" title="Chuyển hóa Dằn Vặt thành Bài Học">Dằn Vặt ➔ Bài Học 🌟</button>
+                <button type="button" class="word-chip" data-index="4" data-before="KIET SUC" data-after="TAI SINH" title="Chuyển hóa Kiệt Sức thành Tái Sinh">Kiệt Sức ➔ Tái Sinh 🌱</button>
+              </div>
+              <div class="hero-actions-group">
+                <button type="button" class="hero-ctrl-btn hero-transmute-btn" id="transmuteBtn" title="Hô biến thành phép màu">✨ Hô Biến</button>
+                <button type="button" class="hero-ctrl-btn" id="togglePlayBtn" title="Tạm dừng / Tiếp tục xoay">⏸ Tự Động</button>
+                <button type="button" class="hero-ctrl-btn" id="reset3dBtn" title="Đặt lại góc nhìn">↺ Đặt Lại</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: VIÊN KẸO BỌC ĐƯỜNG (WORKSPACE) -->
+    <section class="page-content-section phep-mau-workspace" id="vienKeoBocDuong">
+      <div class="container">
+        <div class="workspace-header-container">
+          <span class="workspace-badge-tag">✦ GÓC NHỎ XOA DỊU NỘI TÂM ✦</span>
+          <div class="title_sec">
+            <h2>Viên kẹo </h2>
+            <div class="title_dots">
+              <span class="dots"></span>
+              <span class="right">bọc&nbsp;đường</span>
+            </div>
+          </div>
+          <p class="workspace-header-subtext">
+            Những sự thật thẳng thắn nhưng được bao bọc trong sự dịu dàng — vừa đủ tỉnh táo để bạn nhìn rõ thực tế, vừa đủ ngọt ngào để vỗ về những mỏi mệt hôm nay.
+          </p>
+        </div>
+
+        <div class="phep-mau-flex-container">
+
+          <!-- LEFT FIXED COLUMN: BIG COSMIC BOX (NO HORIZONTAL SCROLL) -->
+          <div class="cosmic-box-fixed-col">
+            <div class="cosmic-box">
+              <div>
+                <div class="cosmic-box-badge">✦ LIỀU THUỐC THỰC TẾ CHO NGÀY DÀI ✦</div>
+                <h2 class="cosmic-box-heading">Rút Lời Nhắc Dành Riêng Cho Bạn</h2>
+                <p class="cosmic-box-subheading">Hít một hơi thật sâu, gạt bỏ những lời tự phán xét và nhấn nút bên dưới để nhận một góc nhìn tỉnh táo hôm nay.</p>
+              </div>
+
+              <div id="cosmicDisplay" class="cosmic-display">
+                "Nếu một vấn đề không thể hủy hoại cuộc đời bạn trong 5 năm tới, đừng để nó cướp đi của bạn quá 5 phút lo lắng."
+              </div>
+
+              <div class="cosmic-actions-row">
+                <button type="button" class="cosmic-action-btn" onclick="drawCosmicMessage()">
+                  <span>🎲 Rút Lời Nhắc Mới</span>
+                </button>
+                <button type="button" class="cosmic-copy-btn" id="copyCosmicBtn" onclick="copyCurrentCosmicMessage()" title="Sao chép lời nhắc">
+                  <span>📋 Sao Chép</span>
+                </button>
+              </div>
+              <div id="cosmicToast" class="cosmic-toast">Đã lưu lời nhắc vào bộ nhớ tạm ✨</div>
+            </div>
+          </div>
+
+          <!-- RIGHT SCROLLING COLUMN: 2-ROW HORIZONTAL SCROLL GRID -->
+          <div class="cards-scroll-col">
+            <div class="cards-scroll-header">
+              <span class="scroll-hint-badge">8 Liều Thuốc Tâm Trí Cho Người Lớn ➔</span>
+              <div class="cards-scroll-arrows">
+                <button type="button" class="cards-nav-arrow" id="scrollCardsLeft" onclick="scrollCards('left')" aria-label="Cuộn sang trái">‹</button>
+                <button type="button" class="cards-nav-arrow" id="scrollCardsRight" onclick="scrollCards('right')" aria-label="Cuộn sang phải">›</button>
+              </div>
+            </div>
+            <div class="cards-grid-scrollable" id="freestyleCardsGrid">
+              <!-- Card 0 -->
+              <div class="story-card card-theme-pink" data-type="psychology" data-index="0">
+                <div>
+                  <div class="story-card-tag">Tâm Lý Học</div>
+                  <h3 class="story-card-title">Khi Bạn Nghĩ Rằng Mình "Chưa Đủ Giỏi"</h3>
+                  <p class="story-card-excerpt">Kẻ bất tài thường chẳng bao giờ nghi ngờ chính mình. Nỗi sợ hội chứng kẻ giả mạo chỉ chứng minh bạn đang phát triển và bước ra khỏi vùng an toàn.</p>
+                </div>
+                <div class="story-card-meta"><span>Tháo gỡ tâm lý</span><span>3 phút đọc</span></div>
+              </div>
+
+              <!-- Card 1 -->
+              <div class="story-card card-theme-purple" data-type="psychology" data-index="1">
+                <div>
+                  <div class="story-card-tag">Ranh Giới</div>
+                  <h3 class="story-card-title">Hiệu Ứng Ánh Đèn Sân Khấu</h3>
+                  <p class="story-card-excerpt">Ai cũng quá bận rộn lo âu về những bất toàn của riêng họ. Chẳng ai rảnh rỗi để săm soi bạn cả đời. Hãy cởi bỏ gánh nặng sợ bị đánh giá.</p>
+                </div>
+                <div class="story-card-meta"><span>Tháo gỡ tâm lý</span><span>4 phút đọc</span></div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="story-card card-theme-amber" data-type="psychology" data-index="2">
+                <div>
+                  <div class="story-card-tag">Thức Tỉnh</div>
+                  <h3 class="story-card-title">Múi Giờ Của Riêng Bạn</h3>
+                  <p class="story-card-excerpt">Đừng đem thước đo của xã hội để ướm vào hành trình của bạn. Bông hoa nở vào mùa đông không hề thua kém bông hoa bung nở giữa mùa xuân.</p>
+                </div>
+                <div class="story-card-meta"><span>Tháo gỡ tâm lý</span><span>3 phút đọc</span></div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="story-card card-theme-blue" data-type="psychology" data-index="3">
+                <div>
+                  <div class="story-card-tag">Bảo Vệ Năng Lượng</div>
+                  <h3 class="story-card-title">Cái Giá Của Việc Cố Làm Vừa Lòng Tất Cả</h3>
+                  <p class="story-card-excerpt">Cố làm hài lòng tất cả mọi người là công thức nhanh nhất dẫn tới kiệt quệ. Một chiếc bình cạn nước không thể tưới mát cho bất kỳ ai.</p>
+                </div>
+                <div class="story-card-meta"><span>Tháo gỡ tâm lý</span><span>4 phút đọc</span></div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="story-card card-theme-mint" data-type="psychology" data-index="4">
+                <div>
+                  <div class="story-card-tag">Cảm Xúc</div>
+                  <h3 class="story-card-title">Khoảng Cách Giữa Kích Thích Và Phản Ứng</h3>
+                  <p class="story-card-excerpt">Giữa điều xảy đến với bạn và phản ứng của bạn luôn có một khoảng trống nhỏ. Tĩnh lặng và hít thở sâu luôn mang sức mạnh lớn hơn bộc phát giận dữ.</p>
+                </div>
+                <div class="story-card-meta"><span>Tháo gỡ tâm lý</span><span>3 phút đọc</span></div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="story-card card-theme-rose" data-type="psychology" data-index="5">
+                <div>
+                  <div class="story-card-tag">Hiện Sinh</div>
+                  <h3 class="story-card-title">Thế Nào Là Một Cuộc Đời Thắng Cuộc?</h3>
+                  <p class="story-card-excerpt">Người thắng cuộc thực sự khi đêm về là người không bị ác mộng giằng xé, cơ thể không bệnh tật vì quá tải và tâm hồn vẫn giữ được sự rung cảm bình yên.</p>
+                </div>
+                <div class="story-card-meta"><span>Tháo gỡ tâm lý</span><span>4 phút đọc</span></div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="story-card card-theme-lavender" data-type="psychology" data-index="6">
+                <div>
+                  <div class="story-card-tag">Kết Nối</div>
+                  <h3 class="story-card-title">Học Cách Làm Bạn Với Chính Mình</h3>
+                  <p class="story-card-excerpt">Càng trưởng thành, vòng tròn bạn bè càng thu nhỏ lại. Cô độc chỉ đáng sợ khi bạn ghét bỏ chính mình. Tĩnh lặng một mình chính là tự do đích thực.</p>
+                </div>
+                <div class="story-card-meta"><span>Tháo gỡ tâm lý</span><span>4 phút đọc</span></div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="story-card card-theme-peach" data-type="psychology" data-index="7">
+                <div>
+                  <div class="story-card-tag">Chữa Lành</div>
+                  <h3 class="story-card-title">Hôm Nay Đến Đây Thôi, Đừng Khắt Khe Nữa</h3>
+                  <p class="story-card-excerpt">Cuộc sống không phải một bài kiểm tra liên tục. Có những ngày chỉ cần bạn không từ bỏ, ăn một bữa no và đi ngủ đúng giờ, bạn đã hoàn thành xuất sắc rồi.</p>
+                </div>
+                <div class="story-card-meta"><span>Tháo gỡ tâm lý</span><span>3 phút đọc</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: NHỮNG CÂU CHUYỆN PHÉP MÀU -->
+    <section class="page-content-section phep-mau-miracle-section" id="nhungCauChuyenPhepmau">
+      <div class="container">
+        <div class="workspace-header-container">
+          <span class="workspace-badge-tag">✦ HỘP THƯ SƯỞI ẤM TÂM HỒN ✦</span>
+          <div class="title_sec">
+            <h2>Những câu chuyện </h2>
+            <div class="title_dots">
+              <span class="dots"></span>
+              <span class="right">phép&nbsp;màu</span>
+            </div>
+          </div>
+          <p class="workspace-header-subtext">
+            Tuyển tập những mẩu chuyện đời thường ấm áp và chân thật — nơi những điều kỳ diệu thầm lặng thắp sáng niềm tin và xoa dịu những tâm hồn đang mỏi mệt.
+          </p>
+        </div>
+
+        <div class="phep-mau-flex-container">
+          <!-- LEFT FIXED COLUMN: MIRACLE LETTERBOX -->
+          <div class="cosmic-box-fixed-col">
+            <div class="cosmic-box miracle-box">
+              <div>
+                <div class="cosmic-box-badge">✦ HẠT MẦM TỬ TẾ GIỮA ĐỜI THƯỜNG ✦</div>
+                <h2 class="cosmic-box-heading">Một Chút Ấm Áp Trao Gửi Bạn</h2>
+                <p class="cosmic-box-subheading">Đôi khi, điều cứu rỗi một ngày u tối không phải là phép thuật xa xôi, mà là một sự ân cần bất ngờ từ người đối diện.</p>
+              </div>
+
+              <div class="miracle-intro-quote">
+                <p>“Trong một thế giới đôi khi quá vội vã và sắc lạnh, lòng tốt mộc mạc giữa người với người chính là phép màu chân thực nhất mà ta có thể trao tặng nhau.”</p>
+              </div>
+
+              <div class="cosmic-actions-row">
+                <button type="button" class="cosmic-action-btn miracle-random-btn" onclick="openRandomMiracleStory()">
+                  <span>✨ Đọc Ngẫu Nhiên 1 Chuyện</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT SCROLLING COLUMN: 2-ROW HORIZONTAL SCROLL GRID -->
+          <div class="cards-scroll-col">
+            <div class="cards-scroll-header">
+              <span class="scroll-hint-badge">8 Mẩu Chuyện Phép Màu Sưởi Ấm Tâm Hồn ➔</span>
+              <div class="cards-scroll-arrows">
+                <button type="button" class="cards-nav-arrow" id="scrollMiraclesLeft" onclick="scrollMiracles('left')" aria-label="Cuộn sang trái">‹</button>
+                <button type="button" class="cards-nav-arrow" id="scrollMiraclesRight" onclick="scrollMiracles('right')" aria-label="Cuộn sang phải">›</button>
+              </div>
+            </div>
+            <div class="cards-grid-scrollable" id="miracleCardsGrid">
+              <!-- Card 0 -->
+              <div class="story-card card-theme-pink" data-type="miracle" data-index="0">
+                <div>
+                  <div class="story-card-tag">Lòng Tốt Người Lạ</div>
+                  <h3 class="story-card-title">Tách Cà Phê Trả Trước Cho Người Lạ ☕</h3>
+                  <p class="story-card-excerpt">Một vị khách gọi hai tách: một cho mình và một "treo lên bảng". Một giờ sau, người đàn ông ướt sũng bước vào nhận lấy phép màu thầm lặng ấy.</p>
+                </div>
+                <div class="story-card-meta"><span>Phép màu đời thường</span><span>3 phút đọc</span></div>
+              </div>
+
+              <!-- Card 1 -->
+              <div class="story-card card-theme-purple" data-type="miracle" data-index="1">
+                <div>
+                  <div class="story-card-tag">Sự Cứu Rỗi</div>
+                  <h3 class="story-card-title">Chiếc Ô Ở Trạm Xe Buýt Cuối Cùng ☂️</h3>
+                  <p class="story-card-excerpt">Sau một ngày kiệt sức ngồi khóc dưới mưa, một người lạ bất ngờ nhét chiếc ô vào tay cô: "Cầm lấy về kẻo cảm lạnh, ngày mai sẽ khác thôi con..."</p>
+                </div>
+                <div class="story-card-meta"><span>Phép màu đời thường</span><span>3 phút đọc</span></div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="story-card card-theme-amber" data-type="miracle" data-index="2">
+                <div>
+                  <div class="story-card-tag">Duyên Kỳ Ngộ</div>
+                  <h3 class="story-card-title">Bức Thư Kẹp Trong Cuốn Sách Cũ 📖</h3>
+                  <p class="story-card-excerpt">Trong ngày tuyệt vọng nhất, chàng trai mở ngẫu nhiên cuốn tiểu thuyết ố vàng. Một mẩu giấy rơi ra: "Chào người bạn của 10 năm sau..."</p>
+                </div>
+                <div class="story-card-meta"><span>Phép màu đời thường</span><span>4 phút đọc</span></div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="story-card card-theme-blue" data-type="miracle" data-index="3">
+                <div>
+                  <div class="story-card-tag">Chữa Lành</div>
+                  <h3 class="story-card-title">Chú Mèo Lạc Bước & Sự Giữ Lại 🐾</h3>
+                  <p class="story-card-excerpt">Anh trở về với ý nghĩ muốn buông xuôi. Nhưng ngay bậc cửa, chú mèo con ướt sũng đang kiên nhẫn cọ đầu vào chân anh và cất tiếng rừ rừ khẽ khàng.</p>
+                </div>
+                <div class="story-card-meta"><span>Phép màu đời thường</span><span>3 phút đọc</span></div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="story-card card-theme-mint" data-type="miracle" data-index="4">
+                <div>
+                  <div class="story-card-tag">Tình Thân Đời Thường</div>
+                  <h3 class="story-card-title">Nồi Canh Nóng Của Bác Bảo Vệ 🥣</h3>
+                  <p class="story-card-excerpt">Lần đầu ăn Tết xa quê một mình, cô sinh viên ngồi khóc bên bát mì nguội. Bác bảo vệ già gõ cửa bưng chiếc âu nhôm nghi ngút khói: "Ăn cùng cho ấm con ơi..."</p>
+                </div>
+                <div class="story-card-meta"><span>Phép màu đời thường</span><span>4 phút đọc</span></div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="story-card card-theme-rose" data-type="miracle" data-index="5">
+                <div>
+                  <div class="story-card-tag">Tri Kỷ</div>
+                  <h3 class="story-card-title">Cuộc Gọi 2h Sáng Không Cần Nói Lời Nào 🌙</h3>
+                  <p class="story-card-excerpt">Cô chỉ bấm nghe rồi im lặng nấc nghẹn. Đầu dây bên kia người bạn thân cũng không hỏi han dồn dập, chỉ để máy mở và thở thật êm: "Tao ở đây..."</p>
+                </div>
+                <div class="story-card-meta"><span>Phép màu đời thường</span><span>3 phút đọc</span></div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="story-card card-theme-lavender" data-type="miracle" data-index="6">
+                <div>
+                  <div class="story-card-tag">Nghị Lực</div>
+                  <h3 class="story-card-title">Cây Hoa Giấy Nở Bung Bên Tường Nứt 🌸</h3>
+                  <p class="story-card-excerpt">Từ kẽ nứt khô khốc của bức tường xi măng, nhánh hoa nhỏ vẫn kiên cường nở rộ những cánh hoa đỏ rực rỡ đón ánh ban mai mùa thu.</p>
+                </div>
+                <div class="story-card-meta"><span>Phép màu đời thường</span><span>3 phút đọc</span></div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="story-card card-theme-peach" data-type="miracle" data-index="7">
+                <div>
+                  <div class="story-card-tag">Kỳ Tích Bình Dị</div>
+                  <h3 class="story-card-title">Viên Kẹo Phép Màu Của Bà Cụ Bán Vé Số 🍬</h3>
+                  <p class="story-card-excerpt">Cô gái quên ví không mua vé số ủng hộ. Bà cụ móm mém cười hiền hậu, dúi vào tay cô chiếc kẹo me: "Trời nắng quá, ngậm cho mát cổ họng rồi đi tiếp nhé..."</p>
+                </div>
+                <div class="story-card-meta"><span>Phép màu đời thường</span><span>3 phút đọc</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Full Width Edge-to-Edge Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/plugin/jquery.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/global.js"></script>
+
+  <!-- THREE.js r75 & BAS Shattering Text Dependencies (hobien-phepmau) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/TextGeometry.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/FontUtils.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/pnltri.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/droid_sans_bold.typeface.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js"></script>
+  <script src="js/components/phep-mau-3d-text.js"></script>
+
+  <script>
+    const cosmicMessages = [
+      '"Nếu một vấn đề không thể hủy hoại cuộc đời bạn trong 5 năm tới, đừng để nó cướp đi của bạn quá 5 phút lo lắng."',
+      '"Bạn không cần phải tìm ra hết câu trả lời trong ngày hôm nay. Chỉ cần đi tiếp một bước nhỏ tiếp theo là đủ."',
+      '"Người khác bận lo lắng về cuộc đời họ nhiều hơn là chú ý hay phán xét bạn. Hãy tháo bỏ gánh nặng vô hình ấy xuống."',
+      '"Nghỉ ngơi không phải là phần thưởng chỉ được nhận khi làm xong hết mọi việc. Nghỉ ngơi là quyền sinh tồn căn bản."',
+      '"Bạn của ngày xưa đã làm hết sức với lượng nhận thức và nguồn lực họ có lúc đó. Hãy ngừng dùng sự khôn ngoan của hiện tại để dằn vặt quá khứ."',
+      '"Đôi khi, kỳ tích của một ngày chỉ đơn giản là bạn vẫn thức dậy, rửa mặt bằng nước mát, và quyết định sống tiếp sau một đêm muốn buông xuôi."',
+      '"Thành công lớn nhất của người trưởng thành không nằm ở chức danh hay sự tán thưởng, mà là việc có thể đặt lưng ngủ một giấc thật yên mỗi tối."',
+      '"Bạn không có nghĩa vụ phải sống đúng theo kịch bản kỳ vọng của người khác. Cuộc đời là của bạn, sự thanh thản cũng là của bạn."'
+    ];
+
+    function drawCosmicMessage() {
+      const display = document.getElementById('cosmicDisplay');
+      if (!display) return;
+      display.style.opacity = 0;
+      setTimeout(() => {
+        const randomMsg = cosmicMessages[Math.floor(Math.random() * cosmicMessages.length)];
+        display.innerHTML = randomMsg;
+        display.style.opacity = 1;
+      }, 300);
+    }
+
+    function copyCurrentCosmicMessage() {
+      const display = document.getElementById('cosmicDisplay');
+      if (!display) return;
+      const text = display.innerText.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('cosmicToast');
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+      }).catch(() => {
+        const toast = document.getElementById('cosmicToast');
+        if (toast) {
+          toast.innerText = "Đã ghi nhận lời nhắc ✨";
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+      });
+    }
+
+    function scrollCards(direction) {
+      const grid = document.getElementById('freestyleCardsGrid');
+      if (!grid) return;
+      const scrollAmount = 330;
+      if (direction === 'left') {
+        grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    function scrollMiracles(direction) {
+      const grid = document.getElementById('miracleCardsGrid');
+      if (!grid) return;
+      const scrollAmount = 330;
+      if (direction === 'left') {
+        grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    /* SECTION 2: 8 LIỀU THUỐC TÂM TRÍ CHO NGƯỜI LỚN */
+    const psychologyCardData = [
+      {
+        tag: "Tâm Lý Học",
+        title: "Khi Bạn Nghĩ Rằng Mình 'Chưa Đủ Giỏi'",
+        story: `Càng là người có trách nhiệm và cầu tiến, bạn lại càng dễ rơi vào cảm giác mình chỉ là kẻ may mắn hoặc chưa đủ năng lực. Sự thật là: kẻ bất tài thường không bao giờ nghi ngờ chính mình. Nỗi sợ này chứng minh bạn đang phát triển và bước ra khỏi vùng an toàn.
+
+May mắn có thể mở ra một cánh cửa, nhưng chính sự kiên trì và thực lực mới giữ bạn ở lại đến ngày hôm nay.`,
+        question: "🧠 Lần tới khi tự ti xuất hiện, bạn sẽ nhắc nhở mình điều gì?",
+        buttons: [
+          { text: "Tôi ghi nhận những nỗ lực có thật của mình", reply: "Chính xác! Bạn xứng đáng với những gì bạn đang có sau bao ngày cố gắng bền bỉ. 🌟" },
+          { text: "Cho phép bản thân được vừa làm vừa học", reply: "Không ai sinh ra đã biết tất cả. Bạn có quyền hoàn thiện bản thân từng ngày một cách thong dong." }
+        ]
+      },
+      {
+        tag: "Ranh Giới",
+        title: "Hiệu Ứng Ánh Đèn Sân Khấu",
+        story: `Chúng ta luôn sống như thể có một máy quay theo dõi từng sai lầm nhỏ nhất của mình. Nhưng thực tế tâm lý học chỉ ra: ai cũng bận rộn với những bất an của riêng họ. Chẳng ai rảnh rỗi để săm soi bạn cả đời.
+
+Hãy cởi bỏ chiếc áo giáp căng thẳng ấy xuống và sống thật thoải mái.`,
+        question: "🎭 Bạn có đang giữ kẽ quá mức vì sợ người khác đánh giá?",
+        buttons: [
+          { text: "Tôi sẽ sống chân thật với nhu cầu của mình", reply: "Tuyệt vời! Giải phóng mình khỏi ánh nhìn phán xét là bước đầu tiên để chạm vào tự do nội tại. 🍃" },
+          { text: "Hít thở sâu và bớt bận tâm chuyện thiên hạ", reply: "Người ta bàn tán rồi sẽ quên sau 5 phút, chỉ có bạn là sống cả đời với lựa chọn của mình." }
+        ]
+      },
+      {
+        tag: "Thức Tỉnh",
+        title: "Múi Giờ Của Riêng Bạn",
+        story: `Có người kết hôn năm 24 tuổi nhưng ly hôn năm 30. Có người 35 tuổi mới tìm thấy sự nghiệp đam mê và hạnh phúc. Đừng đem 'thước đo' của xã hội để ướm vào hành trình của bạn.
+
+Bạn không hề chậm trễ, bạn đang đi đúng nhịp đồng hồ sinh mệnh của chính mình. Bông hoa nở vào mùa đông không hề thua kém bông hoa bung nở giữa mùa xuân.`,
+        question: "⏳ Bạn cảm thấy thế nào về tiến độ cuộc sống hiện tại?",
+        buttons: [
+          { text: "Tôi tin tưởng vào nhịp điệu của riêng mình", reply: "Đúng vậy! Vững vàng bước từng bước, quả ngọt sẽ tới đúng thời điểm rực rỡ nhất. 🌸" },
+          { text: "Tôi sẽ ngừng lướt mạng để bớt áp lực đồng trang lứa", reply: "Tắt bớt những nguồn thông tin gây so sánh là cách hữu hiệu nhất để tâm trí bạn được yên ổn." }
+        ]
+      },
+      {
+        tag: "Bảo Vệ Năng Lượng",
+        title: "Cái Giá Của Việc Cố Làm Vừa Lòng Tất Cả",
+        story: `Mỗi khi bạn nói 'Đồng ý' với một việc mình không muốn, bạn đang nói 'Từ chối' với chính năng lượng và sức khỏe của mình. Sự thật trần trụi: làm vừa lòng tất cả là công thức nhanh nhất dẫn tới kiệt quệ và đánh mất bản thân.
+
+Một chiếc bình cạn nước không thể tưới tắm cho ai. Hãy học cách nói Không khi cần thiết.`,
+        question: "🛡️ Bạn đã sẵn sàng bảo vệ ranh giới năng lượng của mình chưa?",
+        buttons: [
+          { text: "Tôi sẽ tập từ chối dứt khoát và lịch sự", reply: "Lời từ chối đúng lúc là liều thuốc bảo vệ lòng tự trọng và sự bình yên của bạn. 💪" },
+          { text: "Tôi sẽ ưu tiên nạp lại năng lượng cho bản thân", reply: "Chính xác! Giữ mình lành lặn mới là trách nhiệm quan trọng nhất của bạn." }
+        ]
+      },
+      {
+        tag: "Cảm Xúc",
+        title: "Khoảng Cách Giữa Kích Thích Và Phản Ứng",
+        story: `Giữa điều xảy ra với bạn và cách bạn phản ứng luôn có một khoảng trống nhỏ. Trong khoảng trống đó chính là tự do và quyền lựa chọn của bạn.
+
+Đừng biến sai lầm của người khác thành bản án trừng phạt tâm trí chính mình. Tĩnh lặng và hít thở sâu luôn mang sức mạnh lớn hơn sự bộc phát giận dữ.`,
+        question: "🌊 Khi giận dữ hoặc thất vọng trỗi dậy, bạn chọn làm gì?",
+        buttons: [
+          { text: "Dừng lại 5 nhịp thở trước khi nói hay quyết định", reply: "Đó là sự trưởng thành cảm xúc đỉnh cao. Bình tĩnh luôn giải quyết được mọi chuyện. 🧘" },
+          { text: "Tách mình ra khỏi môi trường căng thẳng", reply: "Rời đi đúng lúc là cách thông minh nhất để tránh những tổn thương không đáng có." }
+        ]
+      },
+      {
+        tag: "Hiện Sinh",
+        title: "Thế Nào Là Một Cuộc Đời Thắng Cuộc?",
+        story: `Xã hội dạy ta thành công là nhà cao cửa rộng, thu nhập khủng. Nhưng khi đêm về, một người thắng cuộc thực sự là người không bị ác mộng giằng xé, cơ thể không bị bệnh tật vì quá tải, và tâm hồn vẫn giữ được sự rung cảm trước một buổi hoàng hôn.
+
+Đừng đánh đổi sự an yên của cả đời để lấy những tràng vỗ tay tạm bợ của người lạ.`,
+        question: "✨ Định nghĩa thành công đích thực với bạn hôm nay là gì?",
+        buttons: [
+          { text: "Sự bình an trong tâm trí và sức khỏe dồi dào", reply: "Đó là tài sản vô giá nhất mà không có bất kỳ danh vọng nào mua được. 🌿" },
+          { text: "Có thời gian cho những người mình thực sự thương yêu", reply: "Cuối đời, người ta không hối tiếc vì làm ít việc, người ta chỉ tiếc vì thiếu thời gian bên người thân." }
+        ]
+      },
+      {
+        tag: "Kết Nối",
+        title: "Học Cách Làm Bạn Với Chính Mình",
+        story: `Càng lớn, vòng tròn bạn bè càng thu hẹp lại. Đây không phải bi kịch, mà là sự chắt lọc tự nhiên.
+
+Cô độc chỉ đáng sợ khi bạn ghét bỏ chính mình. Khi bạn biết trân trọng sự tĩnh lặng, cô đơn sẽ hóa thành sự độc lập tự do tuyệt đối. Hãy đối xử chu đáo với bản thân như đối với một tri kỷ.`,
+        question: "☕ Bạn cảm thấy thế nào khi ở một mình?",
+        buttons: [
+          { text: "Tôi xem những lúc một mình là khoảng thời gian tái tạo", reply: "Rất tốt! Ở một mình mà thấy bình yên chính là đỉnh cao của sự thảnh thơi nội tại." },
+          { text: "Đôi lúc thấy hụt hẫng nhưng tôi đang học cách quen dần", reply: "Từng bước một nhé. Bạn luôn có chính mình là điểm tựa trung thành nhất." }
+        ]
+      },
+      {
+        tag: "Chữa Lành",
+        title: "Hôm Nay Đến Đây Thôi, Đừng Khắt Khe Nữa",
+        story: `Cuộc sống không phải là một bài kiểm tra liên tục không có hồi kết. Có những ngày chỉ cần bạn không bỏ cuộc, chỉ cần bạn chịu ăn một bữa no và đi ngủ đúng giờ, bạn đã hoàn thành xuất sắc nhiệm vụ của một con người rồi.
+
+Khép lại âu lo của hôm nay, ngày mai là một trang giấy hoàn toàn mới.`,
+        question: "🌙 Bạn đã sẵn sàng buông bỏ âu lo để nghỉ ngơi tối nay chưa?",
+        buttons: [
+          { text: "Tôi cho phép mình dừng lại và ngủ một giấc thật sâu", reply: "Chúc bạn một giấc ngủ êm đềm. Ngày mai trời lại sáng và mọi thứ sẽ ổn thôi. 💫" },
+          { text: "Cảm ơn lời nhắc nhở chân thành và ấm áp này", reply: "Bạn đã rất kiên cường rồi. Hãy luôn tự hào về chính mình nhé!" }
+        ]
+      }
+    ];
+
+    /* SECTION 3: 8 MẨU CHUYỆN PHÉP MÀU SƯỞI ẤM TÂM HỒN */
+    const miracleStoriesData = [
+      {
+        tag: "Lòng Tốt Người Lạ",
+        title: "Tách Cà Phê Trả Trước Cho Người Lạ ☕",
+        story: `Trời đổ mưa phùn lạnh cóng trong một chiều đông muộn. Một người đàn ông bước vào tiệm cà phê nhỏ góc phố, thanh toán cho hai ly cà phê: "Một ly cho tôi, và một ly treo lên bảng nhé".
+
+Người phục vụ mỉm cười ghim một mẩu giấy nhỏ lên chiếc bảng gỗ trước quầy. Một giờ sau, một người lao động già ướt sũng áo mưa ngập ngừng bước vào nhìn tấm bảng: "Hôm nay ở đây có ly cà phê treo nào không cháu?".
+
+Chẳng ai biết ai, không cần lời cảm ơn trực tiếp. Phép màu đôi khi chỉ đơn giản là việc ta biết có một người xa lạ ngoài kia sẵn sàng san sẻ hơi ấm cho ta mà không cần nhận lại bất cứ điều gì.`,
+        question: "☕ Hôm nay, bạn có muốn gieo một sự tử tế thầm lặng cho ai đó không?",
+        buttons: [
+          { text: "Tôi sẽ đối xử dịu dàng hơn với người đối diện hôm nay", reply: "Chỉ một nụ cười hay một lời cảm ơn chân thành cũng có thể là phép màu thắp sáng cả ngày u tối của người khác. 🌟" },
+          { text: "Cảm thấy lòng ấm áp và nhẹ nhõm hơn rất nhiều", reply: "Lòng tốt luôn là dòng chảy diệu kỳ, trao đi là còn mãi trong tim." }
+        ]
+      },
+      {
+        tag: "Sự Cứu Rỗi",
+        title: "Chiếc Ô Ở Trạm Xe Buýt Cuối Cùng ☂️",
+        story: `21 giờ 45, chuyến xe buýt cuối cùng lướt qua trong làn mưa xối xả. Cô gái trẻ ngồi bệt xuống băng ghế trạm chờ, hai vai run lên vì kiệt sức sau một ngày bị mắng mỏ và đánh mất hợp đồng quan trọng.
+
+Cô nghĩ mình là kẻ thất bại nhất trần đời. Đột nhiên, một người phụ nữ trạc tuổi mẹ cô bước tới, không hỏi han tò mò, chỉ nhẹ nhàng ấn chiếc ô cán gỗ vào tay cô: "Cầm lấy về kẻo cảm lạnh con nhé, ngày mai mọi chuyện sẽ khác thôi".
+
+Người phụ nữ trùm áo khoác chạy vội vào mưa. Chiếc ô ấy không giải quyết được khó khăn trong công việc, nhưng nó đã cứu sống niềm tin vào cuộc đời của một người trẻ đang trên bờ vực gục ngã.`,
+        question: "☂️ Bạn từng nhận được sự tử tế bất ngờ nào từ người lạ chưa?",
+        buttons: [
+          { text: "Từng có, và khoảnh khắc ấy tôi nhớ suốt đời", reply: "Những điều nhỏ bé trao đi đúng lúc luôn mang sức mạnh lớn lao như một chiếc phao cứu sinh vậy. 💫" },
+          { text: "Tôi sẽ trở thành người nhường ô cho ai đó khi họ cần", reply: "Một tâm hồn ấm áp như bạn chính là phép màu tuyệt vời nhất của thế giới này." }
+        ]
+      },
+      {
+        tag: "Duyên Kỳ Ngộ",
+        title: "Bức Thư Kẹp Trong Cuốn Sách Cũ 📖",
+        story: `Đó là ngày anh nhận tin mình trượt kỳ thi quan trọng sau 3 năm ròng rã ôn tập. Lang thang vô định vào tiệm sách cũ góc phố, anh với tay lấy bừa một cuốn sách đã ố vàng bìa.
+
+Kẹp giữa trang 128 là một tấm bưu thiếp viết tay từ mùa hè năm 2014: "Chào người lạ đang cầm cuốn sách này. Hôm nay tôi vừa thất bại trong giấc mơ đầu đời, nhưng tôi quyết định sẽ không bỏ cuộc. Nếu bạn cũng đang buồn, xin hãy nhớ: hạt giống chỉ nảy mầm khi nó chìm sâu dưới lòng đất tối."
+
+Dòng chữ như một lá thư gửi xuyên qua thời gian, đến đúng vào lúc anh cần được vực dậy nhất. Không có sự trùng hợp ngẫu nhiên nào cả, vũ trụ luôn có cách vỗ về chúng ta.`,
+        question: "📖 Bạn có tin vào những sự sắp đặt kỳ diệu của số phận?",
+        buttons: [
+          { text: "Tôi tin vũ trụ luôn gửi tín hiệu đúng thời điểm", reply: "Khi bạn mở lòng đón nhận, phép màu sẽ xuất hiện từ những điều giản dị và bất ngờ nhất. 🕊️" },
+          { text: "Lời nhắn ấy tiếp thêm cho tôi rất nhiều dũng khí", reply: "Khó khăn hôm nay chính là lớp đất màu mỡ để hạt giống bên trong bạn chuẩn bị nảy mầm mạnh mẽ!" }
+        ]
+      },
+      {
+        tag: "Chữa Lành",
+        title: "Chú Mèo Lạc Bước & Sự Giữ Lại 🐾",
+        story: `Căn phòng trọ tối om và lạnh lẽo. Người đàn ông trở về sau chuỗi ngày nợ nần và thất nghiệp, anh ngồi phịch xuống thềm cửa, cảm thấy mình chẳng còn giá trị gì trên đời, không còn ai cần mình nữa.
+
+Đúng lúc ấy, một chú mèo hoang gầy gò từ đâu lách qua khe cửa, toàn thân ướt sũng. Nó không xin ăn, chỉ lặng lẽ tiến lại, dụi chiếc đầu nhỏ xíu vào ống quần anh và cất tiếng rừ rừ ấm áp.
+
+"Hóa ra trên đời này vẫn còn một sinh mệnh cần mình che chở tối nay", anh nghĩ thầm. Anh đứng dậy, bật đèn, chia nửa ổ bánh mì và pha một bát sữa ấm. Phép màu không cần đao to búa lớn, đôi khi phép màu chỉ là tiếng thở đều đều của một chú mèo nằm ngủ yên bình trên ngực bạn.`,
+        question: "🐾 Đã có ai hoặc điều gì từng giữ bạn ở lại với cuộc đời này chưa?",
+        buttons: [
+          { text: "Có một người / một thú cưng đặc biệt với tôi", reply: "Hãy ôm lấy họ thật chặt nhé. Tình yêu thương thuần khiết chính là ngọn hải đăng xua tan bóng tối. 🐱" },
+          { text: "Tôi nhận ra bản thân mình vẫn luôn có giá trị", reply: "Chính xác! Chỉ cần bạn còn ở đây, bạn đã là một điều kỳ diệu đối với thế giới này rồi." }
+        ]
+      },
+      {
+        tag: "Tình Thân Đời Thường",
+        title: "Nồi Canh Nóng Của Bác Bảo Vệ 🥣",
+        story: `Giao thừa năm ấy, khu xóm trọ vắng hoe không một bóng người. Mọi người đều đã về quê đoàn tụ, chỉ còn cô sinh viên năm nhất ở lại làm thêm kiếm tiền trang trải viện phí cho mẹ.
+
+Nghe tiếng pháo hoa nổ vang trời từ đằng xa, cô ngồi thu lu bên mép giường, nước mắt rơi lã chã vào bát mì tôm nguội ngắt. Bỗng có tiếng gõ cửa cộc cộc.
+
+Bác bảo vệ già với mái tóc bạc phơ đứng đó, tay bưng chiếc âu nhôm bốc khói nghi ngút: "Bác nấu nồi canh măng với ít thịt kho, nhiều quá ăn không hết. Ra bàn trực với bác ăn miếng bánh chưng cho ấm cúng con ơi". Bữa cơm giao thừa giản dị ấy đã trở thành ký ức ngọt ngào nhất, xua tan hoàn toàn cái lạnh của sự tha hương.`,
+        question: "🥣 Sự ấm áp từ những người lao động bình dị có từng chạm đến bạn?",
+        buttons: [
+          { text: "Lòng tốt mộc mạc ấy luôn làm tôi rơi nước mắt", reply: "Những con người giản dị nhất đôi khi lại mang trái tim bao dung và ấm áp nhất trần đời. 🏮" },
+          { text: "Nhắc tôi nhớ về gia đình và những người thân yêu", reply: "Dù đi đâu xa, sự chở che ấm áp vẫn luôn là ngọn lửa sưởi ấm bước chân ta trở về." }
+        ]
+      },
+      {
+        tag: "Tri Kỷ",
+        title: "Cuộc Gọi 2h Sáng Không Cần Nói Lời Nào 🌙",
+        story: `Đó là một đêm tan vỡ nhất trong năm. Cô gái bấm số gọi cho người bạn thân nhất lúc 2 giờ sáng nhưng khi đầu dây bên kia nhấc máy, cổ họng cô nghẹn ứ, không thể thốt ra bất kỳ câu chữ nào ngoài những tiếng nấc vụn vỡ.
+
+Người bạn bên kia không hề cuống cuồng hỏi dồn dập "Có chuyện gì thế?", "Tại sao lại khóc?". Cậu ấy chỉ nhẹ nhàng nói: "Tao bật loa ngoài đây nhé. Cứ khóc cho đã đi, không cần nói gì cả. Tao ở đây với mày suốt đêm nay".
+
+Cứ thế, suốt hai tiếng đồng hồ, chỉ có tiếng thở nhè nhẹ và sự hiện diện tĩnh lặng qua chiếc điện thoại. Phép màu của tình bạn không phải là giúp ta giải quyết hết rắc rối, mà là họ dám ngồi cạnh ta giữa bóng tối sâu thẳm nhất mà không vội vàng phán xét.`,
+        question: "🌙 Bạn có một người tri kỷ luôn sẵn sàng lắng nghe bạn không?",
+        buttons: [
+          { text: "Tôi biết ơn vì có người bạn như thế trong đời", reply: "Hãy nhắn một tin cảm ơn họ nhé. Có một tri kỷ thấu hiểu mình trong cõi đời này là một ân huệ vô giá. 💖" },
+          { text: "Tôi ước mình cũng sẽ trở thành một chỗ dựa như vậy", reply: "Chỉ cần một đôi tai biết lắng nghe và một trái tim không phán xét, bạn đã là thiên thần hộ mệnh của ai đó rồi." }
+        ]
+      },
+      {
+        tag: "Nghị Lực",
+        title: "Cây Hoa Giấy Nở Bung Bên Tường Nứt 🌸",
+        story: `Mỗi ngày đi làm qua con ngõ hẹp, anh đều nhìn thấy một nhánh hoa giấy mọc ra từ vết nứt của bức tường xi măng xám xịt. Chẳng có ai tưới nước, đất cằn cỗi và đầy khói bụi thành phố.
+
+Anh từng nghĩ nó sẽ sớm héo khô trong những ngày hè đổ lửa. Nhưng đến một sớm đầu thu, nhánh cây ấy lại bung nở chùm hoa đỏ rực rỡ, kiêu hãnh vươn mình đón ánh ban mai.
+
+Nó đứng đó như một lời nhắc nhở không lời: Bạn không cần phải có một xuất phát điểm hoàn hảo hay một môi trường trải đầy hoa hồng để có thể tỏa sáng. Vết nứt không phải là sự đổ vỡ, đó là nơi rễ cây bám chặt và ánh sáng lọt vào để tạo nên phép màu sinh tồn.`,
+        question: "🌸 Bạn có đang cảm thấy hoàn cảnh hiện tại quá khó khăn?",
+        buttons: [
+          { text: "Tôi sẽ kiên trì như nhánh hoa giấy ấy", reply: "Chính sự bền bỉ trong nghịch cảnh sẽ làm nên bông hoa rực rỡ và kiêu hãnh nhất của bạn. 🌿" },
+          { text: "Tôi nhận ra mọi vết nứt đều có ý nghĩa riêng", reply: "Vết nứt hôm nay chính là nơi ánh sáng của sự trưởng thành và phép màu tràn vào!" }
+        ]
+      },
+      {
+        tag: "Kỳ Tích Bình Dị",
+        title: "Viên Kẹo Phép Màu Của Bà Cụ Bán Vé Số 🍬",
+        story: `Trưa hè oi ả 40 độ C, cô gái vừa rời công ty trong tâm trạng cáu bẳn và thất vọng. Dừng đèn đỏ, một bà cụ lưng còng, đôi dép tổ ong mòn vẹt tiến lại mời mua vé số.
+
+Cô lục túi mới nhớ mình để quên ví ở văn phòng. Đang áy náy xin lỗi và chuẩn bị phóng xe đi, bà cụ bỗng móm mém cười hiền hậu, thọc tay vào túi áo hoa cũ kỹ lấy ra một viên kẹo me bọc giấy bóng kính dúi vào tay cô:
+
+"Không mua không sao con ơi, trời nắng chang chang vầy nè, cầm lấy ngậm cho mát cổ họng rồi đi tiếp nhé".
+
+Viên kẹo me trị giá vài trăm đồng, nhưng với cô gái lúc đó, nó ngọt ngào hơn bất kỳ món quà đắt tiền nào. Người có ít ỏi nhất lại là người hào phóng trao đi sự ấm áp một cách trọn vẹn nhất. Đó chính là phép màu của lòng nhân ái giữa dòng đời vội vã.`,
+        question: "🍬 Một cử chỉ nhỏ bé có thể làm thay đổi cả một ngày của bạn không?",
+        buttons: [
+          { text: "Rất nhiều lần, sự ngọt ngào nhỏ ấy đã cứu rỗi tôi", reply: "Hãy giữ sự ngọt ngào ấy trong tim và chuyền tiếp nó cho những người bạn gặp hôm nay nhé! 🍭" },
+          { text: "Tôi thấy lòng mình nhẹ bẫng và ấm áp lạ kỳ", reply: "Đó chính là phép màu của Caraflow: biến những mệt mỏi thường nhật thành nụ cười bình yên." }
+        ]
+      }
+    ];
+
+    function openRandomMiracleStory() {
+      const randomIndex = Math.floor(Math.random() * miracleStoriesData.length);
+      openFreestyleCardModal(randomIndex, null, 'miracle');
+    }
+
+    /* Event Delegation for Story Cards & Freestyle Cards Modal */
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.cosmic-secret-modal')) return;
+
+      const card = e.target.closest('.story-card, .freestyle-cards .card, .message-card');
+      if (card && !e.target.closest('.action-btn') && !e.target.closest('.close-btn') && !e.target.closest('button')) {
+        const dataIndex = card.getAttribute('data-index');
+        let index = dataIndex !== null ? parseInt(dataIndex, 10) : -1;
+
+        if (index === -1) {
+          const parentGrid = card.parentNode;
+          if (parentGrid) {
+            const allCards = Array.from(parentGrid.querySelectorAll('.story-card, .card, .message-card'));
+            index = allCards.indexOf(card);
+          }
+        }
+
+        const type = card.getAttribute('data-type') || (card.closest('#nhungCauChuyenPhepmau') ? 'miracle' : 'psychology');
+        openFreestyleCardModal(index >= 0 ? index : 0, card, type);
+      }
+    });
+
+    function openFreestyleCardModal(index, cardElement, cardType) {
+      let type = cardType;
+      if (!type && cardElement) {
+        type = cardElement.getAttribute('data-type');
+        if (!type && cardElement.closest('#nhungCauChuyenPhepmau')) {
+          type = 'miracle';
+        }
+      }
+
+      let data = null;
+      if (type === 'miracle') {
+        data = miracleStoriesData[index];
+      } else {
+        data = psychologyCardData[index];
+      }
+
+      // Dynamic fallback if card data is not found in array
+      if (!data && cardElement) {
+        const tagEl = cardElement.querySelector('.story-card-tag, .card-label, .card-meta');
+        const titleEl = cardElement.querySelector('.story-card-title, .card-title');
+        const descEl = cardElement.querySelector('.story-card-excerpt, .card-desc');
+        data = {
+          tag: tagEl ? tagEl.innerText : (type === 'miracle' ? "PHÉP MÀU ĐỜI THƯỜNG" : "GÓC NHÌN TÂM TRÍ"),
+          title: titleEl ? titleEl.innerText : "Tháo Gỡ Áp Lực",
+          story: descEl ? descEl.innerText : "Mỗi bước đi của bạn đều có giá trị riêng.",
+          question: "✨ Bạn cảm nhận điều gì từ thông điệp này?",
+          buttons: [
+            { text: "Tôi trân trọng góc nhìn này", reply: "Chúc bạn luôn giữ được sự an nhiên và thấu hiểu chính mình. 🌸" }
+          ]
+        };
+      }
+
+      data = data || (type === 'miracle' ? miracleStoriesData[0] : psychologyCardData[0]);
+      const modal = document.getElementById("freestyleHoathanModal");
+      if (!modal) return;
+
+      const labelEl = document.getElementById("freestyleModalLabel");
+      const titleEl = document.getElementById("freestyleModalTitle");
+      const storyEl = document.getElementById("freestyleModalStory");
+      const questionEl = document.getElementById("freestyleModalQuestion");
+
+      if (labelEl) labelEl.innerText = data.tag || (type === 'miracle' ? "PHÉP MÀU ĐỜI THƯỜNG" : "THÁO GỠ TÂM LÝ");
+      if (titleEl) titleEl.innerText = data.title || "";
+      if (storyEl) storyEl.innerText = data.story || "";
+      if (questionEl) questionEl.innerText = data.question || "";
+
+      const actions = document.getElementById("freestyleModalActions");
+      const response = document.getElementById("freestyleModalResponse");
+
+      if (actions) {
+        actions.innerHTML = "";
+        if (data.buttons && data.buttons.length > 0) {
+          data.buttons.forEach(btn => {
+            const button = document.createElement("button");
+            button.className = "action-btn";
+            button.innerText = btn.text;
+            button.onclick = (evt) => {
+              evt.stopPropagation();
+              if (response) {
+                response.innerHTML = btn.reply;
+                response.classList.add("show");
+              }
+            };
+            actions.appendChild(button);
+          });
+        }
+      }
+
+      if (response) {
+        response.classList.remove("show");
+        response.innerHTML = "";
+      }
+
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeFreestyleModal(evt) {
+      if (evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+      }
+      const modal = document.getElementById("freestyleHoathanModal");
+      if (modal) {
+        modal.classList.remove("active");
+      }
+      document.body.style.overflow = "";
+    }
+
+    function closeFreestyleModalOnBackdrop(e) {
+      if (!e) return;
+      if (e.target.id === "freestyleHoathanModal" || e.target.classList.contains("close-btn")) {
+        closeFreestyleModal(e);
+      }
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        closeFreestyleModal(e);
+      }
+    });
+  </script>
+
+  <!-- HOATHAN SECTION STYLE POPUP MODAL FOR FREESTYLE CARDS (DIRECT CHILD OF BODY) -->
+  <div class="hoathan-modal" id="freestyleHoathanModal" onclick="closeFreestyleModalOnBackdrop(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeFreestyleModal(event)">✕</button>
+      <div class="story-label" id="freestyleModalLabel">THÁO GỠ TÂM LÝ</div>
+      <h2 id="freestyleModalTitle">Khi Bạn Nghĩ Rằng Mình 'Chưa Đủ Giỏi'</h2>
+      <div class="story" id="freestyleModalStory"></div>
+      <div class="question">
+        <h4 id="freestyleModalQuestion">🧠 Lần tới khi tự ti xuất hiện, bạn sẽ nhắc nhở mình điều gì?</h4>
+        <div class="actions" id="freestyleModalActions"></div>
+        <div class="response" id="freestyleModalResponse"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adult Mind Reframing Theme Active -->
+</body>
+
+</html>

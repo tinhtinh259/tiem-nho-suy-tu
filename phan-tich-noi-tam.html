@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phân Tích Nội Tâm - Thấu Hiểu Cảm Xúc (Tempo-1)</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/pages/phan-tich-noi-tam.css">
+  <link rel="stylesheet" href="css/components/ptnt-vertical-hero.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <main style="padding-top: var(--height-header, 76px);" class="introspective-page">
+    <!-- Vertical Split Slider Hero Banner (Referenced from /z-temp/dist-vertical-slider) -->
+    <section class="ptnt-slider-wrapper" aria-label="Banner Phân Tích Nội Tâm">
+      <!-- Progress Bar -->
+      <div class="ptnt-slider-progress">
+        <div class="ptnt-slider-progress-bar"></div>
+      </div>
+
+      <!-- Left Slide (Text, Badges, CTAs - in REVERSE order) --> 
+      <div class="ptnt-left-slide">
+        <!-- DOM Index 0: Slide 4 Text (Kintsugi - Vết sứt ngọt ngào) -->
+        <div class="ptnt-slide-item theme-kintsugi">
+          <span class="ptnt-slide-badge">🌱 LÒNG TRẮC ẨN • TRIẾT LÝ KINTSUGI</span>
+          <h2 class="ptnt-slide-title">Nhìn Thấy Vết Sứt Mà Thấy Thương</h2>
+          <p class="ptnt-slide-desc">
+            "Sự trưởng thành đích thực là khi ta thôi đòi hỏi một con người không tì vết. Khi bạn biết thương cả những vụng về của người khác, bạn cũng bắt đầu biết dịu dàng với chính mình."
+          </p>
+          <a href="phan-tich-noi-tam/nhin-thay-vet-sut-ma-thay-thuong.html" class="ptnt-slide-btn">
+            <span>Đọc bài phân tích</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <span class="ptnt-slide-counter">04 / 04</span>
+        </div>
+
+        <!-- DOM Index 1: Slide 3 Text (Hiện Hữu Khi Biết Thương) -->
+        <div class="ptnt-slide-item theme-compassion">
+          <span class="ptnt-slide-badge">🌿 LỜI TỰ SỰ • NGUỒN CƠN CỦA TIỆM</span>
+          <h2 class="ptnt-slide-title">Hiện Hữu Khi Biết Thương</h2>
+          <p class="ptnt-slide-desc">
+            "Tình yêu thương giấu trong từng vạch kẻ đường, trong khí oxy của hàng cây và trong mong muốn được dang tay chở che cho một ai đó đang chới với giữa dòng đời."
+          </p>
+          <a href="phan-tich-noi-tam/hien-huu-khi-biet-thuong.html" class="ptnt-slide-btn">
+            <span>Lắng nghe tự sự</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <span class="ptnt-slide-counter">03 / 04</span>
+        </div>
+
+        <!-- DOM Index 2: Slide 2 Text (Gánh Nặng Sự Hiểu Chuyện) -->
+        <div class="ptnt-slide-item theme-burden">
+          <span class="ptnt-slide-badge">🍂 VỖ VỀ NỘI TÂM • ĐỨA TRẺ BÊN TRONG</span>
+          <h2 class="ptnt-slide-title">Gánh Nặng Của Sự Hiểu Chuyện</h2>
+          <p class="ptnt-slide-desc">
+            "Đứa trẻ biết khóc mới có kẹo. Còn người quá hiểu chuyện thường chỉ biết nuốt ngược nước mắt vào trong, vì ai cũng mặc định rằng họ đủ mạnh mẽ để không biết đau."
+          </p>
+          <a href="phan-tich-noi-tam/ganh-nang-su-hieu-chuyen.html" class="ptnt-slide-btn">
+            <span>Đọc bài phân tích</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <span class="ptnt-slide-counter">02 / 04</span>
+        </div>
+
+        <!-- DOM Index 3: Slide 1 Text (Giao Kèo Với Thời Gian) -->
+        <div class="ptnt-slide-item theme-nostalgia">
+          <span class="ptnt-slide-badge">⏳ DIGITAL NOSTALGIA • VẾT HẰN KÝ ỨC</span>
+          <h2 class="ptnt-slide-title">Giao Kèo Với Thời Gian</h2>
+          <p class="ptnt-slide-desc">
+            "Khi hai phím chụp màn hình cùng nhấn xuống, một tiếng 'tách' vang lên — bạn vừa chính thức ký một giao kèo với thời gian để đóng băng khoảnh khắc ấy mãi mãi."
+          </p>
+          <a href="phan-tich-noi-tam/giao-keo-voi-thoi-gian.html" class="ptnt-slide-btn">
+            <span>Mở album ký ức</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <span class="ptnt-slide-counter">01 / 04</span>
+        </div>
+      </div>
+
+      <!-- Right Slide (Atmospheric Visuals - in NORMAL order) -->
+      <div class="ptnt-right-slide">
+        <!-- DOM Index 0: Slide 1 Image (Giao Kèo Thời Gian / Digital Night) -->
+        <div class="ptnt-img-item" style="background-image: url('images/landing/girl-lies-on-the-floor-x2.jpg');"></div>
+
+        <!-- DOM Index 1: Slide 2 Image (Gánh Nặng Sự Hiểu Chuyện) -->
+        <div class="ptnt-img-item" style="background-image: url('images/about/soul_writing.jpg');"></div>
+
+        <!-- DOM Index 2: Slide 3 Image (Hiện Hữu Khi Biết Thương) -->
+        <div class="ptnt-img-item" style="background-image: url('images/about/bc_sketches.jpg');"></div>
+
+        <!-- DOM Index 3: Slide 4 Image (Nhìn Thấy Vết Sứt Mà Thấy Thương) -->
+        <div class="ptnt-img-item" style="background-image: url('images/landing/peach.jpg');"></div>
+      </div>
+
+      <!-- Action Buttons (Center Seam Controls) -->
+      <div class="ptnt-slider-actions">
+        <button class="ptnt-slider-btn ptnt-btn-up" aria-label="Slide tiếp theo" title="Slide tiếp theo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+        <button class="ptnt-slider-btn ptnt-btn-down" aria-label="Slide trước đó" title="Slide trước đó">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Pagination Dots Indicator -->
+      <div class="ptnt-slider-dots"></div>
+    </section>
+
+    <!-- Main Content Container -->
+    <section class="introspective-container" style="padding-top: 60px;">
+
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 44px;">
+        <span style="display: inline-block; padding: 6px 16px; border-radius: 999px; background: rgba(126, 34, 206, 0.08); color: #7e22ce; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">
+          Góc Nhìn Chiều Sâu
+        </span>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1e1b4b; font-weight: 700; margin: 0 0 10px;">
+          Giải Mã Những Chuyển Động Vô Thức
+        </h2>
+        <p style="color: #64748b; font-size: 1.05rem; max-width: 620px; margin: 0 auto; line-height: 1.6;">
+          Mỗi bài viết là một tấm gương phản chiếu, giúp bạn gọi tên những cảm xúc mơ hồ và thấu hiểu chính mình.
+        </p>
+      </div>
+
+            <!-- Insight Cards Grid -->
+      <div class="insights-grid" id="insightsGrid">
+
+        <!-- Card 1: Nhận Thức Tiềm Thức (Sau khi đọc mẩu chuyện Xe Đêm) -->
+        <article class="insight-card" data-category="tiem-thuc">
+          <div class="insight-banner">
+            <a href="phan-tich-noi-tam/chuyen-xe-dem-va-khao-khat-thau-cam.html">
+              <img src="images/landing/bus.jpg" alt="Phân Tích Nội Tâm Sau Khi Đọc Xe Đêm">
+            </a>
+            <span class="insight-tag">🧠 Nhận Thức Tiềm Thức</span>
+          </div>
+          <div class="insight-content">
+            <h2 class="insight-title">
+              <a href="phan-tich-noi-tam/chuyen-xe-dem-va-khao-khat-thau-cam.html" style="color: inherit; text-decoration: none;">Nếu Đọc Xong 'Chuyến Xe Đêm' Mà Bạn Bất Giác Nghẹn Ngào...</a>
+            </h2>
+
+            <div class="premise-box">
+              <div class="premise-title">📖 Tình Huống & Cảm Nhận</div>
+              <p class="premise-text">
+                "Đọc chuyện những người xa lạ im lặng nhường ghế cho nhau trên chuyến xe muộn, bạn không buồn nhưng sống
+                mũi chợt cay cay..."
+              </p>
+            </div>
+
+            <div class="analysis-section-box">
+              <div class="analysis-section-title">🔍 Giải Mã Phân Tích Nội Tâm</div>
+              <p class="analysis-section-text">
+                Phản ứng này cho thấy tiềm thức bạn đang khao khát sự thấu cảm thầm lặng. Bạn có thể là người hay tự
+                gánh vác mọi thứ một mình, luôn gạt nước mắt để làm điểm tựa cho người khác. Khi thấy một hành động tử
+                tế không cần đáp trả, tấm khiên bảo vệ của bạn tạm thời hạ xuống.
+              </p>
+            </div>
+
+            <div class="insight-quote">
+              "Khi bạn chấp nhận rằng mình cũng có quyền được yếu đuối, bạn bắt đầu mở lòng đón nhận sự vỗ về."
+            </div>
+            <div class="insight-footer">
+              <span class="insight-read-time">⏱️ 4 phút đọc • Tâm lý học nhạy cảm</span>
+              <a href="phan-tich-noi-tam/chuyen-xe-dem-va-khao-khat-thau-cam.html" class="insight-link-btn">Đọc đầy đủ ➔</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Quản Lý Cảm Xúc (Biểu hiện Cọc cằn / Xâm phạm ranh giới) -->
+        <article class="insight-card" data-category="cam-xuc">
+          <div class="insight-banner">
+            <a href="phan-tich-noi-tam/vi-sao-dot-nhien-bat-che-do-coc.html">
+              <img src="images/seasons/card-winter.png" alt="Phân Tích Chế Độ Cọc Cằn"
+                onerror="this.src='images/seasons/frame-winter.jpg'">
+            </a>
+            <span class="insight-tag">⚡ Quản Lý Cảm Xúc</span>
+          </div>
+          <div class="insight-content">
+            <h2 class="insight-title">
+              <a href="phan-tich-noi-tam/vi-sao-dot-nhien-bat-che-do-coc.html" style="color: inherit; text-decoration: none;">Giải Mã Biểu Hiện: Vì Sao Đột Nhiên Bật Chế Độ 'Cọc'?</a>
+            </h2>
+
+            <div class="premise-box">
+              <div class="premise-title">📌 Biểu Hiện Cảm Xúc</div>
+              <p class="premise-text">
+                "Một tin nhắn hỏi thăm bình thường nhưng khiến bạn bực bội. Bạn gắt gỏng rồi lại tự dằn dặt trách bản
+                thân vì đã quá nóng nảy..."
+              </p>
+            </div>
+
+            <div class="analysis-section-box">
+              <div class="analysis-section-title">🔍 Giải Mã Phân Tích Nội Tâm</div>
+              <p class="analysis-section-text">
+                "Cọc" không phải vì bạn là người cộc lốc hay xấu tính, mà là chiếc chuông báo động của ranh giới cá nhân
+                bị quá tải. Khi bạn ép mình đáp ứng mong muốn của mọi người quá lâu, năng lượng cảm xúc cạn kiệt sẽ phát
+                ra tín hiệu xơ xác dưới dạng phản ứng bực bội.
+              </p>
+            </div>
+
+            <div class="insight-quote">
+              "Cơn giận là vị khách báo hiệu rằng khoảng không an toàn của bạn cần được bảo vệ."
+            </div>
+            <div class="insight-footer">
+              <span class="insight-read-time">⏱️ 4 phút đọc • Ranh giới cá nhân</span>
+              <a href="phan-tich-noi-tam/vi-sao-dot-nhien-bat-che-do-coc.html" class="insight-link-btn">Đọc đầy đủ ➔</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Bẫy Vô Thức Trong Tình Yêu (Sau khi đọc Vạt Nắng) -->
+        <article class="insight-card" data-category="bay-vo-thuc">
+          <div class="insight-banner">
+            <a href="phan-tich-noi-tam/khi-duoc-yeu-binh-yen-lai-thay-chan.html">
+              <img src="images/landing/patch-of-sunlight.jpg" alt="Bẫy Vô Thức Trong Tình Yêu">
+            </a>
+            <span class="insight-tag">🔓 Bẫy Vô Thức & Tình Yêu</span>
+          </div>
+          <div class="insight-content">
+            <h2 class="insight-title">
+              <a href="phan-tich-noi-tam/khi-duoc-yeu-binh-yen-lai-thay-chan.html" style="color: inherit; text-decoration: none;">Tại Sao Khi Được Yêu Thương Bình Yên, Bạn Lại Thấy 'Chán'?</a>
+            </h2>
+
+            <div class="premise-box">
+              <div class="premise-title">📖 Tình Huống & Cảm Nhận</div> 
+              <p class="premise-text">
+                "Một người thật lòng trao cho bạn sự quan tâm nhẹ nhàng như vạt nắng, nhưng tâm trí bạn lại thấy nhạt
+                nhẽo và muốn đẩy họ ra..."
+              </p>
+            </div>
+
+            <div class="analysis-section-box">
+              <div class="analysis-section-title">🔍 Giải Mã Phân Tích Nội Tâm</div>
+              <p class="analysis-section-text">
+                Bộ não của người từng tổn thương hay nhầm lẫn giữa lo âu bồn chồn (drama) với tình yêu mãnh liệt. Khi sự
+                bình yên xuất hiện, hệ điều hành vô thức chưa quen sẽ phát tín hiệu "lạ lẫm/chán". Học cách chấp nhận sự
+                êm đềm là bước ngoặt chữa lành lớn nhất.
+              </p>
+            </div>
+
+            <div class="insight-quote">
+              "Bình yên không phải là nhạt nhẽo, đó là sự an toàn mà tâm hồn bạn xứng đáng có."
+            </div>
+            <div class="insight-footer">
+              <span class="insight-read-time">⏱️ 5 phút đọc • Giải mã vô thức</span>
+              <a href="phan-tich-noi-tam/khi-duoc-yeu-binh-yen-lai-thay-chan.html" class="insight-link-btn">Đọc đầy đủ ➔</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Thấu Cảm & Tôn Trọng (Sau khi đọc Thùng Đào) -->
+
+        <article class="insight-card" data-category="thau-cam">
+          <div class="insight-banner">
+            <a href="phan-tich-noi-tam/nhin-thay-vet-sut-ma-thay-thuong.html">
+              <img src="images/landing/peach.jpg" alt="Sự Trưởng Thành Trong Tình Yêu">
+            </a>
+            <span class="insight-tag">🌱 Thấu Cảm & Hàn Gắn</span>
+          </div>
+          <div class="insight-content">
+            <h2 class="insight-title">
+              <a href="phan-tich-noi-tam/nhin-thay-vet-sut-ma-thay-thuong.html" style="color: inherit; text-decoration: none;">Nếu Bạn Nhìn Thấy Vết Sứt Của Người Khác Mà Thấy Thương...</a>
+            </h2>
+
+            <div class="premise-box">
+              <div class="premise-title">📖 Tình Huống & Cảm Nhận</div>
+              <p class="premise-text">
+                "Đọc mẩu chuyện Thùng Đào — những trái đào sứt sẹo nhưng vẫn ngọt ngào, bạn không chê bai mà thấy muốn
+                ôm lấy những vụng về của người bên cạnh..."
+              </p>
+            </div>
+
+            <div class="analysis-section-box">
+              <div class="analysis-section-title">🔍 Giải Mã Phân Tích Nội Tâm</div>
+              <p class="analysis-section-text">
+                Trưởng thành tâm hồn là khi bạn thôi đòi hỏi sự hoàn hảo ở bản thân và đối phương. Khi bạn biết trân
+                trọng những vết sứt sẹo, đó là lúc lòng trắc ẩn của bạn đủ lớn để cho phép cả hai cùng được thở và được
+                là chính mình.
+              </p>
+            </div>
+
+            <div class="insight-quote">
+              "Yêu thương chân thật không làm bạn mất đi chính mình, mà giúp bạn đủ an tâm để mở rộng lòng."
+            </div>
+            <div class="insight-footer">
+              <span class="insight-read-time">⏱️ 4 phút đọc • Lòng trắc ẩn</span>
+              <a href="phan-tich-noi-tam/nhin-thay-vet-sut-ma-thay-thuong.html" class="insight-link-btn">Đọc đầy đủ ➔</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Ký Ức Số & Đêm Muộn (Sau khi đọc Giao Kèo Với Thời Gian) -->
+        <article class="insight-card" data-category="so-hoa-ky-uc">
+          <div class="insight-banner">
+            <a href="phan-tich-noi-tam/giao-keo-voi-thoi-gian.html">
+              <img src="images/landing/girl-at-night.jpg" alt="Người Khiến Bạn Chụp Màn Hình Tin Nhắn">
+            </a>
+            <span class="insight-tag">📱 Ký Ức Số & Đêm Muộn</span>
+          </div>
+          <div class="insight-content">
+            <h2 class="insight-title">
+              <a href="phan-tich-noi-tam/giao-keo-voi-thoi-gian.html" style="color: inherit; text-decoration: none;">Người Khiến Bạn Chụp Màn Hình Tin Nhắn Lưu Vào Album Là Ai?</a>
+            </h2>
+
+            <div class="premise-box">
+              <div class="premise-title">📖 Tình Huống & Cảm Nhận</div>
+              <p class="premise-text">
+                "Trong hàng ngàn gigabyte dung lượng bộ nhớ, có những dòng chữ chỉ tốn vài kilobyte nhưng lại chiếm giữ một khoảng không gian khổng lồ trong tâm trí..."
+              </p>
+            </div>
+
+            <div class="analysis-section-box">
+              <div class="analysis-section-title">🔍 Giải Mã Phân Tích Nội Tâm</div>
+              <p class="analysis-section-text">
+                Hành động chụp màn hình không chỉ dành cho sự yêu thích, mà là giao kèo với thời gian để đóng băng cảm xúc. Đó là cách chúng ta số hóa ký ức và lưu giữ một phần tâm hồn mình khi nhận ra khoảnh khắc ấy sẽ không lặp lại lần thứ hai.
+              </p>
+            </div>
+
+            <div class="insight-quote">
+              "Album ảnh chụp màn hình giống như một bảo tàng lưu giữ những linh hồn tình cảm đã từng sống."
+            </div>
+            <div class="insight-footer">
+              <span class="insight-read-time">⏱️ 4 phút đọc • Digital Nostalgia</span>
+              <a href="phan-tich-noi-tam/giao-keo-voi-thoi-gian.html" class="insight-link-btn">Đọc đầy đủ ➔</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6: Đứa Trẻ Bên Trong (Sau khi đọc Gánh Nặng Sự Hiểu Chuyện) -->
+        <article class="insight-card" data-category="hieu-chuyen">
+          <div class="insight-banner">
+            <a href="phan-tich-noi-tam/ganh-nang-su-hieu-chuyen.html">
+              <img src="images/about/soul_writing.jpg" alt="Gánh Nặng Của Sự Hiểu Chuyện"
+                onerror="this.src='images/seasons/card-winter.jpg'">
+            </a>
+            <span class="insight-tag">🍂 Đứa Trẻ Bên Trong</span>
+          </div>
+          <div class="insight-content">
+            <h2 class="insight-title">
+              <a href="phan-tich-noi-tam/ganh-nang-su-hieu-chuyen.html" style="color: inherit; text-decoration: none;">Gánh Nặng Của Sự Hiểu Chuyện: Vì Sao Bạn Luôn Nhận Phần Thiệt Về Mình?</a>
+            </h2>
+
+            <div class="premise-box">
+              <div class="premise-title">📌 Biểu Hiện Cảm Xúc</div>
+              <p class="premise-text">
+                "Người hiểu chuyện thường là người cô độc nhất. Bạn nhường miếng bánh vỡ, nuốt ấm ức vào trong chỉ để giữ bầu không khí êm đẹp cho mọi người..."
+              </p>
+            </div>
+
+            <div class="analysis-section-box">
+              <div class="analysis-section-title">🔍 Giải Mã Phân Tích Nội Tâm</div>
+              <p class="analysis-section-text">
+                Hiểu chuyện quá sớm là cơ chế tự vệ khi đứa trẻ vô thức tin rằng mình chỉ được yêu thương khi biết ngoan ngoãn. Bạn tự dựng lên chiếc khiên mạnh mẽ, nhưng sâu bên trong vẫn khao khát được ai đó ôm lấy và vỗ về rằng bạn được phép yếu đuối.
+              </p>
+            </div>
+
+            <div class="insight-quote">
+              "Đã đến lúc bạn được phép buông chiếc khiên nặng trĩu và dịu dàng với chính cảm xúc của mình."
+            </div>
+            <div class="insight-footer">
+              <span class="insight-read-time">⏱️ 5 phút đọc • Vỗ về nội tâm</span>
+              <a href="phan-tich-noi-tam/ganh-nang-su-hieu-chuyen.html" class="insight-link-btn">Đọc đầy đủ ➔</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Pagination Controller for Insights Grid -->
+      <div class="insights-pagination-controller" id="insightsPaginationController">
+        <div class="pagination-info" id="paginationInfo">
+          Đang hiển thị <strong id="pageRangeText">1 - 4</strong> trong <strong id="totalArticlesText">6</strong> bài phân tích
+        </div>
+        
+        <div class="pagination-controls">
+          <button type="button" class="pagination-arrow-btn prev-page-btn" id="prevPageBtn" aria-label="Trang trước" title="Trang trước">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="pagination-numbers" id="paginationNumbers">
+            <!-- Dynamic page numbers -->
+          </div>
+
+          <button type="button" class="pagination-arrow-btn next-page-btn" id="nextPageBtn" aria-label="Trang tiếp theo" title="Trang tiếp theo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Dedicated Section: Chiêm Nghiệm & Lắng Đọng (2 Bài Viết Tản Văn Sâu Sắc) -->
+    <section class="deep-reflections-section" id="chuyen-de-lang-dong">
+      <div class="reflections-container">
+
+        <div class="reflections-header">
+          <div class="reflections-badge-wrap">
+            <span class="reflections-badge">🌿 BÀI VIẾT LẮNG ĐỌNG • GÓC CHIÊM NGHIỆM</span>
+          </div>
+          <h2 class="reflections-title">Những Khoảng Lặng Để Vỗ Về Bản Thân</h2>
+          <p class="reflections-subtitle">
+            Đôi khi, ta không cần thêm những lời khuyên hay lý thuyết đao to búa lớn. Ta chỉ cần một bài viết dịu dàng
+            hiểu thấu những tủi hờn và nhắc nhở ta biết thương lấy chính mình.
+          </p>
+        </div>
+
+        <div class="reflections-grid">
+          <!-- Card 1: Hiện Hữu Khi Biết Thương -->
+          <article class="reflection-card">
+            <div class="reflection-card-media">
+              <img src="images/about/bc_sketches.jpg" alt="Hiện Hữu Khi Biết Thương"
+                onerror="this.src='images/landing/girl-at-night.jpg'">
+              <div class="reflection-overlay-gradient"></div>
+              <span class="reflection-media-pill">🌿 NGUỒN CƠN CỦA TIỆM</span>
+            </div>
+            <div class="reflection-card-body">
+              <div class="reflection-meta-row">
+                <span class="reflection-meta-time">⏱️ 5 phút đọc</span>
+                <span class="reflection-meta-sep">•</span>
+                <span class="reflection-meta-type">Tản văn chữa lành</span>
+              </div>
+
+              <h3 class="reflection-article-title">
+                <a href="phan-tich-noi-tam/hien-huu-khi-biet-thuong.html">Hiện Hữu Khi Biết Thương</a>
+              </h3>
+
+              <div class="reflection-quote-box">
+                <span class="quote-mark">“</span>
+                <p>Nếu không thấy những người thống khổ, tôi sẽ quên mất mình là ai. Mình hiện hữu nhiều nhất khi mình
+                  biết thương.</p>
+              </div>
+
+              <p class="reflection-excerpt">
+                Tình yêu không chỉ là chuyện đôi lứa. Tình yêu giấu trong từng vạch kẻ đường cho người đi bộ, trong khí
+                oxy của hàng cây và trong mong muốn được dang tay chở che cho ai đó đang chới với giữa cuộc đời...
+              </p>
+
+              <div class="reflection-card-footer">
+                <a href="phan-tich-noi-tam/hien-huu-khi-biet-thuong.html" class="reflection-cta-button">
+                  <span>Mở Đọc Bài Viết</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Gánh Nặng Của Sự Hiểu Chuyện -->
+          <article class="reflection-card">
+            <div class="reflection-card-media">
+              <img src="images/about/soul_writing.jpg" alt="Gánh Nặng Của Sự Hiểu Chuyện"
+                onerror="this.src='images/seasons/card-winter.jpg'">
+              <div class="reflection-overlay-gradient"></div>
+              <span class="reflection-media-pill">🍂 VỖ VỀ NỘI TÂM</span>
+            </div>
+            <div class="reflection-card-body">
+              <div class="reflection-meta-row">
+                <span class="reflection-meta-time">⏱️ 5 phút đọc</span>
+                <span class="reflection-meta-sep">•</span>
+                <span class="reflection-meta-type">Hàn gắn đứa trẻ bên trong</span>
+              </div>
+
+              <h3 class="reflection-article-title">
+                <a href="phan-tich-noi-tam/ganh-nang-su-hieu-chuyen.html">Gánh Nặng Của Sự Hiểu Chuyện</a>
+              </h3>
+
+              <div class="reflection-quote-box">
+                <span class="quote-mark">“</span>
+                <p>Người hiểu chuyện thường là người cô độc nhất. Bởi vì ai cũng nghĩ họ không biết đau, nên chẳng một
+                  ai nhớ đến việc ôm lấy họ.</p>
+              </div>
+
+              <p class="reflection-excerpt">
+                Dành cho những ai luôn là người nhường miếng bánh vỡ, nuốt ấm ức vào trong để giữ bầu không khí êm đẹp.
+                Đã đến lúc bạn được phép buông chiếc khiên nặng trĩu và dịu dàng với chính cảm xúc của mình...
+              </p>
+
+              <div class="reflection-card-footer">
+                <a href="phan-tich-noi-tam/ganh-nang-su-hieu-chuyen.html" class="reflection-cta-button">
+                  <span>Mở Đọc Bài Viết</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  
+
+  <!-- Full Width Edge-to-Edge Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/plugin/jquery.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/global.js"></script>
+
+<script>
+    // Smart Insights Pagination Controller (Fixed 4 Cards Per Page)
+    (function initInsightsPagination() {
+      const grid = document.getElementById('insightsGrid');
+      const prevBtn = document.getElementById('prevPageBtn');
+      const nextBtn = document.getElementById('nextPageBtn');
+      const numbersWrap = document.getElementById('paginationNumbers');
+      const pageRangeText = document.getElementById('pageRangeText');
+      const totalArticlesText = document.getElementById('totalArticlesText');
+      const controller = document.getElementById('insightsPaginationController');
+
+      if (!grid || !controller) return;
+
+      const CARDS_PER_PAGE = 4;
+      const allCards = Array.from(grid.querySelectorAll('.insight-card'));
+      const totalCards = allCards.length;
+      const totalPages = Math.ceil(totalCards / CARDS_PER_PAGE);
+      let currentPage = 1;
+
+      if (totalCards <= CARDS_PER_PAGE) {
+        controller.style.display = 'none';
+        return;
+      }
+
+      function renderPage(page, shouldScroll = false) {
+        currentPage = Math.max(1, Math.min(page, totalPages));
+
+        allCards.forEach((card, i) => {
+          const cardPage = Math.floor(i / CARDS_PER_PAGE) + 1;
+          if (cardPage === currentPage) {
+            card.classList.remove('page-hidden');
+            card.classList.add('page-active');
+            card.style.animationDelay = ((i % CARDS_PER_PAGE) * 0.08) + 's';
+          } else {
+            card.classList.add('page-hidden');
+            card.classList.remove('page-active');
+          }
+        });
+
+        // Cập nhật thông tin dải bài viết
+        const startRange = (currentPage - 1) * CARDS_PER_PAGE + 1;
+        const endRange = Math.min(currentPage * CARDS_PER_PAGE, totalCards);
+        if (pageRangeText) pageRangeText.textContent = `${startRange} - ${endRange}`;
+        if (totalArticlesText) totalArticlesText.textContent = totalCards;
+
+        // Cập nhật trạng thái nút mũi tên
+        if (prevBtn) prevBtn.disabled = (currentPage === 1);
+        if (nextBtn) nextBtn.disabled = (currentPage === totalPages);
+
+        // Vẽ danh sách nút số trang
+        if (numbersWrap) {
+          numbersWrap.innerHTML = '';
+          for (let p = 1; p <= totalPages; p++) {
+            const numBtn = document.createElement('button');
+            numBtn.type = 'button';
+            numBtn.className = 'pagination-num-btn' + (p === currentPage ? ' active' : '');
+            numBtn.textContent = p;
+            numBtn.title = `Chuyển sang trang ${p}`;
+            numBtn.addEventListener('click', () => {
+              if (p !== currentPage) renderPage(p, true);
+            });
+            numbersWrap.appendChild(numBtn);
+          }
+        }
+
+        // Cuộn mượt mà lên đầu grid nếu người đọc đang ở dưới
+        if (shouldScroll) {
+          const gridTop = grid.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: gridTop, behavior: 'smooth' });
+        }
+      }
+
+      // Gắn sự kiện cho nút mũi tên
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentPage > 1) renderPage(currentPage - 1, true);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentPage < totalPages) renderPage(currentPage + 1, true);
+        });
+      }
+
+      // Khởi tạo trang đầu tiên
+      renderPage(1, false);
+    })();
+  </script>
+
+
+  <!-- Vertical Split Slider Hero Script -->
+  <script src="js/components/ptnt-vertical-hero.js"></script>
+</body>
+
+</html>

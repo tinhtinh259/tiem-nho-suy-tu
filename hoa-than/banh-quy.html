@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Nếu Bạn Là Một Chiếc Bánh Quy... • Tiệm Nhỏ Suy Tư 🍪</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../fonts/hoa-than-fonts.css">
+	<link rel="stylesheet" href="../css/plugin/normalize-5.0.0.min.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+	<link rel="stylesheet" href="./css/hoa-than-core.css">
+	<link rel="stylesheet" href="./css/banh-quy-theme.css">
+
+	<!-- Three.js Import Map in Head -->
+	<script type="importmap">
+      {
+        "imports": {
+          "three": "../js/plugin/three/three.module.js"
+        }
+      }
+    </script>
+	<!-- GSAP & Lenis -->
+	<script src="../js/plugin/gsap.min.js"></script>
+	<script src="../js/plugin/ScrollTrigger.min.js"></script>
+	<script src="../js/plugin/lenis.min.js"></script>
+	<script src="../js/include-header-footer.js"></script>
+	<script src="../js/header.js"></script>
+</head>
+
+<body data-theme="banh-quy">
+
+	<!-- Caraflow Site Header Component -->
+	<div id="header-placeholder"></div>
+
+
+	<!-- Boutique Cookie Box Nav ("Hộp Vị Bánh" thông minh, không che khuất chữ) -->
+	<nav class="subheader-hoathan cookie-box-nav" id="subheader-hoathan" aria-label="Hộp vị bánh">
+		<button class="cookie-box-toggle" id="cookieBoxToggle" type="button" aria-expanded="true" title="Thu gọn / Mở rộng Hộp Bánh">
+			<span class="cookie-box-icon">🍪</span>
+			<span class="cookie-box-title">Hộp Vị Bánh</span>
+			<span class="cookie-box-arrow">‹</span>
+		</button>
+		<ul class="cookie-box-list" id="cookieBoxList">
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#flip" data-target="flip">
+					<span class="nav-dot" style="--dot-color: #e59850;"></span>
+					<span class="nav-label">1. Hương Vị</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#steps" data-target="steps">
+					<span class="nav-dot" style="--dot-color: #699628;"></span>
+					<span class="nav-label">2. Tính Cách</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#numbers" data-target="numbers">
+					<span class="nav-dot" style="--dot-color: #5fb7c3;"></span>
+					<span class="nav-label">3. Hành Trình</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#final" data-target="final">
+					<span class="nav-dot" style="--dot-color: #f26080;"></span>
+					<span class="nav-label">4. Trạm Dừng</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+
+	<main class="main">
+		<div class="flip__figures">
+			<img class="flip__first-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+			<img class="flip__second-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+			<img class="flip__third-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+		</div>
+
+		<!-- Model Container (Bánh Quy 3D trong suốt 100% - Không canvas) -->
+
+		<div class="model">
+			<div class="model-wrapper">
+				<div class="donut-figure" id="donut">
+					<div class="cookie-rotator" id="donut-rotator">
+						<img id="donut-img" class="donut-img" src="./cookie.png" alt="Bánh Quy Tâm Hồn">
+					</div>
+					<div class="donut-shadow" id="donut-shadow"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Hero Section -->
+
+		<section class="hero" id="hero">
+			<img class="main__figure"
+				src="./assets/svg/hero-figure.svg" alt="figure"
+				width="1158" height="760" loading="lazy">
+
+			<div class="container hero__container">
+				<div class="hero__top">
+					<div class="hero__heading-box">
+						<span class="hero__script-badge">Tiệm Nhỏ Suy Tư</span>
+						<h1 class="hero__heading">
+							<span class="hero__word">
+								<span class="hero__char">B</span>
+								<span class="hero__char">Á</span>
+								<span class="hero__char">N</span>
+								<span class="hero__char">H</span>
+							</span>
+							<span class="hero__space">&nbsp;</span>
+							<span class="hero__word">
+								<span class="hero__cookie-slot hero__cookie-slot--q" id="hero-cookie-slot" aria-label="Q">
+									<span class="hero__q-tail hero__q-tail--crumbs" id="hero-q-tail" aria-hidden="true">
+										<svg viewBox="0 0 56 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero__q-tail-svg">
+											<defs>
+												<!-- Gradient nướng giòn cho mẩu bánh quy lớn -->
+												<linearGradient id="crumbCookieGrad" x1="4" y1="4" x2="48" y2="44" gradientUnits="userSpaceOnUse">
+													<stop offset="0%" stop-color="#f5c28a"/>
+													<stop offset="35%" stop-color="#d4853b"/>
+													<stop offset="75%" stop-color="#9a4d1a"/>
+													<stop offset="100%" stop-color="#6b300c"/>
+												</linearGradient>
+												<!-- Gradient mẩu bánh nhỏ -->
+												<linearGradient id="crumbSmallGrad" x1="28" y1="26" x2="48" y2="44" gradientUnits="userSpaceOnUse">
+													<stop offset="0%" stop-color="#f8cd99"/>
+													<stop offset="60%" stop-color="#c4722a"/>
+													<stop offset="100%" stop-color="#7a340d"/>
+												</linearGradient>
+												<filter id="crumbRealisticShadow" x="-15%" y="-15%" width="145%" height="145%">
+													<feDropShadow dx="1" dy="3" stdDeviation="2" flood-color="#000000" flood-opacity="0.36"/>
+												</filter>
+											</defs>
+
+											<!-- Mẩu bánh quy giòn chính (ôm sát chân viền bánh 3D) -->
+											<path d="M6 10 C9 7, 16 9, 21 13 C26 17, 28 23, 25 28 C22 32, 15 31, 11 27 C7 23, 4 15, 6 10 Z" 
+												fill="url(#crumbCookieGrad)" filter="url(#crumbRealisticShadow)"/>
+											<!-- Đốm sô-cô-la chip trên mẩu bánh chính -->
+											<path d="M14 15 C17 14, 19 16, 18 19 C17 21, 14 21, 13 18 C12 16, 13 15, 14 15 Z" fill="#3b1907"/>
+											<!-- Chấm bơ nướng vàng sáng -->
+											<circle cx="21" cy="20" r="1.4" fill="#ffebc8" opacity="0.85"/>
+
+											<!-- Mẩu bánh vụn thứ 2 (hướng chéo sang góc 5h) -->
+											<path d="M29 27 C33 24, 40 27, 43 32 C45 36, 42 41, 37 42 C32 43, 27 38, 28 33 C28.5 30, 27 28.5, 29 27 Z" 
+												fill="url(#crumbSmallGrad)" filter="url(#crumbRealisticShadow)"/>
+											<!-- Hạt sô-cô-la nhỏ trên mẩu thứ 2 -->
+											<circle cx="36" cy="35" r="1.8" fill="#381705"/>
+											<circle cx="33" cy="31" r="1.2" fill="#ffdfb0" opacity="0.9"/>
+
+											<!-- Vụn bánh rơi rớt tự nhiên tạo vệt đuôi chữ Q -->
+											<circle cx="48" cy="41" r="2.2" fill="#b86826" filter="url(#crumbRealisticShadow)"/>
+											<circle cx="51" cy="34" r="1.5" fill="#cf7f35" filter="url(#crumbRealisticShadow)"/>
+											<circle cx="44" cy="46" r="1.4" fill="#8f4413"/>
+											<circle cx="20" cy="36" r="1.6" fill="#c4742e" opacity="0.85"/>
+											<circle cx="12" cy="33" r="1.1" fill="#e89c51" opacity="0.9"/>
+											<circle cx="33" cy="21" r="1.3" fill="#ffe0b8" opacity="0.75"/>
+										</svg>
+									</span>
+								</span>
+								<span class="hero__char">U</span>
+								<span class="hero__char">Y</span>
+							</span>
+						</h1>
+						<p class="hero__second-text">
+							Nếu bạn là một chiếc bánh quy, bạn đang mang hương vị gì giữa cuộc đời này? 
+							Chúng ta đều từng là mẩu bột nhào mềm yếu, bước qua lò nướng thử thách để trở nên thơm giòn và kiên cường.
+						</p>
+						<button class="primary__btn hero__btn"
+							onclick="document.querySelector('#flip').scrollIntoView({behavior: 'smooth'});">
+							Khám Phá Hương Vị
+						</button>
+					</div>
+				</div>
+
+				<div class="hero__bottom"></div>
+			</div>
+
+			<div class="hero__pointer" id="scroll-btn" tabindex="0" onclick="document.querySelector('#flip').scrollIntoView({behavior: 'smooth'});">
+				<img class="hero__mouse-icon"
+					src="./assets/svg/mouse.svg" alt="mouse-icon"
+					width="16" height="24" loading="lazy">
+				<img class="hero__arrow"
+					src="./assets/svg/arrow-bottom.svg" alt="arrow-icon"
+					width="24" height="24" loading="lazy">
+			</div>
+		</section>
+
+		<!-- Transition Section -->
+
+		<div id="transition"></div>
+
+		<!-- Flip Section -->
+
+		<section class="flip" id="flip">
+			<div class="container">
+				<div class="flip__heading-box heading-box">
+					<h2 class="flip__heading second-heading">
+						LUÔN LUÔN
+						<span class="heading__special">
+							THƠM GIÒN NƯỚNG
+						</span> <br>
+						LUÔN LUÔN
+						<span class="heading__special">
+							VẸN NGUYÊN VỊ LÒNG
+						</span>
+					</h2>
+					<p class="flip__text">
+						Mỗi mẻ bánh quy ra lò đều bằng tất cả sự chân thành — không chất phụ gia, không vội vã. 
+						Chỉ có hương bơ nướng ấm áp và một cái ôm dịu dàng vỗ về bạn sau một ngày dài mệt mỏi.
+					</p>
+				</div>
+				<div class="flip__shadow"></div>
+			</div>
+		</section>
+
+		<!-- Steps Section -->
+
+		<section class="steps" id="steps">
+			<div class="steps__indicators">
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+			</div>
+			<div class="steps__cards">
+				<div class="steps__card-first">
+					<h3 class="steps__card-heading white">
+						Bơ
+						Vàng
+
+						<span class="steps__card-heading-special">
+							Truyền Thống
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-1-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Mộc mạc nhưng luôn là chốn bình yên nhất.
+						</p>
+						<p class="steps__card-text white">
+							Bánh quy bơ truyền thống — giản dị, chân thành, hương bơ vàng nướng ấm áp xoa dịu mọi muộn phiền. 
+							Chỉ cần sự hiện diện tĩnh lặng và chân thật của bạn cũng đủ sưởi ấm lòng những người xung quanh.
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading">
+						Matcha
+						Hạnh Nhân
+						<span class="steps__card-heading-special">
+							Sâu Sắc
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-2-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading">
+							Vị chát đầu môi, đọng lại vị ngọt thanh lắng sâu.
+						</p>
+						<p class="steps__card-text">
+							Bánh quy trà xanh hạnh nhân — tiền chát hậu ngọt. 
+							Dành cho những tâm hồn thích chiêm nghiệm, hiểu được giá trị của sự kiên nhẫn và vẻ đẹp sâu lắng của sự tĩnh lặng.
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading white">
+						Sô-cô-la
+						Đậm
+						<span class="steps__card-heading-special">
+							Thấu Cảm
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-3-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Bên ngoài kiên cường, bên trong ấm áp tan chảy.
+						</p>
+						<p class="steps__card-text white">
+							Bánh quy Double Dark Chocolate — từng trải qua những đắng cay để kết tinh thành hương vị nồng đượm. 
+							Bạn luôn chu toàn làm chỗ dựa cho người khác, nhưng cũng xứng đáng được ai đó ôm lấy và vỗ về: "Hôm nay bạn vất vả rồi".
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading">
+						Gừng
+						Mật Ong
+						<span class="steps__card-heading-special">
+							An Yên
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-4-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading">
+							Chiếc ôm ấm áp vào những ngày trở gió.
+						</p>
+						<p class="steps__card-text">
+							Bánh quy gừng mật ong — vị cay ấm dịu dàng xua đi lạnh giá. 
+							Dành cho những ngày chông chênh, nhắc nhở bạn rằng dù đêm nay có dài, sớm mai vẫn sẽ ngập tràn ánh nắng ấm lành.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Second Transition Section -->
+
+		<div id="second-transition"></div>
+
+		<!-- Numbers Section -->
+
+		<section class="numbers" id="numbers">
+			<div class="container numbers__container">
+				<div class="numbers__heading-box heading-box">
+					<h2 class="numbers__heading second-heading">
+						Hành trình <span class="heading__special">chiếc bánh quy</span>
+					</h2>
+				</div>
+				<div class="numbers__box">
+					<div class="numbers__item">
+						<div class="numbers__item-number">1</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Nhào Bột
+							</h3>
+							<p class="numbers__item-text">
+								Kiên nhẫn gom góp từng trải nghiệm và cảm xúc
+							</p>
+						</div>
+					</div>
+					<div class="numbers__item">
+						<div class="numbers__item-number">2</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Qua Lò Nướng
+							</h3>
+							<p class="numbers__item-text">
+								Giữ lấy bản sắc giữa áp lực và nhiệt lượng cuộc đời
+							</p>
+						</div>
+					</div>
+					<div class="numbers__item">
+						<div class="numbers__item-number">3</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Tỏa Hương
+							</h3>
+							<p class="numbers__item-text">
+								Tự tin với hương thơm giòn rụm độc bản của riêng bạn
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="numbers__text-box">
+					<p class="numbers__text">
+						Kiên nhẫn gom góp từng trải nghiệm và cảm xúc
+					</p>
+					<p class="numbers__text">
+						Giữ lấy bản sắc giữa áp lực và nhiệt lượng cuộc đời
+					</p>
+					<p class="numbers__text">
+						Tự tin với hương thơm giòn rụm độc bản của riêng bạn
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Final Section -->
+
+	<footer class="final" id="final">
+		<img class="final__hand-icon" src="./assets/svg/hand.svg"
+			alt="hand-icon" width="40px" height="40px" loading="lazy">
+		<div class="final__bg-text-box">
+			<span class="final__bg-text">BÁNH QUY</span>
+		</div>
+		<div class="final__light-figure"></div>
+		<div class="container">
+			<div class="final__order-box">
+				<h2 class="final__heading second-heading">
+					Dù trọn vẹn hay vụn vỡ, <br>
+					<span class="heading__special">bạn vẫn luôn quý giá</span>
+				</h2>
+				<span class="final__order-text">
+					Bánh quy thơm ngon nhất khi được sẻ chia cùng một tách trà ấm. Dù hôm nay bạn còn chút vụn vỡ, Tiệm Nhỏ Suy Tư vẫn luôn ở đây để yêu thương và đồng hành cùng bạn.
+				</span>
+
+				<div class="final__buttons">
+					<button class="primary__btn final__btn" onclick="window.location.href='../hoa-than.html#trai-nghiem-3d'">
+						Về Trạm Hóa Thân ✨
+					</button>
+					<button class="primary__btn final__btn final__btn--next" onclick="window.location.href='./chiec-la.html'">
+						Hóa Thân: Chiếc Lá 🍃 →
+					</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Caraflow Site Footer Component -->
+	<div id="footer-placeholder"></div>
+
+	<script src="./js/hoa-than-core.js"></script>
+
+</body>
+
+</html>

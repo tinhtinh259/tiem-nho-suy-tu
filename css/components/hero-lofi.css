@@ -1,0 +1,1160 @@
+/* ==========================================================================
+   HERO OPTION 2: TRẠM ÂM THANH & SỔ TAY BÌNH YÊN (CLEAN RESPONSIVE STYLES)
+   ========================================================================== */
+
+.landing_section {
+  padding: 50px 0 60px 0;
+  background: linear-gradient(180deg, #fdfbf7 0%, #f4ede2 60%, #eae0d0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing_section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: -120px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(198, 156, 94, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.landing_section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(198, 156, 94, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Left Hero Content */
+.landing_left.txt {
+  display: flex;
+  flex-direction: column;
+  gap: 0 16px;
+  z-index: 5;
+  width: 50%;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(198, 156, 94, 0.15);
+  border: 1.5px solid rgba(198, 156, 94, 0.35);
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8c6328;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: fit-content;
+  margin-bottom: 16px;
+}
+
+/* CTA Buttons */
+.hero-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #c69c5e 0%, #a67c38 100%);
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(198, 156, 94, 0.35);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none !important;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(198, 156, 94, 0.45);
+  background: linear-gradient(135deg, #d4a96a 0%, #b58842 100%);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  color: #4a3e35 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 1.5px solid rgba(198, 156, 94, 0.35);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.btn-hero-secondary:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: var(--accent-gold, #c69c5e);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Lofi Ambient Player Widget */
+.hero-lofi-widget {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(198, 156, 94, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.lofi-disc-box {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #2c221e;
+  border: 3px solid var(--accent-gold, #c69c5e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.lofi-disc-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #c69c5e;
+  border: 2px solid #2c221e;
+}
+
+.lofi-disc-box.playing {
+  animation: spinDisc 6s linear infinite;
+}
+
+@keyframes spinDisc {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.lofi-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  flex: 1;
+}
+
+.lofi-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.1px;
+  color: #2c221e;
+}
+
+.lofi-status {
+  font-size: 11px;
+  color: #8c6328;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.1px;
+}
+
+.lofi-play-btn {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent-gold, #c69c5e);
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(198, 156, 94, 0.35);
+  transition: all 0.25s ease;
+}
+
+.lofi-play-btn:hover {
+  transform: scale(1.08);
+  background: #a67c38;
+}
+
+/* Right Side: Centered 3D Fan-out Cards Stack (50% Width) */
+.landing_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50% !important;
+}
+
+/* Manual Navigation Controls for Hero Cards */
+.hero-cards-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  z-index: 10;
+}
+
+.hero-cards-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(198, 156, 94, 0.35);
+  color: #7d5b28;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.hero-cards-btn:hover {
+  background: #ffffff;
+  border-color: var(--accent-gold, #c69c5e);
+  color: var(--accent-gold, #c69c5e);
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(198, 156, 94, 0.25);
+}
+
+.hero-cards-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(198, 156, 94, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-card-dot:hover {
+  background: rgba(198, 156, 94, 0.6);
+  transform: scale(1.2);
+}
+
+.hero-card-dot.active {
+  width: 24px;
+  border-radius: 6px;
+  background: var(--accent-gold, #c69c5e);
+  box-shadow: 0 2px 8px rgba(198, 156, 94, 0.35);
+}
+
+@media (max-width: 767px) {
+
+  .landing_left.txt,
+  .landing_right {
+    width: 100% !important;
+  }
+
+  .hero-lofi-widget {
+    padding: 12px 14px;
+    gap: 12px;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  }
+
+  .lofi-disc-box {
+    width: 44px;
+    height: 44px;
+  }
+
+  .lofi-info {
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .lofi-title {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #2c221e;
+    letter-spacing: 0;
+  }
+
+  .lofi-status {
+    font-size: 10.5px;
+    font-weight: 400;
+    line-height: 1.35;
+    color: #8c6328;
+    opacity: 0.92;
+  }
+
+  .lofi-play-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+}
+
+.hero-cards-stack-container {
+  width: 100%;
+  max-width: 420px;
+  height: 380px;
+  position: relative;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 100% GPU Hardware-Accelerated Smooth Card Swapping */
+.hero-card-stack-item {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  width: 250px;
+  height: 320px;
+  background: #ffffff;
+  border: 2px solid rgba(198, 156, 94, 0.3);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition:
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease,
+    box-shadow 0.6s ease;
+  cursor: pointer;
+  text-decoration: none !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slot: Center Front Card (On Top) */
+.hero-card-stack-item.pos-front,
+.hero-card-stack-item:nth-child(3):not(.pos-left):not(.pos-right):not(.pos-hidden) {
+  transform: translate3d(-50%, 0, 40px) rotate(0deg) scale(1);
+  z-index: 5;
+  opacity: 1;
+  box-shadow: 0 18px 38px rgba(198, 156, 94, 0.25);
+}
+
+/* Slot: Right Back Card */
+.hero-card-stack-item.pos-right,
+.hero-card-stack-item:nth-child(2):not(.pos-front):not(.pos-left):not(.pos-hidden) {
+  transform: translate3d(-30%, 12px, 20px) rotate(7deg) scale(0.93);
+  z-index: 3;
+  opacity: 1;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+}
+
+/* Slot: Left Back Card */
+.hero-card-stack-item.pos-left,
+.hero-card-stack-item:nth-child(1):not(.pos-front):not(.pos-right):not(.pos-hidden) {
+  transform: translate3d(-70%, 16px, 10px) rotate(-7deg) scale(0.93);
+  z-index: 2;
+  opacity: 1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Slot: Hidden Behind Left Card (Ẩn hoàn toàn đằng sau) */
+.hero-card-stack-item.pos-hidden {
+  transform: translate3d(-74%, 22px, -10px) rotate(-10deg) scale(0.85);
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* Fan-out on Hover */
+.hero-cards-stack-container:hover .hero-card-stack-item.pos-front,
+.hero-cards-stack-container:hover .hero-card-stack-item:nth-child(3):not(.pos-left):not(.pos-right):not(.pos-hidden) {
+  transform: translate3d(-50%, -18px, 50px) scale(1.04);
+  box-shadow: 0 24px 45px rgba(198, 156, 94, 0.32);
+  z-index: 6;
+}
+
+.hero-cards-stack-container:hover .hero-card-stack-item.pos-right,
+.hero-cards-stack-container:hover .hero-card-stack-item:nth-child(2):not(.pos-front):not(.pos-left):not(.pos-hidden) {
+  transform: translate3d(2%, -6px, 25px) rotate(11deg) scale(0.96);
+  box-shadow: 0 16px 32px rgba(198, 156, 94, 0.2);
+}
+
+.hero-cards-stack-container:hover .hero-card-stack-item.pos-left,
+.hero-cards-stack-container:hover .hero-card-stack-item:nth-child(1):not(.pos-front):not(.pos-right):not(.pos-hidden) {
+  transform: translate3d(-102%, -6px, 25px) rotate(-11deg) scale(0.96);
+  box-shadow: 0 16px 32px rgba(198, 156, 94, 0.2);
+}
+
+.hero-cards-stack-container:hover .hero-card-stack-item.pos-hidden {
+  transform: translate3d(-74%, 22px, -10px) rotate(-10deg) scale(0.85);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Card Inner Content */
+.stack-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.stack-card-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: #ffffff;
+  flex: 1;
+}
+
+.stack-card-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #8c6328;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stack-card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2c221e;
+  line-height: 1.3;
+}
+
+.stack-card-footer {
+  margin-top: auto;
+  font-size: 11.5px;
+  color: var(--accent-gold, #c69c5e);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   WELCOME LETTER MODAL (TRANG GIẤY THƯ CỔ ĐIỂN TỰ NHIÊN - TORN PAPER)
+   ========================================================================== */
+.welcome-letter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(22, 17, 14, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+.welcome-letter-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Outer Drop-shadow Container for Parchment Scroll */
+.welcome-letter-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+  padding: 14px 0;
+  filter: drop-shadow(0 26px 50px rgba(18, 10, 4, 0.55)) drop-shadow(0 6px 16px rgba(18, 10, 4, 0.3));
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.welcome-letter-overlay.active .welcome-letter-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Vintage Scroll Rods (Trục cuộn gỗ cổ điển) */
+.scroll-rod {
+  position: absolute;
+  left: -22px;
+  right: -22px;
+  height: 22px;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.scroll-rod-top {
+  top: 4px;
+}
+
+.scroll-rod-bottom {
+  top: 4px;
+  z-index: 26;
+}
+
+/* Bottom Rod Rolls Down When Opened */
+.welcome-letter-overlay.active .scroll-rod-bottom {
+  animation: scrollRodRollDown 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes scrollRodRollDown {
+  0% {
+    top: 4px;
+  }
+  100% {
+    top: calc(100% - 24px);
+  }
+}
+
+/* Polished Wooden Cylinder of the Rod */
+.rod-cylinder {
+  flex: 1;
+  height: 18px;
+  background: linear-gradient(180deg, #422612 0%, #7d4d25 22%, #c9965d 48%, #8a552b 75%, #351c0b 100%);
+  box-shadow: 0 4px 12px rgba(15, 8, 4, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  position: relative;
+}
+
+/* Gold / Brass Rings on the Cylinder */
+.rod-cylinder::before,
+.rod-cylinder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: linear-gradient(180deg, #d4af37 0%, #fff0a8 45%, #99751e 100%);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+.rod-cylinder::before { left: 24px; }
+.rod-cylinder::after { right: 24px; }
+
+/* Carved Brass / Gold Knobs on Rod Ends */
+.rod-knob {
+  width: 22px;
+  height: 28px;
+  background: radial-gradient(circle at 35% 35%, #fff2b8 0%, #d4af37 40%, #8c6819 80%, #4a3406 100%);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45);
+  flex-shrink: 0;
+  position: relative;
+}
+.knob-left {
+  border-radius: 12px 4px 4px 12px;
+  border-right: 2px solid #5a3c10;
+}
+.knob-right {
+  border-radius: 4px 12px 12px 4px;
+  border-left: 2px solid #5a3c10;
+}
+
+/* Smooth Parchment Scroll Unroll Animation */
+.welcome-letter-overlay.active .welcome-letter-card {
+  animation: parchmentScrollUnroll 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes parchmentScrollUnroll {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+/* ==========================================================================
+   REVERSE ROLL-UP ANIMATION WHEN CLOSING (CUỘN NGƯỢC CHIẾU THƯ TỪ DƯỚI LÊN)
+   ========================================================================== */
+.welcome-letter-overlay.closing {
+  pointer-events: none !important;
+  animation: scrollOverlayFadeOut 0.3s ease 0.7s forwards !important;
+}
+
+.welcome-letter-overlay.closing .scroll-rod-bottom {
+  animation: scrollRodRollUp 0.85s cubic-bezier(0.35, 0, 0.2, 1) forwards !important;
+}
+
+.welcome-letter-overlay.closing .welcome-letter-card {
+  animation: parchmentScrollRollUp 0.85s cubic-bezier(0.35, 0, 0.2, 1) forwards !important;
+}
+
+.welcome-letter-overlay.closing .silk-ribbon-tag,
+.welcome-letter-overlay.closing .letter-dog-ear,
+.welcome-letter-overlay.closing .letter-dog-ear-shadow {
+  opacity: 0 !important;
+  transform: scale(0.6) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+@keyframes scrollRodRollUp {
+  0% {
+    top: calc(100% - 24px);
+  }
+  100% {
+    top: 4px;
+  }
+}
+
+@keyframes parchmentScrollRollUp {
+  0% {
+    clip-path: inset(0 0 0% 0);
+  }
+  100% {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+@keyframes scrollOverlayFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Cascading Reveal for Letter Content as the scroll unrolls */
+.welcome-letter-overlay.active .letter-stamp-seal {
+  animation: textReveal 0.5s ease-out 0.18s both;
+}
+
+.welcome-letter-overlay.active .letter-salutation {
+  animation: textReveal 0.55s ease-out 0.3s both;
+}
+
+.welcome-letter-overlay.active .letter-content-body {
+  animation: textReveal 0.65s ease-out 0.45s both;
+}
+
+.welcome-letter-overlay.active .letter-signature {
+  animation: textReveal 0.55s ease-out 0.78s both;
+}
+
+.welcome-letter-overlay.active .letter-action-buttons {
+  animation: textReveal 0.5s ease-out 0.92s both;
+}
+
+/* Dog Ear Fold unfolds at the end when paper reaches bottom */
+.welcome-letter-overlay.active .letter-dog-ear,
+.welcome-letter-overlay.active .letter-dog-ear-shadow {
+  animation: dogEarAppear 0.32s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.08s both;
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dogEarAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* The Main Parchment Scroll Paper */
+.welcome-letter-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-height: 86vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 0;
+  border-left: 1px solid rgba(195, 160, 115, 0.5);
+  border-right: 1px solid rgba(195, 160, 115, 0.5);
+  border-top: none;
+  border-bottom: none;
+  background: #faf4e6;
+  clip-path: inset(0 0 100% 0);
+  background-image:
+    linear-gradient(90deg, rgba(140, 95, 45, 0.14) 0%, transparent 6%, transparent 94%, rgba(140, 95, 45, 0.14) 100%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 70%),
+    linear-gradient(180deg, #f5ecd9 0%, #fdfaf3 18%, #faf3e4 82%, #f2e5cb 100%);
+  box-shadow:
+    inset 0 18px 24px -6px rgba(45, 26, 10, 0.42),
+    inset 0 -18px 24px -6px rgba(45, 26, 10, 0.38),
+    inset 0 0 45px rgba(200, 160, 105, 0.14);
+  padding: 52px 48px 50px 48px;
+  box-sizing: border-box;
+}
+
+/* Custom Subtle Scrollbar on Torn Paper */
+.welcome-letter-card::-webkit-scrollbar {
+  width: 5px;
+}
+.welcome-letter-card::-webkit-scrollbar-thumb {
+  background: rgba(198, 156, 94, 0.35);
+  border-radius: 4px;
+}
+.welcome-letter-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ==========================================================================
+   CLASSICAL SILK RIBBON & JADE CHARM CLOSE BUTTON (Dải Lụa Đỏ Ngọc Bội Cổ Phong)
+   ========================================================================== */
+.welcome-letter-close.silk-ribbon-tag {
+  position: absolute;
+  top: -4px;
+  right: 28px;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 35;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.35s ease;
+  filter: drop-shadow(0 4px 10px rgba(45, 20, 8, 0.45));
+  animation: silkRibbonIdleSway 3.6s ease-in-out infinite;
+}
+
+/* Hover: Đung đưa nhẹ và tỏa ánh kim nhũ quý phái */
+.welcome-letter-close.silk-ribbon-tag:hover {
+  transform: rotate(5deg) scale(1.08);
+  filter: drop-shadow(0 6px 16px rgba(180, 50, 30, 0.6)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.45));
+  animation-play-state: paused;
+}
+
+.welcome-letter-close.silk-ribbon-tag:active {
+  transform: rotate(-3deg) scale(0.96);
+}
+
+.silk-ribbon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* 1. Dây tơ tằm luồn qua trục cuốn */
+.silk-hanging-loop {
+  width: 3px;
+  height: 14px;
+  background: linear-gradient(180deg, #eab308 0%, #ca8a04 40%, #a83226 70%, #8b1e16 100%);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* 2. Thân dải lụa đỏ son thắm */
+.silk-ribbon-body {
+  width: 32px;
+  padding: 8px 3px 6px;
+  background: linear-gradient(135deg, #c0392b 0%, #96281b 50%, #781e13 100%);
+  border-left: 1px solid rgba(255, 220, 150, 0.45);
+  border-right: 1px solid rgba(60, 12, 8, 0.7);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  position: relative;
+}
+
+/* Họa tiết gấm vân dệt chìm */
+.silk-ribbon-body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px);
+  pointer-events: none;
+}
+
+/* Ký hiệu cổ thư pháp và chữ kim nhũ */
+.silk-ribbon-icon {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff1b0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 6px rgba(255, 215, 0, 0.6);
+  line-height: 1;
+}
+
+.silk-ribbon-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fef08a;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin-top: 2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  user-select: none;
+}
+
+/* 3. Đuôi én dải lụa cắt vạt cổ truyền */
+.silk-swallow-tail {
+  width: 32px;
+  height: 9px;
+  background: #781e13;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  margin-top: -1px;
+}
+
+/* 4. Ngọc Bội Đính Dưới Dải Lụa */
+.silk-jade-pendant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -2px;
+  position: relative;
+}
+
+/* Vòng ngọc bích cổ phong viền kim loại quý */
+.jade-ring {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #5eead4 0%, #14b8a6 40%, #0f766e 75%, #115e59 100%);
+  border: 1.5px solid #d4af37;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.jade-core {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2a1506;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.7);
+}
+
+/* 5. Chùm tua rua chỉ đỏ buông lơi */
+.silk-tassels {
+  display: flex;
+  gap: 2px;
+  margin-top: -1px;
+}
+
+.tassel-thread {
+  display: block;
+  width: 2px;
+  border-radius: 1px;
+  background: linear-gradient(180deg, #d4af37 0%, #b91c1c 25%, #7f1d1d 80%, #450a0a 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.tassel-thread.t1 { height: 14px; }
+.tassel-thread.t2 { height: 19px; }
+.tassel-thread.t3 { height: 14px; }
+
+/* Animation đung đưa cổ phong như làn gió thoảng */
+@keyframes silkRibbonIdleSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+/* Responsive trên màn hình nhỏ */
+@media (max-width: 640px) {
+  .welcome-letter-close.silk-ribbon-tag {
+    right: 20px;
+    transform: scale(0.9);
+  }
+}
+
+/* Vintage Stamp / Wax Seal Badge */
+.letter-stamp-seal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px dashed rgba(198, 156, 94, 0.35);
+}
+
+.wax-seal {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #d9534f 0%, #a83226 75%, #7e1e14 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 4px 10px rgba(126, 30, 20, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.postal-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.postal-date {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #8c6328;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.postal-tag {
+  font-size: 11px;
+  color: #a08266;
+  font-style: italic;
+}
+
+/* Letter Salutation & Head */
+.letter-salutation {
+  margin-bottom: 18px;
+}
+
+.letter-date {
+  display: block;
+  font-size: 13px;
+  font-style: italic;
+  color: #8c786a;
+  margin-bottom: 6px;
+}
+
+.letter-salutation h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 23px;
+  font-weight: 600;
+  font-style: italic;
+  color: #2c221e;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Letter Body Content */
+.letter-content-body {
+  font-family: 'Manrope', 'Roboto', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #4a3c34;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.letter-content-body p {
+  margin: 0;
+}
+
+.letter-content-body strong {
+  color: #2c221e;
+  font-weight: 700;
+}
+
+.letter-content-body em {
+  font-style: italic;
+  color: #8c6328;
+  padding-right: 4px;
+}
+
+/* Signature Area */
+.letter-signature {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(198, 156, 94, 0.3);
+}
+
+.letter-signature-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-left: auto;
+  max-width: max-content;
+  text-align: center;
+}
+
+.sig-wishes {
+  font-size: 13.5px;
+  font-style: italic;
+  color: #7a6659;
+  margin: 0;
+}
+
+.sig-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sig-name {
+  font-family: var(--font-script-primary, 'Playfair Display', cursive);
+  font-size: 32px;
+  color: #a67c38;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.sig-role {
+  font-size: 12px;
+  color: #9c8473;
+}
+
+/* Modal Action Buttons */
+.letter-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+  margin-bottom: 6px;
+  margin-right: 24px;
+  flex-wrap: wrap;
+  max-width: max-content;
+  margin-left: auto;
+}
+
+.btn-letter-continue {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #c69c5e 0%, #a67c38 100%);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(198, 156, 94, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-letter-continue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(198, 156, 94, 0.45);
+  background: linear-gradient(135deg, #d4a96a 0%, #b58842 100%);
+}
+
+.btn-letter-close-secondary {
+  padding: 11px 20px;
+  background: transparent;
+  border: 1.5px solid rgba(198, 156, 94, 0.35);
+  color: #7a531e;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-letter-close-secondary:hover {
+  background: rgba(198, 156, 94, 0.1);
+  border-color: #c69c5e;
+}
+
+@media (max-width: 576px) {
+  .welcome-letter-card {
+    padding: 30px 22px 25px 22px;
+    border-radius: 20px;
+  }
+
+  .letter-salutation h3 {
+    font-size: 19px;
+  }
+
+  .letter-content-body {
+    font-size: 13.5px;
+  }
+
+  .letter-action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-letter-continue,
+  .btn-letter-close-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Smooth Anchor Scroll Margin for Fixed Header */
+.discovery_section,
+#projects,
+section[id] {
+  scroll-margin-top: 95px;
+}

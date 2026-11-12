@@ -1,0 +1,176 @@
+/* ==========================================================================
+   THEME: CON PHÙ DU (Mayfly Theme) • TIỆM NHỎ SUY TƯ
+   "Một ngày của nhân gian — Cả một đời rực rỡ"
+   ========================================================================== */
+:root {
+	--donut-landing-main-color: #f59e0b;
+	--donut-landing-second-color: #0f172a;
+	--theme-hero-bg: #111827;
+	--theme-hero-title-color: #fef3c7;
+	--theme-special-color: #fbbf24;
+
+	/* Subheader Box Nav */
+	--theme-nav-border: rgba(245, 158, 11, 0.45);
+	--theme-nav-shadow: rgba(15, 23, 42, 0.4);
+	--theme-nav-toggle-bg: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(217, 119, 6, 0.15));
+	--theme-nav-toggle-border: rgba(245, 158, 11, 0.35);
+	--theme-nav-toggle-hover: linear-gradient(135deg, rgba(245, 158, 11, 0.45), rgba(217, 119, 6, 0.25));
+	--theme-nav-title-color: #0f172a;
+	--theme-nav-arrow-color: #d97706;
+	--theme-nav-link-color: #1e293b;
+	--theme-nav-link-hover-bg: rgba(245, 158, 11, 0.16);
+	--theme-nav-link-hover-color: #78350f;
+
+	/* Step Cards Background (4 Khoảnh Khắc Sinh Mệnh) */
+	--theme-card1-bg: #78350f; /* Bình Minh Khởi Sinh */
+	--theme-card2-bg: #1e1b4b; /* Vũ Điệu Giữa Trời */
+	--theme-card3-bg: #831843; /* Lễ Cưới Hoàng Hôn */
+	--theme-card4-bg: #064e3b; /* Giấc Ngủ Đáy Nước */
+
+	/* Step Cards Heading Special */
+	--theme-card1-special: #fde68a;
+	--theme-card2-special: #c7d2fe;
+	--theme-card3-special: #fbcfe8;
+	--theme-card4-special: #a7f3d0;
+
+	/* Step Cards Text Colors (Dark cards -> White text) */
+	--theme-card-heading-color: #ffffff;
+	--theme-card-text-color: rgba(255, 255, 255, 0.9);
+
+	/* Step Indicators */
+	--theme-ind1-color: #f59e0b;
+	--theme-ind2-color: #818cf8;
+	--theme-ind3-color: #f43f5e;
+	--theme-ind4-color: #10b981;
+
+	/* Final Section */
+	--theme-final-bg-text-font: "Charm", "Playfair Display", cursive, serif;
+	--theme-next-btn-bg: rgba(245, 158, 11, 0.2);
+	--theme-next-btn-border: #f59e0b;
+	--theme-next-btn-hover-bg: #f59e0b;
+	--theme-next-btn-hover-shadow: rgba(245, 158, 11, 0.45);
+}
+
+.donut-img {
+	transform: rotate(-5deg);
+	filter: drop-shadow(0 0 22px rgba(245, 158, 11, 0.45));
+	transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.donut-img:hover {
+	filter: drop-shadow(0 0 32px rgba(251, 191, 36, 0.7));
+}
+
+/* Đảm bảo khoảng cách thoáng đạt, không để chữ đè lên vật thể trong Flip Section */
+.flip {
+	align-items: flex-start !important;
+	padding-top: calc(var(--header-offset, 80px) + 2vh) !important;
+}
+
+.flip__heading-box {
+	margin-top: 10px !important;
+	gap: 16px !important;
+	max-width: 880px !important;
+}
+
+.flip__text {
+	max-width: 760px !important;
+	line-height: 1.6 !important;
+	font-size: clamp(0.95rem, 1.25vw, 1.15rem) !important;
+}
+
+/* Đảm bảo Section 3 Lời Nhắc (Numbers) thoáng đạt, con phù du nằm ở giữa cột 1-2-3 */
+.numbers__container {
+	justify-content: center !important;
+	height: 100% !important;
+}
+
+.numbers__heading-box {
+	margin-bottom: clamp(14px, 2.5vh, 28px) !important;
+}
+
+.numbers__box {
+	max-width: 480px !important;
+	margin-top: 0 !important;
+	align-self: flex-start !important;
+}
+
+.numbers__item {
+	padding: clamp(14px, 2.2vh, 28px) 0 !important;
+	gap: 16px !important;
+}
+
+.numbers__item-title {
+	font-size: clamp(1.25rem, 1.8vw, 1.6rem) !important;
+}
+
+.numbers__item-text {
+	font-size: clamp(0.95rem, 1.1vw, 1.05rem) !important;
+	line-height: 1.5 !important;
+	color: rgba(255, 255, 255, 0.82) !important;
+}
+
+/* Modal Chiếc Hộp Không Trì Hoãn */
+.healing-modal-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(10, 15, 26, 0.8);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.35s ease, visibility 0.35s ease;
+	padding: 20px;
+}
+
+.healing-modal-overlay.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.healing-modal-content {
+	position: relative;
+	width: 100%;
+	max-width: 620px;
+	padding: 38px 32px;
+	background: rgba(17, 24, 39, 0.95);
+	border: 1px solid rgba(245, 158, 11, 0.45);
+	border-radius: 24px;
+	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65), 0 0 40px rgba(245, 158, 11, 0.22);
+	text-align: center;
+	color: #fff;
+	transform: scale(0.92) translateY(20px);
+	transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.healing-modal-overlay.active .healing-modal-content {
+	transform: scale(1) translateY(0);
+}
+
+.healing-modal-close {
+	position: absolute;
+	top: 16px;
+	right: 18px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border: 1px solid rgba(245, 158, 11, 0.35);
+	background: rgba(30, 41, 59, 0.7);
+	color: #fef08a;
+	font-size: 1.1rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease;
+}
+
+.healing-modal-close:hover {
+	background: rgba(245, 158, 11, 0.25);
+	border-color: #fbbf24;
+	transform: rotate(90deg);
+}

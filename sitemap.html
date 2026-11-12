@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap - Sơ Đồ Website • Tiệm Nhỏ Suy Tư (Caraflow)</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <style>
+    .sitemap-hero {
+      background: linear-gradient(135deg, #faf6f0 0%, #f3e9dc 100%);
+      padding: 60px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(198, 156, 94, 0.2);
+    }
+    .sitemap-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(198, 156, 94, 0.15);
+      border: 1px solid rgba(198, 156, 94, 0.3);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8c6328;
+      margin-bottom: 16px;
+    }
+    .sitemap-hero h1 {
+      font-size: 32px;
+      color: #2c2520;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .sitemap-hero p {
+      font-size: 16px;
+      color: #665b52;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      line-height: 1.5;
+    }
+    .xml-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: #c69c5e;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .xml-link-btn:hover {
+      background: #b0874b;
+    }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin: 40px 0 60px;
+    }
+    .sitemap-card {
+      background: #ffffff;
+      border: 1px solid rgba(198, 156, 94, 0.25);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sitemap-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+    .sitemap-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #8c6328;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #faf6f0;
+      padding-bottom: 10px;
+    }
+    .sitemap-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sitemap-list li {
+      margin-bottom: 10px;
+    }
+    .sitemap-list li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #4a3e35;
+      text-decoration: none;
+      font-size: 14.5px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sitemap-list li a:hover {
+      background: #faf6f0;
+      color: #c69c5e;
+      font-weight: 600;
+    }
+    .sitemap-list .page-desc {
+      font-size: 12px;
+      color: #887b70;
+      font-weight: normal;
+    }
+  </style>
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="sitemap-hero">
+      <div class="container">
+        <span class="sitemap-badge">🧭 Navigation Map</span>
+        <h1>Sơ Đồ Website (Sitemap)</h1>
+        <p>Tổng hợp tất cả các góc nhỏ, hành trình cảm xúc và câu chuyện bình yên trên Tiệm Nhỏ Suy Tư.</p>
+        <a href="sitemap.xml" target="_blank" class="xml-link-btn">
+          <span>📄 Xem Sitemap.xml (Dành cho Google Search Engine)</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="sitemap-grid">
+        <!-- Nhóm 1: Trang Chủ & Tổng Quan -->
+        <div class="sitemap-card">
+          <h2 class="sitemap-card-title">🏠 Trang Chủ & Tổng Quan</h2>
+          <ul class="sitemap-list">
+            <li><a href="trang-chu.html"><span>Trang Chủ Chính (Cara)</span> <span class="page-badge">Main</span></a></li>
+            <li><a href="index.html"><span>Trang Chủ Phụ (Index)</span> <span class="page-desc">Intro</span></a></li>
+            <li><a href="bon-mua.html"><span>Bốn Mùa Cảm Xúc</span> <span class="page-desc">Interactive</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Nhóm 2: Chuyện Kể & Góc Nhìn -->
+        <div class="sitemap-card">
+          <h2 class="sitemap-card-title">📖 Chuyện Kể & Góc Nhìn</h2>
+          <ul class="sitemap-list">
+            <li><a href="goc-ke-chuyen.html"><span>Góc Kể Chuyện</span> <span class="page-desc">Stories</span></a></li>
+            <li><a href="kham-pha-goc-nhin.html"><span>Khám Phá Góc Nhìn</span> <span class="page-desc">Perspectives</span></a></li>
+            <li><a href="dieu-nho-be.html"><span>Điều Nhỏ Bé Hạnh Phúc</span> <span class="page-desc">Cozy Details</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Nhóm 3: Chiêm Nghiệm & Tâm Hồn -->
+        <div class="sitemap-card">
+          <h2 class="sitemap-card-title">🌱 Chiêm Nghiệm & Nội Tâm</h2>
+          <ul class="sitemap-list">
+            <li><a href="phan-tich-noi-tam.html"><span>Phân Tích Nội Tâm</span> <span class="page-desc">Reflections</span></a></li>
+            <li><a href="cau-hoi-tam-hon.html"><span>Những Câu Hỏi Tâm Hồn</span> <span class="page-desc">Soul Q&A</span></a></li>
+            <li><a href="dau-chan-cua-tiem.html"><span>Dấu Chân Của Tiệm</span> <span class="page-desc">Tiệm's Steps</span></a></li>
+            <li><a href="dau-chan-cua-ban.html"><span>Dấu Chân Của Bạn</span> <span class="page-desc">Your Steps</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Nhóm 4: Các Bài Viết / Trải Nghiệm -->
+        <div class="sitemap-card">
+          <h2 class="sitemap-card-title">✨ Bài Viết & Góc Riêng</h2>
+          <ul class="sitemap-list">
+            <li><a href="nhung-dong-chu-biet-om.html"><span>Những Dòng Chữ Biết Ôm</span> <span class="page-desc">Healing</span></a></li>
+            <li><a href="chi-tiet-cau-chuyen.html"><span>Một Món Quà Cho Đêm Mất Ngủ</span> <span class="page-desc">Late Night</span></a></li>
+            <li><a href="hoa-than.html"><span>Không Gian Hóa Thân</span> <span class="page-desc">Immersive</span></a></li>
+            <li><a href="album-nhac-ky-uc.html"><span>Album Nhạc Ký Ức</span> <span class="page-desc">Music Lofi</span></a></li>
+            <li><a href="dem-mat-ngu.html"><span>Món Quà Cho Đêm Mất Ngủ</span> <span class="page-desc">Short Story</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Nhóm 5: Về Tiệm Nhỏ & Kết Nối -->
+        <div class="sitemap-card">
+          <h2 class="sitemap-card-title">📮 Về Tiệm Nhỏ & Kết Nối</h2>
+          <ul class="sitemap-list">
+            <li><a href="tiem-nho.html"><span>Về Tiệm Nhỏ</span> <span class="page-badge">Không Gian</span></a></li>
+            <li><a href="loi-tu-su.html"><span>Lời Tự Sự Của Tình</span> <span class="page-badge">About Us</span></a></li>
+            <li><a href="thu-cua-ban.html"><span>Thư Của Bạn</span> <span class="page-desc">Letters</span></a></li>
+            <li><a href="lien-he.html"><span>Liên Hệ</span> <span class="page-desc">Contact</span></a></li>
+            <li><a href="chinh-sach-bao-mat.html"><span>Chính Sách Bảo Mật</span> <span class="page-desc">Policy</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+</body>
+</html>

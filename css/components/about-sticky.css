@@ -1,0 +1,308 @@
+@media only scree and (min-width:280px) {}
+
+@media only screen and (min-width:992px) {
+    .sticky_left_data {
+        display: none
+    }
+
+    .sticky_container {
+        align-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+        flex: none;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: min-content;
+        justify-content: space-evenly;
+        overflow: visible;
+        padding: 0;
+        position: relative;
+        width: 100%;
+        contain: paint;
+    }
+
+    .sticky_left {
+        align-content: center;
+        align-items: center;
+        display: flex;
+        flex: none;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 16px;
+        height: auto;
+        justify-content: center;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: auto;
+    }
+
+    .sticky_left_fake {
+        height: 40vh;
+    }
+
+    .sticky_right {
+        align-content: center;
+        align-items: center;
+        display: flex;
+        flex: .8 0 0px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 16px;
+        height: 100vh;
+        justify-content: center;
+        overflow: visible;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        width: auto;
+        will-change: transform;
+        z-index: 1;
+    }
+
+    .sticky_left_box_container .sticky_left_box {
+        aspect-ratio: .8009259259259259 / 1;
+        flex: none;
+        height: 120px;
+        position: relative;
+        width: 100%;
+        background-size: contain;
+        opacity: 0.8;
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="1"] {
+        background-image: url('../../images/about/soul_cat.jpg');
+        background-size: cover;
+        border-radius: 16px;
+        border: 2px solid #c69c5e;
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="2"] {
+        background-image: url('../../images/about/soul_lantern.jpg');
+        background-size: cover;
+        border-radius: 16px;
+        border: 2px solid #c69c5e;
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="3"] {
+        background-image: url('../../images/about/soul_259.jpg');
+        background-size: cover;
+        border-radius: 16px;
+        border: 2px solid #c69c5e;
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="4"] {
+        background-image: url('../../images/about/soul_letter.jpg');
+        background-size: cover;
+        border-radius: 16px;
+        border: 2px solid #c69c5e;
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="5"] {
+        background-image: url('../../images/about/soul_tree.png');
+        background-size: cover;
+        border-radius: 16px;
+        border: 2px solid #c69c5e;
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="6"] {
+        background-image: url('/images/about/3.png');
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="7"] {
+        background-image: url('/images/about/10.png');
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="8"] {
+        background-image: url('/images/about/7.png');
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="9"] {
+        background-image: url('/images/about/8.png');
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="10"] {
+        background-image: url('/images/about/12.png');
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="11"] {
+        background-image: url('/images/about/10.png');
+    }
+
+    .sticky_left_box_container .sticky_left_box[data-id="12"] {
+        background-image: url('/images/about/4.png');
+    }
+
+    .sticky_left_box_container {
+        align-content: center;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        justify-content: center;
+        padding: 0;
+        position: relative;
+        width: 100%;
+    }
+
+    .new-sticky-left-data {
+        display: flex;
+        position: relative;
+        height: 100%;
+    }
+
+    .sticky_left_box:nth-child(odd) {
+        transform: translateY(-50px);
+        /* Adjust the value as needed */
+    }
+
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0
+        }
+
+        30% {
+            opacity: 1
+        }
+
+        100% {
+            opacity: 1
+        }
+    }
+
+    .sticky_left_box {
+        /* animation: fadeIn linear; */
+        animation-timeline: view();
+    }
+
+    .sticky_right_container {
+        height: clamp(300px, 80%, 600px);
+        padding: 39px 0 39px 39px;
+        background-color: rgb(42, 31, 201);
+        opacity: 1;
+        border-radius: 16px;
+        align-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 16px;
+        justify-content: center;
+        overflow: visible;
+        position: relative;
+    }
+
+    .sticky_right_container .sticky_right_box_content_left {
+        align-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+        flex: none;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 100%;
+        justify-content: start;
+        gap: 16px;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: 50%;
+        z-index: 100;
+    }
+
+    .sticky_right_container .sticky_right_box_content_right {
+        align-content: center;
+        align-items: center;
+        display: flex;
+        flex: 1 0 0px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 16px;
+        height: 100%;
+        justify-content: center;
+        overflow: visible;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        right: 20%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 1px;
+    }
+
+    .sticky_right_container .sticky_right_box_image {
+        aspect-ratio: .6139896373056994 / 1;
+        flex: none;
+        height: 140%;
+        overflow: visible;
+        position: relative;
+        width: var(--framer-aspect-ratio-supported, 609px);
+    }
+
+    .sticky_right_container .sticky_right_box_image>div {
+        position: absolute;
+        border-radius: inherit;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .sticky_right_container .sticky_right_box_image>div img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        object-position: center;
+        object-fit: contain;
+    }
+
+
+    .sticky_left_box_container .sticky_left_box.active {
+        /* background-color: yellow !important; */
+        /* Example style for active class */
+        opacity: 1;
+    }
+
+    .spacing {
+        height: 100vh;
+    }
+
+    .sticky_right_box_content_left h3 {
+        font-size: 52px;
+        color: white;
+        text-align: left;
+        margin: 0;
+    }
+
+    .sticky_right_box_content_left p {
+        font-size: 12px;
+        color: white;
+        margin: 0;
+
+    }
+
+    .sticky_right_box_content_left #team_description {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .sticky_right_box_content_left a {
+        width: 38px;
+        height: 38px;
+        display: block;
+        margin-top: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .sticky_left_box_container .sticky_left_box {
+        height: 169px;
+    }
+
+    .sticky_right {
+        flex: .6 0 0px;
+    }
+}

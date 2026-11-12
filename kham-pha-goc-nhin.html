@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Khám Phá Góc Nhìn - Tiệm Nhỏ Suy Tư (Caraflow)</title>
+	<!-- favicon -->
+	<link rel="icon" type="image/png" href="images/logo.png">
+	<!-- reset -->
+	<link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+	<!-- global layout -->
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/global.css">
+	<!-- page specific css: Bright, Warm & Editorial Sections -->
+	<link rel="stylesheet" href="css/pages/kham-pha-goc-nhin.css">
+
+	<!-- GSAP Libraries -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+	<script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+	<!-- HEADER -->
+	<div id="header-placeholder"></div>
+
+	<main>
+		<!-- ==========================================================================
+		     SECTION 1: HERO INTERACTIVE CAMERA LENS APERTURE
+		     ========================================================================== -->
+		<div class="hint" id="sceneHint">📷 Cuộn chuột để xoay tiêu cự • Bấm vào lăng kính để khám phá chi tiết bên dưới
+		</div>
+
+		<div class="viewport">
+			<!-- Dynamic Camera Lens Viewport -->
+			<div class="camera-lens-container" id="cameraLensContainer">
+				<!-- Outer Rotating Focus Ring with f-stop markings -->
+				<div class="lens-outer-ring" id="lensOuterRing">
+					<svg class="lens-marks-svg" viewBox="0 0 500 500">
+						<defs>
+							<!-- Arc 1: Top (f/1.4 • CỬA VÒM) -->
+							<path id="arc-top" d="M 61.6, 118.1 A 230, 230 0 0,1 438.4, 118.1" fill="none" />
+							<!-- Arc 2: Right (f/2.8 • THƯ TAY) -->
+							<path id="arc-right" d="M 381.9, 61.6 A 230, 230 0 0,1 381.9, 438.4" fill="none" />
+							<!-- Arc 3: Bottom (f/5.6 • POLAROID) -->
+							<path id="arc-bottom" d="M 438.4, 381.9 A 230, 230 0 0,0 61.6, 381.9" fill="none" />
+							<!-- Arc 4: Left (f/11 • MẦM SAO) -->
+							<path id="arc-left" d="M 118.1, 438.4 A 230, 230 0 0,0 118.1, 61.6" fill="none" />
+						</defs>
+						<text class="lens-mark-curved">
+							<textPath href="#arc-top" startOffset="50%" text-anchor="middle">f/1.4 • CỬA VÒM</textPath>
+						</text>
+						<text class="lens-mark-curved">
+							<textPath href="#arc-right" startOffset="50%" text-anchor="middle">f/2.8 • THƯ TAY
+							</textPath>
+						</text>
+						<text class="lens-mark-curved">
+							<textPath href="#arc-bottom" startOffset="50%" text-anchor="middle">f/5.6 • POLAROID
+							</textPath>
+						</text>
+						<text class="lens-mark-curved">
+							<textPath href="#arc-left" startOffset="50%" text-anchor="middle">f/11 • MẦM SAO</textPath>
+						</text>
+					</svg>
+				</div>
+
+				<!-- Inner Glass Aperture Frame -->
+				<div class="lens-aperture-frame" id="lensApertureFrame">
+					<!-- Background Image inside Lens -->
+					<img src="images/lang-kinh/lang-kinh-01.jpg" alt="Lăng kính cuộc đời" id="lensBgImg"
+						class="lens-bg-img" onerror="this.src='images/logo.png'">
+
+					<!-- Glass Shutter Reflection Overlay -->
+					<div class="lens-glass-reflection"></div>
+
+					<!-- Center Content Card Container inside Lens -->
+					<div class="lens-card-content" id="lensCardContent">
+						<span class="lens-card-badge" id="lensBadge">🔭 LĂNG KÍNH 01 • KHUNG CỬA VÒM</span>
+						<h2 class="lens-card-title" id="lensTitle">Nhìn Qua Cơn Mưa</h2>
+						<p class="lens-card-desc" id="lensDesc">
+							“Nếu xem bão giông là sự tàn phá, bạn sẽ sợ hãi. Nhưng nếu nhìn qua khung cửa vòm, từng hạt
+							mưa chính là giọt ngọc đang tắm mát cho những mầm cây.”
+						</p>
+						<span class="lens-fstop-tag" id="lensFstopTag">ISO 100 • 35mm • f/1.4</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scrollable Spacer for GSAP Trigger -->
+		<div class="scroll-container"></div>
+
+		<!-- ==========================================================================
+		     SECTION 2: TƯƠI SÁNG, ẤM ÁP - DEDICATED SECTIONS CHO 4 LĂNG KÍNH
+		     ========================================================================== -->
+		<div class="perspective-main-wrapper" id="perspective-content-area">
+
+			<!-- Top Introductory Area (Styled like landing_dflex in trang-chu.html) -->
+			<div class="perspective-top-intro">
+				<div class="landing_dflex perspective-landing-dflex">
+					<!-- Left Column: Badge + Title + Content + Quick Chips -->
+					<div class="landing_left txt">
+						<span class="hero-pill-badge">📷 Bốn Không Gian Lăng Kính • Tiệm Nhỏ</span>
+						<div class="title_sec">
+							<h2 class="section-headline">Xoay lăng kính </h2>
+							<div class="title_dots">
+								<span class="dots"></span>
+								<span class="right">muôn&nbsp;lối&nbsp;nhìn</span>
+							</div>
+						</div>
+						<div class="content_sec">
+							<p>
+								Bốn góc nhìn bạn vừa thấy qua ống kính xoay phía trên nay được mở rộng thành từng không gian chiêm nghiệm riêng biệt.
+							</p>
+							<p>
+								Mỗi sự vật, hiện tượng trong cuộc sống không mang một ý nghĩa bất biến. Tùy theo tâm thế, mức độ cảm quan và tình huống thực tế của bạn, cùng một việc sẽ luôn có khả năng mở ra những góc nhìn khác nhau.
+							</p>
+						</div>
+
+						<!-- Quick Jump Chips to 4 Lenses -->
+						<div class="lens-quick-nav">
+							<a href="#detail-langkinh01" class="lens-quick-chip">
+								<span class="chip-icon">🌧️</span>
+								<span class="chip-title">Cơn Mưa</span>
+								<span class="chip-fstop">f/1.4</span>
+							</a>
+							<a href="#detail-langkinh02" class="lens-quick-chip">
+								<span class="chip-icon">☕</span>
+								<span class="chip-title">Chiếc Tách</span>
+								<span class="chip-fstop">f/2.8</span>
+							</a>
+							<a href="#detail-langkinh03" class="lens-quick-chip">
+								<span class="chip-icon">👏</span>
+								<span class="chip-title">Tiếng Vỗ Tay</span>
+								<span class="chip-fstop">f/5.6</span>
+							</a>
+							<a href="#detail-langkinh04" class="lens-quick-chip">
+								<span class="chip-icon">🌱</span>
+								<span class="chip-title">Mầm Cây</span>
+								<span class="chip-fstop">f/11</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Right Column: Philosophy Reflection Card -->
+					<div class="landing_right">
+						<div class="perspective-philosophy-card">
+							<div class="phi-card-header">
+								<div class="phi-seal-badge">
+									<span class="seal-icon">🌿</span>
+									<span class="seal-text">CHIÊM NGHIỆM • TIỆM NHỎ SUY TƯ</span>
+								</div>
+								<h3 class="phi-card-title">Góc nhìn là sự lựa chọn, không phải định nghĩa</h3>
+								<p class="phi-card-lead">
+									Khám phá góc nhìn là hành trình trao cho bản thân sự tự do chọn lựa: để những khi lòng mình chật chội hay bế tắc, ta biết mình luôn có thể bước sang một góc khác nhẹ nhõm hơn.
+								</p>
+							</div>
+
+							<div class="phi-card-stack">
+								<!-- Insight Item 1 -->
+								<div class="phi-insight-item">
+									<div class="insight-num">01</div>
+									<div class="insight-body">
+										<h5>Không Giáo Điều</h5>
+										<p>Không có góc nhìn nào là chuẩn mực áp đặt. Mọi lăng kính chỉ là gợi mở để bạn tự chiêm nghiệm.</p>
+									</div>
+								</div>
+
+								<!-- Insight Item 2 -->
+								<div class="phi-insight-item">
+									<div class="insight-num">02</div>
+									<div class="insight-body">
+										<h5>Tự Do Chuyển Hướng</h5>
+										<p>Những khi cảm thấy bế tắc hay chật chội, hãy nhớ bạn luôn có quyền bước sang một góc nhìn nhẹ nhõm hơn.</p>
+									</div>
+								</div>
+
+								<!-- Insight Item 3 -->
+								<div class="phi-insight-item">
+									<div class="insight-num">03</div>
+									<div class="insight-body">
+										<h5>Chạm Để Đổi Góc Nhìn</h5>
+										<p>Thử bấm chuyển đổi các tab ở từng lăng kính bên dưới để thấy cùng một hoàn cảnh có thể thay đổi cảm xúc ra sao.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ==========================================================================
+			     4 FULL DEDICATED SECTIONS CHO 4 LĂNG KÍNH (ZIGZAG EDITORIAL)
+			     ========================================================================== -->
+			<div class="langkinh-sections-wrapper">
+
+				<!-- SECTION 1: LĂNG KÍNH 01 (lang-kinh-01.jpg • f/1.4) -->
+				<section class="langkinh-single-section" id="detail-langkinh01" data-card-id="rain">
+					<div class="langkinh-section-container">
+						<!-- Media Column -->
+						<div class="langkinh-media-col">
+							<img src="images/lang-kinh/lang-kinh-01.jpg" alt="Lăng Kính 01: Nhìn Qua Cơn Mưa"
+								class="langkinh-media-img">
+							<span class="langkinh-media-badge">f/1.4 • CỬA VÒM</span>
+						</div>
+
+						<!-- Content Column -->
+						<div class="langkinh-content-col">
+							<span class="langkinh-badge-label">🖼️ LĂNG KÍNH 01 • KHUNG CỬA VÒM</span>
+							<h3 class="langkinh-title">Nhìn Qua Cơn Mưa</h3>
+							<p class="langkinh-quote">“Bão giông kéo đến che mờ tầm nhìn, nhưng góc nhìn qua khung cửa
+								vòm sẽ thay đổi cảm xúc của bạn...”</p>
+
+							<!-- Multi-perspective Switcher -->
+							<div class="perspective-tabs">
+								<button type="button" class="perspective-tab-btn active" data-view="a">Phiền
+									Toái</button>
+								<button type="button" class="perspective-tab-btn" data-view="b">Nhịp Dừng</button>
+								<button type="button" class="perspective-tab-btn" data-view="c">Gột Rửa</button>
+							</div>
+
+							<!-- Perspective Content Box -->
+							<div class="perspective-view-box">
+								<div class="view-label" id="rain-label">🌧️ GÓC NHÌN 1: SỰ PHIỀN TOÁI</div>
+								<p class="view-text" id="rain-text">
+									Ướt sũng vạt áo, đường xá đông đúc, trễ mất cuộc hẹn và mọi kế hoạch chu đáo bị đảo
+									lộn. Ta cảm thấy khó chịu vì mọi thứ không diễn ra theo ý mình.
+								</p>
+							</div>
+
+							<!-- Footer Action -->
+							<div class="langkinh-footer">
+								<span>Cảm quan: Tùy mức độ vội vã lúc này</span>
+								<a href="hoa-than/tach-tra.html" class="langkinh-link-btn">Thưởng thức tách trà ngày mưa
+									➔</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- SECTION 2: LĂNG KÍNH 02 (lang-kinh-02.jpg • f/2.8) -->
+				<section class="langkinh-single-section" id="detail-langkinh02" data-card-id="cup">
+					<div class="langkinh-section-container">
+						<!-- Media Column -->
+						<div class="langkinh-media-col">
+							<img src="images/lang-kinh/lang-kinh-02.jpg" alt="Lăng Kính 02: Chiếc Tách Sứt Quai"
+								class="langkinh-media-img">
+							<span class="langkinh-media-badge">f/2.8 • THƯ TAY</span>
+						</div>
+
+						<!-- Content Column -->
+						<div class="langkinh-content-col">
+							<span class="langkinh-badge-label">✉️ LĂNG KÍNH 02 • THƯ TAY BỐN MÙA</span>
+							<h3 class="langkinh-title">Chiếc Tách Sứt Quai</h3>
+							<p class="langkinh-quote">“Đồ vật thân thuộc bị va đập và để lại một vết nứt không thể nào
+								lành lại như ban đầu...”</p>
+
+							<!-- Multi-perspective Switcher -->
+							<div class="perspective-tabs">
+								<button type="button" class="perspective-tab-btn active" data-view="a">Khiếm
+									Khuyết</button>
+								<button type="button" class="perspective-tab-btn" data-view="b">Thời Gian</button>
+								<button type="button" class="perspective-tab-btn" data-view="c">Kintsugi</button>
+							</div>
+
+							<!-- Perspective Content Box -->
+							<div class="perspective-view-box">
+								<div class="view-label" id="cup-label">⚡ GÓC NHÌN 1: SỰ KHIẾM KHUYẾT</div>
+								<p class="view-text" id="cup-text">
+									Mất đi sự hoàn mỹ nguyên bản, chiếc tách bị xem như món đồ hỏng hóc, không còn giá
+									trị trưng bày như ngày đầu tiên mua về.
+								</p>
+							</div>
+
+							<!-- Footer Action -->
+							<div class="langkinh-footer">
+								<span>Cảm quan: Tùy thước đo hoàn hảo của bạn</span>
+								<a href="dieu-nho-be.html" class="langkinh-link-btn">Đọc điều nhỏ bé chữa lành ➔</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- SECTION 3: LĂNG KÍNH 03 (lang-kinh-03.jpg • f/5.6) -->
+				<section class="langkinh-single-section" id="detail-langkinh03" data-card-id="applause">
+					<div class="langkinh-section-container">
+						<!-- Media Column -->
+						<div class="langkinh-media-col">
+							<img src="images/lang-kinh/lang-kinh-03.jpg" alt="Lăng Kính 03: Tiếng Vỗ Tay Bên Trong"
+								class="langkinh-media-img">
+							<span class="langkinh-media-badge">f/5.6 • POLAROID</span>
+						</div>
+
+						<!-- Content Column -->
+						<div class="langkinh-content-col">
+							<span class="langkinh-badge-label">📸 LĂNG KÍNH 03 • POLAROID KÝ ỨC</span>
+							<h3 class="langkinh-title">Tiếng Vỗ Tay Bên Trong</h3>
+							<p class="langkinh-quote">“Khi bạn đứng trước một thử thách mới, tim đập thình thịch và lòng
+								bàn tay đổ mồ hôi...”</p>
+
+							<!-- Multi-perspective Switcher -->
+							<div class="perspective-tabs">
+								<button type="button" class="perspective-tab-btn active" data-view="a">Bất An</button>
+								<button type="button" class="perspective-tab-btn" data-view="b">Cổ Vũ</button>
+								<button type="button" class="perspective-tab-btn" data-view="c">Hết Mình</button>
+							</div>
+
+							<!-- Perspective Content Box -->
+							<div class="perspective-view-box">
+								<div class="view-label" id="applause-label">💓 GÓC NHÌN 1: NỖI BẤT AN & LO SỢ</div>
+								<p class="view-text" id="applause-text">
+									Ta ngỡ rằng mình chưa đủ sẵn sàng, cơ thể đang báo động sợ hãi và nguy cơ thất bại
+									đang chực chờ phía trước.
+								</p>
+							</div>
+
+							<!-- Footer Action -->
+							<div class="langkinh-footer">
+								<span>Cảm quan: Tùy lòng can đảm đối diện</span>
+								<a href="phan-tich-noi-tam.html" class="langkinh-link-btn">Lắng nghe phân tích nội tâm
+									➔</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- SECTION 4: LĂNG KÍNH 04 (lang-kinh-04.jpg • f/11) -->
+				<section class="langkinh-single-section" id="detail-langkinh04" data-card-id="winter_seed">
+					<div class="langkinh-section-container">
+						<!-- Media Column -->
+						<div class="langkinh-media-col">
+							<img src="images/lang-kinh/lang-kinh-04.jpg" alt="Lăng Kính 04: Mầm Cây Mùa Đông"
+								class="langkinh-media-img">
+							<span class="langkinh-media-badge">f/11 • MẦM SAO</span>
+						</div>
+
+						<!-- Content Column -->
+						<div class="langkinh-content-col">
+							<span class="langkinh-badge-label">🌱 LĂNG KÍNH 04 • MẦM SAO VƯƠN LÊN</span>
+							<h3 class="langkinh-title">Mầm Cây Mùa Đông</h3>
+							<p class="langkinh-quote">“Mùa đông tuyết phủ, cây cối trơ trọi khẳng khiu tưởng như đã dừng
+								lại sự sống...”</p>
+
+							<!-- Multi-perspective Switcher -->
+							<div class="perspective-tabs">
+								<button type="button" class="perspective-tab-btn active" data-view="a">Bế Tắc</button>
+								<button type="button" class="perspective-tab-btn" data-view="b">Cắm Rễ</button>
+								<button type="button" class="perspective-tab-btn" data-view="c">Chuẩn Bị</button>
+							</div>
+
+							<!-- Perspective Content Box -->
+							<div class="perspective-view-box">
+								<div class="view-label" id="winter_seed-label">❄️ GÓC NHÌN 1: SỰ BẾ TẮC & LẠNH GIÁ</div>
+								<p class="view-text" id="winter_seed-text">
+									Cảm giác dậm chân tại chỗ, vạn vật lạnh lẽo đóng băng và lo âu rằng mình sẽ chẳng
+									bao giờ đuổi kịp nhịp điệu hối hả của cuộc đời.
+								</p>
+							</div>
+
+							<!-- Footer Action -->
+							<div class="langkinh-footer">
+								<span>Cảm quan: Tùy sự kiên nhẫn với chính mình</span>
+								<a href="bon-mua.html" class="langkinh-link-btn">Khám phá chu kỳ Bốn Mùa ➔</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</div>
+
+			<!-- ==========================================================================
+			     SECTION 3: INTERACTIVE SANDBOX - CHIẾC THẤU KÍNH CỦA BẠN
+			     ========================================================================== -->
+			<div class="sandbox-wrapper-area">
+				<section class="sandbox-section">
+					<div class="sandbox-header">
+						<span class="section-badge-tag">🔬 THỬ NGHIỆM TƯ DUY</span>
+						<h3 class="sandbox-title">Chiếc Thấu Kính Của Riêng Bạn</h3>
+						<p class="sandbox-desc">
+							Hãy thử đặt một sự việc đang khiến bạn bận lòng vào 3 bước quan sát dưới đây. Không có câu
+							trả lời nào là chuẩn mực hay giáo điều — đây chỉ là không gian để bạn đối thoại chân thành
+							với chính mình.
+						</p>
+					</div>
+
+					<div class="sandbox-step-row">
+						<!-- Step 1 -->
+						<div class="sandbox-step-card">
+							<div class="step-num-badge">1</div>
+							<h4 class="step-title">Sự Việc Thực Tế (Fact)</h4>
+							<p class="step-desc">Chỉ ghi lại điều thực tế đã xảy ra (không kèm theo cảm xúc phán xét hay
+								tự trách).</p>
+							<input type="text" id="factInput" class="sandbox-input"
+								placeholder="VD: Hôm nay mình bị từ chối dự án...">
+						</div>
+
+						<!-- Step 2 -->
+						<div class="sandbox-step-card">
+							<div class="step-num-badge">2</div>
+							<h4 class="step-title">Góc Nhìn Khi Mệt Mỏi</h4>
+							<p class="step-desc">Tâm trí bạn lúc đó đang tự thêu dệt nên suy nghĩ nặng nề gì?</p>
+							<input type="text" id="negativeInput" class="sandbox-input"
+								placeholder="VD: Mình nghĩ mình thật kém cỏi và vô dụng...">
+						</div>
+
+						<!-- Step 3 -->
+						<div class="sandbox-step-card">
+							<div class="step-num-badge">3</div>
+							<h4 class="step-title">Một Khả Năng Nhìn Khác</h4>
+							<p class="step-desc">Nếu nhìn với lòng bao dung, có cách giải thích nào nhẹ nhõm hơn cho
+								hoàn cảnh này?</p>
+							<input type="text" id="kindInput" class="sandbox-input"
+								placeholder="VD: Dự án này có thể chưa đúng thời điểm, vũ trụ đang dọn đường cho điều phù hợp hơn...">
+						</div>
+					</div>
+
+					<div class="sandbox-action-wrap">
+						<button type="button" class="sandbox-submit-btn" id="savePerspectiveBtn">
+							Khắc Ghi Góc Nhìn Mới 🕊️
+						</button>
+					</div>
+
+					<!-- Result Notification Box -->
+					<div class="sandbox-result-box" id="sandboxResultBox">
+						<div style="font-size: 24px; margin-bottom: 8px;">✨</div>
+						<h4
+							style="color: var(--gocnhin-gold-dark); font-size: 18px; margin: 0 0 8px 0; font-family: 'Playfair Display', serif;">
+							Góc nhìn mới đã được ghi nhận vào tâm trí bạn!</h4>
+						<p id="resultText"
+							style="color: #475569; font-size: 14.5px; line-height: 1.75; margin: 0; max-width: 620px; margin: 0 auto;">
+						</p>
+					</div>
+				</section>
+			</div>
+
+			<!-- ==========================================================================
+			     SECTION 4: EXPLORE OTHER SPACES
+			     ========================================================================== -->
+			<section class="gocnhin-showcase-below">
+				<div class="section-intro-header" style="margin-bottom: 36px;">
+					<span class="section-badge-tag">🌿 TIẾP TỤC HÀNH TRÌNH</span>
+					<div class="title_sec">
+						<h2 class="section-headline">Những góc nhỏ</h2>
+						<div class="title_dots">
+							<span class="dots"></span>
+							<span class="right">thơ&nbsp;mộng&nbsp;khác</span>
+						</div>
+					</div>
+					<p class="section-subtext">
+						Mỗi góc nhỏ tại Tiệm Nhỏ Suy Tư là một trạm dừng chân tĩnh lặng để bạn chiêm nghiệm và nạp lại
+						năng lượng.
+					</p>
+				</div>
+
+				<div class="other-corners-grid">
+					<a href="dau-chan-cua-tiem.html" class="other-corner-card">
+						<div class="other-cat-badge">🚶 DẤU CHÂN CỦA TIỆM</div>
+						<h4 class="other-item-title">Con Đường Tiệm Nhỏ</h4>
+						<p class="other-item-desc">Con đường không nói, nhưng vẫn lặng lẽ dẫn lối cho những ai kiên nhẫn
+							bước đi.</p>
+					</a>
+
+					<a href="phep-mau.html" class="other-corner-card">
+						<div class="other-cat-badge">✨ PHÉP MÀU</div>
+						<h4 class="other-item-title">Điều Diệu Kỳ Nhỏ Bé</h4>
+						<p class="other-item-desc">Phép màu không ở đâu xa xôi, nó hiện diện trong từng hơi thở và ánh
+							ban mai.</p>
+					</a>
+
+					<a href="to-giay-giua-duong.html" class="other-corner-card">
+						<div class="other-cat-badge">🛵 BÀI HỌC ĐƯỜNG PHỐ</div>
+						<h4 class="other-item-title">Về Nhà Không Cần Quá Nhanh</h4>
+						<p class="other-item-desc">Một mẩu note viết tay gấp đôi ở ngã tư: "Trở về nhà không cần quá vội
+							vã, chỉ cần an toàn."</p>
+					</a>
+
+					<a href="nhung-dong-chu-biet-om.html" class="other-corner-card">
+						<div class="other-cat-badge">🫂 DÒNG CHỮ BIẾT ÔM</div>
+						<h4 class="other-item-title">Chiếc Ôm Giữa Đêm Dài</h4>
+						<p class="other-item-desc">Trong lúc bạn tưởng mình đang cô độc rơi tự do, ở nơi nào đó vẫn có
+							người thấu hiểu bạn.</p>
+					</a>
+				</div>
+			</section>
+
+		</div>
+	</main>
+
+	<!-- FOOTER -->
+	<div id="footer-placeholder"></div>
+
+	<!-- ==========================================================================
+	     INTERACTION SCRIPTS (GSAP Lens + Multi-perspective tab switcher + Sandbox)
+	     ========================================================================== -->
+	<script>
+		// 1. Data Dictionary for the 4 Featured Lenses
+		const perspectiveData = {
+			rain: {
+				a: {
+					label: "🌧️ GÓC NHÌN 1: SỰ PHIỀN TOÁI",
+					text: "Ướt sũng vạt áo, đường xá đông đúc, trễ mất cuộc hẹn và mọi kế hoạch chu đáo bị đảo lộn. Ta cảm thấy khó chịu vì mọi thứ không diễn ra theo ý mình."
+				},
+				b: {
+					label: "☕ GÓC NHÌN 2: NHỊP DỪNG CHO PHÉP",
+					text: "Một cái cớ tự nhiên và chính đáng để bạn dừng lại. Nép vào hiên quán cà phê quen, nhấp ngụm trà nóng, ngắm dòng người chậm lại và cho phép bản thân thở phào sau những ngày vội vã."
+				},
+				c: {
+					label: "🌱 GÓC NHÌN 3: SỰ GỘT RỬA & NUÔI DƯỠNG",
+					text: "Đất nhận lấy nước mưa để âm thầm nuôi mầm cây xanh. Mưa gột rửa bụi bặm phố phường, để sau cơn mưa, bầu trời sẽ trong veo và không khí dịu lành trở lại."
+				}
+			},
+			cup: {
+				a: {
+					label: "⚡ GÓC NHÌN 1: SỰ KHIẾM KHUYẾT",
+					text: "Mất đi sự hoàn mỹ nguyên bản, chiếc tách bị xem như món đồ hỏng hóc, không còn giá trị trưng bày như ngày đầu tiên mua về."
+				},
+				b: {
+					label: "⏳ GÓC NHÌN 2: DẤU ẤN THỜI GIAN",
+					text: "Chiếc tách sứt quai chứng minh nó đã được dùng, đã đồng hành qua bao sớm mai uống trà ấm áp và những cuộc trò chuyện chân thành của bạn."
+				},
+				c: {
+					label: "✨ GÓC NHÌN 3: TINH THẦN KINTSUGI",
+					text: "Người Nhật dùng vàng để hàn gắn đồ gốm vỡ: Vết nứt không bị che giấu mà được tôn vinh. Những vết thương lòng của bạn cũng vậy — chúng làm nên chiều sâu và vẻ đẹp kiên cường độc bản."
+				}
+			},
+			applause: {
+				a: {
+					label: "💓 GÓC NHÌN 1: NỖI BẤT AN & LO SỢ",
+					text: "Ta ngỡ rằng mình chưa đủ sẵn sàng, cơ thể đang báo động sợ hãi và nguy cơ thất bại đang chực chờ phía trước."
+				},
+				b: {
+					label: "👏 GÓC NHÌN 2: CƠ THỂ ĐANG CỔ VŨ BẠN",
+					text: "Nhịp tim dồn dập thực chất là cơ thể đang nhiệt thành bơm máu và oxy tối đa lên não bộ, huy động mọi nguồn lực tiếp sức để bạn tự tin bước lên phía trước."
+				},
+				c: {
+					label: "✨ GÓC NHÌN 3: TÍN HIỆU ĐANG SỐNG HẾT MÌNH",
+					text: "Chỉ những điều thực sự quan trọng và có ý nghĩa mới khiến trái tim bạn rung lên mãnh liệt như thế. Hãy mỉm cười đón nhận sự hồi hộp như minh chứng cho lòng nhiệt huyết."
+				}
+			},
+			winter_seed: {
+				a: {
+					label: "❄️ GÓC NHÌN 1: SỰ BẾ TẮC & LẠNH GIÁ",
+					text: "Cảm giác dậm chân tại chỗ, vạn vật lạnh lẽo đóng băng và lo âu rằng mình sẽ chẳng bao giờ đuổi kịp nhịp điệu hối hả của cuộc đời."
+				},
+				b: {
+					label: "🌳 GÓC NHÌN 2: THỜI KỲ ÂM THẦM CẮM RỄ",
+					text: "Cây không nở hoa trên cành vì nó đang dành toàn bộ nhựa sống để cắm rễ thật sâu dưới lòng đất. Nếu bạn thấy mình chầm chậm lúc này, bạn đang âm thầm xây dựng nền móng vững chắc nhất."
+				},
+				c: {
+					label: "🌸 GÓC NHÌN 3: SỰ CHUẨN BỊ CHO PHÉP MÀU",
+					text: "Lặng lẽ hôm nay không phải là kết thúc, mà là sự tích tụ cần thiết của tự nhiên. Sau những ngày giá lạnh, một mùa hoa rực rỡ và ngát hương sẽ bừng nở khi nắng ấm xuân về."
+				}
+			}
+		};
+
+		// 2. Initialize Interactive Sections Tab Switcher
+		document.addEventListener('DOMContentLoaded', () => {
+			const sections = document.querySelectorAll('.langkinh-single-section');
+			sections.forEach(section => {
+				const cardId = section.getAttribute('data-card-id');
+				const tabBtns = section.querySelectorAll('.perspective-tab-btn');
+				const labelEl = section.querySelector('.view-label');
+				const textEl = section.querySelector('.view-text');
+
+				tabBtns.forEach(btn => {
+					btn.addEventListener('click', () => {
+						tabBtns.forEach(b => b.classList.remove('active'));
+						btn.classList.add('active');
+
+						const viewKey = btn.getAttribute('data-view');
+						if (perspectiveData[cardId] && perspectiveData[cardId][viewKey]) {
+							const data = perspectiveData[cardId][viewKey];
+
+							// Smooth text transition
+							textEl.style.opacity = '0';
+							labelEl.style.opacity = '0';
+							setTimeout(() => {
+								labelEl.innerHTML = data.label;
+								textEl.innerHTML = data.text;
+								textEl.style.opacity = '1';
+								labelEl.style.opacity = '1';
+							}, 150);
+						}
+					});
+				});
+			});
+
+			// 3. Interactive Sandbox
+			const saveBtn = document.getElementById('savePerspectiveBtn');
+			const resultBox = document.getElementById('sandboxResultBox');
+			const resultText = document.getElementById('resultText');
+
+			if (saveBtn) {
+				saveBtn.addEventListener('click', () => {
+					const fact = document.getElementById('factInput').value.trim();
+					const kind = document.getElementById('kindInput').value.trim();
+
+					if (!fact && !kind) {
+						alert('Hãy thử nhập sự việc và một góc nhìn bao dung hơn vào ô trống nhé!');
+						return;
+					}
+
+					let message = `Góc nhìn được chọn: "${kind || 'Cho phép mọi sự việc diễn ra theo tự nhiên, không tự làm khổ tâm mình.'}"`;
+					if (fact) {
+						message = `Trước sự việc: "${fact}" ➔ ` + message;
+					}
+
+					resultText.innerHTML = message;
+					resultBox.style.display = 'block';
+					resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+				});
+			}
+		});
+
+		// 4. GSAP Camera Lens Wheel Animation
+		gsap.registerPlugin(ScrollTrigger);
+
+		const lensData = [
+			{
+				badge: "🖼️ LĂNG KÍNH 01 • KHUNG CỬA VÒM",
+				title: "Nhìn Qua Cơn Mưa",
+				desc: "“Nếu xem bão giông là sự tàn phá, bạn sẽ sợ hãi. Nhưng nếu nhìn qua khung cửa vòm, từng hạt mưa chính là giọt ngọc đang tắm mát cho những mầm cây.”",
+				fstop: "ISO 100 • 35mm • f/1.4",
+				img: "images/lang-kinh/lang-kinh-01.jpg",
+				hint: "📷 f/1.4 • Lăng kính 01: Nhìn Qua Cơn Mưa"
+			},
+			{
+				badge: "✉️ LĂNG KÍNH 02 • THƯ TAY BỐN MÙA",
+				title: "Chiếc Tách Sứt Quai",
+				desc: "“Vẻ đẹp nằm ở sự không hoàn hảo. Chiếc tách sứt quai không phải là phế phẩm, mà là chứng nhân cho những năm tháng ấm áp đã từng đi qua.”",
+				fstop: "ISO 200 • 50mm • f/2.8",
+				img: "images/lang-kinh/lang-kinh-02.jpg",
+				hint: "📷 f/2.8 • Lăng kính 02: Chiếc Tách Sứt Quai"
+			},
+			{
+				badge: "📸 LĂNG KÍNH 03 • POLAROID KÝ ỨC",
+				title: "Tiếng Vỗ Tay Bên Trong",
+				desc: "“Khi tim bạn đập dồn dập vì lo lắng, hãy nghĩ rằng cơ thể đang nhiệt thành vỗ tay hết mình để cổ vũ chính bạn bước tiếp.”",
+				fstop: "ISO 400 • 85mm • f/5.6",
+				img: "images/lang-kinh/lang-kinh-03.jpg",
+				hint: "📷 f/5.6 • Lăng kính 03: Tiếng Vỗ Tay Bên Trong"
+			},
+			{
+				badge: "🌱 LĂNG KÍNH 04 • MẦM SAO VƯƠN LÊN",
+				title: "Mầm Cây Mùa Đông",
+				desc: "“Cây cối kiên nhẫn tích tụ dưỡng chất dưới lớp tuyết lạnh để sẵn sàng bừng nở khi xuân về. Bạn cũng vậy, lặng lẽ chuẩn bị cho phép màu.”",
+				fstop: "ISO 100 • 24mm • f/11",
+				img: "images/lang-kinh/lang-kinh-04.jpg",
+				hint: "📷 f/11 • Lăng kính 04: Mầm Cây Mùa Đông"
+			}
+		];
+
+		window.addEventListener('load', () => {
+			const lensContainer = document.getElementById('cameraLensContainer');
+			const lensRing = document.getElementById('lensOuterRing');
+			const lensFrame = document.getElementById('lensApertureFrame');
+			const lensContent = document.getElementById('lensCardContent');
+			const lensBadge = document.getElementById('lensBadge');
+			const lensTitle = document.getElementById('lensTitle');
+			const lensDesc = document.getElementById('lensDesc');
+			const lensFstop = document.getElementById('lensFstopTag');
+			const lensBgImg = document.getElementById('lensBgImg');
+			const hintEl = document.getElementById('sceneHint');
+
+			let activeIndex = -1;
+
+			function updateLensContent(index) {
+				if (index === activeIndex) return;
+				activeIndex = index;
+
+				const data = lensData[index];
+
+				gsap.to(lensContent, {
+					opacity: 0,
+					scale: 0.92,
+					filter: "blur(6px)",
+					duration: 0.2,
+					onComplete: () => {
+						if (lensBadge) lensBadge.innerHTML = data.badge;
+						if (lensTitle) lensTitle.innerHTML = data.title;
+						if (lensDesc) lensDesc.innerHTML = data.desc;
+						if (lensFstop) lensFstop.innerHTML = data.fstop;
+						if (lensBgImg) lensBgImg.src = data.img;
+
+						gsap.to(lensContent, {
+							opacity: 1,
+							scale: 1,
+							filter: "blur(0px)",
+							duration: 0.4,
+							ease: "power2.out"
+						});
+					}
+				});
+			}
+
+			// Click Lens to Scroll Down to Matched Lăng Kính Section
+			if (lensFrame) {
+				lensFrame.style.cursor = 'pointer';
+				lensFrame.addEventListener('click', () => {
+					const targetCardId = `detail-langkinh0${activeIndex + 1}`;
+					const targetEl = document.getElementById(targetCardId);
+					if (targetEl) {
+						gsap.to(window, {
+							duration: 1.2,
+							scrollTo: { y: targetEl, offsetY: 70 },
+							ease: "power2.inOut"
+						});
+					}
+				});
+			}
+
+			// Mouse parallax
+			window.addEventListener('mousemove', (e) => {
+				const xAxis = (window.innerWidth / 2 - e.clientX) / 45;
+				const yAxis = (window.innerHeight / 2 - e.clientY) / 45;
+				gsap.to(lensContainer, {
+					rotationY: -xAxis,
+					rotationX: yAxis,
+					ease: "power1.out",
+					duration: 0.8
+				});
+			});
+
+			// ScrollTrigger for Lens Wheel
+			ScrollTrigger.create({
+				trigger: ".scroll-container",
+				start: "top top",
+				end: "bottom bottom",
+				scrub: 0.6,
+				onUpdate: (self) => {
+					const progress = self.progress;
+
+					if (progress <= 0.82) {
+						const phaseProgress = progress / 0.82;
+						const step = Math.min(Math.floor(phaseProgress * 4), 3);
+						updateLensContent(step);
+
+						const rotation = phaseProgress * 360;
+						gsap.set(lensRing, { rotation: rotation, opacity: 1 });
+
+						const stepZoom = 1.0 + (step * 0.14) + (phaseProgress % 0.25) * 0.15;
+						gsap.set(lensContainer, { scale: stepZoom, opacity: 1 });
+						gsap.set(lensFrame, { scale: 1, opacity: 1, filter: "none" });
+
+						const bgZoom = 1.4 - (step * 0.08);
+						gsap.set(lensBgImg, { scale: bgZoom });
+
+						gsap.set(lensContent, { opacity: 1 });
+
+						if (hintEl) {
+							hintEl.style.opacity = "1";
+							hintEl.innerHTML = lensData[step].hint + " • (Bấm vào lăng kính để xem chi tiết bên dưới ✨)";
+						}
+					} else {
+						const zoomProgress = (progress - 0.82) / 0.18;
+						updateLensContent(3);
+
+						const massiveScale = 1.48 + Math.pow(zoomProgress, 2.5) * 6.5;
+						gsap.set(lensContainer, { scale: massiveScale, opacity: 1 - Math.pow(zoomProgress, 1.8) });
+
+						gsap.set(lensContent, { opacity: Math.max(0, 1 - zoomProgress * 2.5) });
+
+						if (hintEl) {
+							hintEl.style.opacity = `${1 - zoomProgress * 2}`;
+						}
+					}
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

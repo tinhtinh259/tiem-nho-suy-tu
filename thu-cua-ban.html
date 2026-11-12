@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thư Của Bạn & Những Lá Thư Bình Yên - Tiệm Nhỏ Suy Tư</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Fonts & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Plugins & Stylesheets -->
+  <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/components/love-letters.css">
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+  <div class="parchment-page-wrapper">
+    <!-- ATMOSPHERIC SUNBEAM LIGHTING & DRIFTING PETALS -->
+    <div class="sunbeam-flare"></div>
+    <div class="drifting-petal petal-1">🌸</div>
+    <div class="drifting-petal petal-2">🌸</div>
+    <div class="drifting-petal petal-3">🌸</div>
+    <div class="drifting-petal petal-4">🌸</div>
+
+    <!-- BOTANICAL LEAF & FLOWER BRANCH ACCENTS -->
+    <svg class="botanical-branch-top-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M190 5C150 45 110 85 40 120" stroke="#7a8c6e" stroke-width="2.2" stroke-linecap="round" />
+      <path d="M170 25C155 12 138 20 145 35C152 48 170 38 170 25Z" fill="#8a9e7d" opacity="0.85" />
+      <path d="M148 45C130 35 118 45 126 58C134 70 150 58 148 45Z" fill="#7a8c6e" opacity="0.85" />
+      <path d="M122 68C105 58 92 68 102 80C110 92 125 80 122 68Z" fill="#8a9e7d" opacity="0.85" />
+      <path d="M92 90C75 82 65 92 72 104C80 115 95 104 92 90Z" fill="#7a8c6e" opacity="0.85" />
+      <path d="M65 108C50 100 42 110 48 120C55 130 68 120 65 108Z" fill="#8a9e7d" opacity="0.85" />
+      <circle cx="152" cy="38" r="3.5" fill="#c49a6c" />
+      <circle cx="128" cy="62" r="3" fill="#c49a6c" />
+      <circle cx="98" cy="84" r="3" fill="#c49a6c" />
+      <circle cx="70" cy="102" r="2.5" fill="#c49a6c" />
+    </svg>
+
+    <svg class="botanical-branch-bottom-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 190C50 150 85 110 120 40" stroke="#7a8c6e" stroke-width="2.2" stroke-linecap="round" />
+      <path d="M25 170C12 155 20 138 35 145C48 152 38 170 25 170Z" fill="#8a9e7d" opacity="0.85" />
+      <path d="M45 148C35 130 45 118 58 126C70 134 58 150 45 148Z" fill="#7a8c6e" opacity="0.85" />
+      <path d="M68 122C58 105 68 92 80 102C92 110 80 125 68 122Z" fill="#8a9e7d" opacity="0.85" />
+      <path d="M90 92C82 75 92 65 104 72C115 80 104 95 90 92Z" fill="#7a8c6e" opacity="0.85" />
+      <circle cx="38" cy="152" r="3.5" fill="#c49a6c" />
+      <circle cx="62" cy="128" r="3" fill="#c49a6c" />
+      <circle cx="84" cy="98" r="3" fill="#c49a6c" />
+    </svg>
+
+    <!-- Standard Glassmorphism Header -->
+    <div id="header-placeholder"></div>
+
+    <main>
+      <!-- HERO SECTION (EXACT MATCH TO DESIGN IMAGE) -->
+      <section class="thu-hero-section">
+        <div class="thu-hero-grid">
+          <!-- Hero Left Column -->
+          <div class="thu-hero-left">
+            <span class="thu-hero-badge">• HÒM THƯ BÌNH YÊN • TIỆM NHỎ SUY TƯ</span>
+            <h1 class="thu-hero-title">
+              Thư Của Bạn &<br>
+              Những Lá Thư<br>
+              Bình Yên
+            </h1>
+            <div class="thu-hero-divider"><span>❀</span></div>
+            <p class="thu-hero-quote">
+              “Nếu bạn muốn nói với ai đó điều gì mà lòng còn ngập ngừng chưa thể thốt thành lời, hãy cứ viết rồi để gió
+              mang đi. Gió thì không có hình hài, nhưng ai cũng biết khi nó vừa lướt qua mình... như một cái ôm bằng chữ
+              dịu dàng chạm vào trái tim.”
+            </p>
+            <a href="#goc-thu-3d" class="thu-hero-btn"
+              onclick="document.querySelector('#openEnvelope').click(); document.querySelector('.love-letters-section').scrollIntoView({behavior:'smooth'}); return false;">
+              📝 Xem những lá thư bình yên ❯
+            </a>
+          </div>
+
+          <!-- Hero Right Column: 3D Love Letters Envelope Canvas Showcase -->
+          <div class="thu-hero-right" id="goc-thu-3d">
+            <div class="love-letters-section">
+              <div class="cssletter">
+                <!-- Control Action Bar -->
+                <div class="env-action-bar">
+                  <button id="shuffleLettersBtn" class="env-btn-action" title="Tráo lại vị trí các lá thư">🔄 Tráo Lại Các
+                    Bức Thư</button>
+                  <button id="resetEnvelopeBtn" class="env-btn-action" title="Gấp nắp phong thư lại">💌 Gấp Phong
+                    Thư</button>
+                  <button id="restoreAllLettersBarBtn" class="env-btn-action" title="Hiện lại tất cả bức thư" style="display: none;">🌸 Xem Lại Tất Cả</button>
+                </div>
+
+                <!-- Replay Card When All Letters Are Closed -->
+                <div class="empty-letters-replay-card" id="replayLettersCard" style="display: none;">
+                  <div class="replay-card-sparkle">🌸 ✉️ 🌸</div>
+                  <h3 class="replay-card-title">Bạn đã gấp lại tất cả bức thư!</h3>
+                  <p class="replay-card-desc">
+                    Mong rằng những dòng chữ mộc mạc đã mang lại cho bạn chút ấm áp và vỗ về an yên giữa cuộc sống bộn bề.
+                  </p>
+                  <button id="replayAllLettersBtn" class="btn-replay-all-letters">
+                    💌 Xem Lại Tất Cả Bức Thư ❯
+                  </button>
+                </div>
+
+                
+                <!-- POPUP GUIDE HƯỚNG DẪN MỞ BỨC THƯ (TEMPLATE TRANG CHỦ) -->
+                <div class="pop_guide thu-envelope-guide" id="envelopePopGuide">
+                  <h3>💌 Hướng dẫn mở thư</h3>
+                  <p class="txt_mini_pop">Chạm vào <strong>con dấu niêm phong màu đỏ 🌿</strong> trên phong thư để mở ra những lá thư bình yên. Bạn có thể kéo thả di chuyển từng bức thư đi khắp màn hình nha! ✨</p>
+                  <a class="closeGuide arrow-button" title="Đóng hướng dẫn">
+                    <span class="label">ĐÃ HIỂU ✕</span>
+                  </a>
+                </div>
+                <div class="envelope">
+                  <button class="heart" id="openEnvelope" aria-label="Mở Phong Thư" title="Nhấn vào con dấu niêm phong để mở phong thư">
+                    <span class="heart-text">Mở Thư</span>
+                  </button>
+                  <div class="envelope-flap"></div>
+                  <div class="envelope-folds">
+                    <div class="envelope-left"></div>
+                    <div class="envelope-right"></div>
+                    <div class="envelope-bottom"></div>
+                  </div>
+                </div>
+
+                <div class="letters">
+                  <blockquote class="letter center" id="1" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Từ khoảnh khắc hai tâm hồn tình cờ bước qua nhau, bạn đã mang đến cho ngày dài một nụ cười ấm áp
+                      và đêm muộn những giấc mơ dịu dàng."</p>
+                    <cite>Một Người Trú Mưa 🌧️</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="2" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Mỗi ánh nhìn sẻ chia và lời thầm thì ấm áp đều như một nốt nhạc trong bản tấu bình yên. Bạn
+                      khiến những điều đơn sơ nhất cũng lấp lánh kỳ diệu."</p>
+                    <cite>Góc Hiên Chiều Nắng ☀️</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="3" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Trong vòng tay dịu dàng, tớ tìm thấy cả sự an yên lẫn những bất ngờ tuyệt vời. Bạn là vạt nắng
+                      len qua ô cửa sau ngày giông bão."</p>
+                    <cite>Chú Mèo Nhỏ Tuổi Mèo 🐾</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="4" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Tình yêu và sự thấu hiểu dịu dàng như một tách trà nóng chiều đông. Ở bên bạn, cuộc sống là
+                      chuỗi những niềm vui đơn sơ khiến tim khẽ mỉm cười."</p>
+                    <cite>TìnhTình 🍃</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="5" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Mỗi ngày đi qua đều giống như một trang sách chữa lành, nơi tiếng cười, sự dịu dàng và những
+                      khoảng lặng hòa thành giai điệu không bao giờ tắt."</p>
+                    <cite>Kẻ Đi Tìm Khoảng Lặng 🌌</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="6" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Trái tim bạn là bến đỗ bình yên nơi tâm hồn tớ tìm thấy chỗ trú ngụ. Cùng nhau, chúng ta bước
+                      những điều giản dị thành điều diệu kỳ."</p>
+                    <cite>Bình Phàm Ký 📜</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="7" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Cảm ơn bạn đã thắp sáng những ngày mệt mỏi bằng sự dịu dàng và nụ cười hiền lành. Mọi khoảnh
+                      khắc bên bạn đều trở nên đặc biệt lạ kỳ."</p>
+
+                    <cite>Một Ẩn Danh Dịu Dàng ✨</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="8" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Sự thấu hiểu của bạn như một cái ôm ấm áp ngày giá lạnh: Một lời nhắc nhở nhẹ nhàng rằng nhà
+                      chính là nơi hai tâm hồn cùng hướng về nhau."</p>
+                    <cite>Người Bạn Đêm Muộn 🌙</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="9" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Nhịp đập trái tim cất lời ca ngợi một tình yêu sâu lắng như đại dương và dịu mát như cơn gió
+                      chiều hạ. Cuộc sống này thật đẹp khi có bạn."</p>
+                    <cite>Tách Trà Chiều Thu ☕</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="10" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Ở bên bạn, ngay cả những khoảnh khắc bình thường nhất cũng biến thành kỷ niệm đắt giá. Tiếng
+                      cười của bạn là giai điệu lấp lánh nhất."</p>
+                    <cite>Một Nhành Hoa Dại 🌸</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="11" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Bạn là tia nắng sưởi ấm những ngày bão giông và là tiếng thì thầm dịu êm vỗ về đêm mất ngủ. Sự
+                      hiện diện của bạn là món quà vô giá."</p>
+                    <cite>Lá Thư Gửi Tương Lai ✉️</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="12" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Giữa thế giới vội vã và ồn ào, tình yêu của bạn là nơi trú ẩn an yên nhất. Những cái ôm chân
+                      thành nhắc tớ rằng cuộc đời này rất đáng yêu."</p>
+                    <cite>Người Đồng Hành Lặng Lẽ 🕊️</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="13" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Gió thì không có hình hài, nhưng ai cũng nhận ra khi nó vừa lướt qua mình. Nếu bạn muốn nói với
+                      ai đó mà lòng còn e ấp, hãy cứ viết rồi để gió mang đi — mong lá thư này sẽ là một cái ôm bằng chữ
+                      dịu dàng vỗ về bạn."</p>
+                    <cite>Viết Rồi Để Gió Mang Đi 🍃</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="14" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Phép màu trong ánh mắt bạn sáng hơn cả những vì sao, và lòng tốt của bạn làm bừng sáng cả không
+                      gian u tối. Cảm ơn bạn vì tất cả."</p>
+                    <cite>Góc Nhỏ Cara 🏡</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="15" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Mỗi nụ cười trao đi, bạn nhắc tớ rằng tình yêu có thể thật dịu dàng và ngây thơ. Cảm ơn bạn đã
+                      luôn là nguồn cảm hứng bình yên."</p>
+                    <cite>Kẻ Viết Thư Tay ✍️</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="16" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Bạn là ngọn lửa nhỏ biến những ngày lặng lẽ thành một ngày hội của niềm vui. Tình bạn của chúng
+                      ta tựa khúc vũ điệu dưới ánh trăng rằm."</p>
+                    <cite>Mùa Hạ Năm Ấy 🌻</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="17" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Từng lời thì thầm chân thành dệt nên bức tranh tâm hồn rực rỡ. Tớ luôn cảm thấy biết ơn vì cơ
+                      duyên đã mang bạn đến bên đời."</p>
+                    <cite>Một Trái Tim Ấm Áp 💖</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="18" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Tình yêu của bạn như ngọn gió mát lành ngày hè, nhắc tớ rằng ngay cả những điều nhỏ bé nhất cũng
+                      chứa đựng phép màu kỳ diệu."</p>
+                    <cite>Bụi Sao Ban Đêm ⭐</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="19" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Trong cái ôm ấm áp, tớ tìm thấy cả mái nhà an toàn lẫn những chuyến hành trình tươi đẹp. Sự dịu
+                      dàng của bạn khiến tim tớ luôn mỉm cười."</p>
+                    <cite>Khách Qua Đường Tình Cờ 👣</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="20" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Sự thấu hiểu chân thành và nụ cười hiền lành của bạn là liều thuốc chữa lành tuyệt vời nhất cho
+                      những tổn thương đã qua."</p>
+                    <cite>Giấu Tên 🌿</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="21" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Mỗi ngày bên bạn đều là một sự ăn mừng cho tình yêu, sự bình yên và những bất ngờ nhỏ làm cho
+                      cuộc sống này trở nên ý nghĩa hơn bao giờ hết."</p>
+                    <cite>Mầm Cây Nhỏ 🌱</cite>
+                  </blockquote>
+
+                  <blockquote class="letter center" id="22" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <p>"Với mỗi nhịp đập trái tim, tớ nhận ra mình trân trọng từng nụ cười và từng khoảng lặng dịu dàng
+                      bên bạn. Mong bạn luôn hạnh phúc."</p>
+                    <cite>Vạt Nắng Hoàng Hôn 🌇</cite>
+                  </blockquote>
+
+                  <!-- LÁ THƯ CỨU RỖI BÍ MẬT -->
+                  <blockquote class="letter center special-salvation-letter" id="thu-cuu-roi" data-fixed-author="true" tabindex="0">
+                    <button class="closeLetter" title="Đóng thư">Đóng</button>
+                    <span class="salvation-badge">✨ Lá Thư Cứu Rỗi Bí Mật 🕊️</span>
+                    <div class="salvation-content">
+                      <p>"Gửi bạn, người đang cảm thấy chênh vênh hoặc kiệt cùng giữa những ngổn ngang đời mình... Đừng vội buông tay bạn nhé. Bạn chưa từng đơn độc như bạn tưởng đâu."</p>
+                      <p>"Cây xanh ngoài kia vẫn ngày đêm thầm lặng nhả oxy để bạn hít thở, từng vạch kẻ đường, từng vạch xương cá bạn bước qua đã được người ta dày công tính toán để che chở điểm mù bảo vệ bạn an toàn. Thế giới này dẫu có lúc thô ráp, nhưng vẫn luôn có những điều ấm áp âm thầm bao bọc và chờ đợi bạn hiện diện."</p>
+                      <p class="highlight-quote">“Mình hiện hữu nhiều nhất khi mình biết thương — và xin hãy thương lấy cả chính mình nữa nhé.”</p>
+                    </div>
+                    <cite>Tiệm Nhỏ Suy Tư 🌿</cite>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: CENTERED QUOTE CARD (MODERN & CATCHY DISPLAY) -->
+      <section class="thu-middle-quote-sec">
+        <div class="thu-middle-quote-backdrop"></div>
+        <div class="thu-middle-quote-card">
+          <div class="thu-quote-badge">
+            <span class="badge-sparkle">✦</span>
+            <span>THÔNG ĐIỆP TĨNH LẶNG</span>
+            <span class="badge-sparkle">✦</span>
+          </div>
+
+          <div class="thu-quote-icon-wrap">
+            <span class="thu-quote-giant-mark">“</span>
+            <svg class="thu-quote-wind-svg" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 20C25 5 45 35 65 15C75 5 95 10 90 25C86 36 70 30 75 20" stroke="url(#windGradQuote)"
+                stroke-width="2.5" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="windGradQuote" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#c49a6c" stop-opacity="0.2" />
+                  <stop offset="0.5" stop-color="#c49a6c" stop-opacity="0.8" />
+                  <stop offset="1" stop-color="#7a8c6e" stop-opacity="0.3" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <p class="thu-quote-main-text">
+            “Nếu bạn muốn nói với ai đó những lời ngập ngừng trong lòng, hãy <span class="highlight-phrase">viết rồi để
+              gió mang đi</span> như một <span class="highlight-phrase">cái ôm bằng chữ</span> gửi trao đến khoảng trời
+            bình yên.”
+          </p>
+
+          <div class="thu-quote-divider">
+            <span class="line"></span>
+            <span class="flower-icon">❀</span>
+            <span class="line"></span>
+          </div>
+
+          <p class="thu-quote-sub-text">
+            “Mình không phải chuyên gia tâm lý, chỉ là một người đang học cách lắng nghe. Đôi khi chỉ cần thả chữ ra để
+            gió mang đi là đủ nhẹ lòng rồi.”
+          </p>
+
+          <div class="thu-quote-footer-action">
+            <a href="#gui-thu" class="thu-quote-btn">
+              <span>Trút bỏ nỗi niềm cùng gió</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: FORM CARD DESIGN (BURGUNDY & PARCHMENT THEME) -->
+      <section class="send-letter-section" id="gui-thu">
+        <div class="send-letter-container">
+          <div class="send-letter-header">
+            <span class="send-letter-badge">Hòm Thư Giấu Tên - Viết Rồi Để Gió Mang Đi</span>
+            <h2 class="send-letter-title">
+              Thả Vào Không Gian Một Cái Ôm Bằng Chữ
+            </h2>
+            <p class="send-letter-subtitle">
+              Nếu bạn muốn nói với ai đó những tâm tư giấu kín mà chưa từng cất lời,<br>
+              hãy cứ viết rồi để gió mang đi... Gió tuy không có hình dáng, nhưng ai cũng sẽ nhận ra sự dịu dàng khi nó
+              lướt qua.
+            </p>
+          </div>
+
+          <form class="send-letter-form" id="sendLetterForm">
+            <div class="form-group">
+              <label for="letterTopicSelect">Chủ Đề Lá Thư:</label>
+              <div class="mouse-detector">
+                <div class="cat">
+                  <div class="sleep-symbol">
+                    <span>Z</span>
+                    <span>z</span>
+                    <span>z</span>
+                  </div>
+                  <div class="thecat">
+                    <svg width="45.952225mm" height="35.678726mm" viewBox="0 0 45.952225 35.678726" version="1.1"
+                      id="svg1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:svg="http://www.w3.org/2000/svg">
+                      <defs id="defs1" />
+                      <g id="layer1" style="display:inline" transform="translate(-121.80376,-101.90461)">
+                        <path
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 144.95859,104.74193 c 6.01466,-2.1201 14.02915,-0.85215 17.62787,2.77812 3.59872,3.63027 2.91927,7.6226 -0.0661,11.80703 -2.98542,4.18443 -9.54667,3.58363 -15.1474,3.43959 -5.60073,-0.14404 -10.30411,-0.0586 -11.67474,-3.9026 7.85671,-2.22341 3.24576,-12.00205 9.26042,-14.12214 z"
+                          id="path1" />
+                        <path
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 156.30732,121.30486 c 0,0 -3.82398,2.52741 -4.14054,3.7997 -0.31656,1.2723 0.31438,2.18109 0.95701,2.55128 0.64264,0.3702 1.59106,-0.085 2.13559,-0.75306 0.54452,-0.6681 1.5629,-2.25488 2.47945,-3.20579 0.91654,-0.95091 2.96407,-2.74361 2.96407,-2.74361 l 0.73711,-3.60348 z"
+                          id="path2" />
+                        <path
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 136.93356,123.08347 c 0,0 -3.20149,3.2804 -3.24123,4.59088 -0.0397,1.31049 0.60411,1.83341 1.3106,2.05901 0.7065,0.22559 1.60304,-0.55255 1.99363,-1.32084 0.39056,-0.76832 1.14875,-2.30337 2.04139,-3.29463 0.89264,-0.99126 3.37363,-3.37561 3.37363,-3.37561 l -1.30007,-3.61169 z"
+                          id="path3" />
+                        <path
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 130.12859,121.60522 c -2.15849,1.92962 -3.38576,3.23532 -3.61836,4.5256 -0.23257,1.2903 0.0956,1.80324 0.76105,2.13059 0.66549,0.32733 1.66701,-0.31006 2.16665,-1.01233 0.49961,-0.70231 1.04598,-1.14963 2.83575,-3.05671 1.78977,-1.90708 5.91823,-3.27102 5.91823,-3.27102 l -0.75313,-3.99546 c 0,0 -5.15171,2.7497 -7.31019,4.67933 z"
+                          id="path4" />
+                        <path id="path5"
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.292536;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.988235"
+                          d="m 147.59927,113.85404 c 0.68896,4.40837 -4.04042,7.93759 -10.51533,8.9455 -6.47491,1.00791 -12.24344,-0.88717 -12.9324,-5.29555 -0.68895,-4.40838 3.44199,-9.94186 9.9169,-10.94977 6.47491,-1.0079 12.84186,2.89144 13.53083,7.29982 z" />
+                        <path
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 126.36446,111.82609 c 0,0 -2.37067,-6.28072 -0.86724,-7.10855 1.50342,-0.82783 5.87139,3.72617 5.87139,3.72617 z"
+                          id="path6" />
+                        <path
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 143.50182,108.85407 c 0,0 -0.0544,-6.71302 -1.75519,-6.94283 -1.70081,-0.22982 -4.13211,5.59314 -4.13211,5.59314 z"
+                          id="path7" />
+                        <g id="g25" style="display:inline">
+                          <path
+                            style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            d="m 125.27102,116.06007 -2.97783,-1.05373" id="path8" />
+                          <path
+                            style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            d="m 124.91643,116.80991 -2.84808,0.0754" id="path9" />
+                          <path
+                            style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            d="m 124.97798,118.00308 -2.53111,0.5156" id="path10" />
+                        </g>
+                        <g id="g13" transform="rotate(-23.188815,49.755584,71.047761)"
+                          style="display:inline;fill:none;stroke:#000000">
+                          <path
+                            style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            d="m 121.77448,146.87682 3.00963,-0.95912" id="path11" />
+                          <path
+                            style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            d="m 122.10521,147.63749 2.84427,0.16537" id="path12" />
+                          <path
+                            style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            d="m 122.00599,148.82812 2.51354,0.59531" id="path13" />
+                        </g>
+                        <ellipse
+                          style="display:inline;fill:#ffffff;stroke:none;stroke-width:0.56967;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          id="path14" cx="142.61723" cy="108.6707" rx="3.0261719" ry="3.0757811"
+                          transform="rotate(1.8105864)" />
+                        <ellipse
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.597086;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          id="ellipse15" cx="112.57543" cy="138.29808" rx="1.0380507" ry="1.3097118"
+                          transform="matrix(0.98048242,-0.19660678,0.20800608,0.97812753,0,0)" />
+                        <ellipse
+                          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.184905;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          id="ellipse16" cx="112.70263" cy="137.817" rx="0.32146212" ry="0.40558979"
+                          transform="matrix(0.98048242,-0.19660678,0.20800608,0.97812753,0,0)" />
+                        <ellipse
+                          style="display:inline;fill:#ffffff;stroke:none;stroke-width:0.56967;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          id="ellipse17" cx="135.40735" cy="110.12592" rx="3.0261719" ry="3.0757811"
+                          transform="rotate(1.8105864)" />
+                        <ellipse
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.597086;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          id="ellipse18" cx="105.22613" cy="138.07497" rx="1.0380507" ry="1.3097118"
+                          transform="matrix(0.98048242,-0.19660678,0.20800608,0.97812753,0,0)" />
+                        <ellipse
+                          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.184905;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          id="ellipse19" cx="105.35332" cy="137.59389" rx="0.32146212" ry="0.40558979"
+                          transform="matrix(0.98048242,-0.19660678,0.20800608,0.97812753,0,0)" />
+                        <path
+                          style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 163.77708,109.27292 c 4.36563,2.71198 4.26447,17.63497 3.70417,21.03437 -0.5603,3.3994 -1.86906,4.06275 -4.53099,4.49791 -5.87463,0.96037 -8.39724,-5.87134 -5.7547,-5.72161 2.64254,0.14973 3.15958,3.46446 5.95314,2.05052 2.79356,-1.41394 -1.42214,-13.46068 -1.42214,-13.46068 z"
+                          id="tail" />
+                        <path
+                          style="display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 159.74981,121.34445 c 0,0 -2.98896,3.47517 -2.94624,4.78555 0.0427,1.31039 0.89775,2.01247 1.61702,2.1932 0.71928,0.18075 1.50745,-0.51603 1.84897,-1.30735 0.34149,-0.79135 0.88811,-2.59584 1.51032,-3.76081 0.62219,-1.16497 2.10268,-3.44845 2.10268,-3.44845 l -0.27441,-3.66785 z"
+                          id="path20" />
+                        <g id="lefteyelid" style="display:inline">
+                          <ellipse
+                            style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            id="path21" cx="131.94429" cy="114.29948" rx="3.1571214" ry="3.2155864" />
+                          <path
+                            style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            d="m 129.32504,114.80228 c 2.54908,-1.14592 4.60706,-0.65481 4.60706,-0.65481"
+                            id="path22" />
+                        </g>
+                        <g id="righteyelid" style="display:inline">
+                          <ellipse
+                            style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            id="ellipse22" cx="139.07704" cy="113.0834" rx="3.1571214" ry="3.2155864" />
+                          <path
+                            style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            d="m 136.48089,113.70683 c 2.48528,-1.2784 4.56624,-0.89621 4.56624,-0.89621" id="path23" />
+                        </g>
+                        <g id="eyesdown">
+                          <ellipse
+                            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            id="path26" cx="139.12122" cy="113.61373" rx="1.8686198" ry="2.0422525" />
+                          <ellipse
+                            style="fill:#000000;stroke:none;stroke-width:0.597086;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            id="ellipse25" cx="112.24622" cy="139.77037" rx="1.0380507" ry="1.3097118"
+                            transform="matrix(0.98048242,-0.19660678,0.20800608,0.97812753,0,0)" />
+                          <ellipse
+                            style="fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.184905;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            id="ellipse26" cx="112.37342" cy="139.28929" rx="0.32146212" ry="0.40558979"
+                            transform="matrix(0.98048242,-0.19660678,0.20800608,0.97812753,0,0)" />
+                          <ellipse
+                            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            id="ellipse27" cx="131.994" cy="114.92011" rx="1.8686198" ry="2.0422525" />
+                          <ellipse
+                            style="fill:#000000;stroke:none;stroke-width:0.597086;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            id="ellipse28" cx="105.00267" cy="139.64998" rx="1.0380507" ry="1.3097118"
+                            transform="matrix(0.98048242,-0.19660678,0.20800608,0.97812753,0,0)" />
+                          <ellipse
+                            style="fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.184905;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                            id="ellipse29" cx="105.12987" cy="139.1689" rx="0.32146212" ry="0.40558979"
+                            transform="matrix(0.98048242,-0.19660678,0.20800608,0.97812753,0,0)" />
+                        </g>
+                        <path id="longtail"
+                          style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.988235"
+                          d="m 164.24062,110.09354 -2.10788,6.5381 c 0,0 0.84017,12.88397 0.35269,20.95169 h 4.78291 c 0.83489,-8.63528 0.13334,-24.78453 -3.02772,-27.48979 z" />
+                      </g>
+                    </svg>
+                  </div>
+                  <select class="side-select" id="letterTopicSelect">
+                    <option value="" hidden>Chọn một chủ đề bạn muốn kể 🌿</option>
+                    <option value="wind">🍃 Viết rồi để gió mang đi (Một cái ôm bằng chữ)</option>
+                    <option value="comfort">🌿 Cần một lời vỗ về dịu dàng</option>
+                    <option value="cat">🐾 Chia sẻ về một chú mèo</option>
+                    <option value="secret">🌙 Một nỗi niềm giấu kín</option>
+                    <option value="story">📜 Kể một câu chuyện nhỏ</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label for="senderName">Biệt danh hoặc Tên giấu tên của bạn:</label>
+                <input type="text" id="senderName" placeholder="Ví dụ: Người qua đường, Tình..." required>
+              </div>
+              <div class="form-group">
+                <label for="receiverName">Gửi Đến Ai? (Tên Người Nhận):</label>
+                <input type="text" id="receiverName" placeholder="Ví dụ: Tình, Bạn thân, Tôi của năm 30 tuổi..."
+                  required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="letterBodyText">Nội Dung Bức Thư:</label>
+              <textarea id="letterBodyText" rows="5" placeholder="Hôm nay mình muốn kể rằng..." required></textarea>
+            </div>
+
+            <!-- Wax Seal Selector -->
+            <div>
+              <div class="seal-selector-title">Chọn Con Dấu Niêm Phong Bức Thư:</div>
+              <div class="seal-options-group">
+                <span class="seal-pill-opt active" data-seal="🌸 Hoa Đào">🌸 Hoa Đào</span>
+                <span class="seal-pill-opt" data-seal="🐱 Vết Chân Mèo">🐱 Vết Chân Mèo</span>
+                <span class="seal-pill-opt" data-seal="🌿 Chiếc Lá">🌿 Chiếc Lá</span>
+                <span class="seal-pill-opt" data-seal="💖 Trái Tim">💖 Trái Tim</span>
+                <span class="seal-pill-opt" data-seal="🌙 Ánh Trăng">🌙 Ánh Trăng</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="send-form-actions">
+              <button type="submit" class="btn-send-letter">
+                ✉️ Gửi Bức Thư Bình Yên ➔
+              </button>
+              <button type="button" class="btn-preview-letter" id="previewLetterBtn">
+                👁️ Xem Trước Bức Thư
+              </button>
+            </div>
+
+            <p class="send-form-footer-note">
+              🔒 Bức thư của bạn sẽ được giữ kín và gửi đi một cách dịu dàng. 💖
+            </p>
+
+            <!-- Submission Toast -->
+            <div class="send-toast-msg" id="sendLetterToast">
+              🕊️ Bức thư dịu dàng của bạn đã được trao đi vào không gian bình yên! Cảm ơn bạn vì đã gửi trao sự ấm áp
+              đến thế giới này. ✨
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- LETTER PREVIEW MODAL -->
+      <div class="letter-preview-modal" id="letterPreviewModal">
+        <div class="preview-card-wrap">
+          <button class="preview-card-close" id="closePreviewModal">✕</button>
+          <div class="preview-card-content" id="previewModalContent">
+            “Gửi bạn, cảm ơn bạn vì đã luôn kiên cường và dịu dàng...”
+          </div>
+          <div class="preview-card-author" id="previewModalAuthor">
+            Thương gửi từ Tình 🌸
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Standard Site Footer -->
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/plugin/jquery.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/email-config.js"></script>
+  <script src="js/love-letters.js"></script>
+</body>
+
+</html>

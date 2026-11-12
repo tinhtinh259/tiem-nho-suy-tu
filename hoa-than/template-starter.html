@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- [BƯỚC 1: TIÊU ĐỀ TRANG VÀ ICON] -->
+	<title>Nếu Bạn Là Một Chủ Thể Mới... • Tiệm Nhỏ Suy Tư ✨</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Font & CSS Core Dùng Chung -->
+	<link rel="stylesheet" href="../fonts/hoa-than-fonts.css">
+	<link rel="stylesheet" href="../css/plugin/normalize-5.0.0.min.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+	<link rel="stylesheet" href="./css/hoa-than-core.css">
+
+	<!-- ==========================================================================
+	     [BƯỚC 2: TÙY BIẾN BẢNG MÀU CHO TRANG MỚI]
+	     Chỉ cần thay đổi các mã màu bên dưới để đổi toàn bộ giao diện:
+	     ========================================================================== -->
+	<style>
+		:root {
+			/* 1. Màu chủ đạo và màu nền Hero */
+			--donut-landing-main-color: #8fa382;
+			--donut-landing-second-color: #2d3829;
+			--theme-hero-bg: #2d3829;
+			--theme-hero-title-color: #dad7cd;
+			--theme-special-color: #a3b18a;
+
+			/* 2. Màu hộp điều hướng Subheader Box */
+			--theme-nav-border: rgba(143, 163, 130, 0.4);
+			--theme-nav-shadow: rgba(45, 56, 41, 0.25);
+			--theme-nav-toggle-bg: linear-gradient(135deg, rgba(163, 177, 138, 0.35), rgba(143, 163, 130, 0.15));
+			--theme-nav-toggle-border: rgba(143, 163, 130, 0.3);
+			--theme-nav-toggle-hover: linear-gradient(135deg, rgba(163, 177, 138, 0.5), rgba(143, 163, 130, 0.25));
+			--theme-nav-title-color: #2d3829;
+			--theme-nav-arrow-color: #588157;
+			--theme-nav-link-color: #344e41;
+			--theme-nav-link-hover-bg: rgba(143, 163, 130, 0.18);
+			--theme-nav-link-hover-color: #1a271f;
+
+			/* 3. Màu nền 4 thẻ bài học (Steps Cards) */
+			--theme-card1-bg: #3a5a40;
+			--theme-card2-bg: #dad7cd;
+			--theme-card3-bg: #588157;
+			--theme-card4-bg: #f4f1de;
+
+			/* 4. Màu chữ viết tay nghệ thuật trên 4 thẻ */
+			--theme-card1-special: #a3b18a;
+			--theme-card2-special: #344e41;
+			--theme-card3-special: #dad7cd;
+			--theme-card4-special: #588157;
+
+			/* 5. Màu chữ nội dung thẻ (nếu thẻ nền tối, có thể đặt màu trắng #ffffff) */
+			--theme-card-heading-color: var(--donut-landing-second-color);
+			--theme-card-text-color: var(--donut-landing-second-color);
+
+			/* 6. Màu 4 chấm chỉ số (Indicators) */
+			--theme-ind1-color: #3a5a40;
+			--theme-ind2-color: #588157;
+			--theme-ind3-color: #a3b18a;
+			--theme-ind4-color: #344e41;
+
+			/* 7. Trạm dừng & nút chuyển trang tiếp theo */
+			--theme-final-bg-text-font: "Charm", "Playfair Display", cursive, serif;
+			--theme-next-btn-bg: rgba(163, 177, 138, 0.2);
+			--theme-next-btn-border: #a3b18a;
+			--theme-next-btn-hover-bg: #a3b18a;
+			--theme-next-btn-hover-shadow: rgba(163, 177, 138, 0.4);
+		}
+
+		/* Tùy chỉnh góc xoay & bóng đổ của vật thể khi cần */
+		.donut-img {
+			transform: rotate(0deg);
+			filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35));
+		}
+	</style>
+
+	<!-- Three.js Import Map -->
+	<script type="importmap">
+      {
+        "imports": {
+          "three": "../js/plugin/three/three.module.js"
+        }
+      }
+    </script>
+	<!-- GSAP & Lenis Plugins -->
+	<script src="../js/plugin/gsap.min.js"></script>
+	<script src="../js/plugin/ScrollTrigger.min.js"></script>
+	<script src="../js/plugin/lenis.min.js"></script>
+	<script src="../js/include-header-footer.js"></script>
+	<script src="../js/header.js"></script>
+</head>
+
+<body data-theme="custom">
+
+	<!-- Caraflow Site Header Component -->
+	<div id="header-placeholder"></div>
+
+	<!-- ==========================================================================
+	     [BƯỚC 3: HỘP ĐIỀU HƯỚNG CON SUBHEADER]
+	     Đổi icon, tiêu đề và nhãn 4 trạm dừng
+	     ========================================================================== -->
+	<nav class="subheader-hoathan cookie-box-nav" id="subheader-hoathan" aria-label="Hộp điều hướng">
+		<button class="cookie-box-toggle" id="cookieBoxToggle" type="button" aria-expanded="true" title="Thu gọn / Mở rộng">
+			<span class="cookie-box-icon">✨</span>
+			<span class="cookie-box-title">Trạm Suy Tư</span>
+			<span class="cookie-box-arrow">‹</span>
+		</button>
+		<ul class="cookie-box-list" id="cookieBoxList">
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#flip" data-target="flip">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind1-color);"></span>
+					<span class="nav-label">1. Bản Thể</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#steps" data-target="steps">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind2-color);"></span>
+					<span class="nav-label">2. Tính Cách</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#numbers" data-target="numbers">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind3-color);"></span>
+					<span class="nav-label">3. Hành Trình</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#final" data-target="final">
+					<span class="nav-dot" style="--dot-color: var(--theme-ind4-color);"></span>
+					<span class="nav-label">4. Trạm Dừng</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+	<main class="main">
+		<!-- Các họa tiết mờ nền SVG -->
+		<div class="flip__figures">
+			<img class="flip__first-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659" height="658" loading="lazy">
+			<img class="flip__second-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659" height="658" loading="lazy">
+			<img class="flip__third-figure" src="./assets/svg/flip-figure.svg" alt="flip figure" width="659" height="658" loading="lazy">
+		</div>
+
+		<!-- ==========================================================================
+		     [BƯỚC 4: VẬT THỂ 3D ĐỘC LẬP]
+		     Đổi đường dẫn ảnh PNG tách nền trong suốt tại thẻ img dưới đây
+		     ========================================================================== -->
+		<div class="model">
+			<div class="model-wrapper">
+				<div class="donut-figure" id="donut">
+					<div class="cookie-rotator" id="donut-rotator">
+						<img id="donut-img" class="donut-img" src="./assets/cookie.png" alt="Vật Thể Tâm Hồn">
+					</div>
+					<div class="donut-shadow" id="donut-shadow"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ==========================================================================
+		     [BƯỚC 5: HERO SECTION]
+		     Tiêu đề mở màn và khe chứa vật thể ban đầu (.hero__slot)
+		     ========================================================================== -->
+		<section class="hero" id="hero">
+			<img class="main__figure" src="./assets/svg/hero-figure.svg" alt="figure" width="1158" height="760" loading="lazy">
+
+			<div class="container hero__container">
+				<div class="hero__top">
+					<div class="hero__heading-box">
+						<span class="hero__script-badge">Tiệm Nhỏ Suy Tư</span>
+						<h1 class="hero__heading">
+							<!-- Thay đổi chữ tiêu đề: Chữ cái đặt vật thể sẽ dùng .hero__cookie-slot -->
+							<span class="hero__word">
+								<span class="hero__char">C</span>
+								<span class="hero__char">H</span>
+								<span class="hero__char">Ủ</span>
+							</span>
+							<span class="hero__space">&nbsp;</span>
+							<span class="hero__word">
+								<span class="hero__char">T</span>
+								<span class="hero__char">H</span>
+								<span class="hero__cookie-slot hero__leaf-slot" id="hero-cookie-slot" aria-label="Ể">
+									<span class="hero__accent" id="hero-leaf-accent" aria-hidden="true"></span>
+								</span>
+							</span>
+						</h1>
+						<p class="hero__second-text">
+							Đoạn giới thiệu ngắn truyền cảm hứng về chủ thể mới. Bạn có thể tự do sáng tạo câu chuyện riêng của mình tại đây.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="hero__pointer" id="scroll-btn">
+				<img class="hero__mouse-icon" src="./assets/svg/mouse.svg" alt="mouse-icon" width="17px" height="24px" loading="lazy">
+				<img class="hero__arrow" src="./assets/svg/arrow-bottom.svg" alt="arrow-bottom" width="13px" height="15px" loading="lazy">
+			</div>
+		</section>
+
+		<!-- ==========================================================================
+		     [BƯỚC 6: FLIP SECTION]
+		     Đoạn thông điệp chiêm nghiệm đầu tiên khi cuộn trang
+		     ========================================================================== -->
+		<section class="flip" id="flip">
+			<div class="container">
+				<div class="flip__content">
+					<h2 class="flip__heading second-heading">
+						Từng khoảnh khắc hiện diện, <br>
+						<span class="heading__special">đều là một phép màu</span>
+					</h2>
+					<p class="flip__text">
+						Cuộc sống không đòi hỏi bạn phải hoàn hảo mọi lúc. Hãy cho phép bản thân được chậm lại, hít một hơi thật sâu và cảm nhận sự quý giá của chính mình ngay lúc này.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ==========================================================================
+		     [BƯỚC 7: STEPS SECTION - 4 THẺ BÀI HỌC / TÍNH CÁCH]
+		     Mỗi thẻ chứa tiêu đề, quote nghệ thuật và đoạn văn chia sẻ
+		     ========================================================================== -->
+		<section class="steps" id="steps">
+			<ul class="steps__indicators" id="steps-indicators">
+				<li class="steps__indicator active" data-step="0" title="Trạng thái 1"></li>
+				<li class="steps__indicator" data-step="1" title="Trạng thái 2"></li>
+				<li class="steps__indicator" data-step="2" title="Trạng thái 3"></li>
+				<li class="steps__indicator" data-step="3" title="Trạng thái 4"></li>
+			</ul>
+
+			<div class="steps__cards">
+					<!-- Thẻ 1 -->
+					<div class="steps__card-first">
+						<h3 class="steps__card-heading white">
+							Bản Thể
+							Thuần Khiết
+							<span class="steps__card-heading-special">
+								Bình Yên
+							</span>
+						</h3>
+						<div class="steps__card-text-block">
+							<img class="steps__card-image" src="./assets/svg/card-1-quote.svg" alt="Quote Icon" width="31" height="21" loading="lazy">
+							<p class="steps__card-text-heading white">
+								Giản dị nhưng luôn là chốn bình an sâu thẳm nhất.
+							</p>
+							<p class="steps__card-text white">
+								Dù thế giới ngoài kia có vội vã ồn ào đến đâu, tâm hồn bạn vẫn luôn giữ được sự tĩnh lặng dịu dàng và ấm áp cho những ai tìm về.
+							</p>
+						</div>
+					</div>
+
+					<!-- Thẻ 2 -->
+					<div class="steps__card">
+						<h3 class="steps__card-heading">
+							Kiên Trì
+							Bền Bỉ
+							<span class="steps__card-heading-special">
+								Vững Vàng
+							</span>
+						</h3>
+						<div class="steps__card-text-block">
+							<img class="steps__card-image" src="./assets/svg/card-2-quote.svg" alt="Quote Icon" width="31" height="21" loading="lazy">
+							<p class="steps__card-text-heading">
+								Lắng đọng qua thời gian để tôi luyện nét đẹp nội tâm.
+							</p>
+							<p class="steps__card-text">
+								Mỗi thử thách đi qua đều để lại một dấu ấn quý báu, giúp bạn trưởng thành và sâu sắc hơn từng ngày.
+							</p>
+						</div>
+					</div>
+
+					<!-- Thẻ 3 -->
+					<div class="steps__card">
+						<h3 class="steps__card-heading white">
+							Yêu Thương
+							Lan Tỏa
+							<span class="steps__card-heading-special">
+								Thấu Cảm
+							</span>
+						</h3>
+						<div class="steps__card-text-block">
+							<img class="steps__card-image" src="./assets/svg/card-3-quote.svg" alt="Quote Icon" width="31" height="21" loading="lazy">
+							<p class="steps__card-text-heading white">
+								Ấm áp trao đi mà không cần mong cầu đền đáp.
+							</p>
+							<p class="steps__card-text white">
+								Sự hiện diện ấm áp và chân thành của bạn luôn là món quà vô giá dành cho những người thương yêu bên cạnh.
+							</p>
+						</div>
+					</div>
+
+					<!-- Thẻ 4 -->
+					<div class="steps__card">
+						<h3 class="steps__card-heading">
+							Tự Tại
+							Buông Bỏ
+							<span class="steps__card-heading-special">
+								An Yên
+							</span>
+						</h3>
+						<div class="steps__card-text-block">
+							<img class="steps__card-image" src="./assets/svg/card-4-quote.svg" alt="Quote Icon" width="31" height="21" loading="lazy">
+							<p class="steps__card-text-heading">
+								Học cách buông lơi để tâm trí nhẹ như mây trời.
+							</p>
+							<p class="steps__card-text">
+								Biết đủ và trân trọng hiện tại là chiếc chìa khóa nhiệm màu mở ra cánh cửa hạnh phúc đích thực.
+							</p>
+						</div>
+					</div>
+				</div>
+		</section>
+
+		<!-- ==========================================================================
+		     [BƯỚC 8: NUMBERS SECTION - 3 GIAI ĐOẠN HÀNH TRÌNH]
+		     Vật thể xoay 360 độ đi qua 3 nấc thời gian
+		     ========================================================================== -->
+		<section class="numbers" id="numbers">
+			<div class="container">
+				<h2 class="numbers__heading second-heading">
+					Hành trình trưởng thành <br>
+					<span class="heading__special">của một tâm hồn</span>
+				</h2>
+
+				<div class="numbers__box">
+					<div class="numbers__item active">
+						<span class="numbers__item-number">01</span>
+						<p class="numbers__item-text">
+							Khởi đầu từ những điều mộc mạc và chân chất nhất của cuộc đời.
+						</p>
+					</div>
+
+					<div class="numbers__item">
+						<span class="numbers__item-number">02</span>
+						<p class="numbers__item-text">
+							Tôi luyện qua thử thách để tỏa ngát hương thơm và sự kiên định.
+						</p>
+					</div>
+
+					<div class="numbers__item">
+						<span class="numbers__item-number">03</span>
+						<p class="numbers__item-text">
+							Thanh thản hòa mình vào dòng chảy bình yên của đất trời.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- ==========================================================================
+	     [BƯỚC 9: FINAL SECTION - TRẠM DỪNG NGHỈ CHÂN]
+	     Thông điệp kết và nút chuyển tiếp sang trang khác
+	     ========================================================================== -->
+	<footer class="final" id="final">
+		<img class="final__hand-icon" src="./assets/svg/hand.svg" alt="hand-icon" width="40px" height="40px" loading="lazy">
+		<div class="final__bg-text-box">
+			<!-- Chữ viết hoa mờ lớn phía sau -->
+			<span class="final__bg-text">AN YÊN</span>
+		</div>
+		<div class="final__light-figure"></div>
+		<div class="container">
+			<div class="final__order-box">
+				<h2 class="final__heading second-heading">
+					Dù hôm nay thế nào, <br>
+					<span class="heading__special">bạn vẫn luôn xứng đáng được yêu thương</span>
+				</h2>
+				<span class="final__order-text">
+					Cảm ơn bạn đã ghé thăm trạm suy tư này. Hãy mỉm cười và tiếp tục bước đi trên con đường riêng của mình với sự an nhiên và tự tin nhé!
+				</span>
+
+				<div class="final__buttons">
+					<button class="primary__btn final__btn" onclick="window.location.href='../hoa-than.html#trai-nghiem-3d'">
+						Về Trạm Hóa Thân ✨
+					</button>
+					<!-- Nút chuyển tới trang kế tiếp -->
+					<button class="primary__btn final__btn final__btn--next" onclick="window.location.href='./banh-quy.html'">
+						Hóa Thân Kế Tiếp 🍪 →
+					</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Caraflow Site Footer Component -->
+	<div id="footer-placeholder"></div>
+
+	<!-- ==========================================================================
+	     [BƯỚC 10: TÙY CHỌN BỘ LỌC ĐỔI MÀU GSAP (KHÔNG BẮT BUỘC)]
+	     Nếu muốn ảnh đổi màu khi lướt qua 4 thẻ và 3 bước, cấu hình tại đây:
+	     ========================================================================== -->
+	<script>
+		window.HOA_THAN_CUSTOM_CONFIG = {
+			flavorFilters: [
+				"drop-shadow(0 0 20px rgba(0,0,0,0.35)) hue-rotate(0deg) saturate(1.2) brightness(1.05)",   // Màu thẻ 1
+				"drop-shadow(0 0 20px rgba(0,0,0,0.35)) hue-rotate(40deg) saturate(1.3) brightness(0.95)",  // Màu thẻ 2
+				"drop-shadow(0 0 20px rgba(0,0,0,0.35)) hue-rotate(-30deg) saturate(1.1) brightness(1.1)",  // Màu thẻ 3
+				"drop-shadow(0 0 20px rgba(0,0,0,0.35)) hue-rotate(180deg) saturate(1.4) brightness(1.0)"   // Màu thẻ 4
+			],
+			step2Glow: "drop-shadow(0 0 35px rgba(143, 163, 130, 0.85)) brightness(1.1)",                   // Phát sáng bước 2
+			step3Glow: "drop-shadow(0 0 35px rgba(163, 177, 138, 0.9)) brightness(1.15)"                    // Phát sáng bước 3
+		};
+	</script>
+
+	<!-- Engine Chuyển Động Chung -->
+	<script src="./js/hoa-than-core.js"></script>
+
+</body>
+
+</html>

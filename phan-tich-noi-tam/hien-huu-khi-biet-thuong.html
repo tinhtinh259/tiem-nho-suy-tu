@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiện Hữu Khi Biết Thương • Tiệm Nhỏ Suy Tư</title>
+  <meta name="description"
+    content="Nếu không thấy những người thống khổ, tôi sẽ quên mất mình là ai. Mình hiện hữu nhiều nhất khi mình biết thương. Tản văn về tình yêu thương giấu trong những điều bình dị nhất.">
+
+  <!-- Header & Footer Loader -->
+  <script src="../js/include-header-footer.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/logo.png">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="../css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Sour+Gummy:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .story-article-hero {
+      background: linear-gradient(180deg, #fbf7f0 0%, #f5eee2 100%);
+      padding: 120px 24px 70px 24px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid rgba(198, 156, 94, 0.25);
+    }
+
+    .story-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: rgba(198, 156, 94, 0.14);
+      border: 1px solid rgba(198, 156, 94, 0.35);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #8c6328;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .story-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 700;
+      color: #2c221e;
+      line-height: 1.28;
+      max-width: 820px;
+      margin: 0 auto 18px auto;
+    }
+
+    .story-hero-subtitle {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: #6e5d4f;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .story-main-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 90px 24px;
+    }
+
+    .story-quote-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-left: 4px solid #c69c5e;
+      border-radius: 0 20px 20px 0;
+      padding: 28px 32px;
+      margin-bottom: 45px;
+      box-shadow: 0 12px 35px rgba(198, 156, 94, 0.1);
+    }
+
+    .story-quote-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: #3b2a22;
+      line-height: 1.65;
+      font-style: italic;
+      margin: 0 0 10px 0;
+    }
+
+    .story-quote-author {
+      font-family: 'Itim', 'Sour Gummy', cursive;
+      font-size: 20px;
+      color: #a67c38;
+      text-align: right;
+      display: block;
+    }
+
+    .story-content {
+      font-size: 16.5px;
+      line-height: 1.95;
+      color: #3e322a;
+    }
+
+    .story-content p {
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    .story-highlight-box {
+      background: #fdfbf7;
+      border: 1px dashed rgba(198, 156, 94, 0.45);
+      border-radius: 20px;
+      padding: 26px 30px;
+      margin: 35px 0;
+    }
+
+    .story-highlight-box h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #8c6328;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .story-image-card {
+      margin: 40px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .story-image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .story-image-caption {
+      padding: 12px 18px;
+      background: #faf6f0;
+      font-size: 13.5px;
+      color: #7a685c;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .story-actions-footer {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(198, 156, 94, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+  </style>
+
+  <!-- Header & Footer Loader -->
+  <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Article Hero Banner -->
+    <section class="story-article-hero">
+      <span class="story-hero-badge">🌿 LỜI TỰ SỰ • NGUỒN CƠN CỦA TIỆM</span>
+      <h1 class="story-hero-title">Hiện Hữu Khi Biết Thương</h1>
+      <p class="story-hero-subtitle">
+        "Tình yêu không chỉ là đôi lứa. Tình yêu giấu trong từng vạch kẻ đường, trong khí oxy của cây xanh và trong
+        những điều âm thầm nhất..."
+      </p>
+    </section>
+
+    <!-- Main Article Body -->
+    <article class="story-main-wrap">
+      <!-- Quote Card -->
+      <div class="story-quote-card">
+        <p class="story-quote-text">
+          “Nếu không thấy những người thống khổ, tôi sẽ quên mất mình là ai.<br>
+          Mình hiện hữu nhiều nhất khi mình biết thương.”
+        </p>
+        <span class="story-quote-author">— Tiệm Nhỏ Suy Tư</span>
+      </div>
+
+      <div class="story-content">
+        <p>
+          Có những buổi tối lướt qua màn hình điện thoại, vô tình đọc được tin tức về những bạn nhỏ còn đang tuổi ăn
+          tuổi lớn nhưng đã chọn cách buông tay rời khỏi thế giới này, lòng mình lại chùng xuống một nỗi đau buốt giá
+          khôn nguôi.
+        </p>
+
+        <p>
+          Mình từng tự hỏi rất nhiều lần: <em>Tại sao người ta lại có thể đi đến bước đường cùng như vậy?</em> Phải
+          chăng vì trong khoảnh khắc tăm tối nhất của tâm hồn, họ cảm thấy mình cô độc hoàn toàn? Họ không nhận đủ tình
+          thương từ gia đình, không cảm nhận được hơi ấm từ những người xung quanh. Đặc biệt là những em nhỏ, các em
+          chưa đủ trải nghiệm, chưa đủ bản lĩnh và sự chiêm nghiệm sâu sắc để hiểu rằng mọi kiếp nạn rồi cũng sẽ trôi
+          qua, để rồi đưa ra những quyết định không thể nào quay đầu lại được.
+        </p>
+
+        <p>
+          Mình tin rằng đó là những thử thách nghiệt ngã của đời người. Nhưng nếu vào chính khoảnh khắc chông chênh ấy,
+          họ may mắn gặp được một "quý nhân" — chỉ cần là một người lạ chịu ngồi xuống lắng nghe, một lời khuyên can
+          chân thành hay một ánh mắt vỗ về, có lẽ suy nghĩ của họ đã thay đổi, và một sinh mệnh đã được giữ lại với cuộc
+          đời.
+        </p>
+
+        <div class="story-image-card">
+          <img src="../images/about/bc_sketches.jpg" alt="Những nét vẽ suy tư về cuộc đời">
+          <div class="story-image-caption">Mỗi dòng suy tư viết ra đều bắt đầu từ mong muốn được chở che cho một ai đó
+            đang chới với.</div>
+        </div>
+
+        <div class="story-highlight-box">
+          <h3><span>🌱</span> Tình Yêu Vĩ Đại Giấu Trong Những Điều Bình Dị</h3>
+          <p style="margin-bottom: 0;">
+            Nhiều người nghĩ tình yêu chỉ là tình yêu đôi lứa, tình cảm gia đình hay bè bạn. Nhưng khi bạn chậm lại một
+            nhịp và để tâm hồn mình thật tĩnh, bạn sẽ nhận ra: <strong>Tình yêu thương đang hiện hữu ở khắp mọi nơi
+              trong vũ trụ này.</strong>
+          </p>
+        </div>
+
+        <p>
+          Hãy thử nhìn những hàng cây xanh ven đường. Vì sao chúng lại ngày đêm âm thầm hấp thụ khí độc và sinh ra khí
+          O2 trong lành? Chúng làm điều đó để nuôi dưỡng năng lượng, để ban tặng cho chúng ta hơi thở mỗi ngày mà không
+          hề đòi hỏi sự đền đáp. Đó chẳng phải là tình yêu thương bao la của mẹ thiên nhiên hay sao?
+        </p>
+
+        <p>
+          Bước chân ra đường phố, bạn sẽ nhìn thấy những vạch sơn trắng dành cho người đi bộ, hàng ngàn biển báo chỉ
+          dẫn, cảnh báo tốc độ, những con đường được phân làn cẩn trọng. Bạn có từng thắc mắc vì sao lại có những vạch
+          sơn xương cá và luật lệ nghiêm ngặt cấm dừng đỗ trên đó không?
+        </p>
+
+        <p>
+          Bởi vì những điểm ấy đã được các kỹ sư tính toán kỹ lưỡng từng góc bo cua, đó là bán kính quay đầu của những
+          chiếc xe tải lớn — nơi cực kỳ dễ hình thành "điểm mù" nguy hiểm chết người. Những vạch sơn ấy được vẽ ra bằng
+          cả trí tuệ và sự thấu cảm, với mục đích duy nhất: <strong>Bảo vệ sinh mạng của bạn và của mọi người đi
+            đường.</strong>
+        </p>
+
+        <p>
+          Thế giới này không hề vô tình. Ngay cả những luật lệ, những biển báo hay vạch sơn im lặng dưới bánh xe bạn
+          lướt qua mỗi ngày đều chứa đựng sự bảo bọc âm thầm. Chỉ là đôi khi trong lúc đau khổ, ta mải nhìn vào vết
+          thương của mình mà quên mất rằng vũ trụ vẫn luôn ôm lấy ta bằng muôn vàn cách khác nhau.
+        </p>
+
+        <div class="story-image-card">
+          <img src="../images/about/soul_reading.jpg" alt="Góc bình yên đọc sách và chiêm nghiệm">
+          <div class="story-image-caption">Tiệm không mong cầu nổi tiếng, chỉ mong làm một chiếc phao nhỏ giữa dòng đời.
+          </div>
+        </div>
+
+        <p>
+          Mỗi khi nhận ra những điều đó, lòng mình lại cồn cào một mong muốn: <em>Mình phải làm một điều gì đó cho
+            đời.</em> Mình muốn chia sẻ những suy nghĩ này, muốn viết ra để những ai đang bế tắc có thể đọc được và tìm
+          thấy một tia hy vọng để bước tiếp.
+        </p>
+
+        <p>
+          Mình từng ấp ủ muốn viết sách, nhưng lại tự hiểu bản thân không phải nhà văn, không đủ khả năng viết nên những
+          áng văn chương hoa mỹ. Mình làm website này, dù biết nó nhỏ bé, không nổi tiếng và có thể rất ít người biết
+          đến. Nhưng mình vẫn miệt mài code, miệt mài viết từng trang.
+        </p>
+
+        <p>
+          Bởi vì mình tin: <strong>Không cần phải cứu cả thế giới.</strong> Chỉ cần vào một đêm muộn nào đó, có một
+          người đang ở đáy sâu của tuyệt vọng, tình cờ lạc vào Tiệm nhỏ này, đọc được một câu chữ an ủi và quyết định
+          cho bản thân thêm một cơ hội để sống tiếp — thì sự tồn tại của Tiệm, và sự hiện diện của mình trên cõi đời
+          này, đã trọn vẹn ý nghĩa rồi.
+        </p>
+      </div>
+
+      <!-- Footer Actions -->
+      <div class="story-actions-footer">
+        <a href="ganh-nang-su-hieu-chuyen.html" class="timeline-btn timeline-btn-primary">
+          <span>🍂 Đọc: Gánh Nặng Của Sự Hiểu Chuyện</span>
+        </a>
+        <a href="../thu-cua-ban.html" class="timeline-btn timeline-btn-secondary">
+          <span>💌 Mở Hòm Thư Bình Yên</span>
+        </a>
+        <a href="../phan-tich-noi-tam.html" class="timeline-btn timeline-btn-secondary">
+          <span>🔍 Về Phân Tích Nội Tâm</span>
+        </a>
+        <a href="../trang-chu.html" class="timeline-btn timeline-btn-secondary">
+          <span>Về Trang Chủ</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="../js/plugin/jquery.min.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/global.js"></script>
+
+  <!-- Circular Scroll Progress Indicator -->
+  <div class="scroll-path-indicator" id="scrollPathIndicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    title="Tiến trình đọc / Về đầu trang">
+    <div class="scroll-path-wheel" id="scrollPathWheel"></div>
+    <span class="scroll-percentage-text" id="scrollPercentText">0%</span>
+  </div>
+</body>
+
+</html>

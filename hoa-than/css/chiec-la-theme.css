@@ -1,0 +1,52 @@
+/* ==========================================================================
+   THEME: CHIẾC LÁ (Leaf Theme) • TIỆM NHỎ SUY TƯ
+   ========================================================================== */
+:root {
+	--donut-landing-main-color: #52b788;
+	--donut-landing-second-color: #1b4332;
+	--theme-hero-bg: #204028;
+	--theme-hero-title-color: #d8f3dc;
+	--theme-special-color: #95d5b2;
+
+	/* Subheader Box Nav */
+	--theme-nav-border: rgba(82, 183, 136, 0.4);
+	--theme-nav-shadow: rgba(20, 50, 25, 0.18);
+	--theme-nav-toggle-bg: linear-gradient(135deg, rgba(149, 213, 178, 0.35), rgba(82, 183, 136, 0.15));
+	--theme-nav-toggle-border: rgba(82, 183, 136, 0.25);
+	--theme-nav-toggle-hover: linear-gradient(135deg, rgba(149, 213, 178, 0.5), rgba(82, 183, 136, 0.3));
+	--theme-nav-title-color: #1b4332;
+	--theme-nav-arrow-color: #40916c;
+	--theme-nav-link-color: #2d6a4f;
+	--theme-nav-link-hover-bg: rgba(82, 183, 136, 0.15);
+	--theme-nav-link-hover-color: #081c15;
+
+	/* Step Cards Background */
+	--theme-card1-bg: #31572c;
+	--theme-card2-bg: #e8f5e9;
+	--theme-card3-bg: #582f0e;
+	--theme-card4-bg: #fefae0;
+
+	/* Step Cards Heading Special */
+	--theme-card1-special: #95d5b2;
+	--theme-card2-special: #2d6a4f;
+	--theme-card3-special: #f4a261;
+	--theme-card4-special: #d4a373;
+
+	/* Step Indicators */
+	--theme-ind1-color: #52b788;
+	--theme-ind2-color: #2a9d8f;
+	--theme-ind3-color: #e76f51;
+	--theme-ind4-color: #e9c46a;
+
+	/* Final Section */
+	--theme-final-bg-text-font: "Charm", "Playfair Display", cursive, serif;
+	--theme-next-btn-bg: rgba(56, 189, 248, 0.2);
+	--theme-next-btn-border: #38bdf8;
+	--theme-next-btn-hover-bg: #38bdf8;
+	--theme-next-btn-hover-shadow: rgba(56, 189, 248, 0.4);
+}
+
+.donut-img {
+	transform: rotate(0deg);
+	filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35));
+}

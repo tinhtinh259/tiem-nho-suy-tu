@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Nếu Bạn Là Một Chiếc Lá... • Tiệm Nhỏ Suy Tư 🍃</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../fonts/chiec-la-fonts.css">
+	<link rel="stylesheet" href="../css/plugin/normalize-5.0.0.min.css">
+	<link rel="stylesheet" href="../css/plugin/reset-2.0.min.css">
+
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+
+	<link rel="stylesheet" href="../css/global.css">
+	<link rel="stylesheet" href="./css/hoa-than-core.css">
+	<link rel="stylesheet" href="./css/chiec-la-theme.css">
+
+	<!-- Three.js Import Map in Head -->
+	<script type="importmap">
+      {
+        "imports": {
+          "three": "../js/plugin/three/three.module.js"
+        }
+      }
+    </script>
+	<!-- GSAP & Lenis -->
+	<script src="../js/plugin/gsap.min.js"></script>
+	<script src="../js/plugin/ScrollTrigger.min.js"></script>
+	<script src="../js/plugin/lenis.min.js"></script>
+	<script src="../js/include-header-footer.js"></script>
+	<script src="../js/header.js"></script>
+</head>
+
+<body data-theme="chiec-la">
+
+	<!-- Caraflow Site Header Component -->
+	<div id="header-placeholder"></div>
+
+	<!-- Leaf Journey Nav ("Hành Trình Của Lá" thông minh, không che khuất chữ) -->
+	<nav class="subheader-hoathan cookie-box-nav" id="subheader-hoathan" aria-label="Hành trình của lá">
+		<button class="cookie-box-toggle" id="cookieBoxToggle" type="button" aria-expanded="true"
+			title="Thu gọn / Mở rộng">
+			<span class="cookie-box-icon">🍃</span>
+			<span class="cookie-box-title">Hành Trình Lá</span>
+			<span class="cookie-box-arrow">‹</span>
+		</button>
+		<ul class="cookie-box-list" id="cookieBoxList">
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#flip" data-target="flip">
+					<span class="nav-dot" style="--dot-color: #52b788;"></span>
+					<span class="nav-label">1. Sắc Lá</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#steps" data-target="steps">
+					<span class="nav-dot" style="--dot-color: #e9c46a;"></span>
+					<span class="nav-label">2. 4 Mùa Lá</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#numbers" data-target="numbers">
+					<span class="nav-dot" style="--dot-color: #e76f51;"></span>
+					<span class="nav-label">3. Về Cội</span>
+				</a>
+			</li>
+			<li class="cookie-box-item">
+				<a class="cookie-box-link" href="#final" data-target="final">
+					<span class="nav-dot" style="--dot-color: #2a9d8f;"></span>
+					<span class="nav-label">4. Trạm Dừng</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+
+	<main class="main">
+		<div class="flip__figures">
+			<img class="flip__first-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+			<img class="flip__second-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+			<img class="flip__third-figure"
+				src="./assets/svg/flip-figure.svg" alt="flip figure"
+				width="659" height="658" loading="lazy">
+		</div>
+
+		<!-- Model Container (Chiếc Lá 3D) -->
+
+		<div class="model">
+			<div class="model-wrapper">
+				<div class="donut-figure" id="donut">
+					<div class="cookie-rotator" id="donut-rotator">
+						<img id="donut-img" class="donut-img" src="./leaf.png?v=2" alt="Chiếc Lá Tâm Hồn">
+					</div>
+					<div class="donut-shadow" id="donut-shadow"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Hero Section -->
+
+		<section class="hero" id="hero">
+			<img class="main__figure"
+				src="./assets/svg/hero-figure.svg" alt="figure"
+				width="1158" height="760" loading="lazy">
+
+			<div class="container hero__container">
+				<div class="hero__top">
+					<div class="hero__heading-box">
+						<span class="hero__script-badge">Tiệm Nhỏ Suy Tư</span>
+						<h1 class="hero__heading">
+							<span class="hero__word">
+								<span class="hero__char">C</span>
+								<span class="hero__char">H</span>
+								<span class="hero__char">I</span>
+								<span class="hero__char">Ế</span>
+								<span class="hero__char">C</span>
+							</span>
+							<span class="hero__space">&nbsp;</span>
+							<span class="hero__word">
+								<span class="hero__char">L</span>
+								<span class="hero__cookie-slot hero__leaf-slot" id="hero-cookie-slot" aria-label="Á">
+									<span class="hero__accent" id="hero-leaf-accent" aria-hidden="true"></span>
+								</span>
+							</span>
+						</h1>
+						<p class="hero__second-text">
+							Nếu bạn là một chiếc lá, bạn sẽ chọn xanh biếc giữa vòm trời hay nhẹ nhàng buông mình đón
+							làn gió thu?
+							Lá sinh ra không phải để mãi xanh, mà là để sống trọn vẹn từng khoảnh khắc — từ lúc nảy mầm
+							đón nắng mai đến khi thanh thản trở về với đất mẹ.
+						</p>
+						<button class="primary__btn hero__btn"
+							onclick="document.querySelector('#flip').scrollIntoView({behavior: 'smooth'});">
+							Khám Phá Sắc Lá
+						</button>
+					</div>
+				</div>
+
+				<div class="hero__bottom"></div>
+			</div>
+
+			<div class="hero__pointer" id="scroll-btn" tabindex="0"
+				onclick="document.querySelector('#flip').scrollIntoView({behavior: 'smooth'});">
+				<img class="hero__mouse-icon"
+					src="./assets/svg/mouse.svg" alt="mouse-icon"
+					width="16" height="24" loading="lazy">
+				<img class="hero__arrow"
+					src="./assets/svg/arrow-bottom.svg"
+					alt="arrow-icon" width="24" height="24" loading="lazy">
+			</div>
+		</section>
+
+		<!-- Transition Section -->
+
+		<div id="transition"></div>
+
+		<!-- Flip Section -->
+
+		<section class="flip" id="flip">
+			<div class="container">
+				<div class="flip__heading-box heading-box">
+					<h2 class="flip__heading second-heading">
+						LUÔN LUÔN
+						<span class="heading__special">
+							VẸN NGUYÊN SẮC BIẾC
+						</span> <br>
+						LUÔN LUÔN
+						<span class="heading__special">
+							AN YÊN BUÔNG MÌNH
+						</span>
+					</h2>
+					<p class="flip__text">
+						Mỗi chiếc lá trên đời đều có nhịp điệu sống của riêng mình — không so đo với hoa, không ganh đua
+						với cội rễ.
+						Chỉ cần được đón ánh nắng ban mai và để làn gió nhẹ nâng niu khi đã đủ đầy trải nghiệm.
+					</p>
+				</div>
+				<div class="flip__shadow"></div>
+			</div>
+		</section>
+
+		<!-- Steps Section (4 Sắc Thái Chiếc Lá) -->
+
+		<section class="steps" id="steps">
+			<div class="steps__indicators">
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+				<div class="steps__indicator"></div>
+			</div>
+			<div class="steps__cards">
+				<div class="steps__card-first">
+					<h3 class="steps__card-heading white">
+						Lá
+						Mầm
+						<span class="steps__card-heading-special">
+							Đầu Xuân
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-1-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Khởi đầu non nớt nhưng chứa đựng cả một bầu trời hy vọng.
+						</p>
+						<p class="steps__card-text white">
+							Chiếc mầm xanh mới hé — trong trẻo, tò mò và tràn đầy sức sống.
+							Bạn luôn mang lại nguồn năng lượng tươi mới, thuần khiết và thắp lên niềm tin cho những ai
+							đang mệt mỏi.
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading">
+						Lá Sen
+						<span class="steps__card-heading-special">
+							Giữa Hạ
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-2-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading">
+							Nâng niu từng giọt sương, bình thản giữa dòng nước động.
+						</p>
+						<p class="steps__card-text">
+							Màu xanh ngọc dịu mát, không để bụi trần bám víu.
+							Bạn là chốn dung thân bình yên, giữ được tâm thế tĩnh tại và thanh tao dù xung quanh có biết
+							bao xáo động.
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading white">
+						Lá Phong
+						<span class="steps__card-heading-special">
+							Mùa Thu
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-3-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading white">
+							Đẹp rực rỡ nhất là khoảnh khắc biết trân quý những đổi thay.
+						</p>
+						<p class="steps__card-text white">
+							Chiếc lá phong ngả sắc đỏ cam hổ phách — nồng ấm, bao dung và từng trải.
+							Bạn thấu hiểu những nốt trầm của cuộc đời và luôn biết cách sưởi ấm người khác bằng sự lắng
+							nghe dịu dàng.
+						</p>
+					</div>
+				</div>
+				<div class="steps__card">
+					<h3 class="steps__card-heading">
+						Ngân Hạnh
+						<span class="steps__card-heading-special">
+							An Yên
+						</span>
+					</h3>
+					<div class="steps__card-text-block">
+						<img class="steps__card-image"
+							src="./assets/svg/card-4-quote.svg"
+							alt="Quote Icon" width="31" height="21" loading="lazy">
+						<p class="steps__card-text-heading">
+							Rơi xuống không phải là kết thúc, mà là sự trở về bình an.
+						</p>
+						<p class="steps__card-text">
+							Cánh lá vàng óng lững lờ theo gió chiều.
+							Dành cho bạn — người đã học được cách buông tay nhẹ nhàng với những điều không thuộc về
+							mình, thanh thản bước tiếp con đường phía trước.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Second Transition Section -->
+
+		<div id="second-transition"></div>
+
+		<!-- Numbers Section -->
+
+		<section class="numbers" id="numbers">
+			<div class="container numbers__container">
+				<div class="numbers__heading-box heading-box">
+					<h2 class="numbers__heading second-heading">
+						Hành trình <span class="heading__special">của một chiếc lá</span>
+					</h2>
+				</div>
+				<div class="numbers__box">
+					<div class="numbers__item">
+						<div class="numbers__item-number">1</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Nảy Mầm & Đón Nắng
+							</h3>
+							<p class="numbers__item-text">
+								Đón nhận ánh dương ban mai và tinh khôi vươn mình giữa đất trời
+							</p>
+						</div>
+					</div>
+					<div class="numbers__item">
+						<div class="numbers__item-number">2</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								Tạo Bóng Mát
+							</h3>
+							<p class="numbers__item-text">
+								Chắt chiu nắng mưa, tạo bóng râm dịu lành và dưỡng khí chở che cho đời
+							</p>
+						</div>
+					</div>
+					<div class="numbers__item">
+						<div class="numbers__item-number">3</div>
+						<div class="numbers__info">
+							<h3 class="numbers__item-title">
+								An Nhiên Về Cội
+							</h3>
+							<p class="numbers__item-text">
+								Thanh thản hòa vào làn gió, nhẹ nhàng buông mình để nuôi dưỡng những mầm non mới
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="numbers__text-box">
+					<p class="numbers__text">
+						Đón nhận ánh dương ban mai và tinh khôi vươn mình giữa đất trời
+					</p>
+					<p class="numbers__text">
+						Chắt chiu nắng mưa, tạo bóng râm dịu lành và dưỡng khí chở che cho đời
+					</p>
+					<p class="numbers__text">
+						Thanh thản hòa vào làn gió, nhẹ nhàng buông mình để nuôi dưỡng những mầm non mới
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Final Section -->
+
+	<footer class="final" id="final">
+		<img class="final__hand-icon" src="./assets/svg/hand.svg"
+			alt="hand-icon" width="40px" height="40px" loading="lazy">
+		<div class="final__bg-text-box">
+			<span class="final__bg-text">CHIẾC LÁ</span>
+		</div>
+		<div class="final__light-figure"></div>
+		<div class="container">
+			<div class="final__order-box">
+				<h2 class="final__heading second-heading">
+					Dù trên cành cao hay dưới thềm cỏ, <br>
+					<span class="heading__special">bạn đã sống một đời trọn vẹn</span>
+				</h2>
+				<span class="final__order-text">
+					Chiếc lá khép lại hành trình bằng một điệu múa lãng đãng trong gió thu. Bạn cũng vậy, hãy cứ dịu
+					dàng với chính mình, vì mỗi nhịp thở và khoảnh khắc bạn hiện diện đều là một nét đẹp nhiệm màu.
+				</span>
+
+				<div class="final__buttons">
+					<button class="primary__btn final__btn"
+						onclick="window.location.href='../hoa-than.html#trai-nghiem-3d'">
+						Về Trạm Hóa Thân ✨
+					</button>
+					<button class="primary__btn final__btn final__btn--next"
+						onclick="window.location.href='./vien-soi.html'">
+						Hóa Thân: Viên Sỏi 🪨 →
+					</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Caraflow Site Footer Component -->
+	<div id="footer-placeholder"></div>
+
+	<script src="./js/hoa-than-core.js"></script>
+
+</body>
+
+</html>

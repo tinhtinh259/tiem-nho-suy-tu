@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nếu Bạn Nhìn Thấy Vết Sứt Của Người Khác Mà Thấy Thương... • Tiệm Nhỏ Suy Tư</title>
+  <meta name="description"
+    content="Giải mã lòng trắc ẩn từ mẩu chuyện Thùng Đào: Sự trưởng thành đích thực trong tình yêu và các mối quan hệ là khi ta thôi đòi hỏi một sự hoàn hảo không tì vết để biết yêu cả những vụng về bất toàn.">
+
+  <!-- Header & Footer Loader -->
+  <script src="../js/include-header-footer.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/logo.png">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="../css/plugin/reset-2.0.min.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Sour+Gummy:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .story-article-hero {
+      background: linear-gradient(180deg, #fbf7f0 0%, #f5eee2 100%);
+      padding: 120px 24px 70px 24px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid rgba(198, 156, 94, 0.25);
+    }
+
+    .story-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: rgba(198, 156, 94, 0.14);
+      border: 1px solid rgba(198, 156, 94, 0.35);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #8c6328;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .story-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.2vw, 48px);
+      font-weight: 700;
+      color: #2c221e;
+      line-height: 1.3;
+      max-width: 860px;
+      margin: 0 auto 18px auto;
+    }
+
+    .story-hero-subtitle {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: #6e5d4f;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .story-main-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 90px 24px;
+    }
+
+    .story-quote-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-left: 4px solid #c69c5e;
+      border-radius: 0 20px 20px 0;
+      padding: 28px 32px;
+      margin-bottom: 45px;
+      box-shadow: 0 12px 35px rgba(198, 156, 94, 0.1);
+    }
+
+    .story-quote-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: #3b2a22;
+      line-height: 1.65;
+      font-style: italic;
+      margin: 0 0 10px 0;
+    }
+
+    .story-quote-author {
+      font-family: 'Itim', 'Sour Gummy', cursive;
+      font-size: 20px;
+      color: #a67c38;
+      text-align: right;
+      display: block;
+    }
+
+    .story-content {
+      font-size: 16.5px;
+      line-height: 1.95;
+      color: #3e322a;
+    }
+
+    .story-content p {
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    .story-highlight-box {
+      background: #fdfbf7;
+      border: 1px dashed rgba(198, 156, 94, 0.45);
+      border-radius: 20px;
+      padding: 26px 30px;
+      margin: 35px 0;
+    }
+
+    .story-highlight-box h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #8c6328;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .story-image-card {
+      margin: 40px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .story-image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .story-image-caption {
+      padding: 12px 18px;
+      background: #faf6f0;
+      font-size: 13.5px;
+      color: #7a685c;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .story-actions-footer {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(198, 156, 94, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Article Hero Banner -->
+    <section class="story-article-hero">
+      <span class="story-hero-badge">🌱 THẤU CẢM & HÀN GẮN • LÒNG TRẮC ẨN</span>
+      <h1 class="story-hero-title">Nếu Bạn Nhìn Thấy Vết Sứt Của Người Khác Mà Thấy Thương...</h1>
+      <p class="story-hero-subtitle">
+        "Đọc mẩu chuyện Thùng Đào — những trái đào sứt sẹo nhưng vẫn ngọt ngào, bạn không chê bai mà thấy muốn ôm lấy
+        những vụng về của người bên cạnh..."
+      </p>
+    </section>
+
+    <!-- Main Article Body -->
+    <article class="story-main-wrap">
+      <!-- Quote Card -->
+      <div class="story-quote-card">
+        <p class="story-quote-text">
+          “Yêu thương chân thật không làm bạn mất đi chính mình,<br>
+          mà giúp bạn đủ an tâm và bao dung để mở rộng lòng đón nhận cả những bất toàn của đối phương.”
+        </p>
+        <span class="story-quote-author">— Tiệm Nhỏ Suy Tư</span>
+      </div>
+
+      <div class="story-content">
+        <p>
+          Trong câu chuyện ngụ ngôn về "Thùng Đào Mùa Hạ", có một người bán hàng bày ra hai giỏ đào: một giỏ gồm những quả
+          đào trơn bóng, tròn trịa, vỏ hồng đều không một vết xước; và một giỏ là những quả đào sứt sẹo, bị ong châm một
+          chấm nhỏ hoặc vỏ hơi nám vì nắng gió.
+        </p>
+
+        <p>
+          Phần lớn khách qua đường đều tranh nhau chọn giỏ đào hoàn hảo. Nhưng người làm vườn già chỉ mỉm cười nói:
+          <em>"Muốn thưởng thức vị ngọt thơm đậm đà nhất, hãy ăn những quả đào sứt sẹo kia. Bởi vì chính ở vết ong châm
+            ấy, dòng mật ngọt tinh hoa của đất trời mới dồn tụ về nhiều nhất"</em>.
+        </p>
+
+        <p>
+          Nếu bạn đọc mẩu chuyện ấy, hoặc khi đứng trước một người có vẻ ngoài vụng về, có một quá khứ trầy xước, có đôi tay
+          thô ráp hay một nỗi tự ti giấu kín, mà trong lòng bạn không dấy lên sự chê bai hay định kiến — trái lại, bạn thấy
+          <strong>dâng lên một niềm thương xót vô ngần</strong> — thì điều đó tiết lộ rất nhiều về tầm vóc tâm hồn của bạn.
+        </p>
+
+        <div class="story-image-card">
+          <img src="../images/landing/peach.jpg" alt="Những trái đào ngọt ngào giấu mình dưới tán lá xanh">
+          <div class="story-image-caption">Những trái quả trải qua gió sương có thể không hoàn mỹ, nhưng ruột thịt lại ngọt ngào và đong đầy vị mật.
+          </div>
+        </div>
+
+        <div class="story-highlight-box">
+          <h3>🍯 Sự chuyển hóa: Từ phán xét của cái tôi đến lòng trắc ẩn</h3>
+          <p style="margin-bottom: 0;">
+            Xã hội hiện đại dạy chúng ta thói quen tôn thờ "sự hoàn mỹ": một bộ hồ sơ đẹp không tì vết, một diện mạo chỉnh
+            chu không một hạt mụn, một mối tình cổ tích không chút tì vết. Cái tôi (Ego) của con người thích phán xét
+            những lỗi lầm và vết xước của người khác để tự tạo cho mình cảm giác an toàn và thượng đẳng.
+          </p>
+        </div>
+
+        <p>
+          Nhưng khi bạn đạt đến sự trưởng thành về mặt nhận thức, bạn sẽ nhìn thấu một sự thật giản đơn:
+          <strong>Không có ai trên cõi đời này là hoàn hảo cả.</strong> Người càng cố tỏ ra cứng cỏi và hoàn mỹ bên ngoài
+          thường lại là người cất giấu nhiều vết rạn nứt đau đớn nhất bên trong.
+        </p>
+
+        <p>
+          Khi bạn nhìn thấy một đồng nghiệp lúng túng làm rơi tập tài liệu, nhìn thấy người bạn đời buột miệng nói một câu
+          vụng dại, hay nhìn thấy một người lạ mặt gượng gạo che đi vết sẹo trên tay... Thay vì cười cợt, trong lòng bạn lại
+          nhói lên một sự đồng cảm: <em>"Chắc họ cũng từng vất vả lắm mới đi được đến ngày hôm nay"</em>. Đó chính là
+          khoảnh khắc lòng trắc ẩn (Compassion) vượt lên trên mọi sự phán xét hẹp hòi.
+        </p>
+
+        <div class="story-highlight-box">
+          <h3>🏺 Triết lý Kintsugi: Đỉnh cao của nghệ thuật hàn gắn</h3>
+          <p style="margin-bottom: 0;">
+            Người Nhật có một nghệ thuật truyền thống tuyệt đẹp mang tên <em>Kintsugi</em> — dùng vàng ròng để hàn gắn lại
+            những chiếc bát gốm bị vỡ. Họ không vứt bỏ món đồ sứt mẻ, cũng không cố giấu đi đường nứt. Bằng cách dát vàng lên
+            vết vỡ, chiếc bát trở nên độc bản và có giá trị gấp nhiều lần so với nguyên bản ban đầu.
+          </p>
+        </div>
+
+        <p>
+          Tình yêu thương giữa con người với con người cũng như vậy. Yêu thương một ai đó khi họ đang rực rỡ, thành công và
+          xinh đẹp là điều ai cũng làm được. Nhưng ở lại bên cạnh, dang rộng vòng tay ôm lấy những góc khuất tăm tối,
+          những vết thương chưa lành và sự bất toàn của đối phương — đó mới là thứ tình cảm làm nên sự thiêng liêng của đời
+          người.
+        </p>
+
+        <div class="story-image-card">
+          <img src="../images/about/bc_sketches.jpg" alt="Những nét vẽ mộc mạc về cuộc đời">
+          <div class="story-image-caption">Mỗi vết sứt trong đời đều là một cơ hội để tình thương được chảy tràn vào lấp đầy.
+          </div>
+        </div>
+
+        <div class="story-highlight-box">
+          <h3>🌿 Lời nhắn nhủ từ Tiệm: Dịu dàng với người, bao dung với mình</h3>
+          <p style="margin-bottom: 0;">
+            Học cách thương vết sứt của người khác cũng chính là chìa khóa diệu kỳ giúp bạn chữa lành cho chính bản thân
+            mình.
+          </p>
+        </div>
+
+        <p>
+          Bởi vì khi bạn chấp nhận được rằng người khác có quyền vụng về, có quyền bất toàn, thì bạn cũng sẽ thôi dằn vặt
+          bản thân vì những lần thi trượt, những mối tình tan vỡ hay những quyết định sai lầm trong quá khứ. Bạn sẽ hiểu
+          rằng: <strong>Những vết sứt sẹo ấy không làm giảm đi giá trị của bạn, chúng chỉ chứng minh rằng bạn đã dũng cảm
+            sống và vượt qua giông bão.</strong>
+        </p>
+
+        <p>
+          Hãy tiếp tục giữ lấy tấm lòng bao dung ấy nhé. Giữa một thế giới đôi khi quá đỗi khắt khe và vội vã, ánh mắt biết
+          thương của bạn chính là một dòng suối mát lành sưởi ấm những ai đang may mắn được bước chân vào cuộc đời bạn.
+        </p>
+      </div>
+
+      <!-- Footer Actions -->
+      <div class="story-actions-footer">
+        <a href="chuyen-xe-dem-va-khao-khat-thau-cam.html" class="timeline-btn timeline-btn-primary">
+          <span>🧠 Đọc: Chuyện Chuyến Xe Đêm</span>
+        </a>
+        <a href="hien-huu-khi-biet-thuong.html" class="timeline-btn timeline-btn-secondary">
+          <span>🌿 Hiện Hữu Khi Biết Thương</span>
+        </a>
+        <a href="../phan-tich-noi-tam.html" class="timeline-btn timeline-btn-secondary">
+          <span>🔍 Về Phân Tích Nội Tâm</span>
+        </a>
+        <a href="../trang-chu.html" class="timeline-btn timeline-btn-secondary">
+          <span>Về Trang Chủ</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="../js/plugin/jquery.min.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/global.js"></script>
+
+  <!-- Circular Scroll Progress Indicator -->
+  <div class="scroll-path-indicator" id="scrollPathIndicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    title="Tiến trình đọc / Về đầu trang">
+    <div class="scroll-path-wheel" id="scrollPathWheel"></div>
+    <span class="scroll-percentage-text" id="scrollPercentText">0%</span>
+  </div>
+</body>
+
+</html>
