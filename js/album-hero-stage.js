@@ -30,7 +30,7 @@
       duration: "04:12",
       alias: "Nhiếp ảnh gia chiếc mũ len đỏ",
       quote: "Chiếc nón len đỏ giữa góc phố xám, và tiếng bấm máy giấu một ánh nhìn ngập ngừng...",
-      img: "images/album/photographer_red_cap.png",
+      img: "images/album/draft-3.jpg",
       accent: "#e85038",
       accentGlow: "rgba(232, 80, 56, 0.38)",
       draftId: "draft-2",
