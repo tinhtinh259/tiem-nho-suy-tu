@@ -83,6 +83,14 @@
   let activeIndex = 0;
   let isAnimating = false;
 
+  /* Cấu hình tự động trigger lần lượt từng đĩa than */
+  const AUTO_CYCLE_INTERVAL = 5500; // 5.5s mỗi đĩa
+  const INITIAL_FIRST_TRIGGER = 3800; // 3.8s sau khi vào trang sẽ trigger đĩa đầu tiên
+  let autoCycleTimer = null;
+  let isHoverPaused = false;
+  let isSectionVisible = true;
+  let progressTween = null;
+
   /* Vị trí đĩa chính và 4 đĩa vệ tinh trên quỹ đạo bán nguyệt */
   const MAIN_POS = { left: 54, top: 50, scale: 2.85 };
   const PERIM_POS = [
@@ -134,6 +142,10 @@
             <div class="disc-spindle-hole"></div>
           </div>
         </div>
+        <div class="disc-tooltip">
+          <span class="disc-tooltip-num">0${record.id + 1}</span>
+          <span class="disc-tooltip-title">${record.title}</span>
+        </div>
       `;
 
       el.addEventListener('click', () => {
@@ -152,10 +164,10 @@
 
     /* Gắn sự kiện nút Prev / Next */
     if (prevBtn) {
-      prevBtn.addEventListener('click', () => stepRecord(-1));
+      prevBtn.addEventListener('click', () => stepRecord(-1, true));
     }
     if (nextBtn) {
-      nextBtn.addEventListener('click', () => stepRecord(1));
+      nextBtn.addEventListener('click', () => stepRecord(1, true));
     }
 
     /* Gắn sự kiện "Lắng Nghe Ký Ức" */
@@ -215,6 +227,44 @@
       gsap.from('.hero-memory-badge', { y: -16, opacity: 0, duration: 0.5, ease: 'power3.out' });
       gsap.from('.hero-floating-note', { y: 16, opacity: 0, duration: 0.6, ease: 'power3.out', delay: 0.3 });
     }
+
+    /* Gắn sự kiện hover và quan sát viewport để tự động trigger tuần tự */
+    const heroSection = document.getElementById('memoryHeroStage') || stage;
+    const stageWrap = document.querySelector('.hero-stage-wrap');
+    const contentCol = document.querySelector('.hero-memory-content');
+
+    [stageWrap, contentCol].forEach(elem => {
+      if (elem) {
+        elem.addEventListener('mouseenter', pauseAutoCycle);
+        elem.addEventListener('mouseleave', resumeAutoCycle);
+        elem.addEventListener('touchstart', pauseAutoCycle, { passive: true });
+      }
+    });
+
+    if ('IntersectionObserver' in window && heroSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            isSectionVisible = true;
+            startAutoCycle(INITIAL_FIRST_TRIGGER);
+          } else {
+            isSectionVisible = false;
+            stopAutoCycle();
+          }
+        });
+      }, { threshold: 0.2 });
+      observer.observe(heroSection);
+    } else {
+      startAutoCycle(INITIAL_FIRST_TRIGGER);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoCycle();
+      } else if (isSectionVisible && !isHoverPaused) {
+        startAutoCycle(AUTO_CYCLE_INTERVAL);
+      }
+    });
   }
 
   /* Định vị trí đĩa than với GSAP */
@@ -325,10 +375,78 @@
     }
   }
 
+  /* Xử lý thanh tiến trình chuyển đĩa tự động */
+  function runProgressBar(duration) {
+    const progressEl = document.getElementById('heroAutoProgress');
+    if (!progressEl || !window.gsap) return;
+    if (progressTween) progressTween.kill();
+    gsap.set(progressEl, { width: '0%' });
+    progressTween = gsap.to(progressEl, {
+      width: '100%',
+      duration: duration / 1000,
+      ease: 'none',
+      onComplete: () => {
+        gsap.set(progressEl, { width: '0%' });
+      }
+    });
+  }
+
+  /* Bắt đầu vòng lặp tự động trigger từng đĩa than */
+  function startAutoCycle(delay = AUTO_CYCLE_INTERVAL) {
+    stopAutoCycle();
+    if (isHoverPaused || !isSectionVisible) return;
+    runProgressBar(delay);
+    autoCycleTimer = setTimeout(() => {
+      if (!isHoverPaused && isSectionVisible) {
+        stepRecord(1, false);
+        startAutoCycle(AUTO_CYCLE_INTERVAL);
+      }
+    }, delay);
+  }
+
+  /* Dừng vòng lặp tự động */
+  function stopAutoCycle() {
+    if (autoCycleTimer) {
+      clearTimeout(autoCycleTimer);
+      autoCycleTimer = null;
+    }
+    if (progressTween) {
+      progressTween.pause();
+    }
+  }
+
+  /* Tạm dừng khi rê chuột hoặc chạm màn hình */
+  function pauseAutoCycle() {
+    isHoverPaused = true;
+    if (autoCycleTimer) {
+      clearTimeout(autoCycleTimer);
+      autoCycleTimer = null;
+    }
+    if (progressTween) {
+      progressTween.pause();
+    }
+  }
+
+  /* Tiếp tục lại khi rời chuột */
+  function resumeAutoCycle() {
+    isHoverPaused = false;
+    if (!isSectionVisible) return;
+    startAutoCycle(3200);
+  }
+
+  /* Reset bộ đếm thời gian khi người dùng tự tương tác */
+  function resetAutoCycleTimer() {
+    stopAutoCycle();
+    if (!isHoverPaused && isSectionVisible) {
+      startAutoCycle(AUTO_CYCLE_INTERVAL);
+    }
+  }
+
   /* Xử lý khi nhấp vào đĩa than */
   function onDiscClick(recordId) {
     if (isAnimating || recordId === activeIndex) return;
     swapToMainDisc(recordId);
+    resetAutoCycleTimer();
   }
 
   /* Hoán đổi vị trí đĩa chính và đĩa vệ tinh */
@@ -377,11 +495,14 @@
   }
 
   /* Chuyển qua bản ghi trước hoặc kế tiếp */
-  function stepRecord(direction) {
+  function stepRecord(direction, isManual = false) {
     if (isAnimating) return;
     const total = MEMORY_RECORDS.length;
     const nextId = (activeIndex + direction + total) % total;
     swapToMainDisc(nextId);
+    if (isManual) {
+      resetAutoCycleTimer();
+    }
   }
 
   /* Hiệu ứng trôi nổi nốt nhạc và tàn đóm */
