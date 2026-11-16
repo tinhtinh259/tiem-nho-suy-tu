@@ -1359,26 +1359,21 @@
         min-height: auto !important;
     }
 
-    .discovery_section .living_flex .item_living_flex:last-child {
-        height: auto !important;
-        margin-bottom: 0 !important;
-    }
-
     .pic_seasons {
-        height: 270px !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
+        height: 360px !important;
         display: flex !important;
-        align-items: flex-end !important;
+        align-items: center !important;
         justify-content: center !important;
+        margin-top: 0 !important;
+        margin-bottom: -80px !important;
     }
 
     .objects_content {
-        height: 280px !important;
+        height: 360px !important;
     }
 
     .cat_square {
-        height: 280px !important;
+        height: 360px !important;
     }
 }
 
