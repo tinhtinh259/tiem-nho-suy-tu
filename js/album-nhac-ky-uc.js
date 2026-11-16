@@ -224,7 +224,7 @@ const SPECIAL_BOOK_JENNY = {
   songArtist: "Damien Rice",
   melodyType: "colour-me-in",
   audioSrc: "audio/colour-me-in.mp3",
-  tagId: "@Jenny_Autumn",
+  tagId: "@J_Autumn",
   tagClass: "enc-special",
   tagAlias: "Mùa thu 2026 • Gửi anh, một kẻ đơn độc",
   duration: "03:59",
