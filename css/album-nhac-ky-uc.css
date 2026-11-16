@@ -2600,12 +2600,42 @@ body.album-page {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 13px;
-  color: #d7dbb1;
+  color: #f5eedc;
   letter-spacing: 0.05em;
   padding: 6px 14px;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(201, 168, 76, 0.3);
+  background: rgba(22, 10, 8, 0.9);
+  border: 1px solid rgba(201, 168, 76, 0.45);
   border-radius: 20px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Trang Hồi kết cuối sách */
+.conclude-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: #3d210b;
+  margin-bottom: 8px;
+}
+
+.conclude-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13.5px;
+  color: #5a3819;
+  line-height: 1.45; /* Đã giảm khoảng cách dòng */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.conclude-publisher {
+  margin-top: 14px;
+  font-family: 'IM Fell English', serif;
+  font-size: 11px; /* Đã giảm font size */
+  color: #8c5b1d;
+  opacity: 0.82;
+  letter-spacing: 0.03em;
 }
 
 /* Inside Cover (Ex-Libris Vintage Bookplate) */
@@ -3420,6 +3450,30 @@ body.album-page {
     opacity: 0.65;
   }
 
+  /* Gáy sách trên mobile: thanh mảnh, tinh tế, không chiếm quá nhiều diện tích bìa */
+  .book-3d .front.cover {
+    border-left: 6px solid var(--book-spine, #120703) !important;
+    box-shadow: inset -4px 0 10px rgba(0, 0, 0, 0.55), 4px 6px 14px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .book-3d .back.cover {
+    border-right: 6px solid var(--book-spine, #120703) !important;
+    box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.55), -4px 6px 14px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  /* Khung viền và padding bìa sách trên Mobile: không để đường viền chèn vào nút gợi ý */
+  .book-3d .cover {
+    padding: 0.8rem 0.65rem 1.35rem !important;
+  }
+
+  .book-3d .cover::before {
+    inset: 6px !important;
+  }
+
+  .book-3d .cover::after {
+    inset: 9px !important;
+  }
+
   /* Bìa sách trên Mobile */
   .cover-top-ornament {
     font-size: 14px;
@@ -3446,8 +3500,40 @@ body.album-page {
 
   .cover-open-hint {
     font-size: 8px;
-    padding: 2px 7px;
+    padding: 2.5px 8px;
     white-space: nowrap;
+    position: relative;
+    z-index: 10;
+    background: rgba(22, 10, 10, 0.94) !important;
+    border: 1px solid rgba(201, 168, 76, 0.6) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.65) !important;
+    margin-bottom: 2px;
+  }
+
+  /* Trang Hồi kết trên Mobile */
+  .conclude-heading {
+    font-size: 12.5px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .conclude-quote {
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+    max-width: 95% !important;
+  }
+
+  .conclude-publisher {
+    font-size: 8.5px !important;
+    margin-top: 8px !important;
+    opacity: 0.75 !important;
+  }
+
+  /* Hộp trích dẫn thơ/nhạc trên Mobile */
+  .book-3d div[style*="border-left"] {
+    padding: 6px 8px !important;
+    margin: 6px 0 !important;
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
   }
 
   /* Ex-Libris trong bìa trên mobile */

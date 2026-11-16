@@ -1559,12 +1559,12 @@ function render3DFlipBook(book) {
   pageBackCover.innerHTML = `
     <div class="front">
       <div class="story-page-content" style="justify-content: center; text-align: center;">
-        <div style="font-size: 28px; color: #8c5b1d; margin-bottom: 12px;">❦</div>
-        <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #3d210b; margin-bottom: 10px;">Khép Lại Chương Ký Ức</h4>
-        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: #5a3819; line-height: 1.8;">
+        <div style="font-size: 26px; color: #8c5b1d; margin-bottom: 8px;">❦</div>
+        <h4 class="conclude-heading">Khép Lại Chương Ký Ức</h4>
+        <p class="conclude-quote">
           "${book.secretNote || book.quote || 'Mỗi cuộc gặp gỡ là một nốt nhạc, mỗi lời chia tay là một khoảng lặng dịu êm...'}"
         </p>
-        <div style="margin-top: 18px; font-family: 'IM Fell English', serif; font-size: 13px; color: #8c5b1d;">
+        <div class="conclude-publisher">
           — Xuất bản tại website Tiệm Nhỏ Suy Tư —
         </div>
       </div>
