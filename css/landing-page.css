@@ -110,7 +110,7 @@ nav button {
 .pic_seasons {
     margin-top: 10px;
     border-radius: 24px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: none !important;
 }
 

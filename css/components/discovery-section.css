@@ -28,6 +28,7 @@
     position: relative;
     top: 0;
     right: 0;
+    overflow: visible !important;
 }
 
 .pic_seasons figure {
@@ -37,34 +38,39 @@
     display: flex;
     box-shadow: 0 0 2px 3px #371c07, 0 0px 3px 7px #4b431b, 0 0px 3px 8px #754e15, 0 0 3px 11px #6d4f1a, 0 0 0 14px #512311, 2px 2px 96px 15px rgb(0 0 0 / 56%);
     position: relative;
+    overflow: visible !important;
 }
 
 .pic_seasons figure:before {
     content: '';
-    height: 135px;
-    width: 135px;
+    height: 145px;
+    width: 145px;
     position: absolute;
-    top: -82px;
+    top: -68px;
     left: 0;
     right: 0;
     margin: 0 auto;
     transform: rotate(45deg) skew(12deg, 12deg);
-    border-left: 1px solid #515151;
-    border-top: 1px solid #515151;
+    border-left: 2px solid #3e2723;
+    border-top: 2px solid #3e2723;
     border-radius: 8px 0 0 0;
+    z-index: -1;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
 }
 
 .pic_seasons figure:after {
     content: '';
-    height: 6px;
-    width: 6px;
+    height: 12px;
+    width: 12px;
     border-radius: 50%;
-    background-color: #757575;
+    background: radial-gradient(circle at 35% 35%, #a1887f, #3e2723 75%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.5);
     position: absolute;
-    top: -128px;
+    top: -124px;
     left: 0;
     right: 0;
     margin: 0 auto;
+    z-index: 1;
 }
 
 .pic_seasons figure img {
