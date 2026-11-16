@@ -228,8 +228,7 @@
       gsap.from('.hero-floating-note', { y: 16, opacity: 0, duration: 0.6, ease: 'power3.out', delay: 0.3 });
     }
 
-    /* Gắn sự kiện hover và quan sát viewport để tự động trigger tuần tự */
-    const heroSection = document.getElementById('memoryHeroStage') || stage;
+    /* Gắn sự kiện hover để tạm dừng/tiếp tục tự động trigger tuần tự */
     const stageWrap = document.querySelector('.hero-stage-wrap');
     const contentCol = document.querySelector('.hero-memory-content');
 
@@ -241,30 +240,8 @@
       }
     });
 
-    if ('IntersectionObserver' in window && heroSection) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            isSectionVisible = true;
-            startAutoCycle(INITIAL_FIRST_TRIGGER);
-          } else {
-            isSectionVisible = false;
-            stopAutoCycle();
-          }
-        });
-      }, { threshold: 0.2 });
-      observer.observe(heroSection);
-    } else {
-      startAutoCycle(INITIAL_FIRST_TRIGGER);
-    }
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        stopAutoCycle();
-      } else if (isSectionVisible && !isHoverPaused) {
-        startAutoCycle(AUTO_CYCLE_INTERVAL);
-      }
-    });
+    /* Khởi động vòng lặp tự động chuyển từng đĩa than */
+    startAutoCycle(INITIAL_FIRST_TRIGGER);
   }
 
   /* Định vị trí đĩa than với GSAP */
@@ -394,10 +371,10 @@
   /* Bắt đầu vòng lặp tự động trigger từng đĩa than */
   function startAutoCycle(delay = AUTO_CYCLE_INTERVAL) {
     stopAutoCycle();
-    if (isHoverPaused || !isSectionVisible) return;
+    if (isHoverPaused) return;
     runProgressBar(delay);
     autoCycleTimer = setTimeout(() => {
-      if (!isHoverPaused && isSectionVisible) {
+      if (!isHoverPaused) {
         stepRecord(1, false);
         startAutoCycle(AUTO_CYCLE_INTERVAL);
       }
@@ -418,26 +395,19 @@
   /* Tạm dừng khi rê chuột hoặc chạm màn hình */
   function pauseAutoCycle() {
     isHoverPaused = true;
-    if (autoCycleTimer) {
-      clearTimeout(autoCycleTimer);
-      autoCycleTimer = null;
-    }
-    if (progressTween) {
-      progressTween.pause();
-    }
+    stopAutoCycle();
   }
 
   /* Tiếp tục lại khi rời chuột */
   function resumeAutoCycle() {
     isHoverPaused = false;
-    if (!isSectionVisible) return;
     startAutoCycle(3200);
   }
 
   /* Reset bộ đếm thời gian khi người dùng tự tương tác */
   function resetAutoCycleTimer() {
     stopAutoCycle();
-    if (!isHoverPaused && isSectionVisible) {
+    if (!isHoverPaused) {
       startAutoCycle(AUTO_CYCLE_INTERVAL);
     }
   }
