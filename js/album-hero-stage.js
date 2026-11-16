@@ -88,8 +88,7 @@
   const INITIAL_FIRST_TRIGGER = 3800; // 3.8s sau khi vào trang sẽ trigger đĩa đầu tiên
   let autoCycleTimer = null;
   let isHoverPaused = false;
-  let isSectionVisible = true;
-  let progressTween = null;
+  let allowHoverPause = false;
 
   /* Vị trí đĩa chính và 4 đĩa vệ tinh trên quỹ đạo bán nguyệt */
   const MAIN_POS = { left: 54, top: 50, scale: 2.85 };
@@ -240,6 +239,11 @@
       }
     });
 
+    /* Cho phép tạm dừng bằng hover sau khi trang đã render ổn định */
+    setTimeout(() => {
+      allowHoverPause = true;
+    }, 1500);
+
     /* Khởi động vòng lặp tự động chuyển từng đĩa than */
     startAutoCycle(INITIAL_FIRST_TRIGGER);
   }
@@ -365,7 +369,7 @@
 
   /* Bắt đầu vòng lặp tự động trigger từng đĩa than */
   function startAutoCycle(delay = AUTO_CYCLE_INTERVAL) {
-    stopAutoCycle();
+    stopAutoCycle(false);
     if (isHoverPaused) return;
     runProgressBar(delay);
     autoCycleTimer = setTimeout(() => {
@@ -377,20 +381,23 @@
   }
 
   /* Dừng vòng lặp tự động */
-  function stopAutoCycle() {
+  function stopAutoCycle(resetBar = false) {
     if (autoCycleTimer) {
       clearTimeout(autoCycleTimer);
       autoCycleTimer = null;
     }
-    const progressEl = document.getElementById('heroAutoProgress');
-    if (progressEl) {
-      progressEl.style.transition = 'none';
-      progressEl.style.width = '0%';
+    if (resetBar) {
+      const progressEl = document.getElementById('heroAutoProgress');
+      if (progressEl) {
+        progressEl.style.transition = 'none';
+        progressEl.style.width = '0%';
+      }
     }
   }
 
   /* Tạm dừng khi rê chuột hoặc chạm màn hình */
   function pauseAutoCycle() {
+    if (!allowHoverPause) return;
     isHoverPaused = true;
     if (autoCycleTimer) {
       clearTimeout(autoCycleTimer);
@@ -412,10 +419,9 @@
 
   /* Reset bộ đếm thời gian khi người dùng tự tương tác */
   function resetAutoCycleTimer() {
-    stopAutoCycle();
-    if (!isHoverPaused) {
-      startAutoCycle(AUTO_CYCLE_INTERVAL);
-    }
+    isHoverPaused = false;
+    stopAutoCycle(true);
+    startAutoCycle(AUTO_CYCLE_INTERVAL);
   }
 
   /* Xử lý khi nhấp vào đĩa than */
