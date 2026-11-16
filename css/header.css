@@ -538,8 +538,9 @@ header .search_item img {
         max-height: none;
     }
 
-    header .navigation.is-active {
-        margin-top: 54px;
+    header .navigation.is-active,
+    header .navbar-block.is-active {
+        margin-top: 0 !important;
     }
 
     header .level1 {
@@ -555,6 +556,8 @@ header .search_item img {
     }
 
     header .navbar-nav {
+        display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         width: 100%;
     }
@@ -573,32 +576,56 @@ header .search_item img {
         width: 100%;
     }
 
+    /* Mobile / Tablet: Integrated Top Search Bar in Menu */
     header .search_item {
-        position: absolute;
-        top: 85px;
-        left: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: translate(0px, 0);
-    }
-
-    header .search_item .container {
-        padding: 0 30px;
-    }
-
-    header .search_item .search-box {
-        width: 100%;
+        order: -1 !important;
+        position: static !important;
+        width: 100% !important;
+        margin: 5px 0 16px 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        transform: none !important;
     }
 
     header .search_item .navigation-title {
-        display: none;
+        display: none !important;
     }
 
-    header .search_item .mega-dropdown-menu {
-        display: contents;
-        border: 0;
+    header .search_item .mega-dropdown-menu.site-search-panel,
+    header .search_item .dropdown-content {
+        position: static !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    header .search_item .site-search-wrap {
+        padding: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    header .search_item .site-search-bar {
+        background: #ffffff !important;
+        border: 1.5px solid rgba(213, 168, 100, 0.45) !important;
+        border-radius: 25px !important;
+        padding: 8px 16px !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    header .search_item .site-search-quick {
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+        border-top: 1px dashed rgba(213, 168, 100, 0.25) !important;
     }
 
     header .navigation-title {
@@ -1003,6 +1030,8 @@ header .search_item img {
     }
 
     header .search_item {
+        order: initial !important;
+        width: auto !important;
         position: relative;
         top: 0;
         left: 0;
@@ -1022,11 +1051,33 @@ header .search_item img {
     }
 
     header .search_item .navigation-title {
-        display: block;
+        display: block !important;
     }
 
-    header .search_item .mega-dropdown-menu {
-        display: block;
+    header .search_item .mega-dropdown-menu.site-search-panel {
+        position: absolute !important;
+        top: calc(100% - 6px) !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        padding: 24px 0 28px 0 !important;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1), 0 6px 18px rgba(213, 168, 100, 0.08) !important;
+        border-top: 1px solid rgba(213, 168, 100, 0.25) !important;
+        border-bottom: 2px solid rgba(213, 168, 100, 0.35) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    header .search_item.is-open .mega-dropdown-menu.site-search-panel,
+    header .search_item:hover .mega-dropdown-menu.site-search-panel,
+    header .search_item.is-hovered .mega-dropdown-menu.site-search-panel,
+    header .search_item:focus-within .mega-dropdown-menu.site-search-panel {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
     }
 
     header .navbar {
