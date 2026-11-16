@@ -602,30 +602,45 @@
 }
 
 @media (max-width: 992px) {
+  .memory-hero-section {
+    padding: 30px 20px 45px 20px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
   .memory-hero-stage {
     grid-template-columns: 1fr;
-    padding: 100px 24px 40px 24px;
+    padding: 60px 0 30px 0 !important;
     min-height: auto;
     gap: 20px;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-stage-wrap {
     min-height: auto;
     order: 1;
     margin-bottom: 12px;
-    padding-bottom: 48px;
+    padding-bottom: 40px;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
 
   .hero-stage {
-    width: min(86vw, 420px);
-    height: min(86vw, 420px);
+    width: min(84vw, 380px);
+    height: min(84vw, 380px);
+    max-width: 100% !important;
   }
 
   .hero-memory-content {
     order: 2;
     max-width: 100%;
+    width: 100% !important;
     text-align: center;
     align-items: center;
+    box-sizing: border-box !important;
   }
 
   .hero-memory-eyebrow {
@@ -645,10 +660,15 @@
     border-top: 3.5px solid var(--track-accent, #86bf3e);
     border-radius: 0 0 10px 10px;
     text-align: center;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
   .hero-controls-row {
     justify-content: center;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-step-row {
@@ -656,48 +676,73 @@
   }
 
   .hero-disc {
-    width: 76px;
-    height: 76px;
+    width: 72px;
+    height: 72px;
   }
 }
 
 @media (max-width: 560px) {
+  .memory-hero-section {
+    padding: 24px 20px 36px 20px !important; /* Đồng bộ tuyệt đối padding với dedication-section */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
   .memory-hero-stage {
-    padding: 90px 16px 32px 16px;
+    padding: 50px 0 20px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-stage {
-    width: min(90vw, 340px);
-    height: min(90vw, 340px);
+    width: min(80vw, 300px) !important;
+    height: min(80vw, 300px) !important;
+    max-width: 100% !important;
   }
 
   .hero-disc {
-    width: 66px;
-    height: 66px;
+    width: 60px !important;
+    height: 60px !important;
   }
 
   .hero-main-page-title {
-    font-size: clamp(32px, 8.5vw, 42px);
+    font-size: clamp(28px, 7.5vw, 36px);
   }
 
   .hero-track-title-dynamic {
-    font-size: clamp(20px, 5.5vw, 26px);
+    font-size: clamp(18px, 4.8vw, 22px);
   }
 
   .hero-memory-desc {
-    font-size: 15px;
-    line-height: 1.6;
-    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.55;
+    padding: 10px 14px;
+    box-sizing: border-box !important;
   }
 
   .hero-controls-row {
     flex-direction: column;
-    width: 100%;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .btn-hero-listen,
   .btn-hero-read {
-    width: 100%;
+    width: 100% !important;
     justify-content: center;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-stage {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .hero-disc {
+    width: 52px !important;
+    height: 52px !important;
   }
 }

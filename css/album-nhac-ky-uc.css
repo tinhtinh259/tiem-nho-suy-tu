@@ -24,6 +24,12 @@
   --album-font-mono: 'SFMono-Regular', Consolas, monospace;
 }
 
+html {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+}
+
 body.album-page {
   background-color: var(--album-bg);
   background-image:
@@ -31,7 +37,9 @@ body.album-page {
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   min-height: 100vh;
   color: var(--ink);
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
 }
 
 .album-wrapper {
@@ -1292,8 +1300,19 @@ body.album-page {
    ========================================================================== */
 
 .manuscript-section {
-  margin-bottom: 80px;
+  max-width: 1040px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
   position: relative;
+  z-index: 2;
+}
+
+.manuscript-section .container {
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .section-drafts-header {
@@ -3154,27 +3173,38 @@ body.album-page {
 }
 
 @media (max-width: 992px) {
+  .album-wrapper {
+    padding: 30px 20px 60px 20px !important;
+    max-width: 1040px !important;
+    box-sizing: border-box !important;
+  }
+
   .studio-corner-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .studio-shelf-col .bookshelf {
-    max-width: 780px;
+    max-width: 100% !important;
+    width: 100% !important;
     margin: 0 auto;
     height: auto;
+    box-sizing: border-box !important;
   }
 
   .studio-deck-col {
-    margin-top: 18px;
+    margin-top: 10px;
   }
 
   .studio-deck-col .audio-deck-container {
-    max-width: 780px;
+    max-width: 100% !important;
     margin: 0 auto;
-    width: 100%;
+    width: 100% !important;
     height: auto;
     grid-template-columns: 240px 1fr;
+    box-sizing: border-box !important;
   }
 
   .studio-deck-col .turntable-box {
@@ -3191,9 +3221,20 @@ body.album-page {
 @media (max-width: 600px) {
   .studio-deck-col .audio-deck-container {
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 24px 20px !important;
+    border-radius: 16px !important;
     gap: 20px;
     text-align: center;
+  }
+
+  .studio-deck-col .turntable-box {
+    width: min(220px, 68vw) !important;
+    height: min(220px, 68vw) !important;
+  }
+
+  .studio-deck-col .vinyl-record {
+    width: min(180px, 56vw) !important;
+    height: min(180px, 56vw) !important;
   }
 
   .studio-deck-col .deck-now-playing {
@@ -3205,15 +3246,72 @@ body.album-page {
   }
 }
 
-/* Responsive Rules for Small Devices */
+/* Responsive Rules for Small Devices (Mobile Viewports) */
 @media (max-width: 768px) {
+  /* Đồng bộ padding tất cả các section như dedication-section */
+  .album-wrapper {
+    padding: 24px 20px 50px 20px !important;
+    box-sizing: border-box !important;
+  }
 
-  /* Filter Pills Horizontal Scroll (Vuốt ngang mượt mà, không rớt dòng) */
+  .manuscript-section {
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .manuscript-section .container {
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Kệ sách 3D trên Mobile: Viền thu gọn, các cuốn sách co giãn tự nhiên không tràn màn hình */
+  .studio-shelf-col .bookshelf {
+    border-left: 8px solid #a87944 !important;
+    border-right: 8px solid #a87944 !important;
+    border-radius: 10px 10px 0 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .shelf-plank-unit {
+    margin: 0 -8px !important;
+  }
+
+  .shelf-center-stage {
+    padding: 0 4px 0 0 !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .books-container {
+    gap: 3px !important;
+    margin-left: 0 !important;
+  }
+
+  .shelf-decor-group {
+    transform: scale(0.65) !important;
+    transform-origin: bottom center !important;
+    margin: 0 -8px !important;
+  }
+
+  .shelf-special-book {
+    margin-right: 2px !important;
+  }
+
+  /* Filter Pills Horizontal Scroll (Vuốt ngang mượt mà, không lệch padding) */
   .filter-section {
     flex-direction: column;
     align-items: stretch;
     gap: 14px;
     margin-bottom: 25px;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .filter-pills {
@@ -3223,9 +3321,9 @@ body.album-page {
     overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
     gap: 8px;
-    padding: 4px 16px 10px 16px;
-    margin-left: -16px;
-    margin-right: -16px;
+    padding: 4px 0 10px 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
     scroll-snap-type: x proximity;
@@ -3250,11 +3348,12 @@ body.album-page {
   }
 
   .filter-actions-right {
-    width: 100%;
+    width: 100% !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    box-sizing: border-box !important;
   }
 
   .search-box-wrap {
@@ -3262,8 +3361,8 @@ body.album-page {
   }
 
   .search-input {
-    width: 100%;
-    box-sizing: border-box;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .view-mode-toggle {
@@ -3280,15 +3379,18 @@ body.album-page {
   }
 
   .manuscript-grid.mode-stream {
-    padding: 16px 8px 30px 8px;
-    gap: 18px;
-    margin-left: -14px;
-    margin-right: -14px;
+    padding: 16px 0 30px 0 !important;
+    gap: 16px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .manuscript-grid.mode-stream .manuscript-sheet {
-    flex: 0 0 270px;
-    width: 270px;
+    flex: 0 0 min(270px, 80vw);
+    width: min(270px, 80vw);
     max-width: 270px;
     padding: 24px 18px 18px 18px;
     min-height: 350px;
@@ -3653,5 +3755,42 @@ body.album-page {
 
   .close-btn-text-mob {
     display: inline;
+  }
+}
+
+@media (max-width: 360px) {
+  .album-wrapper {
+    padding: 20px 14px 40px 14px !important;
+  }
+
+  .manuscript-section {
+    padding: 0 14px !important;
+  }
+
+  .dedication-section {
+    padding: 0 14px !important;
+  }
+
+  .studio-shelf-col .bookshelf {
+    border-left-width: 6px !important;
+    border-right-width: 6px !important;
+  }
+
+  .shelf-plank-unit {
+    margin: 0 -6px !important;
+  }
+
+  .books-container {
+    gap: 1.5px !important;
+  }
+
+  .books-container .book {
+    transform: scale(0.92);
+    transform-origin: bottom left;
+  }
+
+  .shelf-decor-group {
+    transform: scale(0.48) !important;
+    margin: 0 -16px !important;
   }
 }
