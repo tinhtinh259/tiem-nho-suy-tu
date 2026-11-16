@@ -219,7 +219,7 @@ const SPECIAL_BOOK_JENNY = {
   id: "special-jenny",
   isStandalone: true,
   title: "Vệt Mực Mùa Thu",
-  author: "Jenny",
+  author: "J",
   songTitle: "Colour Me In",
   songArtist: "Damien Rice",
   melodyType: "colour-me-in",
@@ -286,7 +286,7 @@ const SPECIAL_BOOK_JENNY = {
         </div>
         <p>Đó là 1 đoạn ca khúc <strong>Colour Me In</strong> của Damien Rice mà mình đang nghe, một kẻ cô độc muốn được yêu nhưng lại che đậy cảm xúc của mình. Để rồi phải tự mình thú nhận, muốn có được tình yêu đó.</p>
         <p>Mình cũng không biết mình đang là kẻ cứng đầu hay là kẻ đáng thương nữa. Nhưng mình có vẻ đang tận hưởng sự đơn độc này.<br><strong>Và mình nhớ anh nhiều lắm ^^</strong></p>
-        <p style="font-size: 12px; color: #842f47; font-style: italic; text-align: right; margin-top: 10px; font-weight: 600;">— Jenny • Mùa thu 2026 —</p>`
+        <p style="font-size: 12px; color: #842f47; font-style: italic; text-align: right; margin-top: 10px; font-weight: 600;">— J • Mùa thu 2026 —</p>`
       }
     }
   ]
@@ -869,7 +869,7 @@ function buildShelf(container) {
   specialShadow.className = 'book-foot-shadow';
   specialBookEl.appendChild(specialShadow);
 
-  specialBookEl.setAttribute('title', 'Cuốn sách đặc biệt của Jenny • Vệt Mực Mùa Thu (Chạm để mở đọc)');
+  specialBookEl.setAttribute('title', 'Cuốn sách đặc biệt của J • Vệt Mực Mùa Thu (Chạm để mở đọc)');
 
   // CLICK SÁCH ĐẶC BIỆT CỦA JENNY: MỞ 3D FLIPBOOK!
   specialBookEl.addEventListener('click', function () {
