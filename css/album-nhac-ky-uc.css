@@ -800,7 +800,16 @@ body.album-page {
   background: rgba(229, 197, 131, 0.2);
   border: 1px solid rgba(229, 197, 131, 0.4);
   border-radius: 2px;
-  padding: 1px 3px !important;
+  padding: 1px 4px !important;
+  min-width: 14px;
+  text-align: center;
+}
+
+.special-author-badge .spine-vol-text {
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ffffff;
 }
 
 .decor-item-wrap {
@@ -2419,6 +2428,7 @@ body.album-page {
   height: 100%;
   pointer-events: all;
   user-select: none;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transform-origin: left center;
   transition:
@@ -2445,10 +2455,12 @@ body.album-page {
   flex-direction: column;
   justify-content: space-between;
   padding: 1.8rem 1.7rem 1.2rem;
-  background-color: var(--parchment, #fbf7ee);
+  background-color: #faf5ec !important; /* Đảm bảo 100% đục, ngăn chặn thấu quang nhìn xuyên trang */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
   color: #1a1208;
   border: 1px solid rgba(139, 100, 60, 0.22);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Hoàn toàn loại bỏ thanh cuộn (scrollbar) để trang sách phẳng và thanh lịch như sách thật */
@@ -2463,10 +2475,14 @@ body.album-page {
   height: 0 !important;
 }
 
+/* Khắc phục triệt để lỗi Z-fighting và bóng chữ trang trước thấu qua trên Mobile (iOS Safari & Android Chrome) */
 .book-3d .front {
   border-radius: 2px 8px 8px 2px;
   background-image: linear-gradient(to right, #ede4ce 0%, #fbf7ee 12%, #faf5ec 100%);
   box-shadow: inset -8px 0 18px rgba(0, 0, 0, 0.06);
+  transform: translateZ(1px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .book-3d .back {
@@ -2475,6 +2491,16 @@ body.album-page {
   border-radius: 8px 2px 2px 8px;
   background-image: linear-gradient(to left, #ede4ce 0%, #fbf7ee 12%, #faf5ec 100%);
   box-shadow: inset 8px 0 18px rgba(0, 0, 0, 0.08);
+  transform: translateZ(1px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Đảm bảo toàn bộ chữ và hình ảnh bên trong trang hoàn toàn ẩn khi mặt trang quay lưng */
+.book-3d .front *,
+.book-3d .back * {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Page corner turn hint / edge hover */
@@ -3341,6 +3367,11 @@ body.album-page {
     padding: 0.8rem 0.65rem 0.5rem;
   }
 
+  .story-page-content {
+    overflow: hidden;
+    max-height: 100%;
+  }
+
   .page-chapter {
     font-size: 8px;
     margin-bottom: 2px;
@@ -3355,8 +3386,8 @@ body.album-page {
 
   .page-body-text {
     font-size: 11px;
-    line-height: 1.2;
-    padding-top: 10px;
+    line-height: 1.25;
+    padding-top: 6px;
   }
 
   .page-body-text p {

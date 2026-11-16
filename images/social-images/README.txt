@@ -28,3 +28,4 @@ CÁCH KIỂM TRA PREVIEW KHI CHIA SẺ:
 - Facebook Debugger: https://developers.facebook.com/tools/debug/
 - Zalo Debugger:     https://developers.zalo.me/tools/debug-sharing
 - Xem trước đa nền tảng: https://www.opengraph.xyz/
+

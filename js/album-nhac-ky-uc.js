@@ -218,7 +218,7 @@ const MASTER_BOOKS = [
 const SPECIAL_BOOK_JENNY = {
   id: "special-jenny",
   isStandalone: true,
-  title: "Vệt Mực\nMùa Thu",
+  title: "Vệt Mực Mùa Thu",
   author: "Jenny",
   songTitle: "Colour Me In",
   songArtist: "Damien Rice",
@@ -832,12 +832,12 @@ function buildShelf(container) {
     <div class="spine-top-group standalone">
       <div class="spine-ornament lg">${SPECIAL_BOOK_JENNY.ornament || '🍂'}</div>
       <div class="spine-vol-box special-author-badge">
-        <span class="spine-vol-text">JENNY</span>
+        <span class="spine-vol-text">J</span>
       </div>
     </div>
 
     <div class="spine-title-wrap">
-      <div class="spine-main-title multi-col">
+      <div class="spine-main-title ${specialLines.length > 1 ? 'multi-col' : ''}">
         ${specialTitleColsHtml}
       </div>
     </div>
@@ -1613,6 +1613,7 @@ const flipBook3D = (elBook) => {
 
 function setFlipBookPage(pageIndex) {
   if (!book3D) return;
+  const prevFlipPage = currentFlipPage;
   currentFlipPage = Math.max(0, Math.min(pageIndex, totalFlipPages));
   book3D.style.setProperty("--c", currentFlipPage);
 
@@ -1628,15 +1629,33 @@ function setFlipBookPage(pageIndex) {
     book3D.style.translate = "50% 0%";
   }
 
-  // Quản lý thứ tự z-index để loại bỏ 100% hiện tượng Z-fighting hay chớp trang trong 3D:
+  // Quản lý thứ tự z-index: Trang đang xoay giữa không trung luôn được nâng z-index cao nhất
+  // để ngăn chặn hoàn toàn việc chữ từ trang trước hoặc trang sau đè xuyên qua
   const allPages = book3D.querySelectorAll(".page");
+  const isMovingForward = currentFlipPage > prevFlipPage;
+  const turningIdx = isMovingForward ? currentFlipPage - 1 : currentFlipPage;
+
   allPages.forEach((page, idx) => {
-    if (idx < currentFlipPage) {
+    if (idx === turningIdx && prevFlipPage !== currentFlipPage) {
+      page.style.zIndex = totalFlipPages + 30;
+    } else if (idx < currentFlipPage) {
       page.style.zIndex = idx + 1;
     } else {
       page.style.zIndex = totalFlipPages - idx + 10;
     }
   });
+
+  // Sau khi hoàn thành chuyển động lật (850ms), đưa z-index trang đó về đúng vị trí lớp xếp chồng
+  if (window._flipZIndexTimer) clearTimeout(window._flipZIndexTimer);
+  window._flipZIndexTimer = setTimeout(() => {
+    allPages.forEach((page, idx) => {
+      if (idx < currentFlipPage) {
+        page.style.zIndex = idx + 1;
+      } else {
+        page.style.zIndex = totalFlipPages - idx + 10;
+      }
+    });
+  }, 900);
 
   if (flipbookPageCounter) {
     if (currentFlipPage === 0) {
