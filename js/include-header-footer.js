@@ -201,8 +201,17 @@
       const headerEl = document.querySelector('header.header') || document.querySelector('header');
       if (headerEl) {
         const syncHeaderHeight = () => {
-          const actualH = Math.round(headerEl.getBoundingClientRect().height || headerEl.offsetHeight);
-          if (actualH > 50) {
+          if (document.documentElement.classList.contains('isOpenMenu') || document.documentElement.classList.contains('openHamburger')) {
+            return;
+          }
+          let actualH = 70;
+          if (window.innerWidth <= 1139) {
+            const logoBar = headerEl.querySelector('.navbar-logo');
+            actualH = logoBar ? Math.round(logoBar.getBoundingClientRect().height) : 65;
+          } else {
+            actualH = Math.round(headerEl.getBoundingClientRect().height || headerEl.offsetHeight);
+          }
+          if (actualH >= 40 && actualH <= 120) {
             document.documentElement.style.setProperty('--height-header', actualH + 'px');
             document.documentElement.style.setProperty('--header-offset', actualH + 'px');
           }
