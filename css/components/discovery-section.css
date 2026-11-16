@@ -1339,8 +1339,19 @@
 @media screen and (max-width: 767px) {
     :root {
         --scale-pic_seasons: 1;
-        --scale-cat-marco: 0.33;
-        --scale-cat_square: 0.50;
+    }
+
+    .foliage_1 {
+        transform: scale(0.38);
+        right: -180px;
+    }
+
+    .foliage_2 {
+        transform: scale(0.2);
+    }
+
+    .foliage_7 {
+        left: 0;
     }
 
     /* Rút ngắn khoảng trống dư thừa trên mobile cho scene phòng khách (tranh bốn mùa, mèo và sàn) */
@@ -1361,101 +1372,13 @@
         height: 360px !important;
     }
 
-    /* Cân đối lại kích thước bậc thang và mèo nằm */
     .cat_square {
         height: 360px !important;
-        transform: skew(-10deg, 0deg) scale(var(--scale-cat_square)) !important;
-        transform-origin: bottom right !important;
-        margin-right: -10px !important;
-    }
-
-    /* Cân đối mèo đi dạo trên sàn */
-    .cat_2 {
-        transform: scale(var(--scale-cat-marco)) !important;
-        transform-origin: left bottom !important;
-        left: 15px !important;
-        bottom: 8px !important;
-        z-index: 3 !important;
-    }
-
-    /* Cây cọ trong chậu gỗ bên phải: thu nhỏ vừa vặn góc phòng, không che mèo */
-    .foliage_1 {
-        transform: scale(0.28) !important;
-        transform-origin: bottom right !important;
-        right: 0 !important;
-        bottom: -15px !important;
-        z-index: 1 !important;
-    }
-
-    /* Bàn trà gỗ bên trái: thu nhỏ thanh thoát, nổi lên phía trước */
-    .foliage_7 {
-        left: 6px !important;
-        bottom: 45px !important;
-        z-index: 2 !important;
-    }
-
-    .foliage_7 img {
-        width: 155px !important;
-    }
-
-    .foliage_7 .size_envelope_spin {
-        top: -8px !important;
-        left: 48% !important;
-        transform: translateX(-50%) scale(0.13) !important;
-    }
-
-    /* Cây cọ 3 thân: làm nền sau bàn */
-    .foliage_2 {
-        transform: scale(0.16) !important;
-        transform-origin: bottom left !important;
-        left: -190px !important;
-        bottom: 50px !important;
-        z-index: 0 !important;
-    }
-
-    /* Chậu cây vàng góc trái: thu nhỏ tạo chiều sâu phía sau bàn */
-    .foliage_8 {
-        transform: scale(0.45) !important;
-        transform-origin: bottom left !important;
-        left: -10px !important;
-        bottom: 45px !important;
-        z-index: 0 !important;
     }
 }
 
 @media screen and (max-width: 600px) {
     :root {
         --scale-pic_seasons: 0.7;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    :root {
-        --scale-cat-marco: 0.30;
-        --scale-cat_square: 0.45;
-    }
-
-    .cat_2 {
-        left: 10px !important;
-        bottom: 6px !important;
-    }
-
-    .foliage_1 {
-        transform: scale(0.25) !important;
-        right: -5px !important;
-    }
-
-    .foliage_7 {
-        left: 2px !important;
-        bottom: 40px !important;
-    }
-
-    .foliage_7 img {
-        width: 140px !important;
-    }
-
-    .foliage_8 {
-        transform: scale(0.40) !important;
-        left: -15px !important;
     }
 }
