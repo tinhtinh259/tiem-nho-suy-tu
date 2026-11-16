@@ -450,15 +450,22 @@
     gsap.set(incomingEl, { zIndex: 26 });
     gsap.set(outgoingEl, { zIndex: 18 });
 
+    let animDone = false;
+    const finishAnim = () => {
+      if (animDone) return;
+      animDone = true;
+      slots[slotIdx] = outgoingId;
+      activeIndex = newRecordId;
+      renderStagePositions();
+      isAnimating = false;
+    };
+
     const tl = gsap.timeline({
-      defaults: { duration: 0.75, ease: 'power3.inOut', overwrite: 'auto' },
-      onComplete: () => {
-        slots[slotIdx] = outgoingId;
-        activeIndex = newRecordId;
-        renderStagePositions();
-        isAnimating = false;
-      }
+      defaults: { duration: 0.75, ease: 'power3.inOut' },
+      onComplete: finishAnim
     });
+
+    setTimeout(finishAnim, 800);
 
     /* Đĩa được chọn phóng to và bay vào tâm */
     tl.to(incomingEl, {
