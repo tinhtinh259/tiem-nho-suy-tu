@@ -1353,6 +1353,33 @@
     .foliage_7 {
         left: 0;
     }
+
+    /* Rút ngắn khoảng trống dư thừa trên mobile cho scene phòng khách (tranh bốn mùa, mèo và sàn) */
+    .discovery_section {
+        min-height: auto !important;
+    }
+
+    .discovery_section .living_flex .item_living_flex:last-child {
+        height: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    .pic_seasons {
+        height: 270px !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        justify-content: center !important;
+    }
+
+    .objects_content {
+        height: 280px !important;
+    }
+
+    .cat_square {
+        height: 280px !important;
+    }
 }
 
 @media screen and (max-width: 600px) {
