@@ -1243,7 +1243,7 @@ section .living_flex {
 
 @media (max-width: 492px) {
     .cara-persona-widget {
-        right: 50px;
+        right: 60px;
     }
 
     .cara-persona-trigger-icon img,
