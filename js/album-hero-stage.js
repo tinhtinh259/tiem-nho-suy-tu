@@ -352,20 +352,15 @@
     }
   }
 
-  /* Xử lý thanh tiến trình chuyển đĩa tự động */
+  /* Xử lý thanh tiến trình chuyển đĩa tự động bằng CSS transition mượt mà */
   function runProgressBar(duration) {
     const progressEl = document.getElementById('heroAutoProgress');
-    if (!progressEl || !window.gsap) return;
-    if (progressTween) progressTween.kill();
-    gsap.set(progressEl, { width: '0%' });
-    progressTween = gsap.to(progressEl, {
-      width: '100%',
-      duration: duration / 1000,
-      ease: 'none',
-      onComplete: () => {
-        gsap.set(progressEl, { width: '0%' });
-      }
-    });
+    if (!progressEl) return;
+    progressEl.style.transition = 'none';
+    progressEl.style.width = '0%';
+    void progressEl.offsetWidth; // Force reflow
+    progressEl.style.transition = `width ${duration}ms linear`;
+    progressEl.style.width = '100%';
   }
 
   /* Bắt đầu vòng lặp tự động trigger từng đĩa than */
@@ -387,15 +382,26 @@
       clearTimeout(autoCycleTimer);
       autoCycleTimer = null;
     }
-    if (progressTween) {
-      progressTween.pause();
+    const progressEl = document.getElementById('heroAutoProgress');
+    if (progressEl) {
+      progressEl.style.transition = 'none';
+      progressEl.style.width = '0%';
     }
   }
 
   /* Tạm dừng khi rê chuột hoặc chạm màn hình */
   function pauseAutoCycle() {
     isHoverPaused = true;
-    stopAutoCycle();
+    if (autoCycleTimer) {
+      clearTimeout(autoCycleTimer);
+      autoCycleTimer = null;
+    }
+    const progressEl = document.getElementById('heroAutoProgress');
+    if (progressEl) {
+      const currentWidth = window.getComputedStyle(progressEl).width;
+      progressEl.style.transition = 'none';
+      progressEl.style.width = currentWidth;
+    }
   }
 
   /* Tiếp tục lại khi rời chuột */
