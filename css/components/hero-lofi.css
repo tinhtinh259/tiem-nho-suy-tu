@@ -1126,29 +1126,94 @@
   border-color: #c69c5e;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .welcome-letter-card {
-    padding: 30px 22px 25px 22px;
+    padding: 28px 20px 22px 20px;
     border-radius: 20px;
   }
 
   .letter-salutation h3 {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .letter-content-body {
     font-size: 13.5px;
+    line-height: 1.7;
   }
 
+  /* Chữ ký TìnhTình nằm gọn gàng bên phải lá thư */
+  .letter-signature-area {
+    margin-left: auto;
+    margin-right: 0;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .sig-wishes {
+    font-size: 12.5px;
+  }
+
+  .sig-author {
+    align-items: flex-end;
+  }
+
+  .sig-name {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  .sig-role {
+    font-size: 11px;
+  }
+
+  /* Nút hành động thu gọn kích thước và neo sang bên phải lá thư */
   .letter-action-buttons {
+    display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: flex-end;
+    width: auto;
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 18px;
+    gap: 8px;
   }
 
-  .btn-letter-continue,
-  .btn-letter-close-secondary {
-    width: 100%;
+  .btn-letter-continue {
+    width: auto;
+    font-size: 12px;
+    padding: 9px 18px;
+    gap: 8px;
+    white-space: nowrap;
     justify-content: center;
+  }
+
+  .btn-letter-close-secondary {
+    width: auto;
+    font-size: 11.5px;
+    padding: 7px 16px;
+    white-space: nowrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome-letter-card {
+    padding: 24px 16px 20px 16px;
+  }
+
+  .sig-name {
+    font-size: 22px;
+  }
+
+  .btn-letter-continue {
+    font-size: 11px;
+    padding: 8px 14px;
+  }
+
+  .btn-letter-close-secondary {
+    font-size: 11px;
+    padding: 6px 14px;
   }
 }
 
