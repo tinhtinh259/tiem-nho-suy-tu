@@ -102,7 +102,7 @@ function updateDiscoveryUI() {
         <div class="journal-empty">
           <div class="empty-icon">🍃</div>
           <p>Chưa có khám phá nào.</p>
-          <span>Hãy rê chuột hoặc chạm vào các chú mèo và vật thể trên trang nhé! 🐾</span>
+          <span>Hãy chạm hoặc lướt nhẹ qua các chú mèo và vật thể trên trang nhé! 🐾</span>
         </div>
       `;
     } else {

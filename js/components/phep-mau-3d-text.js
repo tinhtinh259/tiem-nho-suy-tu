@@ -101,9 +101,9 @@
 
     if (hintEl) {
       if (isTransmuted) {
-        hintEl.innerHTML = '<span class="hint-icon">✨</span> Phép màu hiển hiện: <strong>' + preset.labelAfter + '</strong> • Kéo chuột để cảm nhận';
+        hintEl.innerHTML = '<span class="hint-icon">✨</span> Phép màu hiển hiện: <strong>' + preset.labelAfter + '</strong> • Kéo hoặc vuốt để cảm nhận';
       } else {
-        hintEl.innerHTML = '<span class="hint-icon">↔</span> Kéo chuột để làm tan rã • Nhấn "Hô Biến" để chuyển hóa';
+        hintEl.innerHTML = '<span class="hint-icon">↔</span> Kéo hoặc vuốt để làm tan rã • Nhấn "Hô Biến" để chuyển hóa';
       }
     }
   }
