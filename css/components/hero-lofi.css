@@ -1044,6 +1044,7 @@
   margin-left: auto;
   max-width: max-content;
   text-align: center;
+  align-items: center;
 }
 
 .sig-wishes {
@@ -1074,17 +1075,17 @@
   color: #9c8473;
 }
 
-/* Modal Action Buttons */
+/* Modal Action Buttons - cùng trục tâm dọc với chữ ký */
 .letter-action-buttons {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
-  margin-top: 30px;
-  margin-bottom: 6px;
-  margin-right: 24px;
-  flex-wrap: wrap;
-  max-width: max-content;
+  margin-top: 18px;
+  margin-bottom: 4px;
   margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .btn-letter-continue {
@@ -1178,16 +1179,16 @@
     text-align: center;
   }
 
-  /* Nút hành động thu gọn kích thước và neo sang bên phải lá thư */
+  /* Nút hành động cùng trục tâm dọc với cụm chữ ký */
   .letter-action-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
-    max-width: max-content;
+    justify-content: center;
+    width: 100%;
     margin-left: auto;
-    margin-right: 0;
-    margin-top: 18px;
+    margin-right: auto;
+    margin-top: 14px;
     gap: 8px;
   }
 
