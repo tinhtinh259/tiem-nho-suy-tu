@@ -424,6 +424,7 @@ body {
     font-size: 14px;
     color: #2b4c2c;
     padding-bottom: 6px;
+    white-space: nowrap;
 }
 
 .pop_guide p,
@@ -451,7 +452,16 @@ body {
 @media screen and (max-width: 767px) {
     .pop_guide {
         transform: translate(-50%, -50%);
-        border-radius: 12px;
+        border-radius: 14px;
+        width: calc(100% - 40px);
+        max-width: 310px;
+        min-width: 250px;
+        box-sizing: border-box;
+    }
+
+    .pop_guide h3 {
+        font-size: 13.5px;
+        white-space: nowrap;
     }
 }
 
