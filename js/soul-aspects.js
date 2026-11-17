@@ -608,6 +608,23 @@ document.addEventListener("DOMContentLoaded", () => {
       thumbItems.forEach(btn => btn.classList.remove("active"));
       this.classList.add("active");
       switchAspect(key);
+
+      // Mobile & Tablet auto-scroll feedback
+      if (window.innerWidth < 992) {
+        // Smoothly center the clicked thumbnail in the horizontal story bar
+        this.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+
+        // Ensure the detail card is visible and easy to read
+        const detailCard = document.getElementById("soulDetailCard");
+        if (detailCard) {
+          const rect = detailCard.getBoundingClientRect();
+          const stickyOffset = 175; // accounts for header (76px) + sticky thumbs (~85px) + gap
+          if (rect.top < stickyOffset - 30 || rect.top > window.innerHeight - 100) {
+            const targetY = window.pageYOffset + rect.top - stickyOffset;
+            window.scrollTo({ top: Math.max(0, targetY), behavior: "smooth" });
+          }
+        }
+      }
     });
   });
 
