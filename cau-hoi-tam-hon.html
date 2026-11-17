@@ -125,15 +125,16 @@
         .journal-nav-ribbon {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 8px 10px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.7);
+            max-width: 860px;
+            margin: 0 auto 40px auto;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(10px);
-            border-radius: 50px;
+            border-radius: 16px;
             border: 1px solid var(--line-color);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 18px rgba(47, 93, 67, 0.05);
         }
 
         .ribbon-btn {
@@ -142,8 +143,8 @@
             color: var(--text-sub);
             font-size: 13px;
             font-weight: 500;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 6px 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.25s ease;
         }
