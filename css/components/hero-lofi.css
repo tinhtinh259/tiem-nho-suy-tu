@@ -1056,6 +1056,8 @@
 .sig-author {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 2px;
 }
 
@@ -1141,36 +1143,46 @@
     line-height: 1.7;
   }
 
-  /* Chữ ký TìnhTình nằm gọn gàng bên phải lá thư */
+  /* Chữ ký TìnhTình nằm gọn gàng bên phải lá thư, sig-name nằm chính giữa sig-role */
   .letter-signature-area {
     margin-left: auto;
     margin-right: 0;
-    align-items: flex-end;
-    text-align: right;
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .sig-wishes {
     font-size: 12.5px;
+    text-align: center;
   }
 
   .sig-author {
-    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2px;
   }
 
   .sig-name {
     font-size: 24px;
     line-height: 1.15;
+    text-align: center;
   }
 
   .sig-role {
     font-size: 11px;
+    text-align: center;
   }
 
   /* Nút hành động thu gọn kích thước và neo sang bên phải lá thư */
   .letter-action-buttons {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     width: auto;
     max-width: max-content;
     margin-left: auto;
