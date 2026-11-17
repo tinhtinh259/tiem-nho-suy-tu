@@ -1053,11 +1053,13 @@ body {
   }
 
   .parallax_seasons #menu-button {
-    bottom: -15px;
+    bottom: auto !important;
+    top: -80px !important;
   }
 
   .parallax_seasons #menu-season {
-    bottom: 40px;
+    bottom: auto !important;
+    top: -80px !important;
   }
 }
 
@@ -1065,5 +1067,15 @@ body {
   .parallax_seasons .tabs_seasons {
     transform: scale(0.55);
     height: 230px;
+  }
+
+  .parallax_seasons #menu-button {
+    bottom: auto !important;
+    top: -80px !important;
+  }
+
+  .parallax_seasons #menu-season {
+    bottom: auto !important;
+    top: -80px !important;
   }
 }
