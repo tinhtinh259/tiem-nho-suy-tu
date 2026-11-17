@@ -33,15 +33,13 @@
   pointer-events: none;
 }
 
-/* Left Hero Content - order: 1 */
-.landing_section .landing_left.txt,
+/* Left Hero Content */
 .landing_left.txt {
   display: flex;
   flex-direction: column;
   gap: 0 16px;
   z-index: 5;
   width: 50%;
-  order: 1 !important;
 }
 
 .hero-pill-badge {
@@ -218,15 +216,13 @@
   background: #a67c38;
 }
 
-/* Right Side: Centered 3D Fan-out Cards Stack (50% Width) - order: 2 */
-.landing_section .landing_right,
+/* Right Side: Centered 3D Fan-out Cards Stack (50% Width) */
 .landing_right {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50% !important;
-  order: 2 !important;
 }
 
 /* Manual Navigation Controls for Hero Cards */
@@ -294,35 +290,11 @@
   box-shadow: 0 2px 8px rgba(198, 156, 94, 0.35);
 }
 
-@media (max-width: 991px) {
-  .landing_section .landing_dflex {
-    flex-wrap: wrap;
-    gap: 36px 0;
-  }
-
-  .landing_section .landing_left.txt {
-    width: 100% !important;
-    order: 1 !important;
-  }
-
-  .landing_section .landing_right {
-    width: 100% !important;
-    order: 2 !important;
-  }
-}
-
 @media (max-width: 767px) {
 
-  .landing_section .landing_left.txt,
-  .landing_left.txt {
-    width: 100% !important;
-    order: 1 !important;
-  }
-
-  .landing_section .landing_right,
+  .landing_left.txt,
   .landing_right {
     width: 100% !important;
-    order: 2 !important;
   }
 
   .hero-lofi-widget {
