@@ -746,10 +746,11 @@
     min-height: auto;
     order: 1;
     margin-bottom: 12px;
-    padding-bottom: 40px;
+    padding-top: 28px !important;
+    padding-bottom: 36px !important;
     width: 100% !important;
     max-width: 100% !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .hero-stage {
@@ -817,6 +818,12 @@
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+  }
+
+  .hero-stage-wrap {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+    overflow: visible !important;
   }
 
   .hero-stage {
