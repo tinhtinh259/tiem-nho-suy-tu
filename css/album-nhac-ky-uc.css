@@ -662,12 +662,57 @@ body.album-page {
   font-size: 19px;
   letter-spacing: 2px;
   color: #3d2719;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   font-weight: 700;
+}
+
+/* Gợi ý tương tác nhẹ nhàng cho kệ sách 3D */
+.shelf-interactive-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 253, 248, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px dashed rgba(184, 134, 45, 0.45);
+  border-radius: 999px;
+  padding: 6px 16px;
+  margin: 0 auto 16px auto;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #61462c;
+  box-shadow: 0 4px 16px rgba(60, 40, 20, 0.05);
+  user-select: none;
+  animation: shelfHintFloat 3s ease-in-out infinite alternate;
+  width: fit-content;
+  max-width: 95%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.shelf-interactive-hint .hint-icon {
+  font-size: 14px;
+}
+
+.shelf-interactive-hint .hint-sparkle {
+  color: #c69238;
+  font-size: 11px;
+}
+
+@keyframes shelfHintFloat {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 4px 16px rgba(60, 40, 20, 0.05);
+  }
+  100% {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(60, 40, 20, 0.09);
+  }
 }
 
 .bookshelf {
@@ -3243,6 +3288,14 @@ body.album-page {
 
   .studio-deck-col .deck-controls {
     justify-content: center;
+  }
+
+  .shelf-interactive-hint {
+    font-size: 11.5px;
+    padding: 5px 14px;
+    gap: 6px;
+    margin-bottom: 12px;
+    line-height: 1.4;
   }
 }
 
