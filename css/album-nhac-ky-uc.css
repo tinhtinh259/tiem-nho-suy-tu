@@ -2337,6 +2337,17 @@ body.album-page {
   overflow: hidden;
 }
 
+.flipbook-meta-badge .badge-line {
+  display: inline-block;
+  width: 3.5px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fce0a2 0%, #c49646 100%);
+  box-shadow: 0 0 10px rgba(245, 215, 150, 0.45);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
 .flipbook-book-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
@@ -3903,9 +3914,9 @@ body.album-page {
     margin-top: 2px;
   }
 
-  .flipbook-meta-badge .badge-icon {
-    font-size: 20px;
-    flex-shrink: 0;
+  .flipbook-meta-badge .badge-line {
+    width: 3px;
+    height: 24px;
   }
 
   .flipbook-book-title {

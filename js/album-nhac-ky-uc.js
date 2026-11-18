@@ -1268,6 +1268,14 @@ function openModal(book, idx, clickedElement) {
   }
   updateBookAudioButtonState();
 
+  const badgeLine = document.getElementById('flipbookBadgeLine');
+  if (badgeLine) {
+    const topColor = '#fce0a2';
+    const bottomColor = book.band || book.color || '#c49646';
+    badgeLine.style.background = `linear-gradient(180deg, ${topColor} 0%, ${bottomColor} 100%)`;
+    badgeLine.style.boxShadow = '0 0 10px rgba(245, 215, 150, 0.45)';
+  }
+
   if (flipbookBookTitle) {
     flipbookBookTitle.textContent = book.title ? book.title.replace('\n', ' • ') : 'Cuốn Sổ Nhạc Ký Ức';
   }
