@@ -1266,6 +1266,7 @@ function openModal(book, idx, clickedElement) {
   } else {
     playSynthMelody();
   }
+  updateBookAudioButtonState();
 
   if (flipbookBookTitle) {
     flipbookBookTitle.textContent = book.title ? book.title.replace('\n', ' • ') : 'Cuốn Sổ Nhạc Ký Ức';
@@ -1778,6 +1779,14 @@ function initEventListeners() {
     closeBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       closeModal();
+    });
+  }
+
+  const btnToggleBookAudio = document.getElementById('btnToggleBookAudio');
+  if (btnToggleBookAudio) {
+    btnToggleBookAudio.addEventListener('click', function (e) {
+      e.stopPropagation();
+      togglePlayMaster();
     });
   }
 
@@ -2651,6 +2660,29 @@ function animateTonearm(playState, onNeedleDrop) {
   }
 }
 
+
+function updateBookAudioButtonState() {
+  const btn = document.getElementById('btnToggleBookAudio');
+  if (!btn) return;
+  const textSpan = btn.querySelector('.audio-btn-text');
+
+  if (isPlaying) {
+    btn.classList.remove('is-paused');
+    btn.classList.add('is-playing');
+    btn.setAttribute('title', 'Tạm dừng phát nhạc nền');
+    if (textSpan) {
+      textSpan.textContent = window.innerWidth <= 600 ? 'Tạm dừng' : 'Tạm dừng nhạc';
+    }
+  } else {
+    btn.classList.remove('is-playing');
+    btn.classList.add('is-paused');
+    btn.setAttribute('title', 'Tiếp tục nghe nhạc ký ức');
+    if (textSpan) {
+      textSpan.textContent = window.innerWidth <= 600 ? 'Bật nhạc' : 'Bật nhạc ký ức';
+    }
+  }
+}
+
 function togglePlayMaster() {
   isPlaying = !isPlaying;
   const btnPlay = document.getElementById('btnPlayMaster');
@@ -2659,6 +2691,9 @@ function togglePlayMaster() {
     btnPlay.innerHTML = isPlaying ? PAUSE_MASTER_ICON_SVG : PLAY_MASTER_ICON_SVG;
     btnPlay.setAttribute('title', isPlaying ? 'Tạm dừng nhạc' : 'Phát nhạc');
   }
+
+  // Cập nhật trạng thái nút âm thanh trong FlipBook Theater
+  updateBookAudioButtonState();
 
   if (isPlaying) {
     // Cần kim di chuyển và tiếp xúc bề mặt đĩa than rồi mới bắt đầu phát âm thanh
