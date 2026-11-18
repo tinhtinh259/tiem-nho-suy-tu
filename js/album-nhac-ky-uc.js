@@ -2917,6 +2917,109 @@ function setupManuscriptViewStream() {
   window.addEventListener('resize', updateArrowsState);
 }
 
+
+// TƯƠNG TÁC GẠT CẦN KIM & ĐĨA THAN ĐỂ PHÁT NHẠC
+function initTonearmInteractions() {
+  const tonearm = document.getElementById('tonearm');
+  const vinylRecord = document.getElementById('vinylRecord');
+  if (!tonearm) return;
+
+  // Bấm vào đĩa than để chuyển đổi phát / dừng nhạc
+  if (vinylRecord) {
+    vinylRecord.addEventListener('click', function (e) {
+      e.stopPropagation();
+      togglePlayMaster();
+    });
+  }
+
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let startAngle = isPlaying ? 0 : -36;
+  let currentAngle = startAngle;
+  let hasMoved = false;
+
+  function onPointerDown(e) {
+    e.stopPropagation();
+    isDragging = true;
+    hasMoved = false;
+    startX = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+    startY = e.clientY != null ? e.clientY : (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+    startAngle = isPlaying ? 0 : -36;
+    currentAngle = startAngle;
+
+    tonearm.classList.add('is-dragging');
+    if (window.gsap) gsap.killTweensOf(tonearm);
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging) return;
+    const clientX = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+    const clientY = e.clientY != null ? e.clientY : (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+    const deltaX = clientX - startX;
+    const deltaY = clientY - startY;
+
+    if (Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4) {
+      hasMoved = true;
+    }
+
+    // Kéo sang trái (deltaX âm): gạt kim từ giá nghỉ (-36) về phía đĩa than (0)
+    // Kéo sang phải (deltaX dương): kéo kim về giá nghỉ
+    let newAngle = startAngle - (deltaX * 0.45);
+    newAngle = Math.max(-42, Math.min(6, newAngle));
+    currentAngle = newAngle;
+
+    if (window.gsap) {
+      gsap.set(tonearm, { rotate: currentAngle, y: hasMoved ? -6 : 0 });
+    } else {
+      tonearm.style.transform = `rotate(${currentAngle}deg) translateY(${hasMoved ? -6 : 0}px)`;
+    }
+  }
+
+  function onPointerUp(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    tonearm.classList.remove('is-dragging');
+    window.removeEventListener('pointermove', onPointerMove);
+    window.removeEventListener('pointerup', onPointerUp);
+    window.removeEventListener('pointercancel', onPointerUp);
+
+    // Nếu chỉ là một cú chạm / click nhanh mà không kéo
+    if (!hasMoved) {
+      togglePlayMaster();
+      return;
+    }
+
+    // Nếu kéo thả cần kim:
+    // Điểm ranh giới giữa giá nghỉ (-36deg) và đĩa than (0deg) là -18deg
+    if (currentAngle > -18) {
+      // Đã gạt vào vùng đĩa than
+      if (!isPlaying) {
+        togglePlayMaster();
+      } else {
+        if (window.gsap) {
+          gsap.to(tonearm, { rotate: 0, y: 0, duration: 0.35, ease: 'power2.out' });
+        }
+      }
+    } else {
+      // Đã gạt về phía giá nghỉ
+      if (isPlaying) {
+        togglePlayMaster();
+      } else {
+        if (window.gsap) {
+          gsap.to(tonearm, { rotate: -36, y: 0, duration: 0.35, ease: 'power2.out' });
+        }
+      }
+    }
+  }
+
+  tonearm.addEventListener('pointerdown', onPointerDown);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initDOMElements();
   initEventListeners();
@@ -2928,4 +3031,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFilterListeners();
   setupManuscriptViewStream();
   updateDeckDisplay(ALBUM_TRACKS[0]);
+  initTonearmInteractions();
 });

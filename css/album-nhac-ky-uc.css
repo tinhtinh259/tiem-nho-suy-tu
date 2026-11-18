@@ -513,10 +513,46 @@ body.album-page {
   right: 20px;
   width: 70px;
   height: 125px;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: grab;
   transform-origin: 55px 12px;
   transform: rotate(-36deg);
-  z-index: 5;
+  z-index: 15;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: filter 0.25s ease;
+}
+
+.studio-deck-col .tonearm {
+  top: 14px;
+  right: 14px;
+  width: 56px;
+  height: 105px;
+  transform-origin: 44px 10px;
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.tonearm.is-dragging {
+  cursor: grabbing !important;
+}
+
+.tonearm:hover {
+  filter: drop-shadow(0 4px 12px rgba(184, 134, 45, 0.45));
+}
+
+.tonearm:hover .tonearm-head {
+  filter: brightness(1.25) drop-shadow(0 0 6px rgba(235, 196, 120, 0.8));
+}
+
+.vinyl-record {
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.25s ease;
+}
+
+.vinyl-record:hover {
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.45));
 }
 
 .tonearm-base {
