@@ -267,8 +267,8 @@ const SPECIAL_BOOK_JENNY = {
         body: `<p class="page-drop-cap">Mình đã cố gắng bình tâm lại, nhưng có lẽ tình cảm này đang lớn dần lên rồi.</p>
         <p>Mình cũng biết rõ câu trả lời là không thể. Nhưng cảm xúc thì vẫn để nó tự nhiên mà tiến tới. Dù câu chuyện của bọn mình không sai trái, cũng không quá giới hạn... nhưng mình biết nó sẽ là không thể.</p>
         <p>Vòng lặp của mình lại đến rồi, mình sẽ vẫn thích anh ấy, cho đến vài năm sau, rồi lại bình tâm, chấp nhận rằng bọn mình không thể dành cho nhau và rồi lại chữa lành.</p>
-        <div style="margin: 14px 0; border: 3px solid #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-          <img src="images/album/corridor_look_back.png" style="width: 100%; height: 115px; object-fit: cover; filter: sepia(0.25) saturate(1.1);">
+        <div style="margin: 14px 0; border: 3px solid #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 16px rgba(0,0,0,0.22);">
+          <img src="images/book/book-6.jpg" alt="Tán lá mùa thu chuyển sắc" style="width: 100%; height: 168px; object-fit: cover; object-position: center; display: block;">
         </div>
         <p style="font-size: 12.5px; color: #6e2e42; font-style: italic; text-align: center;">"Có những người bước vào đời ta, dịu dàng gỡ từng lớp phòng bị..."</p>`
       },
