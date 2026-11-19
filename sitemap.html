@@ -61,11 +61,58 @@
       background: #b0874b;
     }
 
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
     .sitemap-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
       margin: 40px 0 60px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 18px !important;
+      }
+      .sitemap-hero {
+        padding: 45px 0 30px;
+      }
+      .sitemap-hero h1 {
+        font-size: 24px;
+      }
+      .sitemap-hero p {
+        font-size: 14px;
+        padding: 0 10px;
+      }
+      .xml-link-btn {
+        font-size: 12.5px;
+        padding: 8px 16px;
+        max-width: 90%;
+        box-sizing: border-box;
+      }
+      .sitemap-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 24px 0 45px;
+      }
+      .sitemap-card {
+        padding: 18px 16px;
+        border-radius: 14px;
+      }
+      .sitemap-card-title {
+        font-size: 16.5px;
+        margin-bottom: 12px;
+      }
+      .sitemap-list li a {
+        padding: 8px 8px;
+        font-size: 14px;
+      }
     }
     .sitemap-card {
       background: #ffffff;
