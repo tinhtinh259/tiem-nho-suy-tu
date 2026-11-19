@@ -181,13 +181,15 @@
 <body class="ambient-bg min-h-screen relative select-none" id="story-body">
     <!-- <div id="header-placeholder"></div> -->
 
-    <!-- Ambient Story Artwork Background (Phương án 2: Giấu kín ở đầu và bừng sáng FULL Background ở Bước 9 Cuối Truyện) -->
-    <div id="story-art-backdrop" class="fixed inset-0 pointer-events-none z-0 overflow-hidden transition-all duration-[1500ms] ease-out" style="opacity: 0;">
-        <div id="story-art-image" class="absolute inset-0 bg-cover bg-center transition-all duration-[1500ms] ease-out transform scale-105"
-            style="background-image: url('images/landing/girl-at-night.jpg'); filter: brightness(0.9) saturate(1.2);">
+    <!-- Ambient Story Artwork Background (Sáng lên từ từ theo thanh cuộn, êm đềm như rạng đông) -->
+    <div id="story-art-backdrop" class="fixed inset-0 pointer-events-none z-0 overflow-hidden" style="opacity: 0; visibility: hidden;">
+        <div id="story-art-image" class="absolute inset-0 bg-cover bg-center transform scale-105"
+            style="background-image: url('images/landing/girl-at-night.jpg'); filter: brightness(0.92) saturate(1.2);">
         </div>
-        <!-- Gradient vignette overlay bảo vệ tương phản chữ -->
-        <div id="story-art-overlay" class="absolute inset-0 transition-all duration-[1500ms] ease-out"></div>
+        <!-- Gradient vignette overlay bảo vệ tương phản chữ dịu êm -->
+        <div id="story-art-overlay" class="absolute inset-0"
+            style="background: radial-gradient(circle at 50% 42%, rgba(4, 8, 20, 0.16) 0%, rgba(4, 8, 20, 0.48) 55%, rgba(4, 8, 20, 0.88) 100%);">
+        </div>
     </div>
 
     <!-- Ambient Floating Glow Blobs -->
@@ -530,7 +532,7 @@
             activeStep = step;
 
             if (step <= 7) {
-                // PHƯƠNG ÁN 2: Bước 1 đến Bước 7 giữ trọn bóng đêm sâu thẳm, giấu kín tranh để tạo bất ngờ
+                // Bước 1 đến Bước 7 giữ trọn bóng đêm sâu thẳm
                 if (step <= 2) {
                     bodyEl.style.background = 'radial-gradient(circle at 50% 40%, #0f172a 0%, #050814 100%)';
                     blob1.className = 'ambient-blob w-[600px] h-[600px] blur-[150px] opacity-40 -top-20 -left-20 bg-indigo-600/30';
@@ -548,37 +550,16 @@
                     blob1.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-45 -top-10 right-0 bg-sky-600/30';
                     blob2.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-35 -bottom-10 left-0 bg-amber-500/25';
                 }
-
-                if (artBackdrop) artBackdrop.style.opacity = '0';
-                if (artImage) artImage.style.transform = 'scale(1.08)';
-
             } else if (step === 8) {
-                // Bước 8: Ánh trăng bắt đầu le lói hé lộ nhẹ (~22% opacity) như điềm báo ánh sáng
+                // Bước 8: Bầu trời đêm le lói dịu dàng
                 bodyEl.style.background = 'radial-gradient(circle at 50% 40%, #0e223b 0%, #040812 100%)';
-                blob1.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-50 -top-10 right-0 bg-sky-600/30';
-                blob2.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-40 -bottom-10 left-0 bg-amber-500/30';
-
-                if (artBackdrop) artBackdrop.style.opacity = '0.22';
-                if (artOverlay) artOverlay.style.background = 'rgba(4, 8, 18, 0.78)';
-                if (artImage) artImage.style.transform = 'scale(1.04)';
-
+                blob1.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-45 -top-10 right-0 bg-sky-600/30';
+                blob2.className = 'ambient-blob w-[650px] h-[650px] blur-[160px] opacity-35 -bottom-10 left-0 bg-amber-500/25';
             } else if (step === 9) {
-                // PHƯƠNG ÁN 2: BƯỚC 9 HIỆN FULL BACKGROUND 100% BỪNG SÁNG RỰC RỠ!
-                bodyEl.style.background = '#040814';
-                blob1.className = 'ambient-blob w-[750px] h-[750px] blur-[170px] opacity-40 -top-10 right-10 bg-amber-400/25';
-                blob2.className = 'ambient-blob w-[750px] h-[750px] blur-[170px] opacity-40 -bottom-10 left-10 bg-sky-500/25';
-
-                if (artBackdrop) {
-                    artBackdrop.style.opacity = '1';
-                }
-                if (artOverlay) {
-                    // Lớp vignette mềm mại ở viền, trung tâm giữ nguyên ánh sáng rực rỡ của vầng trăng và cô bé
-                    artOverlay.style.background = 'radial-gradient(circle at 50% 40%, rgba(3, 7, 18, 0.12) 0%, rgba(3, 7, 18, 0.42) 60%, rgba(3, 7, 18, 0.85) 100%)';
-                }
-                if (artImage) {
-                    artImage.style.transform = 'scale(1.0)';
-                    artImage.style.filter = 'brightness(0.92) saturate(1.2)';
-                }
+                // Bước 9: Nền tĩnh lặng để nhường trọn vẻ đẹp cho tranh nền bừng sáng từ từ
+                bodyEl.style.background = 'radial-gradient(circle at 50% 40%, #0e223b 0%, #040812 100%)';
+                blob1.className = 'ambient-blob w-[750px] h-[750px] blur-[170px] opacity-30 -top-10 right-10 bg-amber-400/20';
+                blob2.className = 'ambient-blob w-[750px] h-[750px] blur-[170px] opacity-30 -bottom-10 left-10 bg-sky-500/20';
             }
         }
         updateMoodTheme(1);
@@ -662,6 +643,37 @@
                 }, fadeInStart);
             }
         });
+
+        // =========================================================================
+        // HIỆU ỨNG TRANH NỀN SÁNG LÊN TỪ TỪ (TUYỆT ĐỐI KHÔNG GIẬT SÁNG)
+        // - Cuối bước 7 đến bước 8 (t = 6.6 -> 7.4): Le lói dần lên ~28% như ánh trăng đêm
+        // - Từ bước 8 sang bước 9 (t = 7.4 -> 8.0): Dần dần sáng rõ 100% êm đềm theo bước cuộn
+        // =========================================================================
+        if (artBackdrop) {
+            tl.fromTo(artBackdrop, {
+                autoAlpha: 0
+            }, {
+                autoAlpha: 0.28,
+                duration: 0.8,
+                ease: 'sine.inOut'
+            }, 6.6);
+
+            tl.to(artBackdrop, {
+                autoAlpha: 1,
+                duration: 0.8,
+                ease: 'sine.out'
+            }, 7.4);
+        }
+
+        if (artImage) {
+            tl.fromTo(artImage, {
+                scale: 1.06
+            }, {
+                scale: 1.0,
+                duration: 1.6,
+                ease: 'power1.out'
+            }, 6.6);
+        }
 
         /* ==========================================================================
            1. KEYBOARD NAVIGATION SUPPORT (Phím mũi tên & Space)
