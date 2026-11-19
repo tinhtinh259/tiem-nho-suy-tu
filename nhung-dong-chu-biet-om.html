@@ -246,8 +246,7 @@
     </div>
 
     <!-- Canvas SVG Dream Path & Glowing Origami Paper Boat (Thuyền Giấy Mơ) -->
-    <svg class="fixed top-0 left-0 w-full h-full pointer-events-none z-10 opacity-40" viewBox="0 0 1440 900"
-        preserveAspectRatio="none">
+    <svg id="dream-canvas-svg" class="fixed top-0 left-0 w-full h-full pointer-events-none z-10 opacity-55">
         <defs>
             <!-- Glowing halo filter for paper boat -->
             <filter id="boat-glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -259,22 +258,22 @@
             </filter>
         </defs>
 
-        <!-- Organic Waves River Path (Bắt đầu ẩn ngoài lề trái, lượn tự nhiên dưới chữ và ẩn ngoài lề phải) -->
+        <!-- Organic Waves River Path (Lượn hình chữ S dọc bờ trái & quét ngang đáy màn hình theo bản phác thảo) -->
         <path id="dream-path"
-            d="M -50 120 C 60 140, 110 320, 150 420 C 200 520, 340 630, 520 640 C 700 650, 880 630, 1060 580 C 1220 520, 1340 360, 1480 180"
+            d=""
             stroke="rgba(251, 191, 36, 0.45)" stroke-width="2.5" fill="none" stroke-dasharray="6 6" />
 
         <!-- Interactive Glowing Origami Paper Boat SVG -->
-        <g id="dream-paper-boat" transform="translate(-50, 120)" filter="url(#boat-glow)">
-            <g transform="scale(1.1) translate(-20, -20)">
+        <g id="dream-paper-boat" transform="translate(-100, -100)" filter="url(#boat-glow)">
+            <g transform="scale(1.2) translate(-20, -20)">
                 <!-- Boat Hull Base -->
-                <polygon points="4,24 14,30 26,30 36,24 20,26" fill="rgba(251, 191, 36, 0.35)" stroke="#fef08a"
+                <polygon points="4,24 14,30 26,30 36,24 20,26" fill="rgba(251, 191, 36, 0.45)" stroke="#fef08a"
                     stroke-width="1.5" stroke-linejoin="round" />
                 <!-- Left Sail -->
-                <polygon points="20,4 6,22 20,24" fill="rgba(251, 191, 36, 0.6)" stroke="#fbbf24" stroke-width="1.2"
+                <polygon points="20,4 6,22 20,24" fill="rgba(251, 191, 36, 0.75)" stroke="#fbbf24" stroke-width="1.2"
                     stroke-linejoin="round" />
                 <!-- Right Sail -->
-                <polygon points="20,4 20,24 34,22" fill="rgba(245, 158, 11, 0.45)" stroke="#fef08a" stroke-width="1.2"
+                <polygon points="20,4 20,24 34,22" fill="rgba(245, 158, 11, 0.6)" stroke="#fef08a" stroke-width="1.2"
                     stroke-linejoin="round" />
                 <!-- Center Fold Line -->
                 <line x1="20" y1="4" x2="20" y2="26" stroke="#ffffff" stroke-width="1.2" opacity="0.95" />
@@ -471,9 +470,43 @@
         const nodes = gsap.utils.toArray('.story-node');
         const totalSteps = nodes.length;
         const stepIndicator = document.getElementById('step-indicator');
+        const svgCanvas = document.getElementById('dream-canvas-svg');
         const path = document.getElementById('dream-path');
         const boat = document.getElementById('dream-paper-boat');
-        const pathLength = path.getTotalLength();
+        let pathLength = 0;
+
+        function updateDreamRiver() {
+            if (!svgCanvas || !path) return;
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+
+            // Đồng bộ viewBox 1:1 theo kích thước màn hình để thuyền giấy giữ tỷ lệ chuẩn 1:1 không bao giờ bị méo
+            svgCanvas.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+            // Đường sông uốn lượn hình chữ S dọc bờ trái & quét ngang êm đềm qua đáy trang theo đúng bản phác thảo
+            const d = `M ${-40} ${h * 0.035} ` +
+                `C ${w * 0.06} ${h * 0.035}, ${w * 0.07} ${h * 0.09}, ${w * 0.08} ${h * 0.12} ` +
+                `C ${w * 0.10} ${h * 0.18}, ${w * 0.25} ${h * 0.17}, ${w * 0.27} ${h * 0.25} ` +
+                `C ${w * 0.30} ${h * 0.32}, ${w * 0.37} ${h * 0.36}, ${w * 0.36} ${h * 0.43} ` +
+                `C ${w * 0.34} ${h * 0.49}, ${w * 0.22} ${h * 0.52}, ${w * 0.24} ${h * 0.58} ` +
+                `C ${w * 0.27} ${h * 0.65}, ${w * 0.41} ${h * 0.67}, ${w * 0.40} ${h * 0.73} ` +
+                `C ${w * 0.37} ${h * 0.79}, ${w * 0.26} ${h * 0.81}, ${w * 0.32} ${h * 0.85} ` +
+                `C ${w * 0.40} ${h * 0.89}, ${w * 0.58} ${h * 0.88}, ${w * 0.72} ${h * 0.90} ` +
+                `C ${w * 0.83} ${h * 0.92}, ${w * 0.92} ${h * 0.94}, ${w + 50} ${h * 0.94}`;
+
+            path.setAttribute('d', d);
+            try {
+                pathLength = path.getTotalLength();
+            } catch (e) {
+                pathLength = 1000;
+            }
+        }
+
+        updateDreamRiver();
+        window.addEventListener('resize', () => {
+            updateDreamRiver();
+            ScrollTrigger.refresh();
+        });
 
         // Khởi tạo trạng thái ban đầu: Node 0 rõ nét, các node sau ẩn hoàn toàn và tắt visibility
         nodes.forEach((node, i) => {
@@ -563,14 +596,20 @@
                     // Cập nhật thanh Progress
                     document.getElementById('progress').style.transform = `scaleX(${progress})`;
 
-                    // Cập nhật vị trí & góc nghiêng của Thuyền Giấy lướt theo đường sông mơ
-                    const currentLen = progress * pathLength;
-                    const p1 = path.getPointAtLength(currentLen);
-                    const p2 = path.getPointAtLength(Math.min(currentLen + 2, pathLength));
-                    const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * (180 / Math.PI);
+                    // Cập nhật vị trí & góc nghiêng tự nhiên của Thuyền Giấy lướt theo dòng nước mơ
+                    if (pathLength > 0 && boat) {
+                        const currentLen = progress * pathLength;
+                        const p1 = path.getPointAtLength(currentLen);
+                        const p2 = path.getPointAtLength(Math.min(currentLen + 3, pathLength));
+                        const dx = p2.x - p1.x;
+                        const dy = p2.y - p1.y;
 
-                    if (boat) {
-                        boat.setAttribute('transform', `translate(${p1.x}, ${p1.y}) rotate(${angle})`);
+                        // Độ nghiêng êm đềm như thuyền giấy thật bập bềnh theo dòng nước (không bị lộn ngược hoặc chúi đứng)
+                        const waveRocking = Math.sin(progress * Math.PI * 6) * 5;
+                        const flowTilt = Math.max(-18, Math.min(22, (dx / (Math.abs(dx) + Math.abs(dy) + 0.001)) * 20));
+                        const boatAngle = flowTilt + waveRocking;
+
+                        boat.setAttribute('transform', `translate(${p1.x}, ${p1.y}) rotate(${boatAngle})`);
                     }
 
                     // Cập nhật số đếm phân đoạn & Nền Động
