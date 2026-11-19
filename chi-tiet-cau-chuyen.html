@@ -13,7 +13,10 @@
         (function() {
             try {
                 const params = new URLSearchParams(window.location.search);
-                if (params.get('id') === '1') {
+                if (params.get('id') === 'ky-thuat-10-phut-cuoi' || params.get('id') === '13') {
+                    document.documentElement.style.visibility = 'hidden';
+                    window.location.replace('ky-thuat-10-phut-cuoi.html');
+                } else if (params.get('id') === '1') {
                     document.documentElement.style.visibility = 'hidden';
                     window.location.replace('nhung-dong-chu-biet-om.html');
                 }
@@ -364,6 +367,31 @@
 
     <script>
         const storiesData = {
+            "ky-thuat-10-phut-cuoi": {
+                tag: "🎬 GÓC NHÌN & TƯ DUY",
+                title: "Kỹ Thuật 10 Phút Cuối: Khó Khăn Hôm Nay Chỉ Là Đoạn Cao Trào, Không Phải Hồi Kết",
+                author: "Brian Tracy (Cara Flow)",
+                date: "19 Th11, 2026",
+                readTime: "4 phút đọc",
+                cover: "images/landing/ky-thuat-10-phut-cuoi.jpg",
+                content: `Kỹ thuật 10 phút cuối (Last 10 Minutes Technique) của Brian Tracy là phương pháp thay đổi tư duy giúp bạn vượt qua nghịch cảnh bằng cách xem khó khăn hiện tại chỉ là đoạn cao trào giữa câu chuyện, chứ không phải cái kết. 
+
+Tương tự Visualization, ý tưởng cốt lõi của kỹ thuật này dựa trên giả định rằng cuộc đời bạn giống như một bộ phim chắc chắn có cái kết có hậu. 
+
+<div class="quote-box">
+"Giờ hãy tưởng tượng bạn đi xem phim, bạn đến rạp và bạn đến rất, rất, rất muộn. Họ vẫn cho bạn vào dù bộ phim sắp kết thúc, mà suất chiếu mới sắp bắt đầu trong chốc lát nữa. Thế là bạn bước vào và xem 10 phút cuối cùng. Nên chúng ta gọi đây là kỹ thuật 10 Phút Cuối."
+</div>
+
+Bạn xem 10 phút cuối đó, bạn thấy bộ phim kết thúc ra sao, bạn thấy mọi thứ khớp lại với nhau như thế nào, bạn thấy nhân vật chính vươn lên ra sao, bạn thấy tất cả đều đạt được thành quả, bạn thấy mọi chuyện đâu vào đấy, và ai nấy đều có cái kết hạnh phúc...
+
+Giờ đây, khi đã xem 10 phút cuối, bạn ngồi xem lại trọn vẹn cả bộ phim. Tuy nhiên, lúc bạn ngồi xem từ đầu đến cuối, bạn sẽ thấy, những hiểm nguy, những kịch tính, những bi kịch, những nỗi bất hạnh, bạn thấy những hiểu lầm... Thế nhưng, khi theo dõi bộ phim, bạn đã biết trước cái kết chắc chắn có hậu vì bạn đã xem 10 phút cuối rồi. 
+
+Đây chính là thái độ then chốt khi bạn đối diện với những khó khăn trong cuộc sống hàng ngày. Hãy giữ thái độ rằng, đây chỉ là những tình tiết diễn ra thôi, còn ở 10 phút cuối cùng, mọi thứ đều ổn thỏa và bạn đạt được mục tiêu của mình. 
+
+<div class="quote-box">
+"Vậy nên hãy nhìn nhận và giữ tâm thế triết lý này trước mọi nghịch cảnh: 'Đây chỉ là một phần của bộ phim và tôi biết ở 10 phút cuối cùng, mọi chuyện đều được giải quyết êm đẹp.' Cứ giả định như thể bạn đã biết trước hồi kết của bộ phim rồi và chính sự giả định đó sẽ khiến bộ phim diễn ra đúng như những gì bạn mong muốn."
+</div>`
+            },
             "8": {
                 tag: "🌱 BỐN MÙA • MÙA XUÂN (KHỞI ĐẦU)",
                 title: "Có gió... dưới một tán cây (Khởi đầu)",

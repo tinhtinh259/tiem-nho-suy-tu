@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỹ Thuật 10 Phút Cuối: Đoạn Cao Trào Không Phải Là Hồi Kết • Trạm Kể Chuyện</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="description"
+        content="Kỹ thuật 10 phút cuối (Last 10 Minutes Technique) của Brian Tracy: Bí quyết thay đổi tư duy vượt qua nghịch cảnh bằng tâm thế của một bộ phim chắc chắn có cái kết có hậu.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tiem-nho-suy-tu.vercel.app/ky-thuat-10-phut-cuoi.html">
+    <meta property="og:title" content="Kỹ Thuật 10 Phút Cuối: Đoạn Cao Trào Không Phải Là Hồi Kết • Tiệm Nhỏ Suy Tư">
+    <meta property="og:description"
+        content="Khi đối diện với giông bão, hãy nhớ: Đây chỉ là đoạn giữa của bộ phim, và ở 10 phút cuối cùng, mọi chuyện đều được giải quyết êm đẹp.">
+    <meta property="og:image" content="https://tiem-nho-suy-tu.vercel.app/images/landing/ky-thuat-10-phut-cuoi.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:site_name" content="Tiệm Nhỏ Suy Tư">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tiem-nho-suy-tu.vercel.app/ky-thuat-10-phut-cuoi.html">
+    <meta name="twitter:title" content="Kỹ Thuật 10 Phút Cuối: Đoạn Cao Trào Không Phải Là Hồi Kết">
+    <meta name="twitter:description"
+        content="Phương pháp tư duy chữa lành và tiếp sức từ Brian Tracy. Hãy xem khó khăn hôm nay chỉ là kịch tính giữa phim.">
+    <meta name="twitter:image" content="https://tiem-nho-suy-tu.vercel.app/images/landing/ky-thuat-10-phut-cuoi.jpg">
+
+    <link rel="stylesheet" href="css/plugin/reset-2.0.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f9f6f0;
+            --card-bg: #ffffff;
+            --text-color: #2c3531;
+            --sub-color: #64748b;
+            --line-color: #e2dacd;
+            --accent-gold: #c89547;
+            --accent-green: #2f5d43;
+            --ticket-bg: #fffbf2;
+            --ticket-border: #e8d7be;
+            --ticket-ink: #3b2d18;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: radial-gradient(rgba(200, 149, 71, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 100%;
+            padding-top: var(--height-header, 80px);
+            min-height: calc(100vh - 200px);
+        }
+
+        .story-article-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px 100px 24px;
+        }
+
+        /* Reading Progress Bar */
+        .reading-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .reading-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-green));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Breadcrumb Trail */
+        .breadcrumb-trail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--sub-color);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-trail a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-trail a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-sep {
+            color: #cbd5e1;
+            font-size: 12px;
+        }
+
+        .breadcrumb-current {
+            color: var(--sub-color);
+            font-weight: 400;
+        }
+
+        /* Hero Image Container */
+        .article-hero-wrap {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 32px;
+            box-shadow: 0 16px 40px rgba(47, 93, 67, 0.08);
+            border: 1px solid var(--line-color);
+            background: #e2e8f0;
+            position: relative;
+        }
+
+        .article-hero-img {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .article-hero-wrap:hover .article-hero-img {
+            transform: scale(1.02);
+        }
+
+        .article-tag-badge {
+            display: inline-block;
+            background: rgba(200, 149, 71, 0.12);
+            border: 1px solid rgba(200, 149, 71, 0.25);
+            color: var(--accent-gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+            font-weight: 700;
+            color: var(--accent-green);
+            line-height: 1.35;
+            margin-bottom: 16px;
+        }
+
+        .article-subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--sub-color);
+            font-size: 14px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--line-color);
+            flex-wrap: wrap;
+        }
+
+        /* Serene Book Body Typography */
+        .article-body {
+            font-size: 18.5px;
+            line-height: 2.05;
+            color: #334155;
+        }
+
+        .article-body p {
+            margin-bottom: 26px;
+        }
+
+        .highlight-phrase {
+            color: var(--accent-green);
+            font-weight: 600;
+            background: linear-gradient(120deg, rgba(47, 93, 67, 0.08) 0%, rgba(47, 93, 67, 0) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Cinematic Quote Callout */
+        .quote-box {
+            position: relative;
+            background: #ffffff;
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 0 16px 16px 0;
+            padding: 24px 28px;
+            margin: 36px 0;
+            font-style: italic;
+            font-size: 19px;
+            line-height: 1.8;
+            color: #1e293b;
+            box-shadow: 0 8px 24px rgba(200, 149, 71, 0.08);
+            border-top: 1px solid #f1ece4;
+            border-right: 1px solid #f1ece4;
+            border-bottom: 1px solid #f1ece4;
+        }
+
+        .quote-box strong {
+            color: var(--accent-green);
+            font-style: normal;
+        }
+
+        /* ==============================================
+           INTERACTIVE CINEMA TICKET COMPONENT 
+        ============================================== */
+        .ticket-stage {
+            margin: 48px auto;
+            perspective: 1200px;
+        }
+
+        .ticket-header-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            padding: 0 8px;
+        }
+
+        .ticket-status-tag {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cinema-ticket-card {
+            position: relative;
+            background: var(--ticket-bg);
+            border: 2px dashed var(--ticket-border);
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow:
+                0 10px 30px -5px rgba(200, 149, 71, 0.15),
+                0 0 0 1px rgba(200, 149, 71, 0.1);
+            color: var(--ticket-ink);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .cinema-ticket-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow:
+                0 16px 36px -5px rgba(200, 149, 71, 0.22),
+                0 0 0 1px rgba(200, 149, 71, 0.2);
+        }
+
+        /* Notches on Ticket Edges */
+        .ticket-notch {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background: var(--bg);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid var(--line-color);
+        }
+
+        .ticket-notch-left {
+            left: -15px;
+        }
+
+        .ticket-notch-right {
+            right: -15px;
+        }
+
+        .ticket-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .ticket-tagline {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+
+        .ticket-main-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-green);
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }
+
+        .ticket-desc {
+            font-size: 14.5px;
+            color: #57534e;
+            line-height: 1.7;
+        }
+
+        .ticket-stamp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #b45309;
+            border-radius: 12px;
+            padding: 12px 18px;
+            text-align: center;
+            transform: rotate(-3deg);
+            background: rgba(245, 158, 11, 0.08);
+            min-width: 140px;
+        }
+
+        .ticket-stamp-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #b45309;
+        }
+
+        .ticket-stamp-bold {
+            font-size: 14px;
+            font-weight: 800;
+            color: #92400e;
+            margin: 4px 0;
+        }
+
+        .ticket-stamp-sub {
+            font-size: 10px;
+            color: #78350f;
+            letter-spacing: 0.5px;
+        }
+
+        /* 3 Steps Spotlight Box */
+        .spotlight-box {
+            background: #ffffff;
+            border: 1px solid var(--line-color);
+            border-radius: 20px;
+            padding: 36px 32px;
+            margin: 44px 0;
+            box-shadow: 0 10px 30px rgba(47, 93, 67, 0.05);
+        }
+
+        .spotlight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(47, 93, 67, 0.25);
+        }
+
+        .step-content h4 {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Interaction Bar */
+        .interaction-bar {
+            background: #ffffff;
+            border: 1px solid var(--line-color);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            margin: 60px 0 40px 0;
+            box-shadow: 0 10px 30px rgba(47, 93, 67, 0.04);
+        }
+
+        .pledge-btn {
+            background: linear-gradient(135deg, var(--accent-green) 0%, #244633 100%);
+            color: #ffffff;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(47, 93, 67, 0.25);
+        }
+
+        .pledge-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(47, 93, 67, 0.35);
+        }
+
+        .pledge-count {
+            font-size: 13.5px;
+            color: var(--sub-color);
+            margin-top: 14px;
+        }
+
+        /* Related Stories */
+        .related-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--line-color);
+        }
+
+        .related-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--accent-green);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .related-card {
+            background: #ffffff;
+            border: 1px solid var(--line-color);
+            border-radius: 18px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 25px rgba(47, 93, 67, 0.1);
+        }
+
+        .related-card-tag {
+            font-size: 11px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .related-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent-green);
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }
+
+        .related-card-footer {
+            font-size: 12px;
+            color: var(--sub-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .story-article-container {
+                padding: 24px 18px 80px 18px;
+            }
+
+            .article-hero-img {
+                height: 260px;
+            }
+
+            .article-title {
+                font-size: 24px;
+            }
+
+            .article-subtitle {
+                font-size: 16px;
+            }
+
+            .article-body {
+                font-size: 16.5px;
+                line-height: 1.95;
+            }
+
+            .ticket-inner {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .ticket-stamp {
+                align-self: flex-start;
+                min-width: unset;
+                width: 100%;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .spotlight-box {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+    <script src="js/include-header-footer.js"></script>
+</head>
+
+<body>
+    <!-- READING PROGRESS BAR -->
+    <div class="reading-progress-bar">
+        <div class="reading-progress-fill" id="readingProgress"></div>
+    </div>
+
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <article class="story-article-container">
+            <!-- Breadcrumbs -->
+            <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+                <a href="/">Trang chủ</a>
+                <span class="breadcrumb-sep">❯</span>
+                <span>Chuyện Kể & Góc Nhìn</span>
+                <span class="breadcrumb-sep">❯</span>
+                <a href="goc-ke-chuyen.html">Góc kể chuyện</a>
+                <span class="breadcrumb-sep">❯</span>
+                <span class="breadcrumb-current">Kỹ thuật 10 phút cuối</span>
+            </nav>
+
+            <!-- Hero Cover Image -->
+            <div class="article-hero-wrap">
+                <img src="images/landing/ky-thuat-10-phut-cuoi.jpg"
+                    alt="Kỹ Thuật 10 Phút Cuối - Last 10 Minutes Technique" class="article-hero-img"
+                    onerror="this.src='images/album/corridor_look_back.png'">
+            </div>
+
+            <!-- Header Info -->
+            <span class="article-tag-badge">🎬 GÓC NHÌN & TƯ DUY • BRIAN TRACY</span>
+            <h1 class="article-title">Kỹ Thuật 10 Phút Cuối: Khó Khăn Hôm Nay Chỉ Là Đoạn Cao Trào, Không Phải Hồi Kết
+            </h1>
+            <p class="article-subtitle">
+                "Cứ giả định như thể bạn đã biết trước hồi kết của bộ phim rồi, và chính sự giả định vững vàng đó sẽ
+                khiến cuốn phim cuộc đời diễn ra đúng như những gì bạn kỳ vọng."
+            </p>
+
+            <div class="article-meta">
+                <span>✍️ <strong>Brian Tracy</strong> (Biên dịch & Chắp bút: Cara Flow)</span>
+                <span>•</span>
+                <span>📅 19 Th11, 2026</span>
+                <span>•</span>
+                <span>⏱️ 4 phút đọc</span>
+            </div>
+
+            <!-- Main Story Content -->
+            <div class="article-body">
+                <p>
+                    <span class="highlight-phrase">Kỹ thuật 10 phút cuối (Last 10 Minutes Technique)</span> của chuyên
+                    gia tâm lý và phát triển bản thân <strong>Brian Tracy</strong> là một phương pháp thay đổi tư duy vô
+                    cùng giản dị nhưng mang sức mạnh chữa lành to lớn. Phương pháp này giúp bạn bình thản vượt qua
+                    những giai đoạn nghịch cảnh tăm tối nhất, bằng cách xem mọi khó khăn hiện tại chỉ là một đoạn cao
+                    trào giữa câu chuyện — chứ tuyệt nhiên không phải là cái kết.
+                </p>
+
+                <p>
+                    Tương tự như kỹ thuật trực quan hóa (Visualization) hay quy luật giả định tâm lý (Law of
+                    Assumption), ý tưởng cốt lõi của kỹ thuật này dựa trên một tiền đề ấm áp: <strong>Cuộc đời bạn giống
+                        như một bộ phim mà hồi kết chắc chắn sẽ là một cái kết có hậu.</strong>
+                </p>
+
+                <!-- INTERACTIVE CINEMA TICKET -->
+                <div class="ticket-stage">
+                    <div class="ticket-header-label">
+                        <span class="ticket-status-tag">🎟️ Tấm Vé Suất Chiếu Cuộc Đời</span>
+                        <span style="font-size: 12px; color: #78716c; font-style: italic;">Chạm vào vé để nhận thông
+                            điệp</span>
+                    </div>
+
+                    <div class="cinema-ticket-card" id="cinemaTicketCard" onclick="shakeTicket()">
+                        <div class="ticket-notch ticket-notch-left"></div>
+                        <div class="ticket-notch ticket-notch-right"></div>
+
+                        <div class="ticket-inner">
+                            <div>
+                                <div class="ticket-tagline">RẠP CHIẾU PHIM TÂM HỒN • ĐẶC CÁCH HỒI KẾT</div>
+                                <div class="ticket-main-quote">"Tôi đã xem trước 10 phút cuối cùng rồi."</div>
+                                <div class="ticket-desc">
+                                    Dù khúc giữa kịch bản có hiểm nguy, bi kịch hay nước mắt, nhân vật chính là bạn vẫn
+                                    chắc chắn vươn lên và chạm tới thành quả viên mãn.
+                                </div>
+                            </div>
+
+                            <div class="ticket-stamp">
+                                <span class="ticket-stamp-title">TRẠNG THÁI</span>
+                                <span class="ticket-stamp-bold">CÓ HẬU ✨</span>
+                                <span class="ticket-stamp-sub">Happy Ending Assured</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Để hiểu rõ triết lý này, Brian Tracy đưa ra một hình dung rất đỗi đời thường:
+                </p>
+
+                <div class="quote-box">
+                    "Giờ hãy tưởng tượng bạn đi xem phim. Bạn đến rạp, và bạn đến rất, rất, rất muộn.<br><br>
+                    Người soát vé vẫn linh động cho bạn vào bên trong dù bộ phim sắp kết thúc, bởi suất chiếu mới sẽ
+                    bắt đầu lại ngay trong chốc lát nữa. Thế là bạn bước vào phòng chiếu và <strong>ngồi xem 10 phút
+                        cuối cùng của bộ phim</strong>. Nên chúng ta gọi đây là Kỹ thuật 10 Phút Cuối."
+                </div>
+
+                <p>
+                    Bạn ngồi đó chăm chú theo dõi trọn vẹn 10 phút cuối cùng ấy:
+                </p>
+
+                <p>
+                    Bạn thấy bộ phim kết thúc ra sao. Bạn thấy từng nút thắt phức tạp dần khớp lại với nhau như thế nào.
+                    Bạn thấy nhân vật chính — người tưởng chừng đã gục ngã dưới đáy vực sâu — đã kiên cường vươn lên
+                    mạnh mẽ ra sao. Bạn thấy tất cả những nỗ lực thầm lặng đều gặt hái được thành quả ngọt ngào. Bạn
+                    thấy mọi chuyện đâu vào đấy, những hiểu lầm được hóa giải, và ai nấy đều nở nụ cười hạnh phúc...
+                </p>
+
+                <div class="quote-box">
+                    "Giờ đây, khi đã xem xong 10 phút cuối, bạn nán lại phòng chiếu và bắt đầu <strong>xem lại trọn vẹn
+                        toàn bộ cuốn phim từ đầu đến cuối</strong>."
+                </div>
+
+                <p>
+                    Lúc này, khi bạn ngồi xem từ những cảnh quay đầu tiên, bạn sẽ thấy: Những hiểm nguy rình rập, những
+                    tình tiết kịch tính nghẹt thở, những bi kịch dồn dập, những nỗi bất hạnh tưởng chừng không thể gượng
+                    dậy, hay những hiểu lầm cay đắng xé lòng...
+                </p>
+
+                <p>
+                    Thế nhưng, có một điều kỳ diệu xảy ra trong tâm trí bạn: <strong>Khi theo dõi những phân đoạn đen
+                        tối ấy, bạn hoàn toàn không còn cảm giác hoảng loạn, sợ hãi hay tuyệt vọng nữa.</strong>
+                </p>
+
+                <p>
+                    Tại sao vậy? Bởi vì bạn đã biết trước cái kết chắc chắn có hậu. Bạn đã xem 10 phút cuối rồi! Bạn biết
+                    rằng dù quái vật có đáng sợ đến đâu, dù bão tố có gầm thét dữ dội thế nào, thì cuối cùng mặt trời
+                    vẫn mọc, nhân vật chính vẫn bình an, và mọi mảnh ghép đều được sắp đặt lại đúng vị trí của nó.
+                </p>
+
+                <!-- SPOTLIGHT 3 STEPS -->
+                <div class="spotlight-box">
+                    <h3 class="spotlight-title">
+                        <span>✨</span>
+                        <span>3 Bước Thực Hành Kỹ Thuật 10 Phút Cuối Mỗi Khi Bế Tắc</span>
+                    </h3>
+
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Nhận diện đoạn cao trào, không phán xét hồi kết</h4>
+                            <p>
+                                Khi sóng gió ập đến (áp lực công việc, thất bại tài chính, rạn nứt tình cảm), hãy tự nhủ
+                                với mình: <em>"Đây mới chỉ là phút thứ 60 đầy kịch tính của bộ phim thôi, chưa phải lúc
+                                    hạ màn."</em>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Tua nhanh tâm trí về 10 phút cuối (Visualization)</h4>
+                            <p>
+                                Dành 2 phút nhắm mắt lại và hình dung rõ nét khung cảnh ở 10 phút cuối: Bạn đã vượt qua
+                                chuyện này, đang ngồi thảnh thơi uống một tách trà ấm, mỉm cười nhớ lại thử thách hôm
+                                nay như một bài học vô giá.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Bước tiếp với tâm thế của người đã chiến thắng</h4>
+                            <p>
+                                Khi bạn hành động với tâm thế bình an của một người biết chắc kết quả sẽ ổn thỏa, năng
+                                lượng tự tin đó sẽ xua tan nỗi sợ hãi, giúp bạn sáng suốt đưa ra những quyết định đúng
+                                đắn nhất.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Đây chính là thái độ then chốt nhất khi bạn đối diện với những trắc trở trong cuộc sống thường nhật:
+                </p>
+
+                <p>
+                    Hãy giữ cho mình niềm xác tín vững vàng rằng: <strong>Những khó khăn này chỉ là những tình tiết đang
+                        diễn ra trong kịch bản mà thôi.</strong> Còn ở 10 phút cuối cùng, mọi thứ đều sẽ ổn thỏa, và bạn
+                    sẽ chạm tới mục tiêu thiêng liêng của đời mình.
+                </p>
+
+                <div class="quote-box">
+                    "Hãy nhìn nhận và giữ trọn tâm thế triết lý này trước mọi nghịch cảnh:<br>
+                    <strong>'Đây chỉ là một phần của bộ phim, và tôi biết ở 10 phút cuối cùng, mọi chuyện đều được giải
+                        quyết êm đẹp.'</strong><br><br>
+                    Cứ giả định như thể bạn đã biết trước hồi kết của bộ phim rồi — và chính sự giả định kiên định ấy sẽ
+                    dẫn lối để cuốn phim cuộc đời diễn ra đúng như những gì bạn hằng mong muốn."
+                </div>
+
+                <p>
+                    Nếu ngày hôm nay của bạn đang có chút bấp bênh, mệt nhoài hay hoang mang về tương lai... Đừng vội nản
+                    lòng buông tay bạn nhé. Khán giả không bao giờ bỏ về giữa lúc phim đang cao trào, bởi vì phần hay
+                    nhất, rạng rỡ nhất vẫn còn đang đợi bạn ở 10 phút cuối cùng. ✨
+                </p>
+            </div>
+
+            <!-- INTERACTION / PLEDGE SECTION -->
+            <div class="interaction-bar">
+                <h3
+                    style="font-family: 'Playfair Display', serif; font-size: 22px; color: var(--accent-green); margin-bottom: 12px;">
+                    Cùng Giữ Vững Tâm Thế 10 Phút Cuối 🎬✨
+                </h3>
+                <p style="font-size: 15px; color: var(--sub-color); max-width: 540px; margin: 0 auto 24px auto;">
+                    Dù hôm nay có chông gai đến đâu, bạn có muốn cùng Tiệm gửi gắm niềm tin vào cái kết có hậu của bộ
+                    phim đời mình?
+                </p>
+
+                <button class="pledge-btn" onclick="sendEndingPledge()">
+                    <span>🎟️</span>
+                    <span id="pledgeBtnText">Tôi Chọn Tin Vào Hồi Kết Có Hậu</span>
+                </button>
+                <div class="pledge-count" id="pledgeCount">
+                    Đã có 428 người cùng mang tâm thế vững vàng này đi qua giông bão ✨
+                </div>
+            </div>
+
+            <!-- RELATED STORIES -->
+            <section class="related-section">
+                <h3 class="related-title">Những Góc Nhìn Tiếp Thêm Năng Lượng</h3>
+                <div class="related-grid">
+                    <a href="to-giay-giua-duong.html" class="related-card">
+                        <div>
+                            <div class="related-card-tag">🛵 Góc Nhìn & Bài Học</div>
+                            <div class="related-card-title">Tờ Giấy Giữa Đường: “Về nhà không cần quá nhanh, chỉ cần an
+                                toàn”</div>
+                        </div>
+                        <div class="related-card-footer">
+                            <span>Cara Flow</span>
+                            <span>4 phút đọc →</span>
+                        </div>
+                    </a>
+
+                    <a href="chi-tiet-cau-chuyen.html?id=12" class="related-card">
+                        <div>
+                            <div class="related-card-tag">🏔️ Quán Chiếu & Bước Tiếp</div>
+                            <div class="related-card-title">Quán chiếu suy nghĩ: Nếu mình bỏ ở đây thì sẽ luôn khó</div>
+                        </div>
+                        <div class="related-card-footer">
+                            <span>Cara Flow</span>
+                            <span>5 phút đọc →</span>
+                        </div>
+                    </a>
+
+                    <a href="nhung-dong-chu-biet-om.html" class="related-card">
+                        <div>
+                            <div class="related-card-tag">🌙 Đêm Muộn & Chữa Lành</div>
+                            <div class="related-card-title">Một món quà dành cho tất cả những ai đang mất ngủ...</div>
+                        </div>
+                        <div class="related-card-footer">
+                            <span>Tiệm Nhỏ Suy Tư</span>
+                            <span>3 phút đọc →</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+    <script src="js/plugin/jquery.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/global.js"></script>
+
+    <script>
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / docHeight) * 100;
+            const progressEl = document.getElementById('readingProgress');
+            if (progressEl) {
+                progressEl.style.width = `${Math.min(scrolled, 100)}%`;
+            }
+        });
+
+        // Ticket Shake Micro-interaction
+        function shakeTicket() {
+            const ticket = document.getElementById('cinemaTicketCard');
+            if (!ticket) return;
+            ticket.style.transform = 'scale(0.98) rotate(1deg)';
+            setTimeout(() => {
+                ticket.style.transform = 'scale(1.02) rotate(-1deg)';
+            }, 120);
+            setTimeout(() => {
+                ticket.style.transform = '';
+            }, 260);
+        }
+
+        // Ending Pledge Counter with LocalStorage
+        let pledgeCount = parseInt(localStorage.getItem('cara_ending_pledge_count') || "428");
+        let hasPledged = localStorage.getItem('cara_has_pledged_ending') === "true";
+
+        const countEl = document.getElementById("pledgeCount");
+        const btnTextEl = document.getElementById("pledgeBtnText");
+
+        function updatePledgeUI() {
+            if (countEl) {
+                countEl.innerText = `Đã có ${pledgeCount.toLocaleString()} người cùng mang tâm thế vững vàng này đi qua giông bão ✨`;
+            }
+            if (hasPledged && btnTextEl) {
+                btnTextEl.innerText = "Đã lưu giữ niềm tin vào 10 phút cuối 🎬";
+            }
+        }
+
+        function sendEndingPledge() {
+            if (!hasPledged) {
+                pledgeCount += 1;
+                hasPledged = true;
+                localStorage.setItem('cara_ending_pledge_count', pledgeCount);
+                localStorage.setItem('cara_has_pledged_ending', "true");
+
+                // Micro-feedback animation
+                const btn = document.querySelector('.pledge-btn');
+                if (btn) {
+                    btn.style.transform = "scale(1.08)";
+                    setTimeout(() => {
+                        btn.style.transform = "";
+                    }, 200);
+                }
+
+                updatePledgeUI();
+            } else {
+                alert("Bạn đã lưu giữ tấm vé này rồi! Hãy vững vàng bước tiếp nhé, hồi kết tươi đẹp vẫn đang đợi bạn phía trước. 💛✨");
+            }
+        }
+
+        updatePledgeUI();
+    </script>
+</body>
+
+</html>
