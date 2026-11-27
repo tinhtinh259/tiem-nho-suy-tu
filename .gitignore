@@ -6,6 +6,10 @@ note
 *.log
 *recovery-code*
 *.env*
+images/seasons/New folder/
+*.eps
+*.ai
+*.zip
 
 # OS Generated
 Thumbs.db
