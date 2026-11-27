@@ -132,7 +132,7 @@ function initDauChanTimeline() {
           pos: "pos-bottom-right",
           w: "35vw",
           ratio: "16 / 9",
-          src: "images/about/bc_sketches.jpg",
+          src: "images/about/soft-silhouette-girl.jpg",
           alt: "Những phác thảo âm thầm",
           depth: 20,
           z: 2
