@@ -611,8 +611,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Mobile & Tablet auto-scroll feedback
       if (window.innerWidth < 992) {
-        // Smoothly center the clicked thumbnail in the horizontal story bar
-        this.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        // Smoothly center the clicked thumbnail inside the horizontal story bar ONLY (never scroll window horizontally)
+        const thumbsList = this.closest(".soul-thumbs-list") || this.parentElement;
+        if (thumbsList) {
+          const itemLeft = this.offsetLeft;
+          const itemWidth = this.offsetWidth;
+          const listWidth = thumbsList.clientWidth;
+          const targetLeft = itemLeft - (listWidth / 2) + (itemWidth / 2);
+          thumbsList.scrollTo({ left: Math.max(0, targetLeft), behavior: "smooth" });
+        }
 
         // Ensure the detail card is visible and easy to read
         const detailCard = document.getElementById("soulDetailCard");
@@ -621,7 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const stickyOffset = 175; // accounts for header (76px) + sticky thumbs (~85px) + gap
           if (rect.top < stickyOffset - 30 || rect.top > window.innerHeight - 100) {
             const targetY = window.pageYOffset + rect.top - stickyOffset;
-            window.scrollTo({ top: Math.max(0, targetY), behavior: "smooth" });
+            window.scrollTo({ top: Math.max(0, targetY), left: 0, behavior: "smooth" });
           }
         }
       }

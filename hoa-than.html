@@ -801,12 +801,36 @@
             font-weight: 500;
         }
 
+        .kv-step-count-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 65px;
+        }
+
         .kv-step-count {
             font-family: var(--font-heading, sans-serif);
             font-weight: 700;
             color: #ffffff;
             font-size: 15px;
             letter-spacing: 0.05em;
+            line-height: 1.2;
+        }
+
+        .kv-step-progress-bar {
+            width: 100%;
+            height: 2.5px;
+            background: rgba(213, 168, 100, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .kv-step-progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #8FB86E;
+            border-radius: 3px;
+            transition: background 0.4s ease;
         }
 
         .kv-step-nav {
@@ -1182,71 +1206,7 @@
             position: relative;
         }
 
-        /* Realm Selector Tabs */
-        .showcase-realm-tabs {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-        }
 
-        .realm-tab {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 22px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(22, 27, 34, 0.65);
-            backdrop-filter: blur(10px);
-            color: #94a3b8;
-            font-size: 13.5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            user-select: none;
-        }
-
-        .realm-tab:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.22);
-            transform: translateY(-2px);
-        }
-
-        body:not(.mode-day) .realm-tab.active {
-            background: rgba(213, 168, 100, 0.16);
-            border-color: rgba(213, 168, 100, 0.5);
-            color: #fce0a2;
-            box-shadow: 0 4px 18px rgba(213, 168, 100, 0.2);
-        }
-
-        /* Realm Tabs trong Chế Độ Ban Ngày */
-        body.mode-day .realm-tab {
-            background: rgba(255, 255, 255, 0.88);
-            border-color: rgba(28, 42, 27, 0.14);
-            color: #4A5B47;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-        }
-
-        body.mode-day .realm-tab:hover {
-            background: #FFFFFF;
-            color: #1C2A1B;
-            border-color: rgba(85, 122, 39, 0.35);
-        }
-
-        body.mode-day .realm-tab.active {
-            background: rgba(85, 122, 39, 0.14) !important;
-            border-color: rgba(85, 122, 39, 0.5) !important;
-            color: #2D4C15 !important;
-            box-shadow: 0 4px 16px rgba(85, 122, 39, 0.18) !important;
-        }
-
-        .realm-tab-icon {
-            font-size: 15px;
-        }
 
         /* Main Slider Stage */
         .showcase-slider-stage {
@@ -1759,37 +1719,96 @@
         }
 
         @media (max-width: 860px) {
+            .showcase-slider-wrap {
+                position: relative;
+                padding: 0 4px;
+            }
+
             .showcase-card {
                 grid-template-columns: 1fr;
-                padding: 32px 24px;
-                gap: 20px;
+                padding: 24px 20px 22px 20px;
+                gap: 14px;
+                border-radius: 24px;
+                text-decoration: none;
+                cursor: pointer;
             }
 
             .card-visual-wrap {
-                height: 200px;
+                height: 155px;
             }
 
             .card-visual-img {
-                max-width: 160px;
-                max-height: 160px;
+                max-width: 135px;
+                max-height: 135px;
             }
 
+            .card-badge-pill {
+                display: none !important;
+            }
+
+            .card-pretitle {
+                font-size: 11px;
+                letter-spacing: 0.12em;
+                margin-bottom: 3px;
+                margin-top: 4px;
+            }
+
+            .card-heading {
+                font-size: 22px;
+                margin-bottom: 6px;
+                line-height: 1.3;
+            }
+
+            .card-slogan {
+                font-size: 13px;
+                line-height: 1.5;
+                margin-bottom: 0;
+            }
+
+            /* Ẩn các chi tiết dài dòng theo yêu cầu người dùng */
+            .card-sensory-bar {
+                display: none !important;
+            }
+
+            .card-summary {
+                display: none !important;
+            }
+
+            .card-action {
+                margin-top: 14px;
+                padding: 10px 18px;
+                font-size: 13px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .card-action .btn-arrow {
+                display: none !important;
+            }
+
+            /* Nút Prev / Next luôn luôn nằm ở chính giữa chiều cao (top: 50%) của slide */
             .showcase-slider-arrow {
-                width: 42px;
-                height: 42px;
+                width: 38px;
+                height: 38px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 30;
+                background: rgba(13, 15, 19, 0.94);
+                border: 1.5px solid rgba(213, 168, 100, 0.65);
+                box-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
             }
 
             .showcase-slider-arrow.prev-arrow {
-                left: 6px;
+                left: -8px;
             }
 
             .showcase-slider-arrow.next-arrow {
-                right: 6px;
+                right: -8px;
             }
 
-            .realm-tab {
-                padding: 8px 16px;
-                font-size: 12.5px;
+            .showcase-slider-arrow svg {
+                width: 18px;
+                height: 18px;
             }
         }
 
@@ -2584,7 +2603,9 @@
                     </div>
 
                     <div class="kv-step-row">
-                        <div class="kv-step-count"><span id="kvStepCurrent">01</span> / <span id="kvStepTotal">03</span>
+                        <div class="kv-step-count-wrap">
+                            <div class="kv-step-count"><span id="kvStepCurrent">01</span> / <span id="kvStepTotal">03</span></div>
+                            <div class="kv-step-progress-bar"><div class="kv-step-progress-fill" id="kvAutoProgress"></div></div>
                         </div>
                         <div class="kv-step-nav">
                             <button id="kvPrevBtn" type="button" aria-label="Thực thể trước">← Trước</button>
@@ -2653,25 +2674,7 @@
                 </div>
 
                 <div class="showcase-slider-wrap">
-                    <!-- Slider Navigation Realm Tabs -->
-                    <div class="showcase-realm-tabs" id="showcaseRealmTabs">
-                        <button class="realm-tab active" data-index="0" type="button">
-                            <span class="realm-tab-icon">🍪</span>
-                            <span class="realm-tab-text">01 • Chiếc Bánh Quy</span>
-                        </button>
-                        <button class="realm-tab" data-index="1" type="button">
-                            <span class="realm-tab-icon">🍃</span>
-                            <span class="realm-tab-text">02 • Chiếc Lá Buông Mình</span>
-                        </button>
-                        <button class="realm-tab" data-index="2" type="button">
-                            <span class="realm-tab-icon">🪨</span>
-                            <span class="realm-tab-text">03 • Viên Sỏi Đáy Sâu</span>
-                        </button>
-                        <button class="realm-tab" data-index="3" type="button">
-                            <span class="realm-tab-icon">✨</span>
-                            <span class="realm-tab-text">04 • Con Phù Du</span>
-                        </button>
-                    </div>
+
 
                     <!-- Main Slider Stage -->
                     <div class="showcase-slider-stage">
@@ -3955,6 +3958,18 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
                     blobBg: "radial-gradient(circle at 40% 35%, #163642 0%, #0d1e26 65%, #050d12 100%)",
                     href: "hoa-than/vien-soi.html",
                     badgeIcon: "🪨"
+                },
+                {
+                    id: 3,
+                    name: "Con Phù Du Tinh Khôi",
+                    spirit: "ĐẮM SAY HIỆN TẠI • SỐNG TRỌN MỖI GIÂY",
+                    desc: "Phù du chẳng hẹn ngày mai, chẳng đợi kiếp sau. Đắm mình vào điệu múa ánh sáng giữa trời đất, sống rực rỡ trọn vẹn trong từng khoảnh khắc hiện tại và yêu thương không một phút chần chừ.",
+                    img: "hoa-than/mayfly.png",
+                    accent: "#f39c12",
+                    accentGlow: "rgba(243, 156, 18, 0.45)",
+                    blobBg: "radial-gradient(circle at 40% 35%, #3e2808 0%, #251603 65%, #120901 100%)",
+                    href: "hoa-than/phu-du.html",
+                    badgeIcon: "✨"
                 }
             ];
 
@@ -3980,11 +3995,12 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
 
             const MAIN_POS = { left: 50, top: 50, scale: 2.85 };
             const PERIM_POS = [
-                { left: 86, top: 22 },
-                { left: 86, top: 78 }
+                { left: 78, top: 14 },
+                { left: 93, top: 50 },
+                { left: 78, top: 86 }
             ];
 
-            let slots = [1, 2];
+            let slots = [1, 2, 3];
             const entityEls = {};
 
             function buildStage() {
@@ -4094,6 +4110,11 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
                     ease: 'power2.out'
                 });
 
+                const progressEl = document.getElementById('kvAutoProgress');
+                if (progressEl) {
+                    progressEl.style.background = entity.accent;
+                }
+
                 if (blob) {
                     blob.style.background = entity.blobBg;
                     blob.style.boxShadow = `inset 0 0 80px rgba(255,255,255,0.06), 0 0 70px ${entity.accentGlow}`;
@@ -4112,9 +4133,81 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
                 stepCurrent.textContent = String(entity.id + 1).padStart(2, '0');
             }
 
+            /* ============================================================
+               AUTO CYCLE TRIGGER (GIỐNG ALBUM-NHAC-KY-UC.HTML)
+               ============================================================ */
+            const AUTO_CYCLE_INTERVAL = 5500; // 5.5s mỗi item
+            const INITIAL_FIRST_TRIGGER = 3800; // 3.8s sau khi vào trang trigger lần đầu
+            let autoCycleTimer = null;
+            let isHoverPaused = false;
+            let allowHoverPause = false;
+
+            function runProgressBar(duration) {
+                const progressEl = document.getElementById('kvAutoProgress');
+                if (!progressEl) return;
+                progressEl.style.transition = 'none';
+                progressEl.style.width = '0%';
+                void progressEl.offsetWidth; // Force reflow
+                progressEl.style.transition = `width ${duration}ms linear`;
+                progressEl.style.width = '100%';
+            }
+
+            function startAutoCycle(delay = AUTO_CYCLE_INTERVAL) {
+                stopAutoCycle(false);
+                if (isHoverPaused) return;
+                runProgressBar(delay);
+                autoCycleTimer = setTimeout(() => {
+                    if (!isHoverPaused) {
+                        stepTo(1, false);
+                        startAutoCycle(AUTO_CYCLE_INTERVAL);
+                    }
+                }, delay);
+            }
+
+            function stopAutoCycle(resetBar = false) {
+                if (autoCycleTimer) {
+                    clearTimeout(autoCycleTimer);
+                    autoCycleTimer = null;
+                }
+                if (resetBar) {
+                    const progressEl = document.getElementById('kvAutoProgress');
+                    if (progressEl) {
+                        progressEl.style.transition = 'none';
+                        progressEl.style.width = '0%';
+                    }
+                }
+            }
+
+            function pauseAutoCycle() {
+                if (!allowHoverPause) return;
+                isHoverPaused = true;
+                if (autoCycleTimer) {
+                    clearTimeout(autoCycleTimer);
+                    autoCycleTimer = null;
+                }
+                const progressEl = document.getElementById('kvAutoProgress');
+                if (progressEl) {
+                    const currentWidth = window.getComputedStyle(progressEl).width;
+                    progressEl.style.transition = 'none';
+                    progressEl.style.width = currentWidth;
+                }
+            }
+
+            function resumeAutoCycle() {
+                isHoverPaused = false;
+                startAutoCycle(3200);
+            }
+
+            function resetAutoCycleTimer() {
+                isHoverPaused = false;
+                stopAutoCycle(true);
+                startAutoCycle(AUTO_CYCLE_INTERVAL);
+            }
+
             function onEntityClick(entityId) {
                 if (isAnimating || entityId === activeIndex) return;
                 swapToMain(entityId);
+                resetAutoCycleTimer();
             }
 
             function swapToMain(newEntityId) {
@@ -4157,15 +4250,18 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
                 animateTextIn(incomingEntity);
             }
 
-            function stepTo(direction) {
+            function stepTo(direction, isManual = true) {
                 if (isAnimating) return;
                 const total = hoaThanEntities.length;
                 const next = (activeIndex + direction + total) % total;
                 swapToMain(next);
+                if (isManual) {
+                    resetAutoCycleTimer();
+                }
             }
 
-            document.getElementById('kvNextBtn')?.addEventListener('click', () => stepTo(1));
-            document.getElementById('kvPrevBtn')?.addEventListener('click', () => stepTo(-1));
+            document.getElementById('kvNextBtn')?.addEventListener('click', () => stepTo(1, true));
+            document.getElementById('kvPrevBtn')?.addEventListener('click', () => stepTo(-1, true));
 
             // Parallax Mouse Effect
             if (stage && blob && window.gsap) {
@@ -4221,6 +4317,31 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
                 gsap.from(titleEl.querySelectorAll('.char'), { y: 30, opacity: 0, duration: 0.7, ease: 'power4.out', stagger: 0.02 });
                 gsap.from([spiritBadge, descEl], { y: 16, opacity: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08, delay: 0.15 });
                 gsap.from('#kvFloatNote', { y: 20, opacity: 0, duration: 0.7, ease: 'power3.out', delay: 0.5 });
+
+                /* Cập nhật màu progress ban đầu */
+                const initialProgress = document.getElementById('kvAutoProgress');
+                if (initialProgress) {
+                    initialProgress.style.background = first.accent;
+                }
+
+                /* Gắn sự kiện hover để tạm dừng/tiếp tục tự động trigger */
+                const stageWrap = document.querySelector('.kv-stage-wrap');
+                const contentCol = document.querySelector('.kv-content');
+                [stageWrap, contentCol].forEach(elem => {
+                    if (elem) {
+                        elem.addEventListener('mouseenter', pauseAutoCycle);
+                        elem.addEventListener('mouseleave', resumeAutoCycle);
+                        elem.addEventListener('touchstart', pauseAutoCycle, { passive: true });
+                    }
+                });
+
+                /* Cho phép hover pause sau khi trang đã render ổn định */
+                setTimeout(() => {
+                    allowHoverPause = true;
+                }, 1500);
+
+                /* Bắt đầu chu kỳ trigger tự động */
+                startAutoCycle(INITIAL_FIRST_TRIGGER);
             }
 
             if (document.readyState === 'loading') {
@@ -4339,7 +4460,6 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
             const track = document.getElementById('showcaseTrack');
             const prevBtn = document.getElementById('showcasePrevBtn');
             const nextBtn = document.getElementById('showcaseNextBtn');
-            const tabs = document.querySelectorAll('#showcaseRealmTabs .realm-tab');
             const dots = document.querySelectorAll('#showcaseDots .slider-dot');
             const slides = document.querySelectorAll('.showcase-slide');
 
@@ -4355,15 +4475,6 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
 
                 // Di chuyển track mượt mà
                 track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                // Cập nhật trạng thái Realm Tabs
-                tabs.forEach((tab, i) => {
-                    if (i === currentIndex) {
-                        tab.classList.add('active');
-                    } else {
-                        tab.classList.remove('active');
-                    }
-                });
 
                 // Cập nhật trạng thái Dots
                 dots.forEach((dot, i) => {
@@ -4389,16 +4500,6 @@ Một tách trà nóng, một ngọn gió mát, một bản nhạc êm dịu... 
                     updateSlider(currentIndex + 1);
                 });
             }
-
-            // Click Realm Tabs
-            tabs.forEach((tab) => {
-                tab.addEventListener('click', () => {
-                    const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
-                    if (!isNaN(targetIdx)) {
-                        updateSlider(targetIdx);
-                    }
-                });
-            });
 
             // Click Dots
             dots.forEach((dot) => {

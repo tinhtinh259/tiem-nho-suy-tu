@@ -64,6 +64,10 @@
       padding: 40px 20px;
     }
 
+    .page-content-section {
+      min-height: auto;
+    }
+
     .about-card {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.06);
@@ -149,10 +153,23 @@
       margin-right: auto;
     }
 
+    .ong_trum_slider_wrap {
+      width: 100%;
+      position: relative;
+    }
+
+    .ong_trum_dots {
+      display: none;
+    }
+
     .ong_trum_card_grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+    }
+
+    .ong_trum_card.clone-item {
+      display: none;
     }
 
     .ong_trum_card {
@@ -224,7 +241,50 @@
       padding: 14px 16px;
     }
 
-    /* Cat awakening & hover */
+    /* Bridge CTA card to Diem Nho */
+    .tiem-nho-bridge-card {
+      background: linear-gradient(135deg, #fdfbf7 0%, #f7f0e5 100%);
+      border: 1.5px dashed rgba(200, 149, 71, 0.45);
+      border-radius: 22px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(47, 93, 67, 0.04);
+    }
+
+    .tiem-nho-bridge-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 11px 24px;
+      background: #ffffff;
+      border: 1.5px solid #2f5d43;
+      border-radius: 12px;
+      color: #2f5d43;
+      font-weight: 600;
+      font-size: 0.94rem;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(47, 93, 67, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .tiem-nho-bridge-btn:hover {
+      background: #2f5d43;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(47, 93, 67, 0.2);
+    }
+
+    .tiem-nho-bridge-btn span {
+      transition: transform 0.25s ease;
+      display: inline-block;
+      font-size: 1.05rem;
+    }
+
+    .tiem-nho-bridge-btn:hover span {
+      transform: translateX(4px);
+    }
     .cosmic-cat-container {
       position: relative;
       width: 170px;
@@ -290,9 +350,67 @@
         display: none;
       }
 
+      /* Ong Trum Cards Horizontal Auto-Slider on Mobile */
+      .ong_trum_slider_wrap {
+        position: relative;
+        margin: 0 -12px;
+        padding: 0 4px;
+      }
+
       .ong_trum_card_grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 12px;
+        padding: 6px 12px 14px 12px;
+        scroll-behavior: smooth;
+      }
+
+      .ong_trum_card_grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .ong_trum_card.clone-item {
+        display: block;
+      }
+
+    .ong_trum_card {
+        flex: 0 0 calc(100% - 24px);
+        max-width: calc(100% - 24px);
+        min-width: calc(100% - 24px);
+        scroll-snap-align: center;
+        box-sizing: border-box;
+        padding: 24px 18px;
+        transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* Subtle pagination dots on mobile */
+      .ong_trum_dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        margin-bottom: 6px;
+      }
+
+      .ong_trum_dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50px;
+        background: rgba(200, 149, 71, 0.3);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .ong_trum_dot.active {
+        width: 22px;
+        background: var(--accent-gold, #c89547);
       }
 
       /* Living Animal / Cat Meow Bubble on Mobile */
@@ -324,6 +442,63 @@
         opacity: 1 !important;
         transform: translateX(-50%) translateY(-6px) rotate(-2deg) scale(1) !important;
       }
+
+      /* Bridge CTA card & button on mobile */
+      .tiem-nho-bridge-card {
+        padding: 22px 16px 20px 16px;
+        border-radius: 18px;
+      }
+
+      .tiem-nho-bridge-card h3 {
+        font-size: 1.22rem;
+      }
+
+      .tiem-nho-bridge-card p {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        margin-bottom: 16px !important;
+      }
+
+      .tiem-nho-bridge-btn {
+        font-size: 13.5px;
+        padding: 10px 18px;
+        border-radius: 10px;
+        white-space: nowrap;
+        max-width: 100%;
+      }
+
+      /* Spacing harmony across sections on mobile */
+      .page-content-section {
+        min-height: auto !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+      }
+
+      .about-card:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      section.page-content-section.bridge-section {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+      }
+
+      .soul-aspects-section {
+        padding-top: 15px !important;
+        padding-bottom: 40px !important;
+      }
+
+      .soul-header {
+        margin: 0 auto 16px auto !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .tiem-nho-bridge-btn {
+        font-size: 12.5px;
+        padding: 9px 15px;
+        border-radius: 9px;
+      }
     }
   </style>
   <link rel="stylesheet" href="css/components/soul-aspects.css?v=20261117">
@@ -353,38 +528,47 @@
 
       <!-- 3 Interactive Toggle Cards for Mastermind Dossier ngay phần mở đầu -->
       <div style="max-width: 900px; margin: 0 auto; text-align: left;">
-        <div class="ong_trum_card_grid">
-          <!-- Box 1 -->
-          <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
-            <div class="card_icon">📜</div>
-            <h3>Thân Thế "Bí Mật"</h3>
-            <p class="card_preview">Nhấp để giải mã thân thế... 🔎</p>
-            <div class="card_secret_content">
-              Không có tập đoàn hay ban bệ hùng hậu nào cả! Chỉ có một cá thể vừa làm coder vừa làm storyteller, thích
-              nghe Lofi, ngắm mưa rơi và thỉnh thoảng "điên cọc" một mình rồi tự ngồi dỗ dành bản thân. ☕
+        <div class="ong_trum_slider_wrap">
+          <div class="ong_trum_card_grid" id="ongTrumCardGrid">
+            <!-- Box 1 -->
+            <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
+              <div class="card_icon">📜</div>
+              <h3>Thân Thế "Bí Mật"</h3>
+              <p class="card_preview">Nhấp để giải mã thân thế... 🔎</p>
+              <div class="card_secret_content">
+                Không có tập đoàn hay ban bệ hùng hậu nào cả! Chỉ có một cá thể vừa làm coder vừa làm storyteller, thích
+                nghe Lofi, ngắm mưa rơi và thỉnh thoảng "điên cọc" một mình rồi tự ngồi dỗ dành bản thân. ☕
+              </div>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
+              <div class="card_icon">🍵</div>
+              <h3>"Vũ Khí" Tối Thượng</h3>
+              <p class="card_preview">Nhấp để xem vũ khí... 🔓</p>
+              <div class="card_secret_content">
+                Một tách trà ấm, một playlist nhạc không lời lúc nửa đêm và chiếc bàn phím gõ lạch cạch lúc 2 giờ sáng.
+                Bấy nhiêu đó là đủ để vận hành cả trạm dừng chân này rồi! ✨
+              </div>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
+              <div class="card_icon">🎯</div>
+              <h3>"Âm Mưu" Thực Sự</h3>
+              <p class="card_preview">Nhấp để bóc trần âm mưu... 🗝️</p>
+              <div class="card_secret_content">
+                Không bán khóa học, không drama câu view. Âm mưu duy nhất là tạo ra một trạm dừng chân dịu dàng, giúp bạn
+                trút bớt gánh nặng và thở phào nhẹ nhõm sau một ngày dài. 🌸
+              </div>
             </div>
           </div>
 
-          <!-- Box 2 -->
-          <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
-            <div class="card_icon">🍵</div>
-            <h3>"Vũ Khí" Tối Thượng</h3>
-            <p class="card_preview">Nhấp để xem vũ khí... 🔓</p>
-            <div class="card_secret_content">
-              Một tách trà ấm, một playlist nhạc không lời lúc nửa đêm và chiếc bàn phím gõ lạch cạch lúc 2 giờ sáng.
-              Bấy nhiêu đó là đủ để vận hành cả trạm dừng chân này rồi! ✨
-            </div>
-          </div>
-
-          <!-- Box 3 -->
-          <div class="ong_trum_card" onclick="revealMastermindSecret(this)">
-            <div class="card_icon">🎯</div>
-            <h3>"Âm Mưu" Thực Sự</h3>
-            <p class="card_preview">Nhấp để bóc trần âm mưu... 🗝️</p>
-            <div class="card_secret_content">
-              Không bán khóa học, không drama câu view. Âm mưu duy nhất là tạo ra một trạm dừng chân dịu dàng, giúp bạn
-              trút bớt gánh nặng và thở phào nhẹ nhõm sau một ngày dài. 🌸
-            </div>
+          <!-- Subtle Dots Navigation for Mobile -->
+          <div class="ong_trum_dots" id="ongTrumDots" aria-hidden="true">
+            <span class="ong_trum_dot active" data-index="0"></span>
+            <span class="ong_trum_dot" data-index="1"></span>
+            <span class="ong_trum_dot" data-index="2"></span>
           </div>
         </div>
 
@@ -400,7 +584,7 @@
     </section>
 
     <!-- HỒI 1: TỚ LÀ AI & NHỮNG LỜI TỰ SỰ CHÂN THÀNH -->
-    <section class="page-content-section" id="loi-tam-su" style="padding-bottom: 0;">
+    <section class="page-content-section" id="loi-tam-su">
       <div class="page-container">
 
         <!-- Card 1: Về những cái tên -->
@@ -447,10 +631,9 @@
     </section>
 
     <!-- HỘI THOẠI CẦU NỐI: KHÁM PHÁ VỀ TIỆM NHỎ -->
-    <section class="page-content-section" style="padding-top: 0; padding-bottom: 25px;">
+    <section class="page-content-section bridge-section">
       <div class="page-container" style="padding-top: 0; padding-bottom: 0;">
-        <div
-          style="background: linear-gradient(135deg, #fdfbf7 0%, #f7f0e5 100%); border: 1.5px dashed rgba(200, 149, 71, 0.45); border-radius: 22px; padding: 36px 28px; text-align: center; box-shadow: 0 8px 24px rgba(47, 93, 67, 0.04);">
+        <div class="tiem-nho-bridge-card">
           <span
             style="display: inline-block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #b7791f; letter-spacing: 1px; margin-bottom: 8px;">🍃
             KHÔNG GIAN TIỆM NHỎ</span>
@@ -463,8 +646,7 @@
             Khám phá 4 cánh cửa trải nghiệm: các trò chơi nhập vai hóa thân, những câu hỏi bất ngờ và những câu chuyện
             đời thường tại trang riêng của Tiệm nhé!
           </p>
-          <a href="tiem-nho.html"
-            style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: #2f5d43; color: #ffffff; border-radius: 50px; font-weight: 600; font-size: 0.94rem; text-decoration: none; box-shadow: 0 6px 18px rgba(47, 93, 67, 0.2); transition: all 0.3s ease;">
+          <a href="tiem-nho.html" class="tiem-nho-bridge-btn">
             Ghé thăm không gian Về Tiệm Nhỏ <span>&rarr;</span>
           </a>
         </div>
@@ -472,7 +654,7 @@
     </section>
 
     <!-- HỒI 2: NHỮNG GÓC TÂM HỒN CỦA TÌNH (INTERACTIVE HUB) -->
-    <section class="soul-aspects-section" id="goc-tam-hon" style="padding-top: 10px;">
+    <section class="soul-aspects-section" id="goc-tam-hon">
       <div class="soul-container">
         <!-- Section Header -->
         <div class="soul-header">
@@ -694,8 +876,293 @@
   <script src="js/global.js"></script>
   <script src="js/soul-aspects.js?v=20261117"></script>
   <script>
+    // True Seamless Infinite Loop Slider (1 -> 2 -> 3 -> 1 -> 2 -> 3... always forward, never rewinds)
+    (function initOngTrumInfiniteSlider() {
+      const grid = document.getElementById('ongTrumCardGrid');
+      if (!grid) return;
+      const dots = Array.from(document.querySelectorAll('.ong_trum_dot'));
+      let cards = Array.from(grid.querySelectorAll('.ong_trum_card'));
+      if (cards.length < 3) return;
+
+      let clonePre = null;
+      let clonePost = null;
+      let isCloned = false;
+
+      function setupClones() {
+        if (isCloned || window.innerWidth > 768) return;
+        const origCards = Array.from(grid.querySelectorAll('.ong_trum_card:not(.clone-item)'));
+        if (origCards.length === 3) {
+          clonePre = origCards[2].cloneNode(true);
+          clonePre.classList.add('clone-item');
+          clonePost = origCards[0].cloneNode(true);
+          clonePost.classList.add('clone-item');
+
+          grid.insertBefore(clonePre, origCards[0]);
+          grid.appendChild(clonePost);
+          isCloned = true;
+          cards = Array.from(grid.querySelectorAll('.ong_trum_card'));
+        }
+      }
+
+      function removeClones() {
+        if (!isCloned) return;
+        grid.querySelectorAll('.clone-item').forEach(el => el.remove());
+        isCloned = false;
+        cards = Array.from(grid.querySelectorAll('.ong_trum_card'));
+      }
+
+      // Initial state: Card 1 is at index 1 in [Clone_3, Card_1, Card_2, Card_3, Clone_1]
+      let currentIndex = 1;
+      let slideTimer = null;
+      let isPaused = false;
+      let isTouching = false;
+      let isTransitioning = false;
+      const INTERVAL_MS = 3500;
+
+      function getTargetLeft(idx) {
+        if (!cards[idx]) return 0;
+        const card = cards[idx];
+        return card.offsetLeft - (grid.clientWidth - card.offsetWidth) / 2;
+      }
+
+      function updateDots(idx) {
+        // Map: 0(Clone_3)->2, 1(Card_1)->0, 2(Card_2)->1, 3(Card_3)->2, 4(Clone_1)->0
+        const logicalDotIndex = (idx - 1 + 3) % 3;
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === logicalDotIndex);
+        });
+      }
+
+      function silentJump(targetIdx) {
+        grid.style.scrollSnapType = 'none';
+        grid.style.scrollBehavior = 'auto';
+        grid.scrollLeft = getTargetLeft(targetIdx);
+        currentIndex = targetIdx;
+        updateDots(targetIdx);
+        void grid.offsetWidth;
+        setTimeout(() => {
+          grid.style.scrollBehavior = 'smooth';
+          grid.style.scrollSnapType = 'x mandatory';
+          isTransitioning = false;
+        }, 50);
+      }
+
+      function scrollToCard(idx, callback) {
+        if (window.innerWidth > 768) return;
+        if (idx < 0 || idx >= cards.length) return;
+        currentIndex = idx;
+        updateDots(idx);
+
+        grid.style.scrollBehavior = 'smooth';
+        grid.scrollTo({ left: Math.max(0, getTargetLeft(idx)), behavior: 'smooth' });
+
+        if (typeof callback === 'function') {
+          setTimeout(callback, 500);
+        }
+      }
+
+      function nextCard() {
+        if (window.innerWidth > 768) return;
+        const hasRevealed = grid.querySelector('.ong_trum_card.revealed');
+        if (hasRevealed || isPaused || isTouching || isTransitioning) return;
+
+        isTransitioning = true;
+        const nextIdx = currentIndex + 1;
+
+        // Slide forward smoothly (1 -> 2 -> 3 -> Clone_1)
+        scrollToCard(nextIdx, () => {
+          // If we reached Clone 1 (index 4), silently reset to Real Card 1 (index 1) without animation
+          if (currentIndex === 4) {
+            silentJump(1);
+          } else {
+            isTransitioning = false;
+          }
+        });
+      }
+
+      function startTimer() {
+        stopTimer();
+        if (window.innerWidth <= 768) {
+          slideTimer = setInterval(nextCard, INTERVAL_MS);
+        }
+      }
+
+      function stopTimer() {
+        if (slideTimer) {
+          clearInterval(slideTimer);
+          slideTimer = null;
+        }
+      }
+
+      function initMobilePosition() {
+        if (window.innerWidth <= 768) {
+          setupClones();
+          grid.style.scrollSnapType = 'none';
+          grid.style.scrollBehavior = 'auto';
+          grid.scrollLeft = getTargetLeft(1);
+          currentIndex = 1;
+          updateDots(1);
+          setTimeout(() => {
+            grid.style.scrollBehavior = 'smooth';
+            grid.style.scrollSnapType = 'x mandatory';
+            startTimer();
+          }, 120);
+        } else {
+          stopTimer();
+          removeClones();
+          grid.scrollLeft = 0;
+        }
+      }
+
+      // Sync active dot and detect loop boundaries during user swipe
+      let scrollDebounce = null;
+      grid.addEventListener('scroll', () => {
+        if (window.innerWidth > 768 || isTransitioning) return;
+        clearTimeout(scrollDebounce);
+        scrollDebounce = setTimeout(() => {
+          const scrollCenter = grid.scrollLeft + grid.clientWidth / 2;
+          let closestIndex = 1;
+          let minDiff = Infinity;
+          cards.forEach((card, i) => {
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            const diff = Math.abs(cardCenter - scrollCenter);
+            if (diff < minDiff) {
+              minDiff = diff;
+              closestIndex = i;
+            }
+          });
+
+          if (closestIndex !== currentIndex) {
+            // If user swiped to a different card, gently collapse any open card
+            const openCards = grid.querySelectorAll('.ong_trum_card.revealed');
+            if (openCards.length > 0) {
+              openCards.forEach(c => c.classList.remove('revealed'));
+              clearAutoCollapse();
+              isPaused = false;
+            }
+          }
+
+          currentIndex = closestIndex;
+          updateDots(closestIndex);
+
+          // If manual swipe reached boundary clones, seamlessly jump to real card
+          if (closestIndex === 4) {
+            silentJump(1);
+          } else if (closestIndex === 0) {
+            silentJump(3);
+          }
+        }, 80);
+      }, { passive: true });
+
+      // Touch handlers: pause during touch, resume 1.5s after release if no card revealed
+      grid.addEventListener('touchstart', () => {
+        isTouching = true;
+        stopTimer();
+      }, { passive: true });
+
+      grid.addEventListener('touchend', () => {
+        isTouching = false;
+        setTimeout(() => {
+          const hasRevealed = grid.querySelector('.ong_trum_card.revealed');
+          if (!hasRevealed) {
+            startTimer();
+          }
+        }, 1500);
+      }, { passive: true });
+
+      // Dot click navigation
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const logicalIdx = parseInt(dot.getAttribute('data-index'), 10);
+          const targetCardIdx = logicalIdx + 1; // map 0->1, 1->2, 2->3
+          scrollToCard(targetCardIdx);
+          const hasRevealed = grid.querySelector('.ong_trum_card.revealed');
+          if (!hasRevealed) {
+            startTimer();
+          }
+        });
+      });
+
+      // Auto-collapse timer when user opens a card and doesn't close it
+      let autoCollapseTimer = null;
+      const AUTO_COLLAPSE_MS = 8500; // 8.5s comfortable reading time
+
+      function clearAutoCollapse() {
+        if (autoCollapseTimer) {
+          clearTimeout(autoCollapseTimer);
+          autoCollapseTimer = null;
+        }
+      }
+
+      // Hook for revealMastermindSecret: pause when any card opens, and auto-collapse after reading
+      window.handleMastermindSecretToggle = function(cardElement) {
+        if (!cardElement) return;
+        const wasRevealed = cardElement.classList.contains('revealed');
+
+        // Toggle card state
+        cardElement.classList.toggle('revealed');
+
+        // Clear existing auto-collapse timer
+        clearAutoCollapse();
+
+        if (!wasRevealed) {
+          // Card just opened -> Immediately PAUSE auto-slider so user can read!
+          isPaused = true;
+          stopTimer();
+
+          // Smoothly center the expanded card on mobile
+          if (window.innerWidth <= 768) {
+            setTimeout(() => {
+              const idx = cards.indexOf(cardElement);
+              if (idx !== -1) {
+                scrollToCard(idx);
+              }
+            }, 100);
+          }
+
+          // Gentle auto-collapse if user leaves it open after 8.5s
+          autoCollapseTimer = setTimeout(() => {
+            if (cardElement && cardElement.classList.contains('revealed')) {
+              // Gently collapse the card
+              cardElement.classList.remove('revealed');
+
+              // After smooth collapse animation completes (450ms), resume auto-slide
+              setTimeout(() => {
+                const anyRevealed = grid.querySelector('.ong_trum_card.revealed');
+                if (!anyRevealed) {
+                  isPaused = false;
+                  startTimer();
+                }
+              }, 450);
+            }
+          }, AUTO_COLLAPSE_MS);
+
+        } else {
+          // Card closed manually by user -> Resume auto-slide after brief delay
+          setTimeout(() => {
+            const anyRevealed = grid.querySelector('.ong_trum_card.revealed');
+            if (!anyRevealed) {
+              isPaused = false;
+              startTimer();
+            }
+          }, 400);
+        }
+      };
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        initMobilePosition();
+      });
+
+      // Start on load
+      initMobilePosition();
+    })();
+
+    // Main trigger function
     function revealMastermindSecret(cardElement) {
-      if (cardElement) {
+      if (typeof window.handleMastermindSecretToggle === 'function') {
+        window.handleMastermindSecretToggle(cardElement);
+      } else if (cardElement) {
         cardElement.classList.toggle('revealed');
       }
     }
