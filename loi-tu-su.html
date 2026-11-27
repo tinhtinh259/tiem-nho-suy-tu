@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -264,9 +264,65 @@
     }
 
     @media (max-width: 768px) {
+      .page-container {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 24px;
+        padding-bottom: 24px;
+      }
+
+      .about-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        font-size: 14.5px;
+        line-height: 1.75;
+      }
+
+      .about-card h3 {
+        font-size: 17px;
+        line-height: 1.45;
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .about-card h3 span {
+        display: none;
+      }
+
       .ong_trum_card_grid {
         grid-template-columns: 1fr;
         gap: 16px;
+      }
+
+      /* Living Animal / Cat Meow Bubble on Mobile */
+      .cat-meow-bubble {
+        top: auto !important;
+        bottom: calc(100% + 8px) !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) rotate(-2deg) scale(0.9) !important;
+        font-size: 11.5px !important;
+        font-weight: 600 !important;
+        padding: 5px 12px !important;
+        width: max-content !important;
+        max-width: min(270px, 86vw) !important;
+        white-space: normal !important;
+        text-align: center !important;
+        line-height: 1.35 !important;
+        box-sizing: border-box !important;
+      }
+
+      .cat-meow-bubble::after {
+        left: 50% !important;
+        right: auto !important;
+        margin-left: -4px !important;
+        transform: rotate(45deg) !important;
+      }
+
+      .cat-meow-bubble.show-meow {
+        opacity: 1 !important;
+        transform: translateX(-50%) translateY(-6px) rotate(-2deg) scale(1) !important;
       }
     }
   </style>
